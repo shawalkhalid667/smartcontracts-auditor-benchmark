@@ -1,0 +1,65 @@
+pragma solidity ^0.8.0;
+
+interface IERC20 {
+    function transfer(address to, uint amount) external returns (bool);
+    function transferFrom(address from, address to, uint amount) external returns (bool);
+}
+
+contract StablecoinCDP {
+    address public owner;
+    IERC20 public collateralToken;
+    IERC20 public stablecoin;
+    uint256 public constant interestRateBase = 5;
+    uint256 public loanCounter = 0;
+
+    struct Loan {
+        address borrower;
+        uint256 collateralAmount;
+        uint256 loanAmount;
+        uint256 interestRate;
+        bool isOpen;
+    }
+
+    mapping(uint256 => Loan) public loans;
+
+    event LoanCreated(uint256 loanId, address borrower, uint256 loanAmount, uint256 interestRate);
+    event LoanClosed(uint256 loanId);
+
+    constructor(address _collateralToken, address _stablecoin) {
+        owner = msg.sender;
+        collateralToken = IERC20(_collateralToken);
+        stablecoin = IERC20(_stablecoin);
+    }
+
+    function createLoan(uint256 _collateralAmount, uint256 _loanAmount) external {
+        collateralToken.transferFrom(msg.sender, address(this), _collateralAmount);
+        uint256 interestRate = interestRateBase + generateRandomInterestRateAdjustment();
+        loans[loanCounter] = Loan(msg.sender, _collateralAmount, _loanAmount, interestRate, true);
+        stablecoin.transfer(msg.sender, _loanAmount);
+
+        emit LoanCreated(loanCounter, msg.sender, _loanAmount, interestRate);
+        loanCounter++;
+    }
+
+    function closeLoan(uint256 _loanId) external {
+        Loan storage loan = loans[_loanId];
+        require(loan.isOpen == true, "Loan is already closed");
+        require(loan.borrower == msg.sender, "Only the borrower can close the loan");
+
+        uint256 repaymentAmount = calculateRepaymentAmount(_loanId);
+        stablecoin.transferFrom(msg.sender, address(this), repaymentAmount);
+        collateralToken.transfer(msg.sender, loan.collateralAmount);
+
+        loan.isOpen = false;
+        emit LoanClosed(_loanId);
+    }
+
+    function calculateRepaymentAmount(uint256 _loanId) public view returns (uint256) {
+        Loan storage loan = loans[_loanId];
+        return loan.loanAmount + (loan.loanAmount * loan.interestRate / 100);
+    }
+
+    function generateRandomInterestRateAdjustment() private view returns (uint256) {
+        return uint256(keccak256(abi.encodePacked(block.timestamp, loanCounter))) % 3;
+    }
+}
