@@ -1,4 +1,4 @@
-To access the container after building: docker run -it --entrypoint /bin/bash osiris-securify
+To access the container after building: docker run -it --entrypoint /bin/bash [image name]
 
 To evaluate a contract while inside the container with Osiris, run:
 
