@@ -20,4 +20,6 @@ RUN npm install -g @smartdec/smartcheck
 # Create working dir
 WORKDIR /app
 
+COPY contract.sol /root/contract.sol
+
 ENTRYPOINT ["smartcheck"]
