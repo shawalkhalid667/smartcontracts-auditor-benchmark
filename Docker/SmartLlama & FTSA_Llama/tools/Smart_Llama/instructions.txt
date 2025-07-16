@@ -1,1 +1,3 @@
+To get the files for Smart_Llama, go to https://zenodo.org/records/14465308 and download the model. The docker container requires that in tools/Smart_Llama you have a folder called model_files in which you have the zipped up files for the Llama3.1_8B-2024.09.06-label.smart_llama-exp.01 model.
 
+Due to Github's file size contraints, the zipped file could not be uploaded here.
