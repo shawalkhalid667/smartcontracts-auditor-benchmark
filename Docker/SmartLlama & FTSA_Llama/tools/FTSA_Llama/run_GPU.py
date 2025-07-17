@@ -10,7 +10,7 @@ import torch
 # https://colab.research.google.com/drive/1Y_SHymcZGr98832GTSF46J1_JHtHgYhy?usp=sharing#scrollTo=RPT2gV3PA8CU
 
 
-
+device = 'cuda'
 max_seq_length = 2048
 dtype = None
 load_in_4bit = True
@@ -36,7 +36,7 @@ pymodel = FastLanguageModel.get_peft_model(
     random_state = 3407,
     use_rslora = False,  # We support rank stabilized LoRA
     loftq_config = None, # And LoftQ
-)
+).to(device)
 
 # 0 is file, 1 is gpu, 2 is contract, 3 is prompt
 prompt_file_name = os.path.join("/app", "prompts", sys.argv[2])
@@ -54,7 +54,7 @@ pre_prompt += "\n\n### Response:\n"
 
 FastLanguageModel.for_inference(model)
 
-inputs = tokenizer(pre_prompt, return_tensors = "pt")
+inputs = tokenizer(pre_prompt, return_tensors = "pt").to(device)
 
 
 
