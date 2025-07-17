@@ -27,7 +27,8 @@ RUN pip3 install \
     einops \
     xformers \
     bitsandbytes \
-    peft
+    peft \
+    triton==3.2.0
 
 
 
