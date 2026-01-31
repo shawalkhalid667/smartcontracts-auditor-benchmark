@@ -1,0 +1,11 @@
+# Python virtual environments
+*_env/
+*_env.bak_*/
+venv/
+.venv/
+**/site-packages/
+
+# Python cache
+__pycache__/
+*.pyc
+
