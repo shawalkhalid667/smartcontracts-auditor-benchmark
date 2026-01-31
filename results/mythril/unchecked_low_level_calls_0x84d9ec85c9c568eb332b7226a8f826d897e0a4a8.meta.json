@@ -1,0 +1,39 @@
+{
+  "tool": "mythril",
+  "contract": "unchecked_low_level_calls_0x84d9ec85c9c568eb332b7226a8f826d897e0a4a8.sol",
+  "contract_stem": "unchecked_low_level_calls_0x84d9ec85c9c568eb332b7226a8f826d897e0a4a8",
+  "pragma": "pragma solidity ^0.4.16;",
+  "solc_version": "0.4.16",
+  "returncode": 1,
+  "detected_categories": [
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    }
+  ]
+}

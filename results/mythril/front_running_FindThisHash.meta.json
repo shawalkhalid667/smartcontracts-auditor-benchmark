@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "front_running_FindThisHash.sol",
+  "contract_stem": "front_running_FindThisHash",
+  "pragma": "pragma solidity ^0.4.22;",
+  "solc_version": "0.4.22",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

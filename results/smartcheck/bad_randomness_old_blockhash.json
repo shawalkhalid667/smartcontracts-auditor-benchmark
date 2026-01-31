@@ -1,0 +1,25 @@
+{
+  "tool": "smartcheck",
+  "contract": "bad_randomness_old_blockhash.sol",
+  "contract_stem": "bad_randomness_old_blockhash",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 18,
+      "column": 4,
+      "content": "mapping(address=>guess)guesses;"
+    }
+  ],
+  "detected_categories": []
+}

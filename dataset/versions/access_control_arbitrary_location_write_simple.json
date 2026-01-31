@@ -1,0 +1,4 @@
+{
+  "contract": "access_control_arbitrary_location_write_simple.sol",
+  "pragma": "pragma solidity ^0.4.25;"
+}

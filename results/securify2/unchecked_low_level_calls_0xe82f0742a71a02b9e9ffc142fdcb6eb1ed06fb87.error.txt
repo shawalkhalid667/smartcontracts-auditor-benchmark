@@ -1,0 +1,34 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/static/static_analysis_patterns.py", line 73, in find_matches
+    static = analysis_context.static_analysis
+  File "/sec/securify/analyses/analysis.py", line 88, in static_analysis
+    self._static = self.config.static_analysis(self)
+  File "securify/__main__.py", line 255, in <lambda>
+    static_analysis=lambda t: static_analysis.analyze_cfg(t.cfg, **souffle_config),
+  File "/sec/securify/analyses/analysis.py", line 81, in cfg
+    self._cfg = self.config.cfg_compiler(self)
+  File "securify/__main__.py", line 254, in <lambda>
+    cfg_compiler=lambda t: solidity_cfg_compiler.compile_cfg(t.ast).cfg,
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:33:34: TypeError: Data location must be "memory" for parameter in function, but none was given.
+function Command(address adr,bytes data)
+                             ^--------^
+
+    > command: `solc --allow-paths / --standard-json`
+    > return code: `0`
+    > stderr:
+    {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:33:34: TypeError: Data location must be \"memory\" for parameter in function, but none was given.\n    function Command(address adr,bytes data)\n                                 ^--------^\n","message":"Data location must be \"memory\" for parameter in function, but none was given.","severity":"error","sourceLocation":{"end":2872,"file":"fixed_pragma.sol","start":2862},"type":"TypeError"}],"sources":{}}
+
+    > stdout:

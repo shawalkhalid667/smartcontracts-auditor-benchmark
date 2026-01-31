@@ -1,0 +1,337 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "solve",
+            "source_mapping": {
+              "start": 323,
+              "length": 242,
+              "filename_relative": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "filename_short": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "is_dependency": false,
+              "lines": [
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "FindThisHash",
+                "source_mapping": {
+                  "start": 135,
+                  "length": 432,
+                  "filename_relative": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "filename_short": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "solve(string)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "msg.sender.transfer(1000000000000000000000)",
+            "source_mapping": {
+              "start": 527,
+              "length": 31,
+              "filename_relative": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "filename_short": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "is_dependency": false,
+              "lines": [
+                18
+              ],
+              "starting_column": 9,
+              "ending_column": 40
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "solve",
+                "source_mapping": {
+                  "start": 323,
+                  "length": 242,
+                  "filename_relative": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "filename_short": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "FindThisHash",
+                    "source_mapping": {
+                      "start": 135,
+                      "length": 432,
+                      "filename_relative": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                      "filename_short": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "solve(string)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "FindThisHash.solve(string) (dataset/smartbugs_curated/front_running_FindThisHash.sol#14-19) sends eth to arbitrary user\n\tDangerous calls:\n\t- msg.sender.transfer(1000000000000000000000) (dataset/smartbugs_curated/front_running_FindThisHash.sol#18)\n",
+        "markdown": "[FindThisHash.solve(string)](dataset/smartbugs_curated/front_running_FindThisHash.sol#L14-L19) sends eth to arbitrary user\n\tDangerous calls:\n\t- [msg.sender.transfer(1000000000000000000000)](dataset/smartbugs_curated/front_running_FindThisHash.sol#L18)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/front_running_FindThisHash.sol#L14-L19",
+        "id": "a26be83bcff67f92a66decb9ba8bd3c8873a119da4d8990864f3fcf287cc5d86",
+        "check": "arbitrary-send-eth",
+        "impact": "High",
+        "confidence": "Medium"
+      },
+      {
+        "elements": [
+          {
+            "type": "node",
+            "name": "require(bool)(hash == sha3()(solution))",
+            "source_mapping": {
+              "start": 486,
+              "length": 31,
+              "filename_relative": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "filename_short": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "is_dependency": false,
+              "lines": [
+                17
+              ],
+              "starting_column": 9,
+              "ending_column": 40
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "solve",
+                "source_mapping": {
+                  "start": 323,
+                  "length": 242,
+                  "filename_relative": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "filename_short": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "FindThisHash",
+                    "source_mapping": {
+                      "start": 135,
+                      "length": 432,
+                      "filename_relative": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                      "filename_short": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "solve(string)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Deprecated standard detected require(bool)(hash == sha3()(solution)) (dataset/smartbugs_curated/front_running_FindThisHash.sol#17):\n\t- Usage of \"sha3()\" should be replaced with \"keccak256()\"\n",
+        "markdown": "Deprecated standard detected [require(bool)(hash == sha3()(solution))](dataset/smartbugs_curated/front_running_FindThisHash.sol#L17):\n\t- Usage of \"sha3()\" should be replaced with \"keccak256()\"\n",
+        "first_markdown_element": "dataset/smartbugs_curated/front_running_FindThisHash.sol#L17",
+        "id": "8b2bacdb645228bc1f2a688f7e66568d711055d2307db8d4b9c7fb1a20a20464",
+        "check": "deprecated-standards",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [],
+        "description": "solc-0.4.22 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "markdown": "solc-0.4.22 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "first_markdown_element": "",
+        "id": "2eff165d18213cbdf1587301dcd76d0941f0334320ac139775fce8001fec20fd",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.4.22",
+            "source_mapping": {
+              "start": 109,
+              "length": 24,
+              "filename_relative": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "filename_short": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "is_dependency": false,
+              "lines": [
+                7
+              ],
+              "starting_column": 1,
+              "ending_column": 25
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.4",
+                ".22"
+              ]
+            }
+          }
+        ],
+        "description": "Version constraint ^0.4.22 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x\n\t- ExpExponentCleanup\n\t- EventStructWrongData\n\t- OneOfTwoConstructorsSkipped.\nIt is used by:\n\t- ^0.4.22 (dataset/smartbugs_curated/front_running_FindThisHash.sol#7)\n",
+        "markdown": "Version constraint ^0.4.22 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x\n\t- ExpExponentCleanup\n\t- EventStructWrongData\n\t- OneOfTwoConstructorsSkipped.\nIt is used by:\n\t- [^0.4.22](dataset/smartbugs_curated/front_running_FindThisHash.sol#L7)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/front_running_FindThisHash.sol#L7",
+        "id": "60c28b75440854de3eaf0e29466159c9b040481d8a7060797af3da190da6e490",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "solve",
+            "source_mapping": {
+              "start": 323,
+              "length": 242,
+              "filename_relative": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "filename_short": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+              "is_dependency": false,
+              "lines": [
+                14,
+                15,
+                16,
+                17,
+                18,
+                19
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "FindThisHash",
+                "source_mapping": {
+                  "start": 135,
+                  "length": 432,
+                  "filename_relative": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "filename_short": "dataset/smartbugs_curated/front_running_FindThisHash.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "solve(string)"
+            }
+          }
+        ],
+        "description": "solve(string) should be declared external:\n\t- FindThisHash.solve(string) (dataset/smartbugs_curated/front_running_FindThisHash.sol#14-19)\n",
+        "markdown": "solve(string) should be declared external:\n\t- [FindThisHash.solve(string)](dataset/smartbugs_curated/front_running_FindThisHash.sol#L14-L19)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/front_running_FindThisHash.sol#L14-L19",
+        "id": "c0d60d95316ea96a538d52d3ca19f13be357f80403e017591ab3edbf6e65310e",
+        "check": "external-function",
+        "impact": "Optimization",
+        "confidence": "High"
+      }
+    ]
+  }
+}

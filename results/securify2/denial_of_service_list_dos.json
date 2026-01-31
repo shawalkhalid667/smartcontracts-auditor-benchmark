@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "denial_of_service_list_dos.sol",
+  "contract_stem": "denial_of_service_list_dos",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

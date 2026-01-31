@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "unchecked_low_level_calls_0xb7c5c5aa4d42967efe906e1b66cb8df9cebf04f7.sol",
+  "contract_stem": "unchecked_low_level_calls_0xb7c5c5aa4d42967efe906e1b66cb8df9cebf04f7",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.4400484561920166,
+  "note": "ranked_relations",
+  "chosen_contract": "keepMyEther",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/unchecked_low_level_calls_0xb7c5c5aa4d42967efe906e1b66cb8df9cebf04f7",
+  "relations_count": 14
+}

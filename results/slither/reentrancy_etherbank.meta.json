@@ -1,0 +1,40 @@
+{
+  "tool": "slither",
+  "contract": "reentrancy_etherbank.sol",
+  "contract_stem": "reentrancy_etherbank",
+  "pragma": "pragma solidity ^0.4.0;",
+  "solc_version": "0.4.0",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "reentrancy-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "tool": "smartcheck",
+  "contract": "reentrancy_reentrance.sol",
+  "contract_stem": "reentrancy_reentrance",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_CALL_WITHOUT_DATA",
+      "patternId": "om991k",
+      "severity": 2,
+      "line": 24,
+      "column": 20,
+      "content": "call.value(_amount)()"
+    },
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_UPGRADE_TO_050",
+      "patternId": "83k1no",
+      "severity": 1,
+      "line": 24,
+      "column": 20,
+      "content": "call.value(_amount)()"
+    },
+    {
+      "ruleId": "SOLIDITY_UPGRADE_TO_050",
+      "patternId": "91h3sa",
+      "severity": 1,
+      "line": 31,
+      "column": 13,
+      "content": "public"
+    }
+  ],
+  "detected_categories": [
+    "unchecked_low_level_calls"
+  ]
+}

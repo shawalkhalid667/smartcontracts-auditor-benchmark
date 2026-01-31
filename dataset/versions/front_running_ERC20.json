@@ -1,0 +1,4 @@
+{
+  "contract": "front_running_ERC20.sol",
+  "pragma": "pragma solidity ^0.4.24;"
+}

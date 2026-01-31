@@ -1,0 +1,10 @@
+{
+  "contract": "reentrancy_0x4320e6f8c05b27ab4707cd1f6d5ce6f3e4b3a5a1.sol",
+  "vulnerabilities": [
+    {
+      "type": "reentrancy",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

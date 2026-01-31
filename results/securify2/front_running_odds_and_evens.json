@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "front_running_odds_and_evens.sol",
+  "contract_stem": "front_running_odds_and_evens",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

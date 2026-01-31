@@ -1,0 +1,10 @@
+{
+  "contract": "other_name_registrar.sol",
+  "vulnerabilities": [
+    {
+      "type": "other",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

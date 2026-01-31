@@ -1,0 +1,4 @@
+{
+  "contract": "arithmetic_insecure_transfer.sol",
+  "pragma": "pragma solidity ^0.4.10;"
+}

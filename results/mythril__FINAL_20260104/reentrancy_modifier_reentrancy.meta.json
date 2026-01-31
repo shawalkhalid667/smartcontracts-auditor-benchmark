@@ -1,0 +1,38 @@
+{
+  "tool": "mythril",
+  "contract": "reentrancy_modifier_reentrancy.sol",
+  "contract_stem": "reentrancy_modifier_reentrancy",
+  "pragma": "pragma solidity ^0.4.24;",
+  "solc_version": "0.4.24",
+  "returncode": 1,
+  "detected_categories": [
+    "reentrancy"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    }
+  ]
+}

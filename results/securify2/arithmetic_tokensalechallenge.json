@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "arithmetic_tokensalechallenge.sol",
+  "contract_stem": "arithmetic_tokensalechallenge",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

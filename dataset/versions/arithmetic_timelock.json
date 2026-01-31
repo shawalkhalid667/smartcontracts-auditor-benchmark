@@ -1,0 +1,4 @@
+{
+  "contract": "arithmetic_timelock.sol",
+  "pragma": "pragma solidity ^0.4.10;"
+}

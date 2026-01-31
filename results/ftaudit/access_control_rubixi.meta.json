@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "access_control_rubixi.sol",
+  "contract_stem": "access_control_rubixi",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 7.855665445327759,
+  "note": "fallback_text_parse_no_json"
+}

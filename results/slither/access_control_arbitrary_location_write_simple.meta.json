@@ -1,0 +1,53 @@
+{
+  "tool": "slither",
+  "contract": "access_control_arbitrary_location_write_simple.sol",
+  "contract_stem": "access_control_arbitrary_location_write_simple",
+  "pragma": "pragma solidity ^0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "controlled-array-length",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "tautology",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

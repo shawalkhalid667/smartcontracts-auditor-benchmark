@@ -1,0 +1,32 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/ast/shadowed_builtin_pattern.py", line 18, in find_matches
+    ast_root = self.get_ast_root()
+  File "/sec/securify/analyses/patterns/ast/abstract_ast_pattern.py", line 18, in get_ast_root
+    ast_root = self.analysis_context.ast
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:18:31: TypeError: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use "" as argument to provide empty calldata.
+            bool callResult = msg.sender.call.value(oCredit)();
+                              ^------------------------------^
+
+fixed_pragma.sol:18:13: TypeError: Different number of components on the left hand side (1) than on the right hand side (2).
+            bool callResult = msg.sender.call.value(oCredit)();
+            ^------------------------------------------------^
+
+        > command: `solc --allow-paths / --standard-json`
+        > return code: `0`
+        > stderr:
+        {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:18:31: TypeError: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use \"\" as argument to provide empty calldata.\n            bool callResult = msg.sender.call.value(oCredit)();\n                              ^------------------------------^\n","message":"Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use \"\" as argument to provide empty calldata.","severity":"error","sourceLocation":{"end":481,"file":"fixed_pragma.sol","start":449},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:18:13: TypeError: Different number of components on the left hand side (1) than on the right hand side (2).\n            bool callResult = msg.sender.call.value(oCredit)();\n            ^------------------------------------------------^\n","message":"Different number of components on the left hand side (1) than on the right hand side (2).","severity":"error","sourceLocation":{"end":481,"file":"fixed_pragma.sol","start":431},"type":"TypeError"}],"sources":{}}
+
+        > stdout:

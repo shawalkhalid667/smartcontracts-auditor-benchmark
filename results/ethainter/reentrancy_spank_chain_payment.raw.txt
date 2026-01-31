@@ -1,0 +1,115 @@
+=== SOLC ===
+[env] python=/home/shawal/smart_contract_auditor_benchmark/smartllama_env/bin/python
+[pragma] ^0.4.23
+[choose] want_solc=0.4.26
+[solc-select] using=/home/shawal/smart_contract_auditor_benchmark/smartllama_env/bin/solc-select
+[solc-select use 0.4.26] rc=0
+Switched global version to 0.4.26
+
+[host solc_cmd='solc'] rc=0
+solc OK(host:0.4.26): chosen_contract=LedgerChannel
+
+=== GIGAHORSE (decompile.sh) ===
++ [[ 8 -eq 0 ]]
++ [[ -i == \-\-\h\e\l\p ]]
++ COMPILE=0
++ PROFILE=0
++ VISUALIZE=0
++ FORCEFACTS=0
++ FORCECOMPILE=0
++ CACHE=0
++ CONTRACT=
++ FACTDIR=
++ OUTDIR=
++ ID=
+++ getopt -o ci:f:o: -l id:,profile,visualize,cache,force-facts,force-compile -- -i /work/bytecode.hex -f /work/facts_root -o /work/gh_out --id reentrancy_spank_chain_payment
++ options=' -i '\''/work/bytecode.hex'\'' -f '\''/work/facts_root'\'' -o '\''/work/gh_out'\'' --id '\''reentrancy_spank_chain_payment'\'' --'
++ '[' 0 -ne 0 ']'
++ eval set -- ' -i '\''/work/bytecode.hex'\'' -f '\''/work/facts_root'\'' -o '\''/work/gh_out'\'' --id '\''reentrancy_spank_chain_payment'\'' --'
+++ set -- -i /work/bytecode.hex -f /work/facts_root -o /work/gh_out --id reentrancy_spank_chain_payment --
++ true
++ case $1 in
++ shift
+++ realpath /work/bytecode.hex
++ CONTRACT=/work/bytecode.hex
++ shift
++ true
++ case $1 in
++ shift
+++ realpath /work/facts_root
++ FACTDIR=/work/facts_root
++ shift
++ true
++ case $1 in
++ shift
+++ realpath /work/gh_out
++ OUTDIR=/work/gh_out
++ shift
++ true
++ case $1 in
++ shift
++ ID=reentrancy_spank_chain_payment
++ shift
++ true
++ case $1 in
++ shift
++ break
++ '[' /work/facts_root == '' ']'
++ '[' /work/gh_out == '' ']'
++ '[' reentrancy_spank_chain_payment == '' ']'
++ echo 'ID: reentrancy_spank_chain_payment'
+ID: reentrancy_spank_chain_payment
++ INFACTDIR=/work/facts_root/reentrancy_spank_chain_payment_facts
++ OUTFACTDIR=/work/gh_out/reentrancy_spank_chain_payment_out/database
++ echo 'Generating input facts for the decompiler into /work/facts_root/reentrancy_spank_chain_payment_facts'
+Generating input facts for the decompiler into /work/facts_root/reentrancy_spank_chain_payment_facts
++ pushd .
++ cd logic
++ LOGIC_HOME=/home/reviewer/gigahorse-toolchain/logic
++ '[' '!' -d /work/facts_root/reentrancy_spank_chain_payment_facts ']'
++ mkdir -p /work/facts_root/reentrancy_spank_chain_payment_facts
++ rm -rf '/work/facts_root/reentrancy_spank_chain_payment_facts/*'
++ ../bin/generatefacts /work/bytecode.hex /work/facts_root/reentrancy_spank_chain_payment_facts
+Traceback (most recent call last):
+  File "../bin/generatefacts", line 68, in <module>
+    main(args)
+  File "../bin/generatefacts", line 29, in main
+    blocks = blockparse.EVMBytecodeParser(bytecode).parse()
+  File "/home/reviewer/gigahorse-toolchain/bin/../src/blockparse.py", line 163, in __init__
+    bytecode = bytes.fromhex(bytecode.replace("0x", ""))
+ValueError: non-hexadecimal number found in fromhex() arg at position 15544
++ '[' 0 -eq 0 ']'
++ PROFILEOPT=
++ mkdir -p /work/gh_out/reentrancy_spank_chain_payment_out/database
++ rm -rf /work/gh_out/reentrancy_spank_chain_payment_out/database/../database
++ mkdir -p /work/gh_out/reentrancy_spank_chain_payment_out/database
++ '[' 0 -eq 0 ']'
++ echo Decompiling...
+Decompiling...
++ souffle -F /work/facts_root/reentrancy_spank_chain_payment_facts -D /work/gh_out/reentrancy_spank_chain_payment_out/database decompiler.dl
+Error loading data: Cannot open fact file Statement_Opcode.facts
+
+Error loading data: Cannot open fact file PushValue.facts
+
+Error loading data: Cannot open fact file Statement_Next.facts
+
+Error loading data: Cannot open fact file bytecode.hex
+
+---------------
+Fail
+===============
+===============
+Error loading data: Cannot open fact file PublicFunctionSignature.facts
+
+Error loading data: Cannot open fact file EventSignature.facts
+
++ '[' 0 -ne 0 ']'
++ cd /work/gh_out/reentrancy_spank_chain_payment_out/database
++ '[' 0 -eq 1 ']'
++ popd
++ ln -sfn /work/gh_out/reentrancy_spank_chain_payment_out/database/.. decompilation-results
+ln: failed to create symbolic link 'decompilation-results': Read-only file system
+decompile_rc=1
+total 8
+drwxrwx--- 2 shawal shawal   0 Jan 29 12:19 .
+drwxrwxrwx 3 shawal shawal 512 Jan 29 12:19 ..

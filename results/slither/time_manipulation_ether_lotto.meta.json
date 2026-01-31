@@ -1,0 +1,56 @@
+{
+  "tool": "slither",
+  "contract": "time_manipulation_ether_lotto.sol",
+  "contract_stem": "time_manipulation_ether_lotto",
+  "pragma": "pragma solidity ^0.4.15;",
+  "solc_version": "0.4.15",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "time_manipulation"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "weak-prng",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    }
+  ]
+}

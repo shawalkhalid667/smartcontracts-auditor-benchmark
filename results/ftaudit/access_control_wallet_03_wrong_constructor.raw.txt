@@ -1,0 +1,91 @@
+=== SYSTEM ===
+You are a smart contract security auditor.
+
+CRITICAL OUTPUT RULES:
+- Output MUST be exactly ONE valid JSON object and NOTHING ELSE.
+- The first character MUST be '{' and the last character MUST be '}'.
+- Do NOT output prose, markdown, numbering, code fences, or extra commentary.
+
+Task: Identify which SmartBugs vulnerability categories are present in the contract.
+
+Allowed categories (use these exact strings):
+unchecked_low_level_calls, time_manipulation, bad_randomness, denial_of_service, front_running,
+access_control, short_addresses, reentrancy, arithmetic, other
+
+Output JSON schema (exact keys):
+{
+  "findings": [
+    {
+      "category": "<one of the allowed categories>",
+      "severity": <int 1..5>,
+      "confidence": <int 1..3>,
+      "title": "<short>",
+      "rationale": "<1-3 sentences>"
+    }
+  ],
+  "detected_categories": ["..."]
+}
+
+Rules:
+- If you are not confident, omit the finding (prefer precision).
+- If you find nothing, output {"findings": [], "detected_categories": []}.
+- Do not include any text outside the JSON object.
+
+
+=== USER ===
+Return ONLY the JSON object described in the system message.
+CONTRACT_FILE: access_control_wallet_03_wrong_constructor.sol
+SOLIDITY_SOURCE_BEGIN
+/*
+ * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-105#wallet-03-wrong-constructorsol
+ * @author: -
+ * @vulnerable_at_lines: 19,20
+ */
+
+ pragma solidity ^0.4.24;
+
+ /* User can add pay in and withdraw Ether.
+    The constructor is wrongly named, so anyone can become 'creator' and withdraw all funds.
+ */
+
+ contract Wallet {
+     address creator;
+
+     mapping(address => uint256) balances;
+     
+     // <yes> <report> ACCESS_CONTROL
+     function initWallet() public {
+         creator = msg.sender;
+     }
+
+     function deposit() public payable {
+         assert(balances[msg.sender] + msg.value > balances[msg.sender]);
+         balances[msg.sender] += msg.value;
+     }
+
+     function withdraw(uint256 amount) public {
+         require(amount <= balances[msg.sender]);
+         msg.sender.transfer(amount);
+         balances[msg.sender] -= amount;
+     }
+
+     // In an emergency the owner can migrate  allfunds to a different address.
+
+     function migrateTo(address to) public {
+         require(creator == msg.sender);
+         to.transfer(this.balance);
+     }
+
+ }
+
+SOLIDITY_SOURCE_END
+
+
+=== MODEL_OUTPUT ===
+0. The contract does not use call.value(), thus avoiding one potential vector for attacks. However, there is a critical issue with access control. The constructor 'initWallet()' sets the creator without any checks, allowing anyone to call it. This means that the'migrateTo()' function, which transfers funds to another address, can be called by anyone if they are the creator. Since the creator is set to anyone who calls 'initWallet()', this effectively allows anyone to call'migrateTo()'. Additionally, the 'withdraw()' function does not have proper access control as it only checks the balance of the sender without ensuring they are authorized to withdraw funds. The 'deposit()' function is safe from access control issues.
+
+=== ERROR ===
+
+
+=== ELAPSED_S ===
+8.1564

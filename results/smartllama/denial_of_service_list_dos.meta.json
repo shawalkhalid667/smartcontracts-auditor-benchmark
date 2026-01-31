@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "denial_of_service_list_dos.sol",
+  "contract_stem": "denial_of_service_list_dos",
+  "returncode": 0,
+  "detected_categories": [
+    "time_manipulation"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 4.1234965324401855,
+  "note": "fallback_text_parse_no_json"
+}

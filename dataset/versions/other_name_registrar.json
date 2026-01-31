@@ -1,0 +1,4 @@
+{
+  "contract": "other_name_registrar.sol",
+  "pragma": "pragma solidity ^0.4.15;"
+}

@@ -1,0 +1,52 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/ast/state_variables_default_visibility.py", line 21, in find_matches
+    ast_root = self.get_ast_root()
+  File "/sec/securify/analyses/patterns/ast/abstract_ast_pattern.py", line 18, in get_ast_root
+    ast_root = self.analysis_context.ast
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:61:5: SyntaxError: No visibility specified. Did you intend to add "external"?
+    function()
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:67:5: SyntaxError: No visibility specified. Did you intend to add "public"?
+    function Deposit() 
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:61:5: TypeError: Fallback function must be defined as "external".
+    function()
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:44:27: TypeError: "sha3" has been deprecated in favour of "keccak256"
+        token.call(bytes4(sha3("transfer(address,uint256)")),to,amount); 
+                          ^--^
+
+fixed_pragma.sol:44:9: TypeError: Wrong argument count for function call: 3 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.
+        token.call(bytes4(sha3("transfer(address,uint256)")),to,amount); 
+        ^-------------------------------------------------------------^
+
+fixed_pragma.sol:94:16: TypeError: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use "" as argument to provide empty calldata.
+            if(_addr.call.value(_wei)())
+               ^----------------------^
+
+fixed_pragma.sol:94:16: TypeError: Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.
+            if(_addr.call.value(_wei)())
+               ^----------------------^
+
+        > command: `solc --allow-paths / --standard-json`
+        > return code: `0`
+        > stderr:
+        {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:61:5: SyntaxError: No visibility specified. Did you intend to add \"external\"?\n    function()\n    ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"external\"?","severity":"error","sourceLocation":{"end":1086,"file":"fixed_pragma.sol","start":1033},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:67:5: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n    function Deposit() \n    ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":1235,"file":"fixed_pragma.sol","start":1095},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:61:5: TypeError: Fallback function must be defined as \"external\".\n    function()\n    ^ (Relevant source part starts here and spans across multiple lines).\n","message":"Fallback function must be defined as \"external\".","severity":"error","sourceLocation":{"end":1086,"file":"fixed_pragma.sol","start":1033},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:44:27: TypeError: \"sha3\" has been deprecated in favour of \"keccak256\"\n        token.call(bytes4(sha3(\"transfer(address,uint256)\")),to,amount); \n                          ^--^\n","message":"\"sha3\" has been deprecated in favour of \"keccak256\"","severity":"error","sourceLocation":{"end":732,"file":"fixed_pragma.sol","start":728},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:44:9: TypeError: Wrong argument count for function call: 3 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.\n        token.call(bytes4(sha3(\"transfer(address,uint256)\")),to,amount); \n        ^-------------------------------------------------------------^\n","message":"Wrong argument count for function call: 3 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.","severity":"error","sourceLocation":{"end":773,"file":"fixed_pragma.sol","start":710},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:44:9: Warning: Return value of low-level calls not used.\n        token.call(bytes4(sha3(\"transfer(address,uint256)\")),to,amount); \n        ^-------------------------------------------------------------^\n","message":"Return value of low-level calls not used.","severity":"warning","sourceLocation":{"end":773,"file":"fixed_pragma.sol","start":710},"type":"Warning"},{"component":"general","formattedMessage":"fixed_pragma.sol:94:16: TypeError: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use \"\" as argument to provide empty calldata.\n            if(_addr.call.value(_wei)())\n               ^----------------------^\n","message":"Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use \"\" as argument to provide empty calldata.","severity":"error","sourceLocation":{"end":1662,"file":"fixed_pragma.sol","start":1638},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:94:16: TypeError: Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.\n            if(_addr.call.value(_wei)())\n               ^----------------------^\n","message":"Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.","severity":"error","sourceLocation":{"end":1662,"file":"fixed_pragma.sol","start":1638},"type":"TypeError"}],"sources":{}}
+
+        > stdout:

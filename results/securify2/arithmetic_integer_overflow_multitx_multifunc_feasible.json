@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "arithmetic_integer_overflow_multitx_multifunc_feasible.sol",
+  "contract_stem": "arithmetic_integer_overflow_multitx_multifunc_feasible",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

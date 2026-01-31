@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "arithmetic_token.sol",
+  "contract_stem": "arithmetic_token",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 2.834064483642578,
+  "note": "fallback_text_parse_no_json"
+}

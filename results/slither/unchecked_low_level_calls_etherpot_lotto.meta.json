@@ -1,0 +1,81 @@
+{
+  "tool": "slither",
+  "contract": "unchecked_low_level_calls_etherpot_lotto.sol",
+  "contract_stem": "unchecked_low_level_calls_etherpot_lotto",
+  "pragma": "pragma solidity ^0.4.0;",
+  "solc_version": "0.4.0",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "weak-prng",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "too-many-digits",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "too-many-digits",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    }
+  ]
+}

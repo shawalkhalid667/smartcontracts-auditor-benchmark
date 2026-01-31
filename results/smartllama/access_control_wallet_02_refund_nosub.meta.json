@@ -1,0 +1,14 @@
+{
+  "tool": "smartllama",
+  "contract": "access_control_wallet_02_refund_nosub.sol",
+  "contract_stem": "access_control_wallet_02_refund_nosub",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 3.4627931118011475,
+  "note": "fallback_text_parse_no_json"
+}

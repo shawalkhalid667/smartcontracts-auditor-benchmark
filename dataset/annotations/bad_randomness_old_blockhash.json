@@ -1,0 +1,10 @@
+{
+  "contract": "bad_randomness_old_blockhash.sol",
+  "vulnerabilities": [
+    {
+      "type": "bad randomness",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

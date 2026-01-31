@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "time_manipulation_ether_lotto.sol",
+  "contract_stem": "time_manipulation_ether_lotto",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 6.582021474838257,
+  "note": "fallback_text_parse_no_json"
+}

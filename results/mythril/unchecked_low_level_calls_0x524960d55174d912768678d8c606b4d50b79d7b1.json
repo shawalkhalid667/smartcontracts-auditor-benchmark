@@ -1,0 +1,119 @@
+{
+  "error": null,
+  "issues": [
+    {
+      "address": 292,
+      "code": "contract_address.call(\"register\", \"CentraToken\")",
+      "contract": "Centra4",
+      "description": "The return value of a message call is not checked.\nExternal calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x524960d55174d912768678d8c606b4d50b79d7b1.sol",
+      "function": "transfer()",
+      "lineno": 21,
+      "max_gas_used": 71524,
+      "min_gas_used": 2020,
+      "severity": "Medium",
+      "sourceMap": ":48",
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052341561000f57600080fd5b5b61025f8061001f6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680638a4068dd1461003e575b600080fd5b341561004957600080fd5b61005161006b565b604051808215151515815260200191505060405180910390f35b60008060008060007396a65609a7b84e8842732deb08f56c3e21ac6f8a93506001905073aa27f8c1160886aacba64b2319d8d5469ef2af7991508373ffffffffffffffffffffffffffffffffffffffff1660405180807f7265676973746572000000000000000000000000000000000000000000000000815250602001807f43656e747261546f6b656e000000000000000000000000000000000000000000815250602001905060006040518083038160008661646e5a03f1915050508373ffffffffffffffffffffffffffffffffffffffff1660405180807f7472616e7366657228616464726573732c75696e743235362900000000000000815250601901905060405180910390207c0100000000000000000000000000000000000000000000000000000000900483836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060006040518083038160008761646e5a03f1925050501515610227576000945061022c565b600194505b50505050905600a165627a7a7230582023a8d02ea15c36536257d9be062c559d3a8d107dbc1628fa80c2ac639efc74740029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x8a4068dd",
+            "input": "0x8a4068dd",
+            "name": "transfer()",
+            "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "resolved_input": null,
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x8a4068dd",
+            "input": "0x8a4068dd",
+            "name": "transfer()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0x0"
+          }
+        ]
+      }
+    },
+    {
+      "address": 532,
+      "code": "contract_address.call(bytes4(keccak256(\"transfer(address,uint256)\")),c2,k)",
+      "contract": "Centra4",
+      "description": "Multiple calls are executed in the same transaction.\nThis call is executed following another call within the same transaction. It is possible that the call never gets executed if a prior call fails permanently. This might be caused intentionally by a malicious callee. If possible, refactor the code such that each transaction only executes one external call or make sure that all callees can be trusted (i.e. they\u2019re part of your own codebase).",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x524960d55174d912768678d8c606b4d50b79d7b1.sol",
+      "function": "transfer()",
+      "lineno": 22,
+      "max_gas_used": 71524,
+      "min_gas_used": 2020,
+      "severity": "Low",
+      "sourceMap": "459:74",
+      "swc-id": "113",
+      "title": "Multiple Calls in a Single Transaction",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052341561000f57600080fd5b5b61025f8061001f6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680638a4068dd1461003e575b600080fd5b341561004957600080fd5b61005161006b565b604051808215151515815260200191505060405180910390f35b60008060008060007396a65609a7b84e8842732deb08f56c3e21ac6f8a93506001905073aa27f8c1160886aacba64b2319d8d5469ef2af7991508373ffffffffffffffffffffffffffffffffffffffff1660405180807f7265676973746572000000000000000000000000000000000000000000000000815250602001807f43656e747261546f6b656e000000000000000000000000000000000000000000815250602001905060006040518083038160008661646e5a03f1915050508373ffffffffffffffffffffffffffffffffffffffff1660405180807f7472616e7366657228616464726573732c75696e743235362900000000000000815250601901905060405180910390207c0100000000000000000000000000000000000000000000000000000000900483836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060006040518083038160008761646e5a03f1925050501515610227576000945061022c565b600194505b50505050905600a165627a7a7230582023a8d02ea15c36536257d9be062c559d3a8d107dbc1628fa80c2ac639efc74740029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x8a4068dd",
+            "input": "0x8a4068dd",
+            "name": "transfer()",
+            "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "resolved_input": null,
+            "value": "0x0"
+          }
+        ]
+      }
+    }
+  ],
+  "success": true
+}

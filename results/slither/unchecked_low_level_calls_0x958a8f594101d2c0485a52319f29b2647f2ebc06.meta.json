@@ -1,0 +1,127 @@
+{
+  "tool": "slither",
+  "contract": "unchecked_low_level_calls_0x958a8f594101d2c0485a52319f29b2647f2ebc06.sol",
+  "contract_stem": "unchecked_low_level_calls_0x958a8f594101d2c0485a52319f29b2647f2ebc06",
+  "pragma": "pragma solidity ^0.4.16;",
+  "solc_version": "0.4.16",
+  "returncode": 255,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-lowlevel",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "missing-zero-check",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "missing-zero-check",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "missing-zero-check",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "external-function",
+      "impact": "Optimization",
+      "confidence": "High"
+    },
+    {
+      "check": "external-function",
+      "impact": "Optimization",
+      "confidence": "High"
+    },
+    {
+      "check": "external-function",
+      "impact": "Optimization",
+      "confidence": "High"
+    },
+    {
+      "check": "external-function",
+      "impact": "Optimization",
+      "confidence": "High"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "tool": "slither",
+  "contract": "arithmetic_tokensalechallenge.sol",
+  "contract_stem": "arithmetic_tokensalechallenge",
+  "pragma": "pragma solidity ^0.4.21;",
+  "solc_version": "0.4.21",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

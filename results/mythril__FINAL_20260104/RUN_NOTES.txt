@@ -1,0 +1,4 @@
+Mythril run completed (long run).
+Environment: mythril_env activated.
+Command: python tools/mythril_runner.py --clean --evaluate
+Outputs include: per-contract JSON, evaluation_common.csv, evaluation_primary_by_category.csv

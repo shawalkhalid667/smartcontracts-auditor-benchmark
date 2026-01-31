@@ -1,0 +1,45 @@
+{
+  "tool": "slither",
+  "contract": "time_manipulation_roulette.sol",
+  "contract_stem": "time_manipulation_roulette",
+  "pragma": "pragma solidity ^0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness",
+    "time_manipulation"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "weak-prng",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

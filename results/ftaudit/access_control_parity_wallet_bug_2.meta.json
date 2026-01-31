@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "access_control_parity_wallet_bug_2.sol",
+  "contract_stem": "access_control_parity_wallet_bug_2",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "front_running",
+    "reentrancy"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 12.15871286392212,
+  "note": "fallback_text_parse_no_json"
+}

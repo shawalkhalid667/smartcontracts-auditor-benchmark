@@ -1,0 +1,64 @@
+{
+  "tool": "slither",
+  "contract": "unchecked_low_level_calls_lotto.sol",
+  "contract_stem": "unchecked_low_level_calls_lotto",
+  "pragma": "pragma solidity ^0.4.18;",
+  "solc_version": "0.4.18",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "uninitialized-state",
+      "impact": "High",
+      "confidence": "High"
+    },
+    {
+      "check": "uninitialized-state",
+      "impact": "High",
+      "confidence": "High"
+    },
+    {
+      "check": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    }
+  ]
+}

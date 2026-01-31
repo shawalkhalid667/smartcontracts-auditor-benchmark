@@ -1,0 +1,69 @@
+=== SYSTEM ===
+You are a smart contract security auditor.
+
+CRITICAL OUTPUT RULES:
+- Output MUST be exactly ONE valid JSON object and NOTHING ELSE.
+- The first character MUST be '{' and the last character MUST be '}'.
+- Do NOT output prose, markdown, numbering, code fences, or extra commentary.
+
+Task: Identify which SmartBugs vulnerability categories are present in the contract.
+
+Allowed categories (use these exact strings):
+unchecked_low_level_calls, time_manipulation, bad_randomness, denial_of_service, front_running,
+access_control, short_addresses, reentrancy, arithmetic, other
+
+Output JSON schema (exact keys):
+{
+  "findings": [
+    {
+      "category": "<one of the allowed categories>",
+      "severity": <int 1..5>,
+      "confidence": <int 1..3>,
+      "title": "<short>",
+      "rationale": "<1-3 sentences>"
+    }
+  ],
+  "detected_categories": ["..."]
+}
+
+Rules:
+- If you are not confident, omit the finding (prefer precision).
+- If you find nothing, output {"findings": [], "detected_categories": []}.
+- Do not include any text outside the JSON object.
+
+
+=== USER ===
+Return ONLY the JSON object described in the system message.
+CONTRACT_FILE: arithmetic_integer_overflow_mul.sol
+SOLIDITY_SOURCE_BEGIN
+/*
+ * @source: https://github.com/SmartContractSecurity/SWC-registry/blob/master/test_cases/integer_overflow_and_underflow/integer_overflow_mul.sol
+ * @author: -
+ * @vulnerable_at_lines: 17
+ */
+
+//Single transaction overflow
+//Post-transaction effect: overflow escapes to publicly-readable storage
+
+pragma solidity ^0.4.19;
+
+contract IntegerOverflowMul {
+    uint public count = 2;
+
+    function run(uint256 input) public {
+        // <yes> <report> ARITHMETIC
+        count *= input;
+    }
+}
+
+SOLIDITY_SOURCE_END
+
+
+=== MODEL_OUTPUT ===
+0. The contract uses the multiplication operator 'count *= input' which can potentially lead to overflow if 'input' is large enough. This operation is performed without any checks, which is a common source of vulnerabilities in Solidity versions prior to 0.8.0 where overflow checks were introduced. The result of this operation is stored in 'count', which is a publicly accessible variable. If an attacker can trigger this function with a large value of 'input', they will cause 'count' to overflow, wrapping around to a smaller number. This overflowed value will then be publicly visible, allowing an attacker to manipulate the contract state in unintended ways. This vulnerability is related to arithmetic operations, specifically multiplication, and the lack of overflow checks.
+
+=== ERROR ===
+
+
+=== ELAPSED_S ===
+4.0047

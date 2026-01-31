@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "arithmetic_token.sol",
+  "contract_stem": "arithmetic_token",
+  "pragma": "pragma solidity ^0.4.18;",
+  "solc_version": "0.4.18",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

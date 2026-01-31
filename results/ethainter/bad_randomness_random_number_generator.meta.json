@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "bad_randomness_random_number_generator.sol",
+  "contract_stem": "bad_randomness_random_number_generator",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.350820541381836,
+  "note": "ranked_relations",
+  "chosen_contract": "RandomNumberGenerator",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/bad_randomness_random_number_generator",
+  "relations_count": 14
+}

@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "arithmetic_tokensalechallenge.sol",
+  "contract_stem": "arithmetic_tokensalechallenge",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 4.713034152984619,
+  "note": "fallback_text_parse_no_json"
+}

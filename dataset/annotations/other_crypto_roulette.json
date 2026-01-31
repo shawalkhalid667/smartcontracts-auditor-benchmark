@@ -1,0 +1,10 @@
+{
+  "contract": "other_crypto_roulette.sol",
+  "vulnerabilities": [
+    {
+      "type": "other",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

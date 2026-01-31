@@ -1,0 +1,42 @@
+{
+  "findings": [
+    {
+      "category": "unchecked_low_level_calls",
+      "severity": 1,
+      "confidence": 1.0,
+      "title": "unchecked_low_level_calls",
+      "rationale": "Ranked via Ethainter relation evidence (score=6).",
+      "_score": 6
+    },
+    {
+      "category": "access_control",
+      "severity": 1,
+      "confidence": 0.667,
+      "title": "access_control",
+      "rationale": "Ranked via Ethainter relation evidence (score=4).",
+      "_score": 4
+    },
+    {
+      "category": "arithmetic",
+      "severity": 1,
+      "confidence": 0.333,
+      "title": "arithmetic",
+      "rationale": "Ranked via Ethainter relation evidence (score=2).",
+      "_score": 2
+    },
+    {
+      "category": "other",
+      "severity": 1,
+      "confidence": 0.333,
+      "title": "other",
+      "rationale": "Ranked via Ethainter relation evidence (score=2).",
+      "_score": 2
+    }
+  ],
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ]
+}

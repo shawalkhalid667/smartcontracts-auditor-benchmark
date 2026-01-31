@@ -1,0 +1,70 @@
+RETURN_CODE:
+0
+
+STDOUT:
+/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol
+jar:file:/opt/homebrew/lib/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 7
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 33
+column: 16
+content: call.value(_value)(_data)
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 91h3sa
+severity: 1
+line: 19
+column: 15
+content: public
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 341gim
+severity: 1
+line: 31
+column: 53
+content: bytes_data
+
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :2
+SOLIDITY_UNCHECKED_CALL :1
+
+
+STDERR:
+(node:18474) Warning: Accessing non-existent property 'cat' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18474) Warning: Accessing non-existent property 'cd' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'chmod' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'cp' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'dirs' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'pushd' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'popd' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'echo' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'tempdir' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'pwd' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'exec' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'ls' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'find' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'grep' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'head' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'ln' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'mkdir' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'rm' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'mv' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'sed' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'set' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'sort' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'tail' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'test' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'to' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'toEnd' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'touch' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'uniq' of module exports inside circular dependency
+(node:18474) Warning: Accessing non-existent property 'which' of module exports inside circular dependency
+

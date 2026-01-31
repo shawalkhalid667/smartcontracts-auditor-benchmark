@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "access_control_parity_wallet_bug_1.sol",
+  "contract_stem": "access_control_parity_wallet_bug_1",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 5.967312574386597,
+  "note": "fallback_text_parse_no_json"
+}

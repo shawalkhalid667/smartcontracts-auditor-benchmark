@@ -1,0 +1,82 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/static/static_analysis_patterns.py", line 73, in find_matches
+    static = analysis_context.static_analysis
+  File "/sec/securify/analyses/analysis.py", line 88, in static_analysis
+    self._static = self.config.static_analysis(self)
+  File "securify/__main__.py", line 255, in <lambda>
+    static_analysis=lambda t: static_analysis.analyze_cfg(t.cfg, **souffle_config),
+  File "/sec/securify/analyses/analysis.py", line 81, in cfg
+    self._cfg = self.config.cfg_compiler(self)
+  File "securify/__main__.py", line 254, in <lambda>
+    cfg_compiler=lambda t: solidity_cfg_compiler.compile_cfg(t.ast).cfg,
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:32:2: SyntaxError: No visibility specified. Did you intend to add "external"?
+	function() payable {        
+ ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:39:5: SyntaxError: No visibility specified. Did you intend to add "public"?
+    function tokens_buy() payable returns (bool) {         
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:60:7: SyntaxError: No visibility specified. Did you intend to add "public"?
+      function withdraw(uint256 _amount) onlyOwner returns (bool result) {
+      ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:70:7: SyntaxError: No visibility specified. Did you intend to add "public"?
+      function change_token_price(uint256 _token_price) onlyOwner returns (bool result) {
+      ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:76:7: SyntaxError: No visibility specified. Did you intend to add "public"?
+      function change_active(uint256 _active) onlyOwner returns (bool result) {
+      ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:84:13: SyntaxError: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+            throw;
+            ^---^
+
+fixed_pragma.sol:32:2: TypeError: Fallback function must be defined as "external".
+	function() payable {        
+ ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:25:25: SyntaxError: This looks like an address but has an invalid checksum. Correct checksummed address: "0x788C45Dd60aE4dBE5055b5Ac02384D5dc84677b0". If this is not used as an address, please prepend '00'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals
+	address public owner = 0x788c45dd60ae4dbe5055b5ac02384d5dc84677b0;	
+	                       ^----------------------------------------^
+
+fixed_pragma.sol:48:27: TypeError: "sha3" has been deprecated in favour of "keccak256"
+        if(!c.call(bytes4(sha3("transferFrom(address,address,uint256)")),owner, msg.sender,tokens_buy)){
+                          ^--^
+
+fixed_pragma.sol:48:13: TypeError: Wrong argument count for function call: 4 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.
+        if(!c.call(bytes4(sha3("transferFrom(address,address,uint256)")),owner, msg.sender,tokens_buy)){
+            ^----------------------------------------------------------------------------------------^
+
+fixed_pragma.sol:48:12: TypeError: Unary operator ! cannot be applied to type tuple(bool,bytes memory)
+        if(!c.call(bytes4(sha3("transferFrom(address,address,uint256)")),owner, msg.sender,tokens_buy)){
+           ^-----------------------------------------------------------------------------------------^
+
+fixed_pragma.sol:48:12: TypeError: Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.
+        if(!c.call(bytes4(sha3("transferFrom(address,address,uint256)")),owner, msg.sender,tokens_buy)){
+           ^-----------------------------------------------------------------------------------------^
+
+fixed_pragma.sol:54:9: TypeError: "send" and "transfer" are only available for objects of type "address payable", not "address".
+        owner2.send(sum2);
+        ^---------^
+
+        > command: `solc --allow-paths / --standard-json`
+        > return code: `0`
+        > stderr:
+        {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:32:2: SyntaxError: No visibility specified. Did you intend to add \"external\"?\n\tfunction() payable {        \n ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"external\"?","severity":"error","sourceLocation":{"end":1193,"file":"fixed_pragma.sol","start":1135},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:39:5: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n    function tokens_buy() payable returns (bool) {         \n    ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":1750,"file":"fixed_pragma.sol","start":1222},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:60:7: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n      function withdraw(uint256 _amount) onlyOwner returns (bool result) {\n      ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":2100,"file":"fixed_pragma.sol","start":1817},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:70:7: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n      function change_token_price(uint256 _token_price) onlyOwner returns (bool result) {\n      ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":2277,"file":"fixed_pragma.sol","start":2129},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:76:7: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n      function change_active(uint256 _active) onlyOwner returns (bool result) {\n      ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":2435,"file":"fixed_pragma.sol","start":2307},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:84:13: SyntaxError: \"throw\" is deprecated in favour of \"revert()\", \"require()\" and \"assert()\".\n            throw;\n            ^---^\n","message":"\"throw\" is deprecated in favour of \"revert()\", \"require()\" and \"assert()\".","severity":"error","sourceLocation":{"end":2589,"file":"fixed_pragma.sol","start":2584},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:44:9: Warning: This declaration shadows an existing declaration.\n        uint tokens_buy = msg.value*10**18/token_price;\n        ^-------------^\nfixed_pragma.sol:39:5: The shadowed declaration is here:\n    function tokens_buy() payable returns (bool) {         \n    ^ (Relevant source part starts here and spans across multiple lines).\n","message":"This declaration shadows an existing declaration.","secondarySourceLocations":[{"end":1750,"file":"fixed_pragma.sol","message":"The shadowed declaration is here:","start":1222}],"severity":"warning","sourceLocation":{"end":1391,"file":"fixed_pragma.sol","start":1376},"type":"Warning"},{"component":"general","formattedMessage":"fixed_pragma.sol:32:2: TypeError: Fallback function must be defined as \"external\".\n\tfunction() payable {        \n ^ (Relevant source part starts here and spans across multiple lines).\n","message":"Fallback function must be defined as \"external\".","severity":"error","sourceLocation":{"end":1193,"file":"fixed_pragma.sol","start":1135},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:25:25: SyntaxError: This looks like an address but has an invalid checksum. Correct checksummed address: \"0x788C45Dd60aE4dBE5055b5Ac02384D5dc84677b0\". If this is not used as an address, please prepend '00'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals\n\taddress public owner = 0x788c45dd60ae4dbe5055b5ac02384d5dc84677b0;\t\n\t                       ^----------------------------------------^\n","message":"This looks like an address but has an invalid checksum. Correct checksummed address: \"0x788C45Dd60aE4dBE5055b5Ac02384D5dc84677b0\". If this is not used as an address, please prepend '00'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals","severity":"error","sourceLocation":{"end":948,"file":"fixed_pragma.sol","start":906},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:48:27: TypeError: \"sha3\" has been deprecated in favour of \"keccak256\"\n        if(!c.call(bytes4(sha3(\"transferFrom(address,address,uint256)\")),owner, msg.sender,tokens_buy)){\n                          ^--^\n","message":"\"sha3\" has been deprecated in favour of \"keccak256\"","severity":"error","sourceLocation":{"end":1489,"file":"fixed_pragma.sol","start":1485},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:48:13: TypeError: Wrong argument count for function call: 4 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.\n        if(!c.call(bytes4(sha3(\"transferFrom(address,address,uint256)\")),owner, msg.sender,tokens_buy)){\n            ^----------------------------------------------------------------------------------------^\n","message":"Wrong argument count for function call: 4 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.","severity":"error","sourceLocation":{"end":1561,"file":"fixed_pragma.sol","start":1471},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:48:12: TypeError: Unary operator ! cannot be applied to type tuple(bool,bytes memory)\n        if(!c.call(bytes4(sha3(\"transferFrom(address,address,uint256)\")),owner, msg.sender,tokens_buy)){\n           ^-----------------------------------------------------------------------------------------^\n","message":"Unary operator ! cannot be applied to type tuple(bool,bytes memory)","severity":"error","sourceLocation":{"end":1561,"file":"fixed_pragma.sol","start":1470},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:48:12: TypeError: Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.\n        if(!c.call(bytes4(sha3(\"transferFrom(address,address,uint256)\")),owner, msg.sender,tokens_buy)){\n           ^-----------------------------------------------------------------------------------------^\n","message":"Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.","severity":"error","sourceLocation":{"end":1561,"file":"fixed_pragma.sol","start":1470},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:54:9: TypeError: \"send\" and \"transfer\" are only available for objects of type \"address payable\", not \"address\".\n        owner2.send(sum2);\n        ^---------^\n","message":"\"send\" and \"transfer\" are only available for objects of type \"address payable\", not \"address\".","severity":"error","sourceLocation":{"end":1713,"file":"fixed_pragma.sol","start":1702},"type":"TypeError"}],"sources":{}}
+
+        > stdout:

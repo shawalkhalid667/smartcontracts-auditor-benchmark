@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "unchecked_low_level_calls_mishandled.sol",
+  "contract_stem": "unchecked_low_level_calls_mishandled",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.4429855346679688,
+  "note": "ranked_relations",
+  "chosen_contract": "SendBack",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/unchecked_low_level_calls_mishandled",
+  "relations_count": 14
+}

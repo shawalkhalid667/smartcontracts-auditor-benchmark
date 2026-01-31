@@ -1,0 +1,75 @@
+{
+  "tool": "mythril",
+  "contract": "unchecked_low_level_calls_0x7d09edb07d23acb532a82be3da5c17d9d85806b4.sol",
+  "contract_stem": "unchecked_low_level_calls_0x7d09edb07d23acb532a82be3da5c17d9d85806b4",
+  "pragma": "pragma solidity ^0.4.24;",
+  "solc_version": "0.4.24",
+  "returncode": 1,
+  "detected_categories": [
+    "access_control",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "115",
+      "title": "Dependence on tx.origin",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "115",
+      "title": "Dependence on tx.origin",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "115",
+      "title": "Dependence on tx.origin",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "115",
+      "title": "Dependence on tx.origin",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "115",
+      "title": "Dependence on tx.origin",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "115",
+      "title": "Dependence on tx.origin",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    }
+  ]
+}

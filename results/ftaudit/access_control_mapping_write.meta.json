@@ -1,0 +1,20 @@
+{
+  "tool": "ftaudit",
+  "contract": "access_control_mapping_write.sol",
+  "contract_stem": "access_control_mapping_write",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "denial_of_service",
+    "front_running",
+    "reentrancy",
+    "short_addresses",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 9,
+  "elapsed_s": 6.930751085281372,
+  "note": "fallback_text_parse_no_json"
+}

@@ -1,0 +1,13 @@
+{
+  "tool": "smartllama",
+  "contract": "time_manipulation_ether_lotto.sol",
+  "contract_stem": "time_manipulation_ether_lotto",
+  "returncode": 0,
+  "detected_categories": [
+    "denial_of_service",
+    "time_manipulation"
+  ],
+  "num_findings": 2,
+  "elapsed_s": 3.36794376373291,
+  "note": "fallback_text_parse_no_json"
+}

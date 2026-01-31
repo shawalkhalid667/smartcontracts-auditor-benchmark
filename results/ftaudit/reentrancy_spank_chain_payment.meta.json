@@ -1,0 +1,16 @@
+{
+  "tool": "ftaudit",
+  "contract": "reentrancy_spank_chain_payment.sol",
+  "contract_stem": "reentrancy_spank_chain_payment",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "front_running",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 6.206453323364258,
+  "note": "fallback_text_parse_no_json"
+}

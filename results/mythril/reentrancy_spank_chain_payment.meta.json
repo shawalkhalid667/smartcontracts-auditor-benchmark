@@ -1,0 +1,16 @@
+{
+  "tool": "mythril",
+  "contract": "reentrancy_spank_chain_payment.sol",
+  "contract_stem": "reentrancy_spank_chain_payment",
+  "pragma": "pragma solidity ^0.4.23;",
+  "solc_version": "0.4.23",
+  "returncode": 1,
+  "detected_categories": [],
+  "issues_ranked": [
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    }
+  ]
+}

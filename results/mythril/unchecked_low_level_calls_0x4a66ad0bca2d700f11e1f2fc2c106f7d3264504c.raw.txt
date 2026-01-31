@@ -1,0 +1,11 @@
+RETURN_CODE:
+0
+
+STDOUT:
+{"error": null, "issues": [], "success": true}
+
+
+STDERR:
+/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/mythril_env/lib/python3.10/site-packages/eth/__init__.py:1: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+

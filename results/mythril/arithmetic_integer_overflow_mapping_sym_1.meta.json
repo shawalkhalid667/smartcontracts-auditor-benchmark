@@ -1,0 +1,21 @@
+{
+  "tool": "mythril",
+  "contract": "arithmetic_integer_overflow_mapping_sym_1.sol",
+  "contract_stem": "arithmetic_integer_overflow_mapping_sym_1",
+  "pragma": "pragma solidity ^0.4.11;",
+  "solc_version": "0.4.11",
+  "returncode": 1,
+  "detected_categories": [],
+  "issues_ranked": [
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    }
+  ]
+}

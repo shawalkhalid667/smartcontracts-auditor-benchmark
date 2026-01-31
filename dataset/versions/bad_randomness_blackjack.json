@@ -1,0 +1,4 @@
+{
+  "contract": "bad_randomness_blackjack.sol",
+  "pragma": "pragma solidity ^0.4.9;"
+}

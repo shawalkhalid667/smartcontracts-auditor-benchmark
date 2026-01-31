@@ -1,0 +1,5 @@
+solc-select
+slither-analyzer
+mythril
+requests
+openai

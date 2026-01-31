@@ -1,0 +1,68 @@
+=== SYSTEM ===
+You are a smart contract security auditor.
+
+CRITICAL OUTPUT RULES:
+- Output MUST be exactly ONE valid JSON object and NOTHING ELSE.
+- The first character MUST be '{' and the last character MUST be '}'.
+- Do NOT output prose, markdown, numbering, code fences, or extra commentary.
+
+Task: Identify which SmartBugs vulnerability categories are present in the contract.
+
+Allowed categories (use these exact strings):
+unchecked_low_level_calls, time_manipulation, bad_randomness, denial_of_service, front_running,
+access_control, short_addresses, reentrancy, arithmetic, other
+
+Output JSON schema (exact keys):
+{
+  "findings": [
+    {
+      "category": "<one of the allowed categories>",
+      "severity": <int 1..5>,
+      "confidence": <int 1..3>,
+      "title": "<short>",
+      "rationale": "<1-3 sentences>"
+    }
+  ],
+  "detected_categories": ["..."]
+}
+
+Rules:
+- If you are not confident, omit the finding (prefer precision).
+- If you find nothing, output {"findings": [], "detected_categories": []}.
+- Do not include any text outside the JSON object.
+
+
+=== USER ===
+Return ONLY the JSON object described in the system message.
+CONTRACT_FILE: arithmetic_integer_overflow_mapping_sym_1.sol
+SOLIDITY_SOURCE_BEGIN
+/*
+ * @source: https://github.com/SmartContractSecurity/SWC-registry/blob/master/test_cases/integer_overflow_and_underflow/integer_overflow_mapping_sym_1.sol
+ * @author: -
+ * @vulnerable_at_lines: 16
+ */
+
+//Single transaction overflow
+
+pragma solidity ^0.4.11;
+
+contract IntegerOverflowMappingSym1 {
+    mapping(uint256 => uint256) map;
+
+    function init(uint256 k, uint256 v) public {
+        // <yes> <report> ARITHMETIC
+        map[k] -= v;
+    }
+}
+
+SOLIDITY_SOURCE_END
+
+
+=== MODEL_OUTPUT ===
+0. The code is secure against arithmetic attacks. The contract uses Solidity version ^0.4.11 which includes built-in overflow checks for unsigned integers (uint). Specifically, the operation'map[k] -= v' is safe because Solidity versions prior to ^0.5.0 automatically revert transactions that would cause underflows or overflows. There is no use of the 'unchecked' keyword, ensuring that all arithmetic operations are checked for overflow. Additionally, there are no critical operations involving token transfers, balance updates, or price calculations that could be susceptible to overflow. The contract does not handle large numbers or perform type conversions that could introduce vulnerabilities. Therefore, the contract is secure against arithmetic attacks due to its use of Solidity's built-in overflow checks.
+
+=== ERROR ===
+
+
+=== ELAPSED_S ===
+8.6576

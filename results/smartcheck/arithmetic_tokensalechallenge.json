@@ -1,0 +1,25 @@
+{
+  "tool": "smartcheck",
+  "contract": "arithmetic_tokensalechallenge.sol",
+  "contract_stem": "arithmetic_tokensalechallenge",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 11,
+      "column": 4,
+      "content": "uint256constantPRICE_PER_TOKEN=1ether;"
+    }
+  ],
+  "detected_categories": []
+}

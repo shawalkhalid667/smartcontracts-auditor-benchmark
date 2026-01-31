@@ -1,0 +1,10 @@
+{
+  "contract": "denial_of_service_send_loop.sol",
+  "vulnerabilities": [
+    {
+      "type": "denial of service",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

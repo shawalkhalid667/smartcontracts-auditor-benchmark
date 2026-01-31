@@ -1,0 +1,221 @@
+{
+  "error": null,
+  "issues": [
+    {
+      "address": 99,
+      "code": "require(now != pastBlockTime)",
+      "contract": "Roulette",
+      "description": "A control flow decision is made based on The block.timestamp environment variable.\nThe block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/time_manipulation_roulette.sol",
+      "function": "fallback",
+      "lineno": 18,
+      "max_gas_used": 983,
+      "min_gas_used": 888,
+      "severity": "Low",
+      "sourceMap": "481:29",
+      "swc-id": "116",
+      "title": "Dependence on predictable environment variable",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x4000100020080003",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6080604052610142806100136000396000f300608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806358d02b09146100e5575b678ac7230489e800003414151561005757600080fd5b600054421415151561006857600080fd5b426000819055506000600f4281151561007d57fe5b0614156100e3573373ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f193505050501580156100e1573d6000803e3d6000fd5b505b005b3480156100f157600080fd5b506100fa610110565b6040518082815260200191505060405180910390f35b600054815600a165627a7a7230582009118ea3cf9d27c055846d3266572a1f7e2eaa4868335dffe2240f4ea9a7b6ec0029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x",
+            "input": "0x",
+            "name": "unknown",
+            "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "value": "0x8ac7230489e80000"
+          }
+        ]
+      }
+    },
+    {
+      "address": 132,
+      "code": "if(now % 15 == 0) { // winner\n            msg.sender.transfer(this.balance);\n        }",
+      "contract": "Roulette",
+      "description": "A control flow decision is made based on The block.timestamp environment variable.\nThe block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/time_manipulation_roulette.sol",
+      "function": "fallback",
+      "lineno": 21,
+      "max_gas_used": 26052,
+      "min_gas_used": 5957,
+      "severity": "Low",
+      "sourceMap": "625:86",
+      "swc-id": "116",
+      "title": "Dependence on predictable environment variable",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x100040100080083",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6080604052610142806100136000396000f300608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806358d02b09146100e5575b678ac7230489e800003414151561005757600080fd5b600054421415151561006857600080fd5b426000819055506000600f4281151561007d57fe5b0614156100e3573373ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f193505050501580156100e1573d6000803e3d6000fd5b505b005b3480156100f157600080fd5b506100fa610110565b6040518082815260200191505060405180910390f35b600054815600a165627a7a7230582009118ea3cf9d27c055846d3266572a1f7e2eaa4868335dffe2240f4ea9a7b6ec0029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x",
+            "input": "0x",
+            "name": "unknown",
+            "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "value": "0x8ac7230489e80000"
+          }
+        ]
+      }
+    },
+    {
+      "address": 203,
+      "code": "msg.sender.transfer(this.balance)",
+      "contract": "Roulette",
+      "description": "The value of the call is dependent on balance or storage write\nThis can lead to race conditions. An attacker may be able to run a transaction after our transaction which can change the value of the call",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/time_manipulation_roulette.sol",
+      "function": "fallback",
+      "lineno": 22,
+      "max_gas_used": 61805,
+      "min_gas_used": 7524,
+      "severity": "Medium",
+      "sourceMap": "667:33",
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x2",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x42000040540080002",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6080604052610142806100136000396000f300608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806358d02b09146100e5575b678ac7230489e800003414151561005757600080fd5b600054421415151561006857600080fd5b426000819055506000600f4281151561007d57fe5b0614156100e3573373ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f193505050501580156100e1573d6000803e3d6000fd5b505b005b3480156100f157600080fd5b506100fa610110565b6040518082815260200191505060405180910390f35b600054815600a165627a7a7230582009118ea3cf9d27c055846d3266572a1f7e2eaa4868335dffe2240f4ea9a7b6ec0029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x00000000",
+            "input": "0x00000000",
+            "name": "blockHashAddendsInexpansible(uint256)",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0x8ac7230489e80000"
+          }
+        ]
+      }
+    },
+    {
+      "address": 203,
+      "code": "msg.sender.transfer(this.balance)",
+      "contract": "Roulette",
+      "description": "Any sender can withdraw Ether from the contract account.\nArbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/time_manipulation_roulette.sol",
+      "function": "fallback",
+      "lineno": 22,
+      "max_gas_used": 61805,
+      "min_gas_used": 7524,
+      "severity": "High",
+      "sourceMap": "667:33",
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x2100011008080000",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x958785050360630c",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6080604052610142806100136000396000f300608060405260043610610041576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806358d02b09146100e5575b678ac7230489e800003414151561005757600080fd5b600054421415151561006857600080fd5b426000819055506000600f4281151561007d57fe5b0614156100e3573373ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f193505050501580156100e1573d6000803e3d6000fd5b505b005b3480156100f157600080fd5b506100fa610110565b6040518082815260200191505060405180910390f35b600054815600a165627a7a7230582009118ea3cf9d27c055846d3266572a1f7e2eaa4868335dffe2240f4ea9a7b6ec0029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x00000000",
+            "input": "0x00000000",
+            "name": "blockHashAddendsInexpansible(uint256)",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0x8ac7230489e80000"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x00000000",
+            "input": "0x00000000",
+            "name": "blockHashAddendsInexpansible(uint256)",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0x8ac7230489e80000"
+          }
+        ]
+      }
+    }
+  ],
+  "success": true
+}

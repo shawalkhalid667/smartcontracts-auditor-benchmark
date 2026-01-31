@@ -1,0 +1,14 @@
+{
+  "tool": "smartllama",
+  "contract": "reentrancy_etherstore.sol",
+  "contract_stem": "reentrancy_etherstore",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 3.097377300262451,
+  "note": "fallback_text_parse_no_json"
+}

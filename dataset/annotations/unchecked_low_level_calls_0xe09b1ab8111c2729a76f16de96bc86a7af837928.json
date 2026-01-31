@@ -1,0 +1,10 @@
+{
+  "contract": "unchecked_low_level_calls_0xe09b1ab8111c2729a76f16de96bc86a7af837928.sol",
+  "vulnerabilities": [
+    {
+      "type": "unchecked low level calls",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+=== SYSTEM ===
+You are a smart contract security auditor.
+
+CRITICAL OUTPUT RULES:
+- Output MUST be exactly ONE valid JSON object and NOTHING ELSE.
+- The first character MUST be '{' and the last character MUST be '}'.
+- Do NOT output prose, markdown, numbering, code fences, or extra commentary.
+
+Task: Identify which SmartBugs vulnerability categories are present in the contract.
+
+Allowed categories (use these exact strings):
+unchecked_low_level_calls, time_manipulation, bad_randomness, denial_of_service, front_running,
+access_control, short_addresses, reentrancy, arithmetic, other
+
+Output JSON schema (exact keys):
+{
+  "findings": [
+    {
+      "category": "<one of the allowed categories>",
+      "severity": <int 1..5>,
+      "confidence": <int 1..3>,
+      "title": "<short>",
+      "rationale": "<1-3 sentences>"
+    }
+  ],
+  "detected_categories": ["..."]
+}
+
+Rules:
+- If you are not confident, omit the finding (prefer precision).
+- If you find nothing, output {"findings": [], "detected_categories": []}.
+- Do not include any text outside the JSON object.
+
+
+=== USER ===
+Return ONLY the JSON object described in the system message.
+CONTRACT_FILE: front_running_odds_and_evens.sol
+SOLIDITY_SOURCE_BEGIN
+/*
+ * @source: http://blockchain.unica.it/projects/ethereum-survey/attacks.html#oddsandevens
+ * @author: -
+ * @vulnerable_at_lines: 25,28
+ */
+
+pragma solidity ^0.4.2;
+
+contract OddsAndEvens{
+
+  struct Player {
+    address addr;
+    uint number;
+  }
+
+  Player[2] public players;         //public only for debug purpose
+
+  uint8 tot;
+  address owner;
+
+  function OddsAndEvens() {
+    owner = msg.sender;
+  }
+// <yes> <report> FRONT_RUNNING
+  function play(uint number) payable{
+    if (msg.value != 1 ether) throw;
+    // <yes> <report> FRONT_RUNNING
+    players[tot] = Player(msg.sender, number);
+    tot++;
+
+    if (tot==2) andTheWinnerIs();
+  }
+
+  function andTheWinnerIs() private {
+    bool res ;
+    uint n = players[0].number+players[1].number;
+    if (n%2==0) {
+      res = players[0].addr.send(1800 finney);
+    }
+    else {
+      res = players[1].addr.send(1800 finney);
+    }
+
+    delete players;
+    tot=0;
+  }
+
+  function getProfit() {
+    if(msg.sender!=owner) throw;
+    bool res = msg.sender.send(this.balance);
+  }
+
+}
+
+SOLIDITY_SOURCE_END
+
+
+=== MODEL_OUTPUT ===
+0. The contract uses call.value() in a way that could potentially allow front-running attacks. Specifically, in the function 'andTheWinnerIs()', the Ether is sent to the winner before resetting the game state. This order of operations allows for a malicious contract to call 'play()' again before the game state is reset, potentially leading to multiple winnings. The line of concern is where'res = players[0].addr.send(1800 finney);' and'res = players[1].addr.send(1800 finney);' are executed before 'delete players;' and 'tot=0;'. This vulnerability is related to the order of operations and the use of external calls without proper safeguards.
+
+=== ERROR ===
+
+
+=== ELAPSED_S ===
+8.0864

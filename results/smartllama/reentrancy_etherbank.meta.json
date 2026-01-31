@@ -1,0 +1,13 @@
+{
+  "tool": "smartllama",
+  "contract": "reentrancy_etherbank.sol",
+  "contract_stem": "reentrancy_etherbank",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "reentrancy"
+  ],
+  "num_findings": 2,
+  "elapsed_s": 3.2504513263702393,
+  "note": "fallback_text_parse_no_json"
+}

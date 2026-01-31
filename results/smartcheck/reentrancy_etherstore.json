@@ -1,0 +1,35 @@
+{
+  "tool": "smartcheck",
+  "contract": "reentrancy_etherstore.sol",
+  "contract_stem": "reentrancy_etherstore",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_CALL_WITHOUT_DATA",
+      "patternId": "om991k",
+      "severity": 2,
+      "line": 27,
+      "column": 27,
+      "content": "call.value(_weiToWithdraw)()"
+    },
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 8,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_UPGRADE_TO_050",
+      "patternId": "83k1no",
+      "severity": 1,
+      "line": 27,
+      "column": 27,
+      "content": "call.value(_weiToWithdraw)()"
+    }
+  ],
+  "detected_categories": [
+    "unchecked_low_level_calls"
+  ]
+}

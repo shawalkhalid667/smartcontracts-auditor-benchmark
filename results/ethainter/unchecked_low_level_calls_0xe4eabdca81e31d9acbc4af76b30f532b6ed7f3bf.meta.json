@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "unchecked_low_level_calls_0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf.sol",
+  "contract_stem": "unchecked_low_level_calls_0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.497589349746704,
+  "note": "ranked_relations",
+  "chosen_contract": "Honey",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/unchecked_low_level_calls_0xe4eabdca81e31d9acbc4af76b30f532b6ed7f3bf",
+  "relations_count": 14
+}

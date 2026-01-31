@@ -1,0 +1,17 @@
+{
+  "tool": "smartcheck",
+  "contract": "arithmetic_integer_overflow_minimal.sol",
+  "contract_stem": "arithmetic_integer_overflow_minimal",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 10,
+      "column": 16,
+      "content": "^"
+    }
+  ],
+  "detected_categories": []
+}

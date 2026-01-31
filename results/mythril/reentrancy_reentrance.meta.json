@@ -1,0 +1,40 @@
+{
+  "tool": "mythril",
+  "contract": "reentrancy_reentrance.sol",
+  "contract_stem": "reentrancy_reentrance",
+  "pragma": "pragma solidity ^0.4.18;",
+  "solc_version": "0.4.18",
+  "returncode": 1,
+  "detected_categories": [
+    "access_control",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "severity": "High"
+    },
+    {
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    }
+  ]
+}

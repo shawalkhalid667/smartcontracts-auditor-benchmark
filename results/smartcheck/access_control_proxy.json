@@ -1,0 +1,33 @@
+{
+  "tool": "smartcheck",
+  "contract": "access_control_proxy.sol",
+  "contract_stem": "access_control_proxy",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_UPGRADE_TO_050",
+      "patternId": "341gim",
+      "severity": 1,
+      "line": 17,
+      "column": 35,
+      "content": "bytes_data"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 11,
+      "column": 2,
+      "content": "addressowner;"
+    }
+  ],
+  "detected_categories": []
+}

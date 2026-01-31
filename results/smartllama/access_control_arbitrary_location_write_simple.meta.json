@@ -1,0 +1,14 @@
+{
+  "tool": "smartllama",
+  "contract": "access_control_arbitrary_location_write_simple.sol",
+  "contract_stem": "access_control_arbitrary_location_write_simple",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 2.632493734359741,
+  "note": "fallback_text_parse_no_json"
+}

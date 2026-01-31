@@ -1,0 +1,172 @@
+RETURN_CODE:
+0
+
+STDOUT:
+Name: CallInLoop
+Severity: HIGH
+Description: If a single call in the loop fails or revers, it will cause all other calls to fail as well.
+---------------------------------------------------------------------------------------------------------
+Name: ShadowedLocalVariable
+Severity: MEDIUM
+Description: Reports local variable declarations that shadow declarations from outer scopes.
+--------------------------------------------------------------------------------------------
+Name: UnusedStateVariable
+Severity: INFO
+Description: Unused state variables should be removed.
+------------------------------------------------------
+Name: ShadowedStateVariable
+Severity: HIGH
+Description: State variables in inherited contract should not be named identically to inherited variables
+---------------------------------------------------------------------------------------------------------
+Name: AssemblyUsage
+Severity: INFO
+Description: Usage of assembly in Solidity code is discouraged.
+---------------------------------------------------------------
+Name: SolcVersion
+Severity: LOW
+Description: Avoid complex solidity version pragma statements.
+--------------------------------------------------------------
+Name: UnrestrictedWrite
+Severity: CRITICAL
+Description: Contract fields that can be modified by any user must be inspected.
+--------------------------------------------------------------------------------
+Name: ReentrancyNoETH
+Severity: MEDIUM
+Description: Reentrancy that involves no ether
+----------------------------------------------
+Name: DAOConstantGas
+Severity: CRITICAL
+Description: Ether transfers (such as send and transfer) that are followed by state changes may be reentrant.
+-------------------------------------------------------------------------------------------------------------
+Name: TooManyDigits
+Severity: INFO
+Description: Usage of assembly in Solidity code is discouraged.
+---------------------------------------------------------------
+Name: UninitializedLocal
+Severity: INFO
+Description: A variable is declared but never initialized.
+----------------------------------------------------------
+Name: UnrestrictedEtherFlow
+Severity: CRITICAL
+Description: The execution of ether flows should be restricted to an authorized set of users.
+---------------------------------------------------------------------------------------------
+Name: PASS
+Severity: CRITICAL
+Description: A sink call is considered Tainted if its argument depends on msg.value or msg.sender or its execution depends on msg.value or msg.sender
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Name: UninitializedStateVariable
+Severity: HIGH
+Description: State variables should be explicitly initialized.
+--------------------------------------------------------------
+Name: ShadowedBuiltin
+Severity: MEDIUM
+Description: Reports declarations that shadow Solidity's builtin symbols.
+-------------------------------------------------------------------------
+Name: MissingInputValidation
+Severity: MEDIUM
+Description: Method arguments must be sanitized before they are used in computations.
+-------------------------------------------------------------------------------------
+Name: TxOrigin
+Severity: HIGH
+Description: The return value of statements that may return error values must be explicitly checked.
+----------------------------------------------------------------------------------------------------
+Name: LockedEther
+Severity: MEDIUM
+Description: Contracts that may receive ether must also allow users to extract the deposited ether from the contract.
+---------------------------------------------------------------------------------------------------------------------
+Name: IncorrectERC20Interface
+Severity: MEDIUM
+Description: Incorrect signature for ERC20 interface functions.
+---------------------------------------------------------------
+Name: TODTransfer
+Severity: CRITICAL
+Description: Ether transfers whose execution can be manipulated by other transactions must be inspected for unintended behavior.
+--------------------------------------------------------------------------------------------------------------------------------
+Name: ExternalFunction
+Severity: LOW
+Description: A public function that is never called within the contract should be marked as external
+----------------------------------------------------------------------------------------------------
+Name: TODAmount
+Severity: CRITICAL
+Description: The amount of ether transferred must not be influenced by other transactions.
+------------------------------------------------------------------------------------------
+Name: SolidityNamingConvention
+Severity: INFO
+Description: Reports declarations that do not adhere to Solidity's naming convention.
+-------------------------------------------------------------------------------------
+Name: UnusedReturn
+Severity: MEDIUM
+Description: The value returned by an external function call is never used
+--------------------------------------------------------------------------
+Name: RepeatedCall
+Severity: HIGH
+Description: Repeated call to an untrusted contract may result in different values
+----------------------------------------------------------------------------------
+Name: ERC20Indexed
+Severity: LOW
+Description: Events defined by ERC20 specification should use the 'indexed' keyword.
+------------------------------------------------------------------------------------
+Name: DAO
+Severity: CRITICAL
+Description: Calls into external contracts that receive all remaining gas and are followed by state changes may be reentrant.
+-----------------------------------------------------------------------------------------------------------------------------
+Name: UnrestrictedSelfdestruct
+Severity: CRITICAL
+Description: Calls to selfdestruct that can be triggered by any user must be inspected.
+---------------------------------------------------------------------------------------
+Name: ReentrancyBenign
+Severity: LOW
+Description: Reentrancy is equivalent with two consecutive calls of the function
+--------------------------------------------------------------------------------
+Name: ConstableStates
+Severity: INFO
+Description: State variables that do not change should be declared as constants.
+--------------------------------------------------------------------------------
+Name: IncorrectERC721Interface
+Severity: MEDIUM
+Description: Incorrect signature for ERC721 interface functions.
+----------------------------------------------------------------
+Name: UnrestrictedDelegateCall
+Severity: HIGH
+Description: The address of a delegatecall or callcode must be approved by the contract owner.
+----------------------------------------------------------------------------------------------
+Name: MulAfterDiv
+Severity: MEDIUM
+Description: Information might be lost due to division before multiplication
+----------------------------------------------------------------------------
+Name: UnhandledException
+Severity: HIGH
+Description: The return value of statements that may return error values must be explicitly checked.
+----------------------------------------------------------------------------------------------------
+Name: StateVariablesDefaultVisibility
+Severity: INFO
+Description: Visibility of state variables should be stated explicitly
+----------------------------------------------------------------------
+Name: CallToDefaultConstructor
+Severity: LOW
+Description: A call to the constructor might be a call to a normal function instead.
+------------------------------------------------------------------------------------
+Name: LowLevelCalls
+Severity: INFO
+Description: Usage of <address>.call should be avoided
+------------------------------------------------------
+Name: Timestamp
+Severity: LOW
+Description: Returned value relies on block timestamp.
+------------------------------------------------------
+Name: RightToLeftOverride
+Severity: CRITICAL
+Description: Finds usages of the Right-To-Left-Override (U+202E) character in source code
+-----------------------------------------------------------------------------------------
+Name: IncorrectInequality
+Severity: MEDIUM
+Description: Strict equalities that use account's balance, timestamps and block numbers should be avoided
+---------------------------------------------------------------------------------------------------------
+Name: TODReceiver
+Severity: CRITICAL
+Description: The receiver of ether transfers must not be influenced by other transactions.
+------------------------------------------------------------------------------------------
+
+
+STDERR:
+

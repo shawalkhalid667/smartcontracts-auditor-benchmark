@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "time_manipulation_governmental_survey.sol",
+  "contract_stem": "time_manipulation_governmental_survey",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 8.06615662574768,
+  "note": "fallback_text_parse_no_json"
+}

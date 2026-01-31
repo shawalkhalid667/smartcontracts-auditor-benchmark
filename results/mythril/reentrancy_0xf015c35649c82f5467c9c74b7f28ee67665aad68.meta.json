@@ -1,0 +1,29 @@
+{
+  "tool": "mythril",
+  "contract": "reentrancy_0xf015c35649c82f5467c9c74b7f28ee67665aad68.sol",
+  "contract_stem": "reentrancy_0xf015c35649c82f5467c9c74b7f28ee67665aad68",
+  "pragma": "pragma solidity ^0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 1,
+  "detected_categories": [
+    "reentrancy",
+    "time_manipulation"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "116",
+      "title": "Dependence on predictable environment variable",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    }
+  ]
+}

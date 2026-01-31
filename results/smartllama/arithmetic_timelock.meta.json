@@ -1,0 +1,13 @@
+{
+  "tool": "smartllama",
+  "contract": "arithmetic_timelock.sol",
+  "contract_stem": "arithmetic_timelock",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "time_manipulation"
+  ],
+  "num_findings": 2,
+  "elapsed_s": 3.1741292476654053,
+  "note": "fallback_text_parse_no_json"
+}

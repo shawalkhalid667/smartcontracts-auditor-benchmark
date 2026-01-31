@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "access_control_parity_wallet_bug_2.sol",
+  "contract_stem": "access_control_parity_wallet_bug_2",
+  "pragma": "pragma solidity ^0.4.9;",
+  "solc_version": "0.4.9",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

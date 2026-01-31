@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "bad_randomness_blackjack.sol",
+  "contract_stem": "bad_randomness_blackjack",
+  "returncode": 0,
+  "detected_categories": [
+    "time_manipulation"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 4.021799564361572,
+  "note": "fallback_text_parse_no_json"
+}

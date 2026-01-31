@@ -1,0 +1,391 @@
+{
+  "error": null,
+  "issues": [
+    {
+      "address": 808,
+      "code": "Owner.transfer(this.balance)",
+      "contract": "Freebie",
+      "description": "The value of the call is dependent on balance or storage write\nThis can lead to race conditions. An attacker may be able to run a transaction after our transaction which can change the value of the call",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0xe82f0742a71a02b9e9ffc142fdcb6eb1ed06fb87.sol",
+      "function": "GetFreebie()",
+      "lineno": 20,
+      "max_gas_used": 72796,
+      "min_gas_used": 3999,
+      "severity": "Medium",
+      "sourceMap": "1161:28",
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x21c10c0542040002",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550341561004f57600080fd5b6104cf8061005e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633ccfd60b146100645780636ea3f1cb1461006e578063b4a99a4e14610078578063ba21d62a146100cd575b005b61006c61013e565b005b6100766102b0565b005b341561008357600080fd5b61008b610392565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61013c600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506103b7565b005b7330ad12df80a2493a82ddfe367d866616db8a259573ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156101db577330ad12df80a2493a82ddfe367d866616db8a25956000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561023657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f1935050505015156102ae57600080fd5b565b670de0b6b3a7640000341115610390576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561033857600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561038f57600080fd5b5b565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561041257600080fd5b8173ffffffffffffffffffffffffffffffffffffffff16348260405180828051906020019080838360005b8381101561045857808201518184015260208101905061043d565b50505050905090810190601f1680156104855780820380516001836020036101000a031916815260200191505b5091505060006040518083038185876187965a03f1925050505050505600a165627a7a7230582077877056c1275c4ad891d023d2ea0e1b87407ab8c905709539d69f48bb26e8820029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x6ea3f1cb",
+            "input": "0x6ea3f1cb",
+            "name": "GetFreebie()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0xde0b6b3a7640001"
+          }
+        ]
+      }
+    },
+    {
+      "address": 808,
+      "code": "Owner.transfer(this.balance)",
+      "contract": "Freebie",
+      "description": "Any sender can withdraw Ether from the contract account.\nArbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0xe82f0742a71a02b9e9ffc142fdcb6eb1ed06fb87.sol",
+      "function": "GetFreebie()",
+      "lineno": 20,
+      "max_gas_used": 72796,
+      "min_gas_used": 3999,
+      "severity": "High",
+      "sourceMap": "1161:28",
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0xfe03e31a7220000",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x801fc1cc5c1ffffe",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550341561004f57600080fd5b6104cf8061005e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633ccfd60b146100645780636ea3f1cb1461006e578063b4a99a4e14610078578063ba21d62a146100cd575b005b61006c61013e565b005b6100766102b0565b005b341561008357600080fd5b61008b610392565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61013c600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506103b7565b005b7330ad12df80a2493a82ddfe367d866616db8a259573ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156101db577330ad12df80a2493a82ddfe367d866616db8a25956000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561023657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f1935050505015156102ae57600080fd5b565b670de0b6b3a7640000341115610390576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561033857600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561038f57600080fd5b5b565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561041257600080fd5b8173ffffffffffffffffffffffffffffffffffffffff16348260405180828051906020019080838360005b8381101561045857808201518184015260208101905061043d565b50505050905090810190601f1680156104855780820380516001836020036101000a031916815260200191505b5091505060006040518083038185876187965a03f1925050505050505600a165627a7a7230582077877056c1275c4ad891d023d2ea0e1b87407ab8c905709539d69f48bb26e8820029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0xba21d62a000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeefc0",
+            "input": "0xba21d62a000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeefc0",
+            "name": "Command(address,bytes)",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "resolved_input": null,
+            "value": "0xde0b6b3a7640002"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x6ea3f1cb",
+            "input": "0x6ea3f1cb",
+            "name": "GetFreebie()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0xde0b6b3a7640001"
+          }
+        ]
+      }
+    },
+    {
+      "address": 895,
+      "code": "msg.sender.transfer(this.balance)",
+      "contract": "Freebie",
+      "description": "Multiple calls are executed in the same transaction.\nThis call is executed following another call within the same transaction. It is possible that the call never gets executed if a prior call fails permanently. This might be caused intentionally by a malicious callee. If possible, refactor the code such that each transaction only executes one external call or make sure that all callees can be trusted (i.e. they\u2019re part of your own codebase).",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0xe82f0742a71a02b9e9ffc142fdcb6eb1ed06fb87.sol",
+      "function": "GetFreebie()",
+      "lineno": 21,
+      "max_gas_used": 72796,
+      "min_gas_used": 3999,
+      "severity": "Low",
+      "sourceMap": "1203:33",
+      "swc-id": "113",
+      "title": "Multiple Calls in a Single Transaction",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x20e13ac000000000",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550341561004f57600080fd5b6104cf8061005e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633ccfd60b146100645780636ea3f1cb1461006e578063b4a99a4e14610078578063ba21d62a146100cd575b005b61006c61013e565b005b6100766102b0565b005b341561008357600080fd5b61008b610392565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61013c600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506103b7565b005b7330ad12df80a2493a82ddfe367d866616db8a259573ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156101db577330ad12df80a2493a82ddfe367d866616db8a25956000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561023657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f1935050505015156102ae57600080fd5b565b670de0b6b3a7640000341115610390576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561033857600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561038f57600080fd5b5b565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561041257600080fd5b8173ffffffffffffffffffffffffffffffffffffffff16348260405180828051906020019080838360005b8381101561045857808201518184015260208101905061043d565b50505050905090810190601f1680156104855780820380516001836020036101000a031916815260200191505b5091505060006040518083038185876187965a03f1925050505050505600a165627a7a7230582077877056c1275c4ad891d023d2ea0e1b87407ab8c905709539d69f48bb26e8820029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x6ea3f1cb",
+            "input": "0x6ea3f1cb",
+            "name": "GetFreebie()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0xde0b6b3a7640001"
+          }
+        ]
+      }
+    },
+    {
+      "address": 895,
+      "code": "msg.sender.transfer(this.balance)",
+      "contract": "Freebie",
+      "description": "The value of the call is dependent on balance or storage write\nThis can lead to race conditions. An attacker may be able to run a transaction after our transaction which can change the value of the call",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0xe82f0742a71a02b9e9ffc142fdcb6eb1ed06fb87.sol",
+      "function": "GetFreebie()",
+      "lineno": 21,
+      "max_gas_used": 72796,
+      "min_gas_used": 3999,
+      "severity": "Medium",
+      "sourceMap": "1203:33",
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x21c10c0542040002",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550341561004f57600080fd5b6104cf8061005e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633ccfd60b146100645780636ea3f1cb1461006e578063b4a99a4e14610078578063ba21d62a146100cd575b005b61006c61013e565b005b6100766102b0565b005b341561008357600080fd5b61008b610392565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61013c600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506103b7565b005b7330ad12df80a2493a82ddfe367d866616db8a259573ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156101db577330ad12df80a2493a82ddfe367d866616db8a25956000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561023657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f1935050505015156102ae57600080fd5b565b670de0b6b3a7640000341115610390576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561033857600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561038f57600080fd5b5b565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561041257600080fd5b8173ffffffffffffffffffffffffffffffffffffffff16348260405180828051906020019080838360005b8381101561045857808201518184015260208101905061043d565b50505050905090810190601f1680156104855780820380516001836020036101000a031916815260200191505b5091505060006040518083038185876187965a03f1925050505050505600a165627a7a7230582077877056c1275c4ad891d023d2ea0e1b87407ab8c905709539d69f48bb26e8820029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x6ea3f1cb",
+            "input": "0x6ea3f1cb",
+            "name": "GetFreebie()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0xde0b6b3a7640001"
+          }
+        ]
+      }
+    },
+    {
+      "address": 895,
+      "code": "msg.sender.transfer(this.balance)",
+      "contract": "Freebie",
+      "description": "Any sender can withdraw Ether from the contract account.\nArbitrary senders other than the contract creator can profitably extract Ether from the contract account. Verify the business logic carefully and make sure that appropriate security controls are in place to prevent unexpected loss of funds.",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0xe82f0742a71a02b9e9ffc142fdcb6eb1ed06fb87.sol",
+      "function": "GetFreebie()",
+      "lineno": 21,
+      "max_gas_used": 72796,
+      "min_gas_used": 3999,
+      "severity": "High",
+      "sourceMap": "1203:33",
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x1af05a90a6600001",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x3f90749ffffffffff",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550341561004f57600080fd5b6104cf8061005e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633ccfd60b146100645780636ea3f1cb1461006e578063b4a99a4e14610078578063ba21d62a146100cd575b005b61006c61013e565b005b6100766102b0565b005b341561008357600080fd5b61008b610392565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61013c600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506103b7565b005b7330ad12df80a2493a82ddfe367d866616db8a259573ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156101db577330ad12df80a2493a82ddfe367d866616db8a25956000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561023657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f1935050505015156102ae57600080fd5b565b670de0b6b3a7640000341115610390576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561033857600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561038f57600080fd5b5b565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561041257600080fd5b8173ffffffffffffffffffffffffffffffffffffffff16348260405180828051906020019080838360005b8381101561045857808201518184015260208101905061043d565b50505050905090810190601f1680156104855780820380516001836020036101000a031916815260200191505b5091505060006040518083038185876187965a03f1925050505050505600a165627a7a7230582077877056c1275c4ad891d023d2ea0e1b87407ab8c905709539d69f48bb26e8820029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0xba21d62a000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef9a",
+            "input": "0xba21d62a000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeef9a",
+            "name": "Command(address,bytes)",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "resolved_input": null,
+            "value": "0xde0b6b3a7640002"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x6ea3f1cb",
+            "input": "0x6ea3f1cb",
+            "name": "GetFreebie()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0xde0b6b3a7640001"
+          }
+        ]
+      }
+    },
+    {
+      "address": 1178,
+      "contract": "Freebie",
+      "description": "A call to a user-supplied address is executed.\nAn external message call to an address specified by the caller is executed. Note that the callee account might contain arbitrary code and could re-enter any function within this contract. Reentering the contract in an intermediate state may lead to unexpected behaviour. Make sure that no state modifications are executed after this call and/or reentrancy guards are in place.",
+      "function": "Command(address,bytes)",
+      "max_gas_used": 40592,
+      "min_gas_used": 2407,
+      "severity": "Low",
+      "sourceMap": 1178,
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x3",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550341561004f57600080fd5b6104cf8061005e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633ccfd60b146100645780636ea3f1cb1461006e578063b4a99a4e14610078578063ba21d62a146100cd575b005b61006c61013e565b005b6100766102b0565b005b341561008357600080fd5b61008b610392565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61013c600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506103b7565b005b7330ad12df80a2493a82ddfe367d866616db8a259573ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156101db577330ad12df80a2493a82ddfe367d866616db8a25956000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561023657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f1935050505015156102ae57600080fd5b565b670de0b6b3a7640000341115610390576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561033857600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561038f57600080fd5b5b565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561041257600080fd5b8173ffffffffffffffffffffffffffffffffffffffff16348260405180828051906020019080838360005b8381101561045857808201518184015260208101905061043d565b50505050905090810190601f1680156104855780820380516001836020036101000a031916815260200191505b5091505060006040518083038185876187965a03f1925050505050505600a165627a7a7230582077877056c1275c4ad891d023d2ea0e1b87407ab8c905709539d69f48bb26e8820029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0xba21d62a000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeefb1",
+            "input": "0xba21d62a000000000000000000000000deadbeefdeadbeefdeadbeefdeadbeefdeadbeefb1",
+            "name": "Command(address,bytes)",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "resolved_input": null,
+            "value": "0x0"
+          }
+        ]
+      }
+    },
+    {
+      "address": 1178,
+      "contract": "Freebie",
+      "description": "The return value of a message call is not checked.\nExternal calls return a boolean value. If the callee halts with an exception, 'false' is returned and execution continues in the caller. The caller should check whether an exception happened and react accordingly to avoid unexpected behavior. For example it is often desirable to wrap external calls in require() so the transaction is reverted if the call fails.",
+      "function": "Command(address,bytes)",
+      "max_gas_used": 40329,
+      "min_gas_used": 2332,
+      "severity": "Medium",
+      "sourceMap": 1178,
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x3",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550341561004f57600080fd5b6104cf8061005e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680633ccfd60b146100645780636ea3f1cb1461006e578063b4a99a4e14610078578063ba21d62a146100cd575b005b61006c61013e565b005b6100766102b0565b005b341561008357600080fd5b61008b610392565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61013c600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803590602001908201803590602001908080601f016020809104026020016040519081016040528093929190818152602001838380828437820191505050505050919050506103b7565b005b7330ad12df80a2493a82ddfe367d866616db8a259573ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614156101db577330ad12df80a2493a82ddfe367d866616db8a25956000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561023657600080fd5b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f1935050505015156102ae57600080fd5b565b670de0b6b3a7640000341115610390576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561033857600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc3073ffffffffffffffffffffffffffffffffffffffff16319081150290604051600060405180830381858888f19350505050151561038f57600080fd5b5b565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561041257600080fd5b8173ffffffffffffffffffffffffffffffffffffffff16348260405180828051906020019080838360005b8381101561045857808201518184015260208101905061043d565b50505050905090810190601f1680156104855780820380516001836020036101000a031916815260200191505b5091505060006040518083038185876187965a03f1925050505050505600a165627a7a7230582077877056c1275c4ad891d023d2ea0e1b87407ab8c905709539d69f48bb26e8820029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0xba21d62a0000000000000000000000000000000000000000000000000000000000000028",
+            "input": "0xba21d62a0000000000000000000000000000000000000000000000000000000000000028",
+            "name": "Command(address,bytes)",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "resolved_input": null,
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0xba21d62a000000000000000000000000000000000000000000000000000000000000001e",
+            "input": "0xba21d62a000000000000000000000000000000000000000000000000000000000000001e",
+            "name": "Command(address,bytes)",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "resolved_input": null,
+            "value": "0x0"
+          }
+        ]
+      }
+    }
+  ],
+  "success": true
+}

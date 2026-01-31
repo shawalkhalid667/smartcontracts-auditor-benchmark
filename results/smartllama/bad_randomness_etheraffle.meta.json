@@ -1,0 +1,13 @@
+{
+  "tool": "smartllama",
+  "contract": "bad_randomness_etheraffle.sol",
+  "contract_stem": "bad_randomness_etheraffle",
+  "returncode": 0,
+  "detected_categories": [
+    "bad_randomness",
+    "time_manipulation"
+  ],
+  "num_findings": 2,
+  "elapsed_s": 4.472037076950073,
+  "note": "fallback_text_parse_no_json"
+}

@@ -1,0 +1,4 @@
+{
+  "contract": "access_control_unprotected0.sol",
+  "pragma": "pragma solidity ^0.4.15;"
+}

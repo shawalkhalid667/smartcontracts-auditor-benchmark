@@ -1,0 +1,17 @@
+{
+  "tool": "ftaudit",
+  "contract": "bad_randomness_lucky_doubler.sol",
+  "contract_stem": "bad_randomness_lucky_doubler",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 6,
+  "elapsed_s": 9.325831174850464,
+  "note": "fallback_text_parse_no_json"
+}

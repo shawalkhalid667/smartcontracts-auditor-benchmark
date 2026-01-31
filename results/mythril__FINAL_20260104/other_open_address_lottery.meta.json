@@ -1,0 +1,41 @@
+{
+  "tool": "mythril",
+  "contract": "other_open_address_lottery.sol",
+  "contract_stem": "other_open_address_lottery",
+  "pragma": "pragma solidity ^0.4.19;",
+  "solc_version": "0.4.19",
+  "returncode": 1,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "front_running"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "severity": "High"
+    },
+    {
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "severity": "High"
+    },
+    {
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "120",
+      "title": "Dependence on predictable environment variable",
+      "severity": "Low"
+    }
+  ]
+}

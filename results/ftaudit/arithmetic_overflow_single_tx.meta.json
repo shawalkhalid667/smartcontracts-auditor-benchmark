@@ -1,0 +1,13 @@
+{
+  "tool": "ftaudit",
+  "contract": "arithmetic_overflow_single_tx.sol",
+  "contract_stem": "arithmetic_overflow_single_tx",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy"
+  ],
+  "num_findings": 2,
+  "elapsed_s": 9.937559366226196,
+  "note": "fallback_text_parse_no_json"
+}

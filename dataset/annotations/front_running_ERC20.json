@@ -1,0 +1,10 @@
+{
+  "contract": "front_running_ERC20.sol",
+  "vulnerabilities": [
+    {
+      "type": "front running",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

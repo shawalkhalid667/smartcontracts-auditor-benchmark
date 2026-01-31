@@ -1,0 +1,10 @@
+{
+  "contract": "access_control_unprotected0.sol",
+  "vulnerabilities": [
+    {
+      "type": "access control",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

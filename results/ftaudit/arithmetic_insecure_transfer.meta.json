@@ -1,0 +1,14 @@
+{
+  "tool": "ftaudit",
+  "contract": "arithmetic_insecure_transfer.sol",
+  "contract_stem": "arithmetic_insecure_transfer",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "front_running",
+    "reentrancy"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 3.566272258758545,
+  "note": "fallback_text_parse_no_json"
+}

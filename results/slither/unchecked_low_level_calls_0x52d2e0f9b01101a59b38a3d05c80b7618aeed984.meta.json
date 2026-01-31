@@ -1,0 +1,60 @@
+{
+  "tool": "slither",
+  "contract": "unchecked_low_level_calls_0x52d2e0f9b01101a59b38a3d05c80b7618aeed984.sol",
+  "contract_stem": "unchecked_low_level_calls_0x52d2e0f9b01101a59b38a3d05c80b7618aeed984",
+  "pragma": "pragma solidity ^0.4.19;",
+  "solc_version": "0.4.19",
+  "returncode": 255,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-transfer",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-lowlevel",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "missing-zero-check",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "calls-loop",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

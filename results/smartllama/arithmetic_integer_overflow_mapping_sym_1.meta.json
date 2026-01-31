@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "arithmetic_integer_overflow_mapping_sym_1.sol",
+  "contract_stem": "arithmetic_integer_overflow_mapping_sym_1",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 2.6963653564453125,
+  "note": "fallback_text_parse_no_json"
+}

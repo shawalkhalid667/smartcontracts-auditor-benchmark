@@ -1,0 +1,14 @@
+{
+  "tool": "smartllama",
+  "contract": "denial_of_service_auction.sol",
+  "contract_stem": "denial_of_service_auction",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "denial_of_service",
+    "front_running"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 3.0167555809020996,
+  "note": "fallback_text_parse_no_json"
+}

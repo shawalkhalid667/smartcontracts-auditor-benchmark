@@ -1,0 +1,94 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/static/static_analysis_patterns.py", line 73, in find_matches
+    static = analysis_context.static_analysis
+  File "/sec/securify/analyses/analysis.py", line 88, in static_analysis
+    self._static = self.config.static_analysis(self)
+  File "securify/__main__.py", line 255, in <lambda>
+    static_analysis=lambda t: static_analysis.analyze_cfg(t.cfg, **souffle_config),
+  File "/sec/securify/analyses/analysis.py", line 81, in cfg
+    self._cfg = self.config.cfg_compiler(self)
+  File "securify/__main__.py", line 254, in <lambda>
+    cfg_compiler=lambda t: solidity_cfg_compiler.compile_cfg(t.ast).cfg,
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:25:35: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+  function balanceOf(address who) constant returns (uint);
+                                  ^------^
+
+fixed_pragma.sol:32:54: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+  function allowance(address owner, address spender) constant returns (uint);
+                                                     ^------^
+
+fixed_pragma.sol:70:38: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+  function balanceOf(address _owner) constant returns (uint balance) {
+                                     ^------^
+
+fixed_pragma.sol:110:56: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+  function allowance(address _owner, address _spender) constant returns (uint remaining) {
+                                                       ^------^
+
+fixed_pragma.sol:195:29: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function hashesLength() constant external returns (uint) {
+                            ^------^
+
+fixed_pragma.sol:203:46: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function walletBalanceOf(address _owner) constant external returns (uint) {
+                                             ^------^
+
+fixed_pragma.sol:211:45: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function walletPeriodOf(address _owner) constant external returns (uint) {
+                                            ^------^
+
+fixed_pragma.sol:219:44: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function walletBlockOf(address _owner) constant external returns (uint) {
+                                           ^------^
+
+fixed_pragma.sol:227:41: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function betValueOf(address _owner) constant external returns (uint) {
+                                        ^------^
+
+fixed_pragma.sol:235:40: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function betHashOf(address _owner) constant external returns (uint) {
+                                       ^------^
+
+fixed_pragma.sol:243:47: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function betBlockNumberOf(address _owner) constant external returns (uint) {
+                                              ^------^
+
+fixed_pragma.sol:250:32: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function dividendsBlocks() constant external returns (uint) {
+                               ^------^
+
+fixed_pragma.sol:482:50: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function betPrize(Bet _player, uint24 _hash) constant private returns (uint) { // house fee 13.85%
+                                                 ^------^
+
+fixed_pragma.sol:513:34: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function betOf(address _who) constant external returns (uint)  {
+                                 ^------^
+
+fixed_pragma.sol:698:55: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function calcHashes(uint32 _lastb, uint32 _delta) constant private returns (uint) {
+                                                      ^------^
+
+fixed_pragma.sol:722:35: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function getHash(uint _block) constant private returns (uint32) {
+                                  ^------^
+
+        > command: `solc --allow-paths / --standard-json`
+        > return code: `0`
+        > stderr:
+        {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:25:35: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n  function balanceOf(address who) constant returns (uint);\n                                  ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":606,"file":"fixed_pragma.sol","start":598},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:32:54: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n  function allowance(address owner, address spender) constant returns (uint);\n                                                     ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":911,"file":"fixed_pragma.sol","start":903},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:70:38: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n  function balanceOf(address _owner) constant returns (uint balance) {\n                                     ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":2183,"file":"fixed_pragma.sol","start":2175},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:110:56: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n  function allowance(address _owner, address _spender) constant returns (uint remaining) {\n                                                       ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":3888,"file":"fixed_pragma.sol","start":3880},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:195:29: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function hashesLength() constant external returns (uint) {\n                            ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":6939,"file":"fixed_pragma.sol","start":6931},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:203:46: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function walletBalanceOf(address _owner) constant external returns (uint) {\n                                             ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":7162,"file":"fixed_pragma.sol","start":7154},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:211:45: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function walletPeriodOf(address _owner) constant external returns (uint) {\n                                            ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":7407,"file":"fixed_pragma.sol","start":7399},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:219:44: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function walletBlockOf(address _owner) constant external returns (uint) {\n                                           ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":7671,"file":"fixed_pragma.sol","start":7663},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:227:41: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function betValueOf(address _owner) constant external returns (uint) {\n                                        ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":7900,"file":"fixed_pragma.sol","start":7892},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:235:40: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function betHashOf(address _owner) constant external returns (uint) {\n                                       ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":8144,"file":"fixed_pragma.sol","start":8136},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:243:47: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function betBlockNumberOf(address _owner) constant external returns (uint) {\n                                              ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":8397,"file":"fixed_pragma.sol","start":8389},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:250:32: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function dividendsBlocks() constant external returns (uint) {\n                               ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":8600,"file":"fixed_pragma.sol","start":8592},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:482:50: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function betPrize(Bet _player, uint24 _hash) constant private returns (uint) { // house fee 13.85%\n                                                 ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":16659,"file":"fixed_pragma.sol","start":16651},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:513:34: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function betOf(address _who) constant external returns (uint)  {\n                                 ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":17621,"file":"fixed_pragma.sol","start":17613},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:698:55: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function calcHashes(uint32 _lastb, uint32 _delta) constant private returns (uint) {\n                                                      ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":24072,"file":"fixed_pragma.sol","start":24064},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:722:35: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function getHash(uint _block) constant private returns (uint32) {\n                                  ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":25351,"file":"fixed_pragma.sol","start":25343},"type":"ParserError"}],"sources":{}}
+
+        > stdout:

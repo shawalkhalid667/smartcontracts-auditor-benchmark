@@ -1,0 +1,60 @@
+{
+  "tool": "mythril",
+  "contract": "unchecked_low_level_calls_0xb620cee6b52f96f3c6b253e6eea556aa2d214a99.sol",
+  "contract_stem": "unchecked_low_level_calls_0xb620cee6b52f96f3c6b253e6eea556aa2d214a99",
+  "pragma": "pragma solidity ^0.4.23;",
+  "solc_version": "0.4.23",
+  "returncode": 1,
+  "detected_categories": [
+    "access_control",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "severity": "High"
+    },
+    {
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    }
+  ]
+}

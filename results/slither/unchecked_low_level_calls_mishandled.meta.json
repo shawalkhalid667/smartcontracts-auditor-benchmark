@@ -1,0 +1,29 @@
+{
+  "tool": "slither",
+  "contract": "unchecked_low_level_calls_mishandled.sol",
+  "contract_stem": "unchecked_low_level_calls_mishandled",
+  "pragma": "pragma solidity ^0.4.0;",
+  "solc_version": "0.4.0",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

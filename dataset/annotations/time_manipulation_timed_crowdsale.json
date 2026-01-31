@@ -1,0 +1,10 @@
+{
+  "contract": "time_manipulation_timed_crowdsale.sol",
+  "vulnerabilities": [
+    {
+      "type": "time manipulation",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

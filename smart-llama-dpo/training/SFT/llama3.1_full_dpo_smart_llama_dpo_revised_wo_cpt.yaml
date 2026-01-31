@@ -1,0 +1,45 @@
+# model
+# model_name_or_path: /gemini/platform/public/trained_models/sft/Llama3.1_8B-2024.09.06-label.smart_llama_all_mix_general-exp.01/checkpoint-250
+model_name_or_path: /gemini/platform/public/trained_models/sft/Llama3.1_8B-2025.02.08-label.smart_llama_dpo_with_machine_unauditable_wo_dpo_cpt-exp.01/checkpoint-150
+
+### method
+stage: dpo
+do_train: true
+finetuning_type: full
+
+# ddp
+ddp_timeout: 180000000
+deepspeed: ../LLaMA-Factory/examples/deepspeed/ds_z3_config.json
+
+### dataset
+dataset_dir: /gemini/platform/public/users/yulei/Smart-LLaMA-DPO/data/dpo
+dataset: dpo_reentrancy, dpo_timestamp, dpo_inter, dpo_delegatecall,dpo_av,dpo_ci,dpo_ea,dpo_is,dpo_iu,dpo_pe,dpo_po
+# dataset: dpo_smart_llama_timestamp, dpo_smart_llama_inter, dpo_smart_llama_delegatecall
+# dataset: dpo_smart_llama_timestamp, dpo_smart_llama_inter, dpo_smart_llama_delegatecall
+# dataset: dpo_smart_llama_reentrancy, dpo_smart_llama_timestamp, dpo_smart_llama_inter, dpo_smart_llama_delegatecall
+
+template: llama3
+cutoff_len: 1024
+max_samples: 1000
+overwrite_cache: true
+preprocessing_num_workers: 60
+
+### output
+output_dir: /gemini/platform/public/trained_models/dpo/Llama3.1_8B-2025.02.08-label.smart_llama_dpo_with_machine_unauditable_wo_cpt-exp.01
+logging_steps: 5
+save_steps: 10
+plot_loss: true
+overwrite_output_dir: true
+
+
+# train
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 1
+split_batches: true
+dispatch_batches: false
+learning_rate: 0.00001
+num_train_epochs: 50.0
+lr_scheduler_type: cosine
+warmup_steps: 0
+fp16: true
+report_to: wandb

@@ -1,0 +1,17 @@
+{
+  "tool": "smartllama",
+  "contract": "bad_randomness_random_number_generator.sol",
+  "contract_stem": "bad_randomness_random_number_generator",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "denial_of_service",
+    "front_running",
+    "time_manipulation"
+  ],
+  "num_findings": 6,
+  "elapsed_s": 4.3689634799957275,
+  "note": "fallback_text_parse_no_json"
+}

@@ -1,0 +1,55 @@
+# model
+# model_name_or_path: /gemini/platform/public/trained_models/pretrain/Llama3.1_8B-2024.09.05-label.smart_llama_mix_general_cpt-exp.00/checkpoint-1000
+model_name_or_path: /gemini/platform/public/llm/huggingface/Llama/meta-llama-3.1-8b
+
+# method
+stage: sft
+do_train: true
+finetuning_type: full
+
+# ddp
+ddp_timeout: 180000000
+deepspeed: ../LLaMA-Factory/examples/deepspeed/ds_z3_config.json
+
+# dataset
+dataset_dir: /gemini/platform/public/users/yulei/Smart-LLaMA-DPO/data/sft
+# dataset: source3_reentrancy, source3_timestamp, source3_integeroverflow, source3_delegatecall, smartbugs_reentrancy, smartbugs_delegatecall, ESC_timestamp
+# dataset: source3_timestamp, source3_integeroverflow, source3_delegatecall, smartbugs_reentrancy, smartbugs_delegatecall, ESC_timestamp
+# dataset: source3_integeroverflow
+# dataset: source3_reentrancy, smartbugs_reentrancy
+dataset: sft_reentrancy, sft_timestamp, sft_integeroverflow, sft_delegatecall, sft_av, sft_ci, sft_ea, sft_is, sft_iu, sft_pe, sft_po
+# dataset: source3_delegatecall
+# dataset: source3_timestamp, source3_integeroverflow, source3_delegatecall, ESC_timestamp
+# dataset: source3_reentrancy, source3_timestamp, source3_integeroverflow, smartbugs_reentrancy, ESC_timestamp
+
+template: llama3
+cutoff_len: 2048
+max_samples: 2000000
+overwrite_cache: true
+preprocessing_num_workers: 60
+# streaming: true
+# max_steps: 8000
+
+# output
+# output_dir: /gemini/platform/public/trained_models/sft/Llama3.1_8B-2024.09.06-label.smart_llama_de_io_mix_general-exp.01
+# output_dir: /gemini/platform/public/trained_models/sft/Llama3.1_8B-2024.09.06-label.smart_llama_all_mix_general-exp.00
+# output_dir: /gemini/platform/public/trained_models/sft/Llama3.1_8B-2024.09.06-label.smart_llama_re_tp_io_mix_general-exp.00
+# output_dir: /gemini/platform/public/trained_models/sft/Llama3.1_8B-2025.02.04-label.smart_llama_dpo_with_machine_unauditable-exp.01
+output_dir: /gemini/platform/public/trained_models/sft/Llama3.1_8B-2025.02.08-label.smart_llama_dpo_with_machine_unauditable_wo_dpo_cpt-exp.01
+
+logging_steps: 5
+save_steps: 50
+plot_loss: true
+overwrite_output_dir: true
+
+# train
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 8
+split_batches: true
+dispatch_batches: false
+learning_rate: 0.00001
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_steps: 0
+fp16: true
+report_to: wandb

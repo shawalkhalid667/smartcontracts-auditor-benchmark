@@ -1,0 +1,14 @@
+{
+  "tool": "ftaudit",
+  "contract": "reentrancy_0xaae1f51cf3339f18b6d3f3bdc75a5facd744b0b8.sol",
+  "contract_stem": "reentrancy_0xaae1f51cf3339f18b6d3f3bdc75a5facd744b0b8",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 6.5874433517456055,
+  "note": "fallback_text_parse_no_json"
+}

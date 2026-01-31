@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "access_control_wallet_02_refund_nosub.sol",
+  "contract_stem": "access_control_wallet_02_refund_nosub",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 5.8874945640563965,
+  "note": "fallback_text_parse_no_json"
+}

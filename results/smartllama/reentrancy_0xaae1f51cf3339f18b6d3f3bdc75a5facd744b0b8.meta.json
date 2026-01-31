@@ -1,0 +1,13 @@
+{
+  "tool": "smartllama",
+  "contract": "reentrancy_0xaae1f51cf3339f18b6d3f3bdc75a5facd744b0b8.sol",
+  "contract_stem": "reentrancy_0xaae1f51cf3339f18b6d3f3bdc75a5facd744b0b8",
+  "returncode": 0,
+  "detected_categories": [
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 2,
+  "elapsed_s": 2.703131675720215,
+  "note": "fallback_text_parse_no_json"
+}

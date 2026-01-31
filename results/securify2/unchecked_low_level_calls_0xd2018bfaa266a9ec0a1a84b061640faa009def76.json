@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "unchecked_low_level_calls_0xd2018bfaa266a9ec0a1a84b061640faa009def76.sol",
+  "contract_stem": "unchecked_low_level_calls_0xd2018bfaa266a9ec0a1a84b061640faa009def76",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

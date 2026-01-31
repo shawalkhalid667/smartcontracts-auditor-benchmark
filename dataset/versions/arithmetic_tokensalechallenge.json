@@ -1,0 +1,4 @@
+{
+  "contract": "arithmetic_tokensalechallenge.sol",
+  "pragma": "pragma solidity ^0.4.21;"
+}

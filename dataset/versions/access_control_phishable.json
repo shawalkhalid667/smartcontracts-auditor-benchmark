@@ -1,0 +1,4 @@
+{
+  "contract": "access_control_phishable.sol",
+  "pragma": "pragma solidity ^0.4.22;"
+}

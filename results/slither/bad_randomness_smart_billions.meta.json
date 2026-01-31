@@ -1,0 +1,412 @@
+{
+  "tool": "slither",
+  "contract": "bad_randomness_smart_billions.sol",
+  "contract_stem": "bad_randomness_smart_billions",
+  "pragma": "pragma solidity ^0.4.13;",
+  "solc_version": "0.4.13",
+  "returncode": 255,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "controlled-array-length",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "controlled-array-length",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "controlled-array-length",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "erc20-interface",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "erc20-interface",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "erc20-interface",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "erc20-interface",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "erc20-interface",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "erc20-interface",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "divide-before-multiply",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "divide-before-multiply",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "shadowing-local",
+      "impact": "Low",
+      "confidence": "High"
+    },
+    {
+      "check": "events-access",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "events-access",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "events-maths",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "events-maths",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "costly-loop",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "too-many-digits",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "too-many-digits",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "too-many-digits",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "too-many-digits",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "too-many-digits",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "too-many-digits",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "cache-array-length",
+      "impact": "Optimization",
+      "confidence": "High"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    }
+  ]
+}

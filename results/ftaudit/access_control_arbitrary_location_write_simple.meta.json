@@ -1,0 +1,18 @@
+{
+  "tool": "ftaudit",
+  "contract": "access_control_arbitrary_location_write_simple.sol",
+  "contract_stem": "access_control_arbitrary_location_write_simple",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "short_addresses",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 7,
+  "elapsed_s": 6.028656482696533,
+  "note": "fallback_text_parse_no_json"
+}

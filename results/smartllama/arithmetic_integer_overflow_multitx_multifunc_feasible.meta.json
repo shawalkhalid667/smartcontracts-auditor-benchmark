@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "arithmetic_integer_overflow_multitx_multifunc_feasible.sol",
+  "contract_stem": "arithmetic_integer_overflow_multitx_multifunc_feasible",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 2.224696159362793,
+  "note": "fallback_text_parse_no_json"
+}

@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "reentrancy_reentrancy_dao.sol",
+  "contract_stem": "reentrancy_reentrancy_dao",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.483376979827881,
+  "note": "ranked_relations",
+  "chosen_contract": "ReentrancyDAO",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/reentrancy_reentrancy_dao",
+  "relations_count": 14
+}

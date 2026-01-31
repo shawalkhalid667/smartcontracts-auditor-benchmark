@@ -1,0 +1,35 @@
+{
+  "tool": "smartcheck",
+  "contract": "access_control_mycontract.sol",
+  "contract_stem": "access_control_mycontract",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 8,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_TX_ORIGIN",
+      "patternId": "12e802",
+      "severity": 2,
+      "line": 20,
+      "column": 16,
+      "content": "tx.origin"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 12,
+      "column": 4,
+      "content": "addressowner;"
+    }
+  ],
+  "detected_categories": [
+    "access_control"
+  ]
+}

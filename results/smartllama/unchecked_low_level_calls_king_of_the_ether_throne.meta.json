@@ -1,0 +1,15 @@
+{
+  "tool": "smartllama",
+  "contract": "unchecked_low_level_calls_king_of_the_ether_throne.sol",
+  "contract_stem": "unchecked_low_level_calls_king_of_the_ether_throne",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 5.760302543640137,
+  "note": "fallback_text_parse_no_json"
+}

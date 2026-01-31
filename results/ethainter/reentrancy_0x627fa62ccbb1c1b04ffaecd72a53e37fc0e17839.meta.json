@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "reentrancy_0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839.sol",
+  "contract_stem": "reentrancy_0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.498412847518921,
+  "note": "ranked_relations",
+  "chosen_contract": "TokenBank",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/reentrancy_0x627fa62ccbb1c1b04ffaecd72a53e37fc0e17839",
+  "relations_count": 14
+}

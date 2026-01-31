@@ -1,0 +1,9 @@
+TP = 100
+FP = 10
+FN = 16
+TN = 344
+
+Accuracy: 0.9447
+Precision: 0.9091
+Recall: 0.8621
+F1 Score: 0.8850

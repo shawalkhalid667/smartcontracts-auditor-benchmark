@@ -1,0 +1,155 @@
+RETURN_CODE:
+0
+
+STDOUT:
+/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/denial_of_service_list_dos.sol
+jar:file:/opt/homebrew/lib/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 94
+column: 9
+content: for(uinti=lastCreditorPayedOut;i<creditorAmounts.length;i++){debt+=creditorAmounts[i];}
+
+ruleId: SOLIDITY_EXTRA_GAS_IN_LOOPS
+patternId: d3j11j
+severity: 1
+line: 100
+column: 9
+content: for(uinti=0;i<lastCreditorPayedOut;i++){payout+=creditorAmounts[i];}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 93
+column: 5
+content: functiontotalDebt()returns(uintdebt){for(uinti=lastCreditorPayedOut;i<creditorAmounts.length;i++){debt+=creditorAmounts[i];}}
+
+ruleId: SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN
+patternId: 58bdd3
+severity: 1
+line: 99
+column: 5
+content: functiontotalPayedOut()returns(uintpayout){for(uinti=0;i<lastCreditorPayedOut;i++){payout+=creditorAmounts[i];}}
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 8
+column: 16
+content: ^
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 23
+column: 5
+content: functionGovernment(){profitFromCrash=msg.value;corruptElite=msg.sender;lastTimeOfNewCredit=block.timestamp;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 31
+column: 5
+content: functionlendGovernmentMoney(addressbuddy)returns(bool){uintamount=msg.value;if(lastTimeOfNewCredit+TWELVE_HOURS<block.timestamp){msg.sender.send(amount);creditorAddresses[creditorAddresses.length-1].send(profitFromCrash);corruptElite.send(this.balance);lastCreditorPayedOut=0;lastTimeOfNewCredit=block.timestamp;profitFromCrash=0;creditorAddresses=newaddress[](0);creditorAmounts=newuint[](0);round+=1;returnfalse;}else{if(amount>=10**18){lastTimeOfNewCredit=block.timestamp;creditorAddresses.push(msg.sender);creditorAmounts.push(amount*110/100);corruptElite.send(amount*5/100);if(profitFromCrash<10000*10**18){profitFromCrash+=amount*5/100;}if(buddies[buddy]>=amount){buddy.send(amount*5/100);}buddies[msg.sender]+=amount*110/100;if(creditorAmounts[lastCreditorPayedOut]<=address(this).balance-profitFromCrash){creditorAddresses[lastCreditorPayedOut].send(creditorAmounts[lastCreditorPayedOut]);buddies[creditorAddresses[lastCreditorPayedOut]]-=creditorAmounts[lastCreditorPayedOut];lastCreditorPayedOut+=1;}returntrue;}else{msg.sender.send(amount);returnfalse;}}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 89
+column: 5
+content: function(){lendGovernmentMoney(0);}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 93
+column: 5
+content: functiontotalDebt()returns(uintdebt){for(uinti=lastCreditorPayedOut;i<creditorAmounts.length;i++){debt+=creditorAmounts[i];}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 99
+column: 5
+content: functiontotalPayedOut()returns(uintpayout){for(uinti=0;i<lastCreditorPayedOut;i++){payout+=creditorAmounts[i];}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 106
+column: 5
+content: functioninvestInTheSystem(){profitFromCrash+=msg.value;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 111
+column: 5
+content: functioninheritToNextGeneration(addressnextGeneration){if(msg.sender==corruptElite){corruptElite=nextGeneration;}}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 117
+column: 5
+content: functiongetCreditorAddresses()returns(address[]){returncreditorAddresses;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 121
+column: 5
+content: functiongetCreditorAmounts()returns(uint[]){returncreditorAmounts;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 19
+column: 5
+content: mapping(address=>uint)buddies;
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 20
+column: 5
+content: uintconstantTWELVE_HOURS=43200;
+
+SOLIDITY_VISIBILITY :11
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_FUNCTIONS_RETURNS_TYPE_AND_NO_RETURN :2
+SOLIDITY_EXTRA_GAS_IN_LOOPS :2
+
+
+STDERR:
+(node:16495) Warning: Accessing non-existent property 'cat' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:16495) Warning: Accessing non-existent property 'cd' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'chmod' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'cp' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'dirs' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'pushd' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'popd' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'echo' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'tempdir' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'pwd' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'exec' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'ls' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'find' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'grep' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'head' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'ln' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'mkdir' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'rm' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'mv' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'sed' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'set' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'sort' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'tail' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'test' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'to' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'toEnd' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'touch' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'uniq' of module exports inside circular dependency
+(node:16495) Warning: Accessing non-existent property 'which' of module exports inside circular dependency
+

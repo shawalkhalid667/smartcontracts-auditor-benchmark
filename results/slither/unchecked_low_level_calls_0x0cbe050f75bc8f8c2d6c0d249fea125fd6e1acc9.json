@@ -1,0 +1,439 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "callAddress",
+            "source_mapping": {
+              "start": 124,
+              "length": 102,
+              "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "is_dependency": false,
+              "lines": [
+                10,
+                11,
+                12,
+                13
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "Caller",
+                "source_mapping": {
+                  "start": 102,
+                  "length": 126,
+                  "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 0
+                }
+              },
+              "signature": "callAddress(address)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "a.call()",
+            "source_mapping": {
+              "start": 211,
+              "length": 8,
+              "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "is_dependency": false,
+              "lines": [
+                12
+              ],
+              "starting_column": 9,
+              "ending_column": 17
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "callAddress",
+                "source_mapping": {
+                  "start": 124,
+                  "length": 102,
+                  "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    10,
+                    11,
+                    12,
+                    13
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "Caller",
+                    "source_mapping": {
+                      "start": 102,
+                      "length": 126,
+                      "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "callAddress(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Caller.callAddress(address) (dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#10-13) ignores return value by a.call() (dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#12)\n",
+        "markdown": "[Caller.callAddress(address)](dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#L10-L13) ignores return value by [a.call()](dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#L12)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#L10-L13",
+        "id": "1e7e545f4ca4fd1036ebe11b5a1883ee3363df5641482644da0d3dc96be9625f",
+        "check": "unchecked-lowlevel",
+        "impact": "Medium",
+        "confidence": "Medium"
+      },
+      {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "a",
+            "source_mapping": {
+              "start": 145,
+              "length": 9,
+              "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "is_dependency": false,
+              "lines": [
+                10
+              ],
+              "starting_column": 26,
+              "ending_column": 35
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "callAddress",
+                "source_mapping": {
+                  "start": 124,
+                  "length": 102,
+                  "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    10,
+                    11,
+                    12,
+                    13
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "Caller",
+                    "source_mapping": {
+                      "start": 102,
+                      "length": 126,
+                      "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "callAddress(address)"
+                }
+              }
+            }
+          },
+          {
+            "type": "node",
+            "name": "a.call()",
+            "source_mapping": {
+              "start": 211,
+              "length": 8,
+              "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "is_dependency": false,
+              "lines": [
+                12
+              ],
+              "starting_column": 9,
+              "ending_column": 17
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "callAddress",
+                "source_mapping": {
+                  "start": 124,
+                  "length": 102,
+                  "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    10,
+                    11,
+                    12,
+                    13
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "Caller",
+                    "source_mapping": {
+                      "start": 102,
+                      "length": 126,
+                      "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "callAddress(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Caller.callAddress(address).a (dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#10) lacks a zero-check on :\n\t\t- a.call() (dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#12)\n",
+        "markdown": "[Caller.callAddress(address).a](dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#L10) lacks a zero-check on :\n\t\t- [a.call()](dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#L12)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#L10",
+        "id": "c530f61dde3c1083a9914b0c37340e5f816fcd02a36ac31ef7611e3c76db8c79",
+        "check": "missing-zero-check",
+        "impact": "Low",
+        "confidence": "Medium"
+      },
+      {
+        "elements": [],
+        "description": "solc-0.4.10 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "markdown": "solc-0.4.10 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "first_markdown_element": "",
+        "id": "4ac82425b0a943e327d5d9ee5cb00a22d907f66ff85127fc58405fa72a95c44b",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.4.10",
+            "source_mapping": {
+              "start": 76,
+              "length": 24,
+              "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "is_dependency": false,
+              "lines": [
+                7
+              ],
+              "starting_column": 1,
+              "ending_column": 25
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.4",
+                ".10"
+              ]
+            }
+          }
+        ],
+        "description": "Version constraint ^0.4.10 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ExpExponentCleanup\n\t- NestedArrayFunctionCallDecoder\n\t- ZeroFunctionSelector\n\t- DelegateCallReturnValue\n\t- ECRecoverMalformedInput\n\t- SkipEmptyStringLiteral\n\t- ConstantOptimizerSubtraction.\nIt is used by:\n\t- ^0.4.10 (dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#7)\n",
+        "markdown": "Version constraint ^0.4.10 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ExpExponentCleanup\n\t- NestedArrayFunctionCallDecoder\n\t- ZeroFunctionSelector\n\t- DelegateCallReturnValue\n\t- ECRecoverMalformedInput\n\t- SkipEmptyStringLiteral\n\t- ConstantOptimizerSubtraction.\nIt is used by:\n\t- [^0.4.10](dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#L7)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#L7",
+        "id": "67e5c1b477537579441257aa060364c64c55647b60ecec6922b41754216a8bf9",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "callAddress",
+            "source_mapping": {
+              "start": 124,
+              "length": 102,
+              "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "is_dependency": false,
+              "lines": [
+                10,
+                11,
+                12,
+                13
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "Caller",
+                "source_mapping": {
+                  "start": 102,
+                  "length": 126,
+                  "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 0
+                }
+              },
+              "signature": "callAddress(address)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "a.call()",
+            "source_mapping": {
+              "start": 211,
+              "length": 8,
+              "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+              "is_dependency": false,
+              "lines": [
+                12
+              ],
+              "starting_column": 9,
+              "ending_column": 17
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "callAddress",
+                "source_mapping": {
+                  "start": 124,
+                  "length": 102,
+                  "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    10,
+                    11,
+                    12,
+                    13
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "Caller",
+                    "source_mapping": {
+                      "start": 102,
+                      "length": 126,
+                      "filename_relative": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "filename_short": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 0
+                    }
+                  },
+                  "signature": "callAddress(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in Caller.callAddress(address) (dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#10-13):\n\t- a.call() (dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#12)\n",
+        "markdown": "Low level call in [Caller.callAddress(address)](dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#L10-L13):\n\t- [a.call()](dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#L12)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol#L10-L13",
+        "id": "ed6efb1f12c2262b3d739fe0f2efe77b64bb00ec6cd755e29169210b5be1d3a5",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    ]
+  }
+}

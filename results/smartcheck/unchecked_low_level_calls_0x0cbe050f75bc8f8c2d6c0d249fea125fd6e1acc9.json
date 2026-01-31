@@ -1,0 +1,51 @@
+{
+  "tool": "smartcheck",
+  "contract": "unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+  "contract_stem": "unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_CALL_WITHOUT_DATA",
+      "patternId": "om991k",
+      "severity": 2,
+      "line": 12,
+      "column": 10,
+      "content": "call()"
+    },
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_UNCHECKED_CALL",
+      "patternId": "f39eed",
+      "severity": 3,
+      "line": 12,
+      "column": 10,
+      "content": "call()"
+    },
+    {
+      "ruleId": "SOLIDITY_UPGRADE_TO_050",
+      "patternId": "83k1no",
+      "severity": 1,
+      "line": 12,
+      "column": 10,
+      "content": "call()"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "910067",
+      "severity": 1,
+      "line": 10,
+      "column": 4,
+      "content": "functioncallAddress(addressa){a.call();}"
+    }
+  ],
+  "detected_categories": [
+    "unchecked_low_level_calls"
+  ]
+}

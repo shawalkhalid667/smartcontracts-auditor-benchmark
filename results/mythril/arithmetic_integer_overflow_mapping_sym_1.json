@@ -1,0 +1,100 @@
+{
+  "error": null,
+  "issues": [
+    {
+      "address": 11,
+      "code": "contract IntegerOverflowMappingSym1 {\n    mapping(uint256 => uint256) map;\n\n    function init(uint256 k, uint256 v) public {\n        // <yes> <report> ARITHMETIC\n        map[k] -= v;\n    }\n}",
+      "contract": "IntegerOverflowMappingSym1",
+      "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/arithmetic_integer_overflow_mapping_sym_1.sol",
+      "function": "constructor",
+      "lineno": 11,
+      "max_gas_used": 131,
+      "min_gas_used": 36,
+      "severity": "Medium",
+      "sourceMap": "262:190:0:-",
+      "swc-id": "110",
+      "title": "Exception State",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x2",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052341561000c57fe5b5b60b28061001b6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063a5843f0814603a575bfe5b3415604157fe5b605e60048080359060200190919080359060200190919050506060565b005b8060006000848152602001908152602001600020600082825403925050819055505b50505600a165627a7a7230582079ef9b2824ddcebfb91fa33aacadeb0231a26b54cba7fb5aff209179d5ab42220029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x1"
+          }
+        ]
+      }
+    },
+    {
+      "address": 57,
+      "code": "contract IntegerOverflowMappingSym1 {\n    mapping(uint256 => uint256) map;\n\n    function init(uint256 k, uint256 v) public {\n        // <yes> <report> ARITHMETIC\n        map[k] -= v;\n    }\n}",
+      "contract": "IntegerOverflowMappingSym1",
+      "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/arithmetic_integer_overflow_mapping_sym_1.sol",
+      "function": "fallback",
+      "lineno": 11,
+      "max_gas_used": 159,
+      "min_gas_used": 64,
+      "severity": "Medium",
+      "sourceMap": "262:190:0:-",
+      "swc-id": "110",
+      "title": "Exception State",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x10000000020000000",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052341561000c57fe5b5b60b28061001b6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063a5843f0814603a575bfe5b3415604157fe5b605e60048080359060200190919080359060200190919050506060565b005b8060006000848152602001908152602001600020600082825403925050819055505b50505600a165627a7a7230582079ef9b2824ddcebfb91fa33aacadeb0231a26b54cba7fb5aff209179d5ab42220029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x",
+            "input": "0x",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          }
+        ]
+      }
+    }
+  ],
+  "success": true
+}

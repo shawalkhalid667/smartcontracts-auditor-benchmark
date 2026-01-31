@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "arithmetic_timelock.sol",
+  "contract_stem": "arithmetic_timelock",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

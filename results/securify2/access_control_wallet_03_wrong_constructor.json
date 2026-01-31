@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "access_control_wallet_03_wrong_constructor.sol",
+  "contract_stem": "access_control_wallet_03_wrong_constructor",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

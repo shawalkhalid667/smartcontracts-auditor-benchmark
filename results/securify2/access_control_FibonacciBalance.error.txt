@@ -1,0 +1,50 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/static/static_analysis_patterns.py", line 73, in find_matches
+    static = analysis_context.static_analysis
+  File "/sec/securify/analyses/analysis.py", line 88, in static_analysis
+    self._static = self.config.static_analysis(self)
+  File "securify/__main__.py", line 255, in <lambda>
+    static_analysis=lambda t: static_analysis.analyze_cfg(t.cfg, **souffle_config),
+  File "/sec/securify/analyses/analysis.py", line 81, in cfg
+    self._cfg = self.config.cfg_compiler(self)
+  File "securify/__main__.py", line 254, in <lambda>
+    cfg_compiler=lambda t: solidity_cfg_compiler.compile_cfg(t.ast).cfg,
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:26:5: SyntaxError: No visibility specified. Did you intend to add "public"?
+    function withdraw() {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:36:5: TypeError: Fallback function must be defined as "external".
+    function() public {
+    ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:19:37: TypeError: "sha3" has been deprecated in favour of "keccak256"
+    bytes4 constant fibSig = bytes4(sha3("setFibonacci(uint256)"));
+                                    ^--^
+
+fixed_pragma.sol:31:17: TypeError: Wrong argument count for function call: 2 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.
+        require(fibonacciLibrary.delegatecall(fibSig, withdrawalCounter));
+                ^------------------------------------------------------^
+
+fixed_pragma.sol:31:9: TypeError: No matching declaration found after argument-dependent lookup.
+        require(fibonacciLibrary.delegatecall(fibSig, withdrawalCounter));
+        ^-----^
+
+        > command: `solc --allow-paths / --standard-json`
+        > return code: `0`
+        > stderr:
+        {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:26:5: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n    function withdraw() {\n    ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":1059,"file":"fixed_pragma.sol","start":709},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:36:5: TypeError: Fallback function must be defined as \"external\".\n    function() public {\n    ^ (Relevant source part starts here and spans across multiple lines).\n","message":"Fallback function must be defined as \"external\".","severity":"error","sourceLocation":{"end":1244,"file":"fixed_pragma.sol","start":1120},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:19:37: TypeError: \"sha3\" has been deprecated in favour of \"keccak256\"\n    bytes4 constant fibSig = bytes4(sha3(\"setFibonacci(uint256)\"));\n                                    ^--^\n","message":"\"sha3\" has been deprecated in favour of \"keccak256\"","severity":"error","sourceLocation":{"end":512,"file":"fixed_pragma.sol","start":508},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:31:17: TypeError: Wrong argument count for function call: 2 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.\n        require(fibonacciLibrary.delegatecall(fibSig, withdrawalCounter));\n                ^------------------------------------------------------^\n","message":"Wrong argument count for function call: 2 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.","severity":"error","sourceLocation":{"end":991,"file":"fixed_pragma.sol","start":935},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:31:9: TypeError: No matching declaration found after argument-dependent lookup.\n        require(fibonacciLibrary.delegatecall(fibSig, withdrawalCounter));\n        ^-----^\n","message":"No matching declaration found after argument-dependent lookup.","severity":"error","sourceLocation":{"end":934,"file":"fixed_pragma.sol","start":927},"type":"TypeError"}],"sources":{}}
+
+        > stdout:

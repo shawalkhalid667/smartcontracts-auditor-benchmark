@@ -1,0 +1,16 @@
+{
+  "tool": "ftaudit",
+  "contract": "other_crypto_roulette.sol",
+  "contract_stem": "other_crypto_roulette",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 9.551711082458496,
+  "note": "fallback_text_parse_no_json"
+}

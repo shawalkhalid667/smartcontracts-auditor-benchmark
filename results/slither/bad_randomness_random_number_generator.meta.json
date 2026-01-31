@@ -1,0 +1,34 @@
+{
+  "tool": "slither",
+  "contract": "bad_randomness_random_number_generator.sol",
+  "contract_stem": "bad_randomness_random_number_generator",
+  "pragma": "pragma solidity ^0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "weak-prng",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "dead-code",
+      "impact": "Informational",
+      "confidence": "Medium"
+    }
+  ]
+}

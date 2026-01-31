@@ -1,0 +1,41 @@
+# model
+model_name_or_path: /gemini/platform/public/llm/huggingface/Llama/meta-llama-3.1-8b
+
+# method
+stage: pt
+do_train: true
+finetuning_type: full
+
+# ddp
+ddp_timeout: 180000000
+deepspeed: ../LLaMA-Factory/examples/deepspeed/ds_z3_config.json
+
+# dataset
+dataset_dir: /gemini/platform/public/users/yulei/Smart_Contract_Code_CPT
+dataset: Smart_Contract_Code_CPT, Smart_Contract_Code_CPT_Mix_General
+template: llama3
+cutoff_len: 2048
+# max_samples: 2000000
+overwrite_cache: true
+preprocessing_num_workers: 60
+streaming: true
+max_steps: 10000
+
+# output
+output_dir: /gemini/platform/public/trained_models/pretrain/Llama3.1_8B-2024.09.05-label.smart_llama_mix_general_cpt-exp.00
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+
+# train
+per_device_train_batch_size: 64
+gradient_accumulation_steps: 16
+split_batches: true
+dispatch_batches: false
+learning_rate: 0.00001
+num_train_epochs: 2.0
+lr_scheduler_type: cosine
+warmup_steps: 0
+fp16: true
+report_to: wandb

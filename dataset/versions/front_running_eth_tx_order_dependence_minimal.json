@@ -1,0 +1,4 @@
+{
+  "contract": "front_running_eth_tx_order_dependence_minimal.sol",
+  "pragma": "pragma solidity ^0.4.16;"
+}

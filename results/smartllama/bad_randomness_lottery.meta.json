@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "bad_randomness_lottery.sol",
+  "contract_stem": "bad_randomness_lottery",
+  "returncode": 0,
+  "detected_categories": [
+    "other"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 2.954460859298706,
+  "note": "fallback_text_parse_no_json"
+}

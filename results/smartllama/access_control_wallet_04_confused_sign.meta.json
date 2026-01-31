@@ -1,0 +1,15 @@
+{
+  "tool": "smartllama",
+  "contract": "access_control_wallet_04_confused_sign.sol",
+  "contract_stem": "access_control_wallet_04_confused_sign",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.2985827922821045,
+  "note": "fallback_text_parse_no_json"
+}

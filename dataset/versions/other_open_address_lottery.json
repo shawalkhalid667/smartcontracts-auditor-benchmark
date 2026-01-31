@@ -1,0 +1,4 @@
+{
+  "contract": "other_open_address_lottery.sol",
+  "pragma": "pragma solidity ^0.4.19;"
+}

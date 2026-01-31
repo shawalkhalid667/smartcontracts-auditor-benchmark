@@ -1,0 +1,14 @@
+{
+  "tool": "ftaudit",
+  "contract": "reentrancy_etherbank.sol",
+  "contract_stem": "reentrancy_etherbank",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 6.277410984039307,
+  "note": "fallback_text_parse_no_json"
+}

@@ -1,0 +1,4 @@
+{
+  "contract": "time_manipulation_roulette.sol",
+  "pragma": "pragma solidity ^0.4.25;"
+}

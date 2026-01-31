@@ -1,0 +1,16 @@
+{
+  "tool": "ftaudit",
+  "contract": "front_running_FindThisHash.sol",
+  "contract_stem": "front_running_FindThisHash",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "front_running",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 6.681220531463623,
+  "note": "fallback_text_parse_no_json"
+}

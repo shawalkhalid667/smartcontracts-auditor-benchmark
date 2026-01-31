@@ -1,0 +1,333 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [],
+        "description": "solc-0.4.24 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "markdown": "solc-0.4.24 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "first_markdown_element": "",
+        "id": "1d687d794f954ee692ca1d58ad5dd8291a8a0b5c0bcc4409d2dd8afb7258e605",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.4.24",
+            "source_mapping": {
+              "start": 183,
+              "length": 24,
+              "filename_relative": "dataset/smartbugs_curated/front_running_ERC20.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_ERC20.sol",
+              "filename_short": "dataset/smartbugs_curated/front_running_ERC20.sol",
+              "is_dependency": false,
+              "lines": [
+                7
+              ],
+              "starting_column": 1,
+              "ending_column": 25
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.4",
+                ".24"
+              ]
+            }
+          }
+        ],
+        "description": "Version constraint ^0.4.24 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x\n\t- ExpExponentCleanup\n\t- EventStructWrongData.\nIt is used by:\n\t- ^0.4.24 (dataset/smartbugs_curated/front_running_ERC20.sol#7)\n",
+        "markdown": "Version constraint ^0.4.24 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x\n\t- ExpExponentCleanup\n\t- EventStructWrongData.\nIt is used by:\n\t- [^0.4.24](dataset/smartbugs_curated/front_running_ERC20.sol#L7)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/front_running_ERC20.sol#L7",
+        "id": "5cd5374010b72fa0421d87c435c307f4f9b8fe2af05089962bbf79685205a15d",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "_totalSupply",
+            "source_mapping": {
+              "start": 2195,
+              "length": 28,
+              "filename_relative": "dataset/smartbugs_curated/front_running_ERC20.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_ERC20.sol",
+              "filename_short": "dataset/smartbugs_curated/front_running_ERC20.sol",
+              "is_dependency": false,
+              "lines": [
+                84
+              ],
+              "starting_column": 3,
+              "ending_column": 31
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "ERC20",
+                "source_mapping": {
+                  "start": 1869,
+                  "length": 1717,
+                  "filename_relative": "dataset/smartbugs_curated/front_running_ERC20.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_ERC20.sol",
+                  "filename_short": "dataset/smartbugs_curated/front_running_ERC20.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    74,
+                    75,
+                    76,
+                    77,
+                    78,
+                    79,
+                    80,
+                    81,
+                    82,
+                    83,
+                    84,
+                    85,
+                    86,
+                    87,
+                    88,
+                    89,
+                    90,
+                    91,
+                    92,
+                    93,
+                    94,
+                    95,
+                    96,
+                    97,
+                    98,
+                    99,
+                    100,
+                    101,
+                    102,
+                    103,
+                    104,
+                    105,
+                    106,
+                    107,
+                    108,
+                    109,
+                    110,
+                    111,
+                    112,
+                    113,
+                    114,
+                    115,
+                    116,
+                    117,
+                    118,
+                    119,
+                    120,
+                    121,
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 0
+                }
+              }
+            }
+          },
+          {
+            "type": "contract",
+            "name": "ERC20",
+            "source_mapping": {
+              "start": 1869,
+              "length": 1717,
+              "filename_relative": "dataset/smartbugs_curated/front_running_ERC20.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_ERC20.sol",
+              "filename_short": "dataset/smartbugs_curated/front_running_ERC20.sol",
+              "is_dependency": false,
+              "lines": [
+                74,
+                75,
+                76,
+                77,
+                78,
+                79,
+                80,
+                81,
+                82,
+                83,
+                84,
+                85,
+                86,
+                87,
+                88,
+                89,
+                90,
+                91,
+                92,
+                93,
+                94,
+                95,
+                96,
+                97,
+                98,
+                99,
+                100,
+                101,
+                102,
+                103,
+                104,
+                105,
+                106,
+                107,
+                108,
+                109,
+                110,
+                111,
+                112,
+                113,
+                114,
+                115,
+                116,
+                117,
+                118,
+                119,
+                120,
+                121,
+                122,
+                123,
+                124,
+                125,
+                126,
+                127,
+                128,
+                129,
+                130
+              ],
+              "starting_column": 1,
+              "ending_column": 0
+            }
+          }
+        ],
+        "description": "ERC20._totalSupply (dataset/smartbugs_curated/front_running_ERC20.sol#84) is never used in ERC20 (dataset/smartbugs_curated/front_running_ERC20.sol#74-130)\n",
+        "markdown": "[ERC20._totalSupply](dataset/smartbugs_curated/front_running_ERC20.sol#L84) is never used in [ERC20](dataset/smartbugs_curated/front_running_ERC20.sol#L74-L130)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/front_running_ERC20.sol#L84",
+        "id": "f62bacd27a691871b3eb1691bd99639a522abfe7ad7b5d79962cea114a2188fb",
+        "check": "unused-state",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "_totalSupply",
+            "source_mapping": {
+              "start": 2195,
+              "length": 28,
+              "filename_relative": "dataset/smartbugs_curated/front_running_ERC20.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_ERC20.sol",
+              "filename_short": "dataset/smartbugs_curated/front_running_ERC20.sol",
+              "is_dependency": false,
+              "lines": [
+                84
+              ],
+              "starting_column": 3,
+              "ending_column": 31
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "ERC20",
+                "source_mapping": {
+                  "start": 1869,
+                  "length": 1717,
+                  "filename_relative": "dataset/smartbugs_curated/front_running_ERC20.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/front_running_ERC20.sol",
+                  "filename_short": "dataset/smartbugs_curated/front_running_ERC20.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    74,
+                    75,
+                    76,
+                    77,
+                    78,
+                    79,
+                    80,
+                    81,
+                    82,
+                    83,
+                    84,
+                    85,
+                    86,
+                    87,
+                    88,
+                    89,
+                    90,
+                    91,
+                    92,
+                    93,
+                    94,
+                    95,
+                    96,
+                    97,
+                    98,
+                    99,
+                    100,
+                    101,
+                    102,
+                    103,
+                    104,
+                    105,
+                    106,
+                    107,
+                    108,
+                    109,
+                    110,
+                    111,
+                    112,
+                    113,
+                    114,
+                    115,
+                    116,
+                    117,
+                    118,
+                    119,
+                    120,
+                    121,
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 0
+                }
+              }
+            }
+          }
+        ],
+        "description": "ERC20._totalSupply (dataset/smartbugs_curated/front_running_ERC20.sol#84) should be constant \n",
+        "markdown": "[ERC20._totalSupply](dataset/smartbugs_curated/front_running_ERC20.sol#L84) should be constant \n",
+        "first_markdown_element": "dataset/smartbugs_curated/front_running_ERC20.sol#L84",
+        "id": "edd2b070cebf590d038b9a1a3db8f7743efe94e7265254850c51a707b62691d1",
+        "check": "constable-states",
+        "impact": "Optimization",
+        "confidence": "High"
+      }
+    ]
+  }
+}

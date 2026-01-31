@@ -1,0 +1,4 @@
+{
+  "contract": "access_control_wallet_03_wrong_constructor.sol",
+  "pragma": "pragma solidity ^0.4.24;"
+}

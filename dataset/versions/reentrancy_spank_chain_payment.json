@@ -1,0 +1,4 @@
+{
+  "contract": "reentrancy_spank_chain_payment.sol",
+  "pragma": "pragma solidity ^0.4.23;"
+}

@@ -1,0 +1,14 @@
+{
+  "tool": "smartllama",
+  "contract": "bad_randomness_guess_the_random_number.sol",
+  "contract_stem": "bad_randomness_guess_the_random_number",
+  "returncode": 0,
+  "detected_categories": [
+    "bad_randomness",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 3.9479446411132812,
+  "note": "fallback_text_parse_no_json"
+}

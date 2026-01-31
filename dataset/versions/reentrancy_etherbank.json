@@ -1,0 +1,4 @@
+{
+  "contract": "reentrancy_etherbank.sol",
+  "pragma": "pragma solidity ^0.4.0;"
+}

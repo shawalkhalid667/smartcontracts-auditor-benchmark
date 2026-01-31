@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "bad_randomness_etheraffle.sol",
+  "contract_stem": "bad_randomness_etheraffle",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

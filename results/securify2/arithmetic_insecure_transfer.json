@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "arithmetic_insecure_transfer.sol",
+  "contract_stem": "arithmetic_insecure_transfer",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

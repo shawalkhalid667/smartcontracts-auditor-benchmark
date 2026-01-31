@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "front_running_eth_tx_order_dependence_minimal.sol",
+  "contract_stem": "front_running_eth_tx_order_dependence_minimal",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.498246669769287,
+  "note": "ranked_relations",
+  "chosen_contract": "EthTxOrderDependenceMinimal",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/front_running_eth_tx_order_dependence_minimal",
+  "relations_count": 14
+}

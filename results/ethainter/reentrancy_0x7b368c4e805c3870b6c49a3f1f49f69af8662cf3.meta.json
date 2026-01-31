@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "reentrancy_0x7b368c4e805c3870b6c49a3f1f49f69af8662cf3.sol",
+  "contract_stem": "reentrancy_0x7b368c4e805c3870b6c49a3f1f49f69af8662cf3",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.5170040130615234,
+  "note": "ranked_relations",
+  "chosen_contract": "Log",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/reentrancy_0x7b368c4e805c3870b6c49a3f1f49f69af8662cf3",
+  "relations_count": 14
+}

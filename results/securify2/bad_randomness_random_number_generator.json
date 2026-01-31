@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "bad_randomness_random_number_generator.sol",
+  "contract_stem": "bad_randomness_random_number_generator",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

@@ -1,0 +1,14 @@
+{
+  "tool": "ftaudit",
+  "contract": "arithmetic_tokensalechallenge.sol",
+  "contract_stem": "arithmetic_tokensalechallenge",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 9.30972933769226,
+  "note": "fallback_text_parse_no_json"
+}

@@ -1,0 +1,14 @@
+{
+  "tool": "smartllama",
+  "contract": "access_control_unprotected0.sol",
+  "contract_stem": "access_control_unprotected0",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 3.4375360012054443,
+  "note": "fallback_text_parse_no_json"
+}

@@ -1,0 +1,11 @@
+{
+  "extends": "solhint:recommended",
+  "rules": {
+    "compiler-version": "off",
+    "avoid-call-value": "error",
+    "avoid-low-level-calls": "error",
+    "reentrancy": "error",
+    "no-inline-assembly": "off",
+    "not-rely-on-time": "error"
+  }
+}

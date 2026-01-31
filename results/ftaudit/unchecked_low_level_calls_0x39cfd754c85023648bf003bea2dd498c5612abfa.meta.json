@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "unchecked_low_level_calls_0x39cfd754c85023648bf003bea2dd498c5612abfa.sol",
+  "contract_stem": "unchecked_low_level_calls_0x39cfd754c85023648bf003bea2dd498c5612abfa",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 6.276188611984253,
+  "note": "fallback_text_parse_no_json"
+}

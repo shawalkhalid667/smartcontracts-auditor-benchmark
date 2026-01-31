@@ -1,0 +1,45 @@
+{
+  "tool": "slither",
+  "contract": "bad_randomness_etheraffle.sol",
+  "contract_stem": "bad_randomness_etheraffle",
+  "pragma": "pragma solidity ^0.4.16;",
+  "solc_version": "0.4.16",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "calls-loop",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "costly-loop",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    }
+  ]
+}

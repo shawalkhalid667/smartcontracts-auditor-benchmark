@@ -1,0 +1,34 @@
+{
+  "tool": "slither",
+  "contract": "access_control_unprotected0.sol",
+  "contract_stem": "access_control_unprotected0",
+  "pragma": "pragma solidity ^0.4.15;",
+  "solc_version": "0.4.15",
+  "returncode": 255,
+  "detected_categories": [
+    "access_control",
+    "arithmetic"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "missing-zero-check",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

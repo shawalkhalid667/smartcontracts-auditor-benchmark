@@ -1,0 +1,4 @@
+{
+  "contract": "front_running_odds_and_evens.sol",
+  "pragma": "pragma solidity ^0.4.2;"
+}

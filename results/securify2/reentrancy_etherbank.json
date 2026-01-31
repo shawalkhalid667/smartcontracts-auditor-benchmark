@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "reentrancy_etherbank.sol",
+  "contract_stem": "reentrancy_etherbank",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

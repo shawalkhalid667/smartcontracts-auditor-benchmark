@@ -1,0 +1,138 @@
+=== SOLC ===
+[env] python=/home/shawal/smart_contract_auditor_benchmark/smartllama_env/bin/python
+[pragma] ^0.4.23
+[choose] want_solc=0.4.26
+[solc-select] using=/home/shawal/smart_contract_auditor_benchmark/smartllama_env/bin/solc-select
+[solc-select use 0.4.26] rc=0
+Switched global version to 0.4.26
+
+[host solc_cmd='solc'] rc=0
+solc OK(host:0.4.26): chosen_contract=IntegerOverflowMultiTxMultiFuncFeasible
+
+=== GIGAHORSE (decompile.sh) ===
++ [[ 8 -eq 0 ]]
++ [[ -i == \-\-\h\e\l\p ]]
++ COMPILE=0
++ PROFILE=0
++ VISUALIZE=0
++ FORCEFACTS=0
++ FORCECOMPILE=0
++ CACHE=0
++ CONTRACT=
++ FACTDIR=
++ OUTDIR=
++ ID=
+++ getopt -o ci:f:o: -l id:,profile,visualize,cache,force-facts,force-compile -- -i /work/bytecode.hex -f /work/facts_root -o /work/gh_out --id arithmetic_integer_overflow_multitx_multifunc_feasible
++ options=' -i '\''/work/bytecode.hex'\'' -f '\''/work/facts_root'\'' -o '\''/work/gh_out'\'' --id '\''arithmetic_integer_overflow_multitx_multifunc_feasible'\'' --'
++ '[' 0 -ne 0 ']'
++ eval set -- ' -i '\''/work/bytecode.hex'\'' -f '\''/work/facts_root'\'' -o '\''/work/gh_out'\'' --id '\''arithmetic_integer_overflow_multitx_multifunc_feasible'\'' --'
+++ set -- -i /work/bytecode.hex -f /work/facts_root -o /work/gh_out --id arithmetic_integer_overflow_multitx_multifunc_feasible --
++ true
++ case $1 in
++ shift
+++ realpath /work/bytecode.hex
++ CONTRACT=/work/bytecode.hex
++ shift
++ true
++ case $1 in
++ shift
+++ realpath /work/facts_root
++ FACTDIR=/work/facts_root
++ shift
++ true
++ case $1 in
++ shift
+++ realpath /work/gh_out
++ OUTDIR=/work/gh_out
++ shift
++ true
++ case $1 in
++ shift
++ ID=arithmetic_integer_overflow_multitx_multifunc_feasible
++ shift
++ true
++ case $1 in
++ shift
++ break
++ '[' /work/facts_root == '' ']'
++ '[' /work/gh_out == '' ']'
++ '[' arithmetic_integer_overflow_multitx_multifunc_feasible == '' ']'
++ echo 'ID: arithmetic_integer_overflow_multitx_multifunc_feasible'
+ID: arithmetic_integer_overflow_multitx_multifunc_feasible
++ INFACTDIR=/work/facts_root/arithmetic_integer_overflow_multitx_multifunc_feasible_facts
++ OUTFACTDIR=/work/gh_out/arithmetic_integer_overflow_multitx_multifunc_feasible_out/database
++ echo 'Generating input facts for the decompiler into /work/facts_root/arithmetic_integer_overflow_multitx_multifunc_feasible_facts'
+Generating input facts for the decompiler into /work/facts_root/arithmetic_integer_overflow_multitx_multifunc_feasible_facts
++ pushd .
++ cd logic
++ LOGIC_HOME=/home/reviewer/gigahorse-toolchain/logic
++ '[' '!' -d /work/facts_root/arithmetic_integer_overflow_multitx_multifunc_feasible_facts ']'
++ mkdir -p /work/facts_root/arithmetic_integer_overflow_multitx_multifunc_feasible_facts
++ rm -rf '/work/facts_root/arithmetic_integer_overflow_multitx_multifunc_feasible_facts/*'
++ ../bin/generatefacts /work/bytecode.hex /work/facts_root/arithmetic_integer_overflow_multitx_multifunc_feasible_facts
++ '[' 0 -eq 0 ']'
++ PROFILEOPT=
++ mkdir -p /work/gh_out/arithmetic_integer_overflow_multitx_multifunc_feasible_out/database
++ rm -rf /work/gh_out/arithmetic_integer_overflow_multitx_multifunc_feasible_out/database/../database
++ mkdir -p /work/gh_out/arithmetic_integer_overflow_multitx_multifunc_feasible_out/database
++ '[' 0 -eq 0 ']'
++ echo Decompiling...
+Decompiling...
++ souffle -F /work/facts_root/arithmetic_integer_overflow_multitx_multifunc_feasible_facts -D /work/gh_out/arithmetic_integer_overflow_multitx_multifunc_feasible_out/database decompiler.dl
+---------------
+Fail
+===============
+===============
++ '[' 0 -ne 0 ']'
++ cd /work/gh_out/arithmetic_integer_overflow_multitx_multifunc_feasible_out/database
++ '[' 0 -eq 1 ']'
++ popd
++ ln -sfn /work/gh_out/arithmetic_integer_overflow_multitx_multifunc_feasible_out/database/.. decompilation-results
+ln: failed to create symbolic link 'decompilation-results': Read-only file system
+decompile_rc=1
+total 52
+drwxrwx--- 2 shawal shawal 3584 Jan 29 12:15 .
+drwxrwxrwx 3 shawal shawal  512 Jan 29 12:15 ..
+lrwxrwxrwx 1 shawal shawal   62 Jan 29 12:15 EventSignature.facts -> /home/reviewer/gigahorse-toolchain/src/../EventSignature.facts
+lrwxrwxrwx 1 shawal shawal   71 Jan 29 12:15 PublicFunctionSignature.facts -> /home/reviewer/gigahorse-toolchain/src/../PublicFunctionSignature.facts
+-rw-rw---- 1 shawal shawal  623 Jan 29 12:15 PushValue.facts
+-rw-rw---- 1 shawal shawal 2070 Jan 29 12:15 Statement_Next.facts
+-rw-rw---- 1 shawal shawal 2281 Jan 29 12:15 Statement_Opcode.facts
+-rw-rw---- 1 shawal shawal  646 Jan 29 12:15 bytecode.hex
+-rw-rw---- 1 shawal shawal 4384 Jan 29 12:15 contract.dasm
+
+=== SOUFFLE ETHAINTER (rc=0) ===
+Error loading data: Cannot open fact file TAC_Def.csv
+
+Error loading data: Cannot open fact file TAC_Op.csv
+
+Error loading data: Cannot open fact file TAC_Use.csv
+
+Error loading data: Cannot open fact file TAC_Variable_Value.csv
+
+Error loading data: Cannot open fact file TAC_Block.csv
+
+Error loading data: Cannot open fact file TAC_Statement_Next.csv
+
+Error loading data: Cannot open fact file IRFunctionCall.csv
+
+Error loading data: Cannot open fact file IRFunctionCallReturn.csv
+
+Error loading data: Cannot open fact file IRFunctionEntry.csv
+
+Error loading data: Cannot open fact file InFunction.csv
+
+Error loading data: Cannot open fact file LocalBlockEdge.csv
+
+Error loading data: Cannot open fact file ActualReturnArgs.csv
+
+Error loading data: Cannot open fact file FormalArgs.csv
+
+Error loading data: Cannot open fact file TAC_Var.csv
+
+Error loading data: Cannot open fact file IRFallthroughEdge.csv
+
+
+
+=== RELATIONS ===
+count=14 files=['VulnerabilityDescription_Vulnerability_TaintedSelfdestruct.csv', 'Vulnerability_TaintedValueSend.csv', 'Vulnerability_AccessibleSelfdestruct.csv', 'VulnerabilityDescription_Vulnerability_AccessibleSelfdestruct.csv', 'VulnerabilityDescription_Vulnerability_TaintedDelegatecall.csv', 'Vulnerability_TaintedDelegatecall.csv', 'Vulnerability_TaintedOwnerVariable.csv', 'VulnerabilityDescription_Vulnerability_UncheckedTaintedStaticcall.csv', 'VulnerabilityDescription_Vulnerability_TaintedStoreIndex.csv', 'Vulnerability_TaintedStoreIndex.csv', 'Vulnerability_TaintedSelfdestruct.csv', 'VulnerabilityDescription_Vulnerability_TaintedOwnerVariable.csv', 'VulnerabilityDescription_Vulnerability_TaintedValueSend.csv', 'Vulnerability_UncheckedTaintedStaticcall.csv']

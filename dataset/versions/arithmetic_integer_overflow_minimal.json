@@ -1,0 +1,4 @@
+{
+  "contract": "arithmetic_integer_overflow_minimal.sol",
+  "pragma": "pragma solidity ^0.4.19;"
+}

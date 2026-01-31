@@ -1,0 +1,58 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/static/static_analysis_patterns.py", line 73, in find_matches
+    static = analysis_context.static_analysis
+  File "/sec/securify/analyses/analysis.py", line 88, in static_analysis
+    self._static = self.config.static_analysis(self)
+  File "securify/__main__.py", line 255, in <lambda>
+    static_analysis=lambda t: static_analysis.analyze_cfg(t.cfg, **souffle_config),
+  File "/sec/securify/analyses/analysis.py", line 81, in cfg
+    self._cfg = self.config.cfg_compiler(self)
+  File "securify/__main__.py", line 254, in <lambda>
+    cfg_compiler=lambda t: solidity_cfg_compiler.compile_cfg(t.ast).cfg,
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:11:2: SyntaxError: No visibility specified. Did you intend to add "public"?
+	function transfer() returns (bool) {	
+ ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:13:22: SyntaxError: This looks like an address but has an invalid checksum. Correct checksummed address: "0x96A65609a7B84E8842732DEB08f56C3E21aC6f8a". If this is not used as an address, please prepend '00'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals
+		contract_address = 0x96a65609a7b84e8842732deb08f56c3e21ac6f8a;
+		                   ^----------------------------------------^
+
+fixed_pragma.sol:19:8: SyntaxError: This looks like an address but has an invalid checksum. Correct checksummed address: "0xAa27f8C1160886aacba64B2319D8d5469ef2Af79". If this is not used as an address, please prepend '00'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals
+		c2 = 0xaa27f8c1160886aacba64b2319d8d5469ef2af79;	
+		     ^----------------------------------------^
+
+fixed_pragma.sol:21:3: TypeError: Wrong argument count for function call: 2 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.
+		contract_address.call("register", "CentraToken");
+		^----------------------------------------------^
+
+fixed_pragma.sol:22:7: TypeError: Wrong argument count for function call: 3 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.
+		if(!contract_address.call(bytes4(keccak256("transfer(address,uint256)")),c2,k)) return false;
+		    ^------------------------------------------------------------------------^
+
+fixed_pragma.sol:22:6: TypeError: Unary operator ! cannot be applied to type tuple(bool,bytes memory)
+		if(!contract_address.call(bytes4(keccak256("transfer(address,uint256)")),c2,k)) return false;
+		   ^-------------------------------------------------------------------------^
+
+fixed_pragma.sol:22:6: TypeError: Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.
+		if(!contract_address.call(bytes4(keccak256("transfer(address,uint256)")),c2,k)) return false;
+		   ^-------------------------------------------------------------------------^
+
+        > command: `solc --allow-paths / --standard-json`
+        > return code: `0`
+        > stderr:
+        {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:11:2: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n\tfunction transfer() returns (bool) {\t\n ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":566,"file":"fixed_pragma.sol","start":122},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:13:22: SyntaxError: This looks like an address but has an invalid checksum. Correct checksummed address: \"0x96A65609a7B84E8842732DEB08f56C3E21aC6f8a\". If this is not used as an address, please prepend '00'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals\n\t\tcontract_address = 0x96a65609a7b84e8842732deb08f56c3e21ac6f8a;\n\t\t                   ^----------------------------------------^\n","message":"This looks like an address but has an invalid checksum. Correct checksummed address: \"0x96A65609a7B84E8842732DEB08f56C3E21aC6f8a\". If this is not used as an address, please prepend '00'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals","severity":"error","sourceLocation":{"end":251,"file":"fixed_pragma.sol","start":209},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:19:8: SyntaxError: This looks like an address but has an invalid checksum. Correct checksummed address: \"0xAa27f8C1160886aacba64B2319D8d5469ef2Af79\". If this is not used as an address, please prepend '00'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals\n\t\tc2 = 0xaa27f8c1160886aacba64b2319d8d5469ef2af79;\t\n\t\t     ^----------------------------------------^\n","message":"This looks like an address but has an invalid checksum. Correct checksummed address: \"0xAa27f8C1160886aacba64B2319D8d5469ef2Af79\". If this is not used as an address, please prepend '00'. For more information please see https://solidity.readthedocs.io/en/develop/types.html#address-literals","severity":"error","sourceLocation":{"end":357,"file":"fixed_pragma.sol","start":315},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:21:3: TypeError: Wrong argument count for function call: 2 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.\n\t\tcontract_address.call(\"register\", \"CentraToken\");\n\t\t^----------------------------------------------^\n","message":"Wrong argument count for function call: 2 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.","severity":"error","sourceLocation":{"end":450,"file":"fixed_pragma.sol","start":402},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:21:3: Warning: Return value of low-level calls not used.\n\t\tcontract_address.call(\"register\", \"CentraToken\");\n\t\t^----------------------------------------------^\n","message":"Return value of low-level calls not used.","severity":"warning","sourceLocation":{"end":450,"file":"fixed_pragma.sol","start":402},"type":"Warning"},{"component":"general","formattedMessage":"fixed_pragma.sol:22:7: TypeError: Wrong argument count for function call: 3 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.\n\t\tif(!contract_address.call(bytes4(keccak256(\"transfer(address,uint256)\")),c2,k)) return false;\n\t\t    ^------------------------------------------------------------------------^\n","message":"Wrong argument count for function call: 3 arguments given but expected 1. This function requires a single bytes argument. If all your arguments are value types, you can use abi.encode(...) to properly generate it.","severity":"error","sourceLocation":{"end":532,"file":"fixed_pragma.sol","start":458},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:22:6: TypeError: Unary operator ! cannot be applied to type tuple(bool,bytes memory)\n\t\tif(!contract_address.call(bytes4(keccak256(\"transfer(address,uint256)\")),c2,k)) return false;\n\t\t   ^-------------------------------------------------------------------------^\n","message":"Unary operator ! cannot be applied to type tuple(bool,bytes memory)","severity":"error","sourceLocation":{"end":532,"file":"fixed_pragma.sol","start":457},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:22:6: TypeError: Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.\n\t\tif(!contract_address.call(bytes4(keccak256(\"transfer(address,uint256)\")),c2,k)) return false;\n\t\t   ^-------------------------------------------------------------------------^\n","message":"Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.","severity":"error","sourceLocation":{"end":532,"file":"fixed_pragma.sol","start":457},"type":"TypeError"}],"sources":{}}
+
+        > stdout:

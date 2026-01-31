@@ -1,0 +1,13 @@
+{
+  "tool": "ftaudit",
+  "contract": "arithmetic_integer_overflow_minimal.sol",
+  "contract_stem": "arithmetic_integer_overflow_minimal",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy"
+  ],
+  "num_findings": 2,
+  "elapsed_s": 7.656089782714844,
+  "note": "fallback_text_parse_no_json"
+}

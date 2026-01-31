@@ -1,0 +1,16 @@
+{
+  "tool": "ftaudit",
+  "contract": "denial_of_service_dos_number.sol",
+  "contract_stem": "denial_of_service_dos_number",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness",
+    "denial_of_service",
+    "reentrancy",
+    "time_manipulation"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 9.553832530975342,
+  "note": "fallback_text_parse_no_json"
+}

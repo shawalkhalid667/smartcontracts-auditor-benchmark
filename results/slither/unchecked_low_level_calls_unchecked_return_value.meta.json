@@ -1,0 +1,44 @@
+{
+  "tool": "slither",
+  "contract": "unchecked_low_level_calls_unchecked_return_value.sol",
+  "contract_stem": "unchecked_low_level_calls_unchecked_return_value",
+  "pragma": "pragma solidity 0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "unchecked-lowlevel",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "missing-zero-check",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

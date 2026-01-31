@@ -1,0 +1,14 @@
+{
+  "tool": "smartllama",
+  "contract": "other_crypto_roulette.sol",
+  "contract_stem": "other_crypto_roulette",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "bad_randomness",
+    "time_manipulation"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 5.095365524291992,
+  "note": "fallback_text_parse_no_json"
+}

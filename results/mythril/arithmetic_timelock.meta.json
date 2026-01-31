@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "arithmetic_timelock.sol",
+  "contract_stem": "arithmetic_timelock",
+  "pragma": "pragma solidity ^0.4.10;",
+  "solc_version": "0.4.10",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

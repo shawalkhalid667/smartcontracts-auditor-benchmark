@@ -1,0 +1,10 @@
+{
+  "contract": "unchecked_low_level_calls_king_of_the_ether_throne.sol",
+  "vulnerabilities": [
+    {
+      "type": "unchecked low level calls",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

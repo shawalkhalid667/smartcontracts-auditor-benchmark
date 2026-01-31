@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "reentrancy_etherstore.sol",
+  "contract_stem": "reentrancy_etherstore",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

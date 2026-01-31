@@ -1,0 +1,517 @@
+{
+  "tool": "slither",
+  "contract": "unchecked_low_level_calls_0x663e4229142a27f00bafb5d087e1e730648314c3.sol",
+  "contract_stem": "unchecked_low_level_calls_0x663e4229142a27f00bafb5d087e1e730648314c3",
+  "pragma": "pragma solidity ^0.4.24;",
+  "solc_version": "0.4.24",
+  "returncode": 255,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "time_manipulation"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "controlled-array-length",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "controlled-array-length",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "weak-prng",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-transfer",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "constant-function-asm",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "constant-function-asm",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-no-eth",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-no-eth",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-no-eth",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-no-eth",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-no-eth",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unused-return",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "events-access",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "events-access",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "events-access",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "events-access",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "missing-zero-check",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-benign",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "reentrancy-events",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "assembly",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "assembly",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

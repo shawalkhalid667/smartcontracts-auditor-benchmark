@@ -1,0 +1,19 @@
+{
+  "tool": "ftaudit",
+  "contract": "access_control_wallet_04_confused_sign.sol",
+  "contract_stem": "access_control_wallet_04_confused_sign",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "denial_of_service",
+    "front_running",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 8,
+  "elapsed_s": 9.488961458206177,
+  "note": "fallback_text_parse_no_json"
+}

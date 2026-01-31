@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "time_manipulation_governmental_survey.sol",
+  "contract_stem": "time_manipulation_governmental_survey",
+  "returncode": 0,
+  "detected_categories": [
+    "time_manipulation"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 4.284947633743286,
+  "note": "fallback_text_parse_no_json"
+}

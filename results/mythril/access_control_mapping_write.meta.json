@@ -1,0 +1,39 @@
+{
+  "tool": "mythril",
+  "contract": "access_control_mapping_write.sol",
+  "contract_stem": "access_control_mapping_write",
+  "pragma": "pragma solidity ^0.4.24;",
+  "solc_version": "0.4.24",
+  "returncode": 1,
+  "detected_categories": [
+    "access_control",
+    "front_running"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "124",
+      "title": "Write to an arbitrary storage location",
+      "severity": "High"
+    },
+    {
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "severity": "High"
+    },
+    {
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Low"
+    }
+  ]
+}

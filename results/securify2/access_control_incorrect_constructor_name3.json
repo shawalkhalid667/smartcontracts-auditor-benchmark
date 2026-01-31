@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "access_control_incorrect_constructor_name3.sol",
+  "contract_stem": "access_control_incorrect_constructor_name3",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

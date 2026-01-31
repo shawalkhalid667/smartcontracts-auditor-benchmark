@@ -1,0 +1,20 @@
+{
+  "tool": "ftaudit",
+  "contract": "denial_of_service_auction.sol",
+  "contract_stem": "denial_of_service_auction",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "denial_of_service",
+    "front_running",
+    "reentrancy",
+    "short_addresses",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 9,
+  "elapsed_s": 7.2094810009002686,
+  "note": "fallback_text_parse_no_json"
+}

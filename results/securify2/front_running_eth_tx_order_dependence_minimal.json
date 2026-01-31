@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "front_running_eth_tx_order_dependence_minimal.sol",
+  "contract_stem": "front_running_eth_tx_order_dependence_minimal",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

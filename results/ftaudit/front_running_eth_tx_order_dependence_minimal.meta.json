@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "front_running_eth_tx_order_dependence_minimal.sol",
+  "contract_stem": "front_running_eth_tx_order_dependence_minimal",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 4.84286642074585,
+  "note": "fallback_text_parse_no_json"
+}

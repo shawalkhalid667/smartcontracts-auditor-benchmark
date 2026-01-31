@@ -1,0 +1,16 @@
+{
+  "tool": "ftaudit",
+  "contract": "denial_of_service_send_loop.sol",
+  "contract_stem": "denial_of_service_send_loop",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "denial_of_service",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 9.024614095687866,
+  "note": "fallback_text_parse_no_json"
+}

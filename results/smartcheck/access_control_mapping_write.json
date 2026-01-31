@@ -1,0 +1,33 @@
+{
+  "tool": "smartcheck",
+  "contract": "access_control_mapping_write.sol",
+  "contract_stem": "access_control_mapping_write",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_ARRAY_LENGTH_MANIPULATION",
+      "patternId": "872bdd",
+      "severity": 1,
+      "line": 17,
+      "column": 13,
+      "content": "map.length=key+1"
+    },
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 17,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 13,
+      "column": 5,
+      "content": "uint256[]map;"
+    }
+  ],
+  "detected_categories": []
+}

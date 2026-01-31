@@ -1,0 +1,80 @@
+=== SYSTEM ===
+You are a smart contract security auditor.
+
+CRITICAL OUTPUT RULES:
+- Output MUST be exactly ONE valid JSON object and NOTHING ELSE.
+- The first character MUST be '{' and the last character MUST be '}'.
+- Do NOT output prose, markdown, numbering, code fences, or extra commentary.
+
+Task: Identify which SmartBugs vulnerability categories are present in the contract.
+
+Allowed categories (use these exact strings):
+unchecked_low_level_calls, time_manipulation, bad_randomness, denial_of_service, front_running,
+access_control, short_addresses, reentrancy, arithmetic, other
+
+Output JSON schema (exact keys):
+{
+  "findings": [
+    {
+      "category": "<one of the allowed categories>",
+      "severity": <int 1..5>,
+      "confidence": <int 1..3>,
+      "title": "<short>",
+      "rationale": "<1-3 sentences>"
+    }
+  ],
+  "detected_categories": ["..."]
+}
+
+Rules:
+- If you are not confident, omit the finding (prefer precision).
+- If you find nothing, output {"findings": [], "detected_categories": []}.
+- Do not include any text outside the JSON object.
+
+
+=== USER ===
+Return ONLY the JSON object described in the system message.
+CONTRACT_FILE: arithmetic_token.sol
+SOLIDITY_SOURCE_BEGIN
+/*
+ * @source: https://github.com/sigp/solidity-security-blog
+ * @author: Steve Marx
+ * @vulnerable_at_lines: 20,22
+ */
+
+ pragma solidity ^0.4.18;
+
+ contract Token {
+
+   mapping(address => uint) balances;
+   uint public totalSupply;
+
+   function Token(uint _initialSupply) {
+     balances[msg.sender] = totalSupply = _initialSupply;
+   }
+
+   function transfer(address _to, uint _value) public returns (bool) {
+     // <yes> <report> ARITHMETIC
+     require(balances[msg.sender] - _value >= 0);
+     // <yes> <report> ARITHMETIC
+     balances[msg.sender] -= _value;
+     balances[_to] += _value;
+     return true;
+   }
+
+   function balanceOf(address _owner) public constant returns (uint balance) {
+     return balances[_owner];
+   }
+ }
+
+SOLIDITY_SOURCE_END
+
+
+=== MODEL_OUTPUT ===
+0. The contract uses simple arithmetic operations which could potentially lead to vulnerabilities if not properly checked. Specifically, in the transfer function, the subtraction operation 'balances[msg.sender] - _value' could result in an underflow if '_value' is greater than 'balances[msg.sender]', leading to incorrect balance updates. Similarly, the addition operation 'balances[_to] += _value' could result in an overflow if the new balance exceeds the maximum uint256 value. These issues are related to the use of unchecked arithmetic operations and could lead to denial of service or incorrect balance updates. However, since the contract does not use the 'unchecked' keyword, it is susceptible to these issues by default in Solidity versions 0.4.18 and above.
+
+=== ERROR ===
+
+
+=== ELAPSED_S ===
+8.4529

@@ -1,0 +1,25 @@
+{
+  "tool": "smartcheck",
+  "contract": "denial_of_service_dos_simple.sol",
+  "contract_stem": "denial_of_service_dos_simple",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 8,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 12,
+      "column": 4,
+      "content": "address[]listAddresses;"
+    }
+  ],
+  "detected_categories": []
+}

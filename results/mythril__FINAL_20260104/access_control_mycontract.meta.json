@@ -1,0 +1,18 @@
+{
+  "tool": "mythril",
+  "contract": "access_control_mycontract.sol",
+  "contract_stem": "access_control_mycontract",
+  "pragma": "pragma solidity ^0.4.24;",
+  "solc_version": "0.4.24",
+  "returncode": 1,
+  "detected_categories": [
+    "access_control"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "115",
+      "title": "Dependence on tx.origin",
+      "severity": "Low"
+    }
+  ]
+}

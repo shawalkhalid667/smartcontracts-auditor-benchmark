@@ -1,0 +1,12 @@
+{
+  "tool": "ethainter",
+  "contract": "reentrancy_spank_chain_payment.sol",
+  "contract_stem": "reentrancy_spank_chain_payment",
+  "returncode": 7,
+  "detected_categories": [],
+  "num_findings": 0,
+  "elapsed_s": 2.7611587047576904,
+  "note": "gigahorse_no_facts",
+  "chosen_contract": "LedgerChannel",
+  "decompile_rc": 1
+}

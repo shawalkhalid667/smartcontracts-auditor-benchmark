@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "other_crypto_roulette.sol",
+  "contract_stem": "other_crypto_roulette",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

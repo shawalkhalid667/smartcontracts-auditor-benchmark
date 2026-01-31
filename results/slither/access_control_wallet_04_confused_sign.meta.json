@@ -1,0 +1,34 @@
+{
+  "tool": "slither",
+  "contract": "access_control_wallet_04_confused_sign.sol",
+  "contract_stem": "access_control_wallet_04_confused_sign",
+  "pragma": "pragma solidity ^0.4.24;",
+  "solc_version": "0.4.24",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "missing-zero-check",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    }
+  ]
+}

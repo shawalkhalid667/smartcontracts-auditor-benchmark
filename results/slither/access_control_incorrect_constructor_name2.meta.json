@@ -1,0 +1,23 @@
+{
+  "tool": "slither",
+  "contract": "access_control_incorrect_constructor_name2.sol",
+  "contract_stem": "access_control_incorrect_constructor_name2",
+  "pragma": "pragma solidity ^0.4.24;",
+  "solc_version": "0.4.24",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

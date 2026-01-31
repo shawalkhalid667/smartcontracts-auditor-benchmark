@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "time_manipulation_timed_crowdsale.sol",
+  "contract_stem": "time_manipulation_timed_crowdsale",
+  "pragma": "pragma solidity ^0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

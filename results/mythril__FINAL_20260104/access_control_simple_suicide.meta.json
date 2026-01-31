@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "access_control_simple_suicide.sol",
+  "contract_stem": "access_control_simple_suicide",
+  "pragma": "pragma solidity ^0.4.0;",
+  "solc_version": "0.4.0",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

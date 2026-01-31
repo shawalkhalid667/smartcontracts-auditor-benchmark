@@ -1,0 +1,2622 @@
+Incorrect Vulnerability Detections for reentrancy:
+
+
+Contract 2:
+Contract code (first 100 characters): 
+contract NIZIGEN {
+
+    mapping (address => uint) balances;
+
+    address public owner;
+    modifier...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 3:
+Contract code (first 100 characters): 
+contract NIZIGEN {
+
+    mapping (address => uint) balances;
+
+    function transfer(uint _value, byt...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 4:
+Contract code (first 100 characters): 
+contract FsTKerWallet {
+
+  function callContract(address to, bytes data) public payable returns (bo...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 5:
+Contract code (first 100 characters): 
+contract FsTKerWallet {
+
+  address owner;
+  modifier onlyOwner() {
+    require(msg.sender == owner)...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 6:
+Contract code (first 100 characters): 
+contract Kleros {
+     
+    function executeOrder(bytes32 _data, uint _value, address _target) publ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 7:
+Contract code (first 100 characters): 
+contract Kleros {
+
+    address owner;
+    modifier onlyOwner() {
+        require(msg.sender == owne...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 8:
+Contract code (first 100 characters): 
+contract Fomo3d {
+     
+    bool public depositSuccessful;
+    address Jekyll_Island_Inc;
+
+    func...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 9:
+Contract code (first 100 characters): 
+contract Fomo3d {
+     
+    bool public depositSuccessful;
+    address Jekyll_Island_Inc;
+
+    addr...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 10:
+Contract code (first 100 characters): 
+interface FoMo3DlongInterface {
+  function getBuyPrice() public view returns(uint256);
+  function g...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 11:
+Contract code (first 100 characters): 
+contract mnyminer {
+    
+    address futx = 0x8b7d07b6ffB9364e97B89cEA8b84F94249bE459F;
+
+    functi...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 12:
+Contract code (first 100 characters): 
+contract mnyminer {
+
+    address futx = 0x8b7d07b6ffB9364e97B89cEA8b84F94249bE459F;
+
+    address ow...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 13:
+Contract code (first 100 characters): 
+contract TokedoDaico {
+
+    address public milestoneSystem;
+
+    function forwardEther() payable pu...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 15:
+Contract code (first 100 characters): 
+contract IChain {
+    uint256 public amountRaised ;
+    mapping (address => uint) balances;
+
+    ad...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The issue lies in the `finishDistribution` function, specifically in the line `require(msg.sender.call.value(amountRaised)());`. This line sends Ether to the `msg.sender` using the `call` function, which can execute arbitrary code in the recipient's fallback function. If the recipient is a contract, it can re-enter the `finishDistribution` function before the current execution is finished, potentially draining the contract's funds.
+
+To fix this vulnerability, it's recommended to use the Checks-Effects-Interactions pattern, where you first check the conditions, then update the state, and finally perform the interactions with other contracts. In this case, you should update the `balances` mapping before sending the Ether. 
+
+Here's an example of how the fixed function could look:
+
+```solidity
+function finishDistribution() public onlyOwner returns (bool) {
+    balances[msg.sender] = balances[msg.sender] - amountRaised;
+    require(msg.sender.call.value(amountRaised)());
+    return true;
+}
+```
+
+However, even with this fix, the contract is still vulnerable to reentrancy attacks if the recipient contract's fallback function can call `finishDistribution` again. To fully prevent reentrancy, you should consider using the ReentrancyGuard pattern or the OpenZeppelin's ReentrancyGuard contract.
+---
+
+Contract 16:
+Contract code (first 100 characters): 
+contract Forwarder {
+   
+    address public parentAddress;
+
+    function flush() {
+        if (!par...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 17:
+Contract code (first 100 characters): 
+contract Forwarder {
+   
+    address public parentAddress;
+
+    address public owner;
+    modifier ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 18:
+Contract code (first 100 characters): 
+contract HiroyukiCoinDark {
+
+    mapping(address => uint256) public balanceOf;
+
+    function transf...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 19:
+Contract code (first 100 characters): 
+contract HiroyukiCoinDark {
+
+    mapping(address => uint256) public balanceOf;
+    address public o...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 21:
+Contract code (first 100 characters): 
+contract BancorBuyer {
+
+    mapping(address => uint256) public balances;
+
+    address owner;
+    mo...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 22:
+Contract code (first 100 characters): 
+contract CHCommittee {
+   
+    function callFor(address _to, uint256 _value, uint256 _gas, bytes _c...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 23:
+Contract code (first 100 characters): 
+contract ELTWagerLedger {
+
+    mapping (address => mapping (address => uint)) public tokens;
+
+    f...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 24:
+Contract code (first 100 characters): 
+contract ELTWagerLedger {
+
+    mapping (address => mapping (address => uint)) public tokens;
+
+    a...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 25:
+Contract code (first 100 characters): 
+contract SimpleBet {
+
+	bool locked = false;
+
+	function bet() payable {
+		if ((msg.value == 1 ether)...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 26:
+Contract code (first 100 characters): 
+contract Balancer {
+
+    function executeTransaction(address to, uint256 value, bytes data) public ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 27:
+Contract code (first 100 characters): 
+contract Balancer {
+
+    address public owner;
+    modifier onlyOwner() {
+        require(msg.sende...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 28:
+Contract code (first 100 characters): 
+contract ParcelXToken {
+
+    function execute(address _to, uint256 _value, bytes _data) external re...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 29:
+Contract code (first 100 characters): 
+contract ParcelXToken {
+
+    address public owner;
+    modifier onlyOwner() {
+        require(msg.s...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 31:
+Contract code (first 100 characters): 
+contract ICOBuyer {
+
+    address public sale;
+
+    function buy() {
+        require(sale.call.value...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 32:
+Contract code (first 100 characters): 
+contract ICOBuyer {
+
+    address public sale;
+
+    address public owner;
+    modifier onlyOwner() {...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 33:
+Contract code (first 100 characters): 
+contract TokensGate {
+
+  function transferEth(address walletToTransfer, uint256 weiAmount) payable ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 34:
+Contract code (first 100 characters): 
+contract ERC827Token {
+
+    function approveAndCall(address _spender, uint256 _value, bytes _data) ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 35:
+Contract code (first 100 characters): 
+contract DividendToken {
+
+    mapping (address => uint) creditedPoints;
+    uint dividendsCollected...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 36:
+Contract code (first 100 characters): 
+contract AddressProxy {
+
+    function execCustom(address _location, bytes _data, uint256 _value, ui...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 37:
+Contract code (first 100 characters): 
+contract DrainMe {
+
+    address public secondTarget = 0x1C3E062c77f09fC61550703bDd1D59842C22c766;
+ ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 38:
+Contract code (first 100 characters): 
+contract DrainMe {
+
+    address public firstTarget = 0x461ec7309F187dd4650EE6b4D25D93c922d7D56b;
+ 
+...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 39:
+Contract code (first 100 characters): 
+contract DrainMe {
+
+    address public firstTarget = 0x461ec7309F187dd4650EE6b4D25D93c922d7D56b;
+
+ ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 40:
+Contract code (first 100 characters): 
+contract Puppet {
+    
+    mapping (uint256 => address) public target;
+
+	function() public payable{...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 41:
+Contract code (first 100 characters): 
+contract BasicCrowdsale {
+
+    function mintETHRewards(address _contract, uint256 _amount) public {...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 43:
+Contract code (first 100 characters): 
+contract PoormansHoneyPot {
+
+    mapping (address => uint) public balances;
+
+    address owner;
+   ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 44:
+Contract code (first 100 characters): 
+contract BitmarkPaymentGateway {
+
+    function Pay(address _destination) public payable {
+        r...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 46:
+Contract code (first 100 characters): 
+contract keepMyEther {
+
+    mapping(address => uint256) public balances;
+
+    address public owner;...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 47:
+Contract code (first 100 characters): 
+contract RipioOracle{
+
+    function sendTransaction(address to, uint256 value, bytes data) public r...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 48:
+Contract code (first 100 characters): 
+contract SimpleEthBank {
+    mapping (address => uint) accountBalances;
+    mapping (address => boo...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 49:
+Contract code (first 100 characters): 
+contract SimpleEthBank {
+    mapping (address => uint) accountBalances;
+    mapping (address => boo...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The issue lies in the `withdraw` function, specifically in the line `msg.sender.call.value(amount);`. This line sends Ether to the `msg.sender` using the `call` function, which can execute arbitrary code in the recipient's contract. If the recipient contract has a fallback function that calls back into the `withdraw` function, it can cause the contract to re-enter the `withdraw` function, potentially draining the contract's funds.
+
+To fix this vulnerability, the contract should use the Checks-Effects-Interactions pattern, where the state changes (in this case, updating the account balance) are done before the external call. Here's an example of how the `withdraw` function could be modified:
+
+```solidity
+function withdraw(uint amount) public onlyOwner {
+    require(accountExists[msg.sender] && accountBalances[msg.sender] >= amount);
+    accountBalances[msg.sender] -= amount;
+    (bool success, ) = msg.sender.call{value: amount}("");
+    require(success);
+}
+```
+
+However, even with this modification, the contract is still vulnerable to reentrancy attacks if the recipient contract has a fallback function that calls back into the contract. To fully prevent reentrancy attacks, the contract should use the ReentrancyGuard pattern, which prevents the contract from re-entering the same function while it's still executing. 
+
+Here's an example of how the contract could be modified to use the ReentrancyGuard pattern:
+
+```solidity
+contract SimpleEthBank {
+    //...
+
+    bool private locked;
+
+    modifier noReentrancy() {
+        require(!locked);
+        locked = true;
+        _;
+        locked = false;
+    }
+
+    function withdraw(uint amount) public onlyOwner noReentrancy {
+        require(accountExists[msg.sender] && accountBalances[msg.sender] >= amount);
+        accountBalances[msg.sender] -= amount;
+        (bool success, ) = msg.sender.call{value: amount}("");
+        require(success);
+    }
+}
+```
+---
+
+Contract 50:
+Contract code (first 100 characters): 
+contract CrowdsaleProxy {
+
+    function upgradeToAndCall(address newTarget, bytes data) payable pub...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 51:
+Contract code (first 100 characters): 
+contract BoomerangLiquidity {
+
+    address public sk2xContract;
+
+    function donate() payable publ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 52:
+Contract code (first 100 characters): 
+contract A2ACrowdsale {
+
+	uint256 public wingsETHRewards;
+	mapping (address => uint) balances;
+
+	ad...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The issue lies in the order of operations within the `mintETHRewards` function. The contract first sends Ether to the `_contract` address using the `call.value(_amount)()` function, and then updates the `balances[_contract]` mapping. 
+
+If the `_contract` address is a malicious contract that has a fallback function designed to call `mintETHRewards` again, it can drain the contract's funds by repeatedly calling `mintETHRewards` and re-entering the function before the `balances[_contract]` is updated. 
+
+To fix this vulnerability, the contract should update the `balances[_contract]` mapping before sending Ether to the `_contract` address. This is known as the "checks-effects-interactions" pattern. 
+
+Here's the corrected code:
+
+```solidity
+function mintETHRewards( address _contract, uint256 _amount) public onlyOwner {
+    require(_amount <= wingsETHRewards);
+    balances[_contract] -= _amount;
+    require(_contract.call.value(_amount)());
+}
+```
+
+Additionally, it's recommended to use the `transfer` function or the `call` function with the `gas` limit specified to prevent potential issues with gas limits. 
+
+```solidity
+(bool success, ) = _contract.call.value(_amount)("");
+require(success);
+```
+---
+
+Contract 53:
+Contract code (first 100 characters): 
+contract HODLWallet {
+
+    mapping(address => uint256) public balances;
+    uint256 public constant...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 54:
+Contract code (first 100 characters): 
+contract HODLWallet {
+
+    mapping(address => uint256) public balances;
+    uint256 public constant...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The `doWithdraw` function calls the `call.value(amount)()` function on the `from` address, which can execute arbitrary code. If the `from` address is a contract, it can re-enter the `doWithdraw` function, potentially draining the wallet.
+
+To fix this vulnerability, the contract should use the Checks-Effects-Interactions pattern, where the state changes (in this case, updating the balance) are done before the external call. 
+
+Here's an example of how the `doWithdraw` function could be modified to prevent reentrancy:
+
+```solidity
+function doWithdraw(address from, uint256 amount) internal onlyOwner {
+    require(amount <= MAX_WITHDRAWAL);
+    require(balances[from] >= amount);
+    balances[from] = balances[from] - amount;
+    (bool success, ) = from.call.value(amount)("");
+    require(success);
+}
+```
+
+However, even with this modification, the contract is still vulnerable to reentrancy attacks if the `from` address is a contract that implements a fallback function that calls `doWithdraw` again. 
+
+A safer approach would be to use the `transfer` function instead of `call.value`, which is limited to a fixed amount of gas and cannot call other contracts:
+
+```solidity
+function doWithdraw(address from, uint256 amount) internal onlyOwner {
+    require(amount <= MAX_WITHDRAWAL);
+    require(balances[from] >= amount);
+    balances[from] = balances[from] - amount;
+    payable(from).transfer(amount);
+}
+```
+
+Alternatively, you can use OpenZeppelin's `Address.sendValue` function, which is designed to be safer than `transfer`:
+
+```solidity
+function doWithdraw(address from, uint256 amount) internal onlyOwner {
+    require(amount <= MAX_WITHDRAWAL);
+    require(balances[from] >= amount);
+    balances[from] = balances[from] - amount;
+    (bool success, ) = payable(from).call{value: amount}("");
+    require(success);
+}
+```
+---
+
+Contract 55:
+Contract code (first 100 characters): 
+contract AuctusTokenSale {
+
+	function finish() public  {
+		uint256 freeEthers = address(this).balan...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 56:
+Contract code (first 100 characters): 
+contract AutomobileCyberchainToken {
+
+    function buy(address recipient, uint256 value) public pay...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 58:
+Contract code (first 100 characters): 
+contract SIMPLE_PIGGY_BANK {
+
+    mapping (address => uint) public Bal;
+    uint public MinSum = 1 ...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The issue lies in the `Collect` function, where it first sends Ether to the `msg.sender` using `msg.sender.call.value(_am)`, and then updates the balance `Bal[msg.sender] -= _am`. 
+
+If the `msg.sender` is a contract, it can have a fallback function that gets executed when it receives Ether. In this fallback function, it can call the `Collect` function again, before the balance has been updated, allowing it to drain the contract's funds. This can be repeated multiple times, resulting in a reentrancy attack.
+
+To fix this vulnerability, the balance should be updated before sending the Ether, like this:
+
+```solidity
+function Collect(uint _am) public payable onlyOwner {
+    if(Bal[msg.sender] >= MinSum && _am <= Bal[msg.sender]) {
+        Bal[msg.sender] -= _am;
+        msg.sender.call.value(_am);
+    }
+}
+```
+
+However, even this fix is not recommended, as it still uses the deprecated `call.value()` function, which can also lead to reentrancy attacks. A safer approach would be to use the `call` function with the `value` parameter, like this:
+
+```solidity
+function Collect(uint _am) public payable onlyOwner {
+    if(Bal[msg.sender] >= MinSum && _am <= Bal[msg.sender]) {
+        Bal[msg.sender] -= _am;
+        (bool success, ) = msg.sender.call{value: _am}("");
+        require(success, "Failed to send Ether");
+    }
+}
+```
+
+This way, the contract is safer from reentrancy attacks.
+---
+
+Contract 61:
+Contract code (first 100 characters): 
+contract LuckyETH {
+
+    mapping(address => uint) playerPendingWithdrawals;
+
+    address owner;
+   ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 62:
+Contract code (first 100 characters): 
+contract SimpleEthBank {
+
+    mapping (address => uint) accountBalances;
+
+    address owner;
+    mo...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 63:
+Contract code (first 100 characters): 
+contract OwnedUpgradeabilityProxy  {
+
+    function upgradeToAndCall(bytes data) payable public {
+  ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 64:
+Contract code (first 100 characters): 
+contract LZLCoin {
+
+    mapping (address => uint) balances;
+
+    function eT(address _pd, uint _tkA...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 65:
+Contract code (first 100 characters): 
+contract LZLCoin {
+
+    mapping (address => uint) balances;
+
+    address public owner;
+    modifier...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 66:
+Contract code (first 100 characters): 
+contract EtherGet {
+
+    function getTokens(uint num, address addr) public {
+        for(uint i = 0...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 67:
+Contract code (first 100 characters): 
+contract EXPERIMENTAL_ETH_AUCTION {
+
+    mapping(address => uint) public Bids;
+
+    function Revoke...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 70:
+Contract code (first 100 characters): 
+contract TokenBank {
+
+    mapping (address => uint) public Holders;
+
+    address owner;
+    modifie...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The issue lies in the `WithdrawToHolder` function, specifically in the line `_addr.call.value(_wei)();`. This line sends Ether to the `_addr` address, which can potentially trigger a fallback function in the recipient contract. If the recipient contract's fallback function calls `WithdrawToHolder` again, it can lead to a reentrancy attack.
+
+To fix this vulnerability, it's recommended to use the Checks-Effects-Interactions pattern, where the state changes (in this case, updating the `Holders` mapping) are done before the external call. Here's an updated version of the function:
+
+```solidity
+function WithdrawToHolder(address _addr, uint _wei) public onlyOwner payable {
+    if(Holders[msg.sender] > 0) {
+        if(Holders[_addr] >= _wei) {
+            Holders[_addr] -= _wei;
+            _addr.call.value(_wei)();
+        }
+    }
+}
+```
+
+However, even with this change, the contract is still vulnerable to reentrancy attacks because the `msg.sender` is not the same as `_addr`. The `msg.sender` is the owner of the contract, but the Ether is being sent to `_addr`. 
+
+A better approach would be to use the `transfer` function instead of `call.value`, but this is also deprecated in newer versions of Solidity. The recommended approach is to use the `call` function with the `value` keyword, but this still allows for reentrancy attacks.
+
+To prevent reentrancy attacks, you can use a reentrancy lock, such as the one provided by the OpenZeppelin library:
+
+```solidity
+pragma solidity ^0.8.0;
+
+import "https://github.com/OpenZeppelin/openzeppelin-solidity/contracts/security/ReentrancyGuard.sol";
+
+contract TokenBank is ReentrancyGuard {
+
+    mapping (address => uint) public Holders;
+
+    address owner;
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+    
+    function WithdrawToHolder(address _addr, uint _wei) public onlyOwner nonReentrant payable {
+        if(Holders[msg.sender] > 0) {
+            if(Holders[_addr] >= _wei) {
+                Holders[_addr] -= _wei;
+                (bool sent, ) = _addr.call{value: _wei}("");
+                require(sent, "Failed to send Ether");
+            }
+
+---
+
+Contract 71:
+Contract code (first 100 characters): 
+contract MultiSigWallet {
+
+    mapping (uint => Transaction) public transactions;
+
+    struct Trans...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The issue lies in the order of operations within the `executeTransaction` function. The contract first sets `tx.executed` to `true`, but then it calls the destination contract using `tx.destination.call.value(tx.value)(tx.data)`. If the destination contract is malicious and calls back into the `executeTransaction` function before the current call has finished executing, it can cause the contract to execute the same transaction multiple times, potentially draining the contract's funds.
+
+To fix this vulnerability, the contract should use the Checks-Effects-Interactions pattern, where it first checks the conditions, then applies the effects, and finally performs the interactions with other contracts. In this case, the contract should set `tx.executed` to `true` after the call to `tx.destination.call.value(tx.value)(tx.data)` has completed. 
+
+Here's an example of how the function could be modified to fix the vulnerability:
+
+```solidity
+function executeTransaction(uint transactionId) public {
+    if (transactionId > 0) {
+        Transaction tx = transactions[transactionId];
+        if (tx.executed) {
+            return;
+        }
+
+        if (tx.destination.call.value(tx.value)(tx.data)) {
+            tx.executed = true;
+        }
+    }
+}
+```
+
+Alternatively, you can use OpenZeppelin's ReentrancyGuard contract to prevent reentrancy attacks.
+---
+
+Contract 72:
+Contract code (first 100 characters): 
+contract ERC223Token {
+
+  address rx;
+  function transfer(uint value, bytes data) public returns (b...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 73:
+Contract code (first 100 characters): 
+contract PreSaleFund {
+
+    address owner = msg.sender;
+
+    function loggedTransfer(uint amount, a...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 74:
+Contract code (first 100 characters): 
+contract PreSaleFund {
+
+    address owner = msg.sender;
+
+    function loggedTransfer(uint amount, a...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 75:
+Contract code (first 100 characters): 
+contract PrivateInvestment {
+
+    function loggedTransfer(uint amount, address target) {
+        if...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 76:
+Contract code (first 100 characters): 
+contract AddressLottery {
+
+    mapping (address => bool) participated;
+
+    function participate() ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 77:
+Contract code (first 100 characters): 
+contract Freebie {
+
+    address public Owner = msg.sender;
+
+    function Command(address adr,bytes ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 78:
+Contract code (first 100 characters): 
+contract Payee {
+    
+    uint256 public price;
+
+    function pay(uint256 count) public payable {
+ ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 80:
+Contract code (first 100 characters): 
+contract PrivateBank {
+
+    mapping (address => uint) public balances;
+
+    address owner;
+    modi...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 81:
+Contract code (first 100 characters): 
+contract InkPublicPresale {
+
+  function withdrawEther(address _to) public {
+     assert(_to.call.va...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 82:
+Contract code (first 100 characters): 
+contract Tradesman {
+
+    function genericTransfer(address _to, uint _value, bytes _data) public {
+...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 83:
+Contract code (first 100 characters): 
+contract TrustWallet {
+
+    struct Transaction {
+        address destination;
+        uint value;
+ ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 84:
+Contract code (first 100 characters): 
+contract RNTMultiSigWallet {
+     
+    mapping (uint => WalletTransaction) public transactions;
+
+  ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 85:
+Contract code (first 100 characters): 
+contract Distribution {
+
+    address admin;
+
+    function temporaryEscapeHatch(address to, uint256 ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 86:
+Contract code (first 100 characters): 
+contract TelcoinSaleCapEscrow {
+
+    mapping(address => uint256) public deposited;
+
+    function re...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 87:
+Contract code (first 100 characters): 
+contract TelcoinSaleCapEscrow {
+
+    mapping(address => uint256) public deposited;
+    address owne...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 88:
+Contract code (first 100 characters): 
+contract Distribution {
+    address admin;
+
+    function temporaryEscapeHatch(address to, uint256 v...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 89:
+Contract code (first 100 characters): 
+contract Distribution {
+    address admin;
+
+    address public owner;
+    modifier onlyOwner() {
+  ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 90:
+Contract code (first 100 characters): 
+contract PullPaymentCapable {
+
+    mapping(address => uint256) private payments;
+
+    address owner...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 91:
+Contract code (first 100 characters): 
+contract BullTokenRefundVault {
+
+    address public wallet;
+
+    function forwardFunds() public {
+ ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 92:
+Contract code (first 100 characters): 
+contract LPPCampaign{
+
+    function sendTransaction(address destination, uint value, bytes data) pu...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 93:
+Contract code (first 100 characters): 
+contract LPPCampaign{
+
+    address owner;
+    modifier onlyOwner() {
+        require(msg.sender == ...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The `sendTransaction` function calls the `call` function on the `destination` address, which can execute arbitrary code. If the `destination` address is a contract that has a fallback function, it can call back into the `LPPCampaign` contract, potentially re-entering the `sendTransaction` function. This can lead to unintended behavior, such as draining the contract's funds.
+
+To fix this vulnerability, the contract should use the Checks-Effects-Interactions pattern, where it first checks the conditions, then updates its state, and finally interacts with other contracts. In this case, the contract should check the balance and update its state before calling the `destination` address. 
+
+Here's an example of how the contract could be modified to prevent reentrancy:
+
+```solidity
+contract LPPCampaign{
+
+    address owner;
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    function sendTransaction(address destination, uint value, bytes data) public onlyOwner {
+        require(address(this).balance >= value);
+        // Update state here if necessary
+        (bool success, ) = destination.call.value(value)(data);
+        require(success);
+    }
+}
+```
+
+However, even with this modification, the contract is still vulnerable to reentrancy if the `destination` address is a contract that can call back into the `LPPCampaign` contract in its fallback function. To fully prevent reentrancy, the contract should use a reentrancy lock or the `transfer` function instead of `call.value`, but this is not possible in this case since it needs to call a contract with data.
+
+A better approach would be to use the `call` function with the `gas` limit set to a safe value to prevent the called contract from calling back into the `LPPCampaign` contract.
+
+```solidity
+contract LPPCampaign{
+
+    address owner;
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    function sendTransaction(address destination, uint value, bytes data) public onlyOwner {
+        require(address(this).balance >= value);
+        // Update state here if necessary
+        (bool success, ) = destination.call.gas(10000).value(value)(data);
+        require(success);
+    }
+}
+```
+
+This way, even if the `destination` address is a contract that can call back into the `LPPCampaign` contract, it will not be able to do
+---
+
+Contract 94:
+Contract code (first 100 characters): 
+contract MultiplicatorX4 {
+
+    address public Owner = msg.sender;
+
+    function Command(address ad...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 95:
+Contract code (first 100 characters): 
+contract TelcoinSaleKYCEscrow {
+
+    mapping(address => uint256) public deposited;
+
+    function re...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 96:
+Contract code (first 100 characters): 
+contract TransferableMultsig {
+
+    function execute(address destination, uint value, bytes data) e...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 97:
+Contract code (first 100 characters): 
+contract MergeCoin{
+
+    function eT(address _pd, uint _etA) returns (bool) {
+        if (!_pd.call...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 98:
+Contract code (first 100 characters): 
+contract VVToken {
+
+	mapping (bytes32 => Transaction) public Transactions;
+	
+	struct Transaction {
+...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 99:
+Contract code (first 100 characters): 
+contract MultiplicatorX3 {
+
+    address public Owner = msg.sender;
+
+    function Command(address ad...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 100:
+Contract code (first 100 characters): 
+contract Campaign{
+
+    address public beneficiary;
+
+    function withdrawPayout() public {
+       ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 101:
+Contract code (first 100 characters): 
+contract IAMEToken {
+
+	address public devETHDestination;
+	bool public saleHasEnded;
+	bool public mi...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 102:
+Contract code (first 100 characters): 
+contract MilestoneTracker {
+
+    struct Milestone {
+        address paymentSource;
+    }
+
+    Miles...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 103:
+Contract code (first 100 characters): 
+contract VVToken {
+
+    mapping (bytes32 => Transaction) public Transactions;
+
+	struct Transaction ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 104:
+Contract code (first 100 characters): 
+contract JBX {
+
+    function transfer( address to, bytes data)returns (bool success) {
+        requ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 105:
+Contract code (first 100 characters): 
+contract PreICOProxyBuyer {
+
+    mapping(address => uint) public balances;
+    bool refunded = true...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 106:
+Contract code (first 100 characters): 
+contract MoldCoin {
+     
+    address public founder;
+
+    function buyRecipient(address recipient)...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 107:
+Contract code (first 100 characters): 
+contract MoldCoin {
+     
+    address public founder;
+
+    address public owner;
+    modifier onlyO...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 108:
+Contract code (first 100 characters): 
+contract TokenLab {
+
+    mapping (address => mapping (address => uint)) public tokens;
+
+    functio...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 109:
+Contract code (first 100 characters): 
+contract TokenLab {
+
+    mapping (address => mapping (address => uint)) public tokens;
+
+    address...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 110:
+Contract code (first 100 characters): 
+contract Forwarder{
+
+    address public forwardTo;
+
+    function () public payable{
+        require...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 111:
+Contract code (first 100 characters): 
+contract Receiver {
+
+    address public owner;
+
+    function test() payable {
+        require(owner...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 112:
+Contract code (first 100 characters): 
+contract FiatContract {
+
+    function execute(address _to, uint _value, bytes _data) external retur...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 113:
+Contract code (first 100 characters): 
+contract SharkProxy{
+
+    function forward(address _destination, uint256 _value, bytes _data) {
+   ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 114:
+Contract code (first 100 characters): 
+contract MarketPrice {
+
+    address public sender;
+    address public creator;
+
+    function execut...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 115:
+Contract code (first 100 characters): 
+contract TradersWallet {
+
+    function execute(address _to, uint _value, bytes _data) external retu...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 116:
+Contract code (first 100 characters): 
+contract generic_holder {
+
+    function execute(address _to, uint _value, bytes _data) external ret...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 117:
+Contract code (first 100 characters): 
+contract SFTToken {
+
+	address public devETHDestination;
+
+    function withdrawFunds() {
+		if (0 == ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 118:
+Contract code (first 100 characters): 
+contract SFTToken {
+
+	address public devETHDestination;
+	bool public minCapReached;
+
+	address owner...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 119:
+Contract code (first 100 characters): 
+contract DeadMansSwitch {
+
+	function send(address _to, uint _value, bytes _data) {
+		if (!_to.call....
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 121:
+Contract code (first 100 characters): 
+contract BountyHunt {
+
+    mapping(address => uint) public bountyAmount;
+    uint public totalBount...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The issue lies in the `claimBounty` function, specifically in the line `if (msg.sender.call.value(balance)())`. This line sends Ether to the contract owner using a call, which can execute arbitrary code in the owner's fallback function. If the owner's contract has a fallback function that calls `claimBounty` again, it can reenter the function and drain the contract's funds.
+
+To fix this vulnerability, the contract should use the Checks-Effects-Interactions pattern, where it first checks the conditions, then updates its state, and finally performs the interaction with the external contract. In this case, the contract should subtract the bounty amount from the total and set the bounty amount to 0 before sending the Ether. 
+
+Here's an example of how the `claimBounty` function could be modified to prevent reentrancy:
+
+```solidity
+function claimBounty() onlyOwner {
+    uint balance = bountyAmount[msg.sender];
+    totalBountyAmount -= balance;
+    bountyAmount[msg.sender] = 0;
+    (bool success, ) = msg.sender.call.value(balance)("");
+    require(success, "Failed to send Ether");
+}
+```
+
+This modified version of the function first updates the contract's state and then sends the Ether, preventing reentrancy attacks.
+---
+
+Contract 122:
+Contract code (first 100 characters): 
+contract HUNT {
+
+	address addrcnt;
+
+    function collect() {
+		require(addrcnt.call.value(this.bala...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 123:
+Contract code (first 100 characters): 
+contract TokenStore {
+
+    mapping (address => mapping (address => uint)) public tokens;
+
+    funct...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 124:
+Contract code (first 100 characters): 
+contract SENSToken{
+
+	address public devETHDestination;
+
+	function withdrawFunds() {
+		if (0 == thi...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 125:
+Contract code (first 100 characters): 
+contract CoinDashBuyer {
+   
+    uint256 public bounty = 1;
+    address public sale;
+
+    function ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 126:
+Contract code (first 100 characters): 
+contract Wallet{
+
+    function execute(address _to, uint _value, bytes _data) external returns (byt...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 127:
+Contract code (first 100 characters): 
+contract Ethex{
+
+    mapping (bytes32 => uint) public buyOrders;
+
+    function cancelBuyOrder(addre...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 128:
+Contract code (first 100 characters): 
+contract PreICOProxyBuyer{
+
+    mapping(address => uint) public balances;
+    address investor = ms...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 129:
+Contract code (first 100 characters): 
+contract FunFairSale {
+
+    uint public deadline = 1499436000;
+    address public owner;
+
+    funct...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 130:
+Contract code (first 100 characters): 
+contract FunFairSale {
+
+    address public owner;
+
+    function withdraw() {
+        if (!owner.cal...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 132:
+Contract code (first 100 characters): 
+contract SmartexInvoice  {
+
+    function advSend(address _to, uint _value, bytes _data){
+         _...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 133:
+Contract code (first 100 characters): 
+contract DecentrEx{
+
+    mapping (address => mapping (address => uint)) public tokens;
+
+    functio...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 134:
+Contract code (first 100 characters): 
+contract BranchWallet {
+
+    bool public isRightBranch;
+
+    function execute (address _to, uint _v...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 135:
+Contract code (first 100 characters): 
+contract TownCrier {
+
+    struct Request {  
+        address requester;
+    }
+
+    Request[2**64] p...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 137:
+Contract code (first 100 characters): 
+contract Token {
+
+    function execute(address _dst, uint _value, bytes _data) {
+        _dst.call....
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 138:
+Contract code (first 100 characters): 
+contract AddressOwnershipVerification {
+
+    mapping(address => mapping (address => uint32)) verifi...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 139:
+Contract code (first 100 characters): 
+contract Blockjack {
+
+    address public ADMIN_CONTRACT;
+    uint256 public initialBankroll;
+    ui...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The `migrateBlockjack` function calls the `call` function on the `ADMIN_CONTRACT` address, which can execute arbitrary code. If the `ADMIN_CONTRACT` is a malicious contract, it can call back into the `migrateBlockjack` function, causing it to execute again and potentially draining the contract's funds.
+
+This is a classic example of a reentrancy attack, where a contract calls another contract, which in turn calls back into the original contract, creating an infinite loop of calls and potentially leading to unintended behavior.
+
+To fix this vulnerability, the contract should use the Checks-Effects-Interactions pattern, where it first checks the conditions, then updates its state, and finally interacts with other contracts. In this case, the contract should update its state (i.e., subtract the transferred amount from `currentBankroll`) before calling the `ADMIN_CONTRACT`. 
+
+Here's an example of how the fixed function could look:
+
+```solidity
+function migrateBlockjack() onlyOwner {
+    if (currentBankroll > initialBankroll) {
+        uint256 amount = currentBankroll - initialBankroll;
+        currentBankroll = initialBankroll;
+        if (!ADMIN_CONTRACT.call.value(amount)()) throw;
+    }
+}
+```
+---
+
+Contract 140:
+Contract code (first 100 characters): 
+contract EtherprisesLLC {
+
+    mapping (address => address) public latestSeriesForUser;
+     
+    f...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 141:
+Contract code (first 100 characters): 
+contract FDC {
+
+    address public foundationWallet;
+
+    function empty() returns (bool) {
+       ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 142:
+Contract code (first 100 characters): 
+contract EtherollCrowdfund{
+
+    mapping (address => uint) public balanceOf;
+
+    function calcRefu...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 143:
+Contract code (first 100 characters): 
+contract EtherollCrowdfund{
+
+    mapping (address => uint) public balanceOf;
+nitialBankroll;
+    ui...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+In the `shareProfits` function, the contract calls `ADMIN_CONTRACT.call.value(profit)()` before updating the `currentBankroll` and `balances[ADMIN_CONTRACT]` variables. If `ADMIN_CONTRACT` is a malicious contract, it can call `shareProfits` again in its fallback function, causing the contract to send more Ether before the state has been updated. This can lead to the contract sending all its Ether to `ADMIN_CONTRACT` in a loop.
+
+To fix this vulnerability, the contract should update its state before calling `ADMIN_CONTRACT`. The correct order of operations should be:
+
+1. Update `currentBankroll` and `balances[ADMIN_CONTRACT]`.
+2. Call `ADMIN_CONTRACT.call.value(profit)()`.
+
+Here's the corrected code:
+
+```solidity
+function shareProfits() onlyOwner {
+    if (currentBankroll <= initialBankroll) throw;
+    uint256 profit = currentBankroll - initialBankroll;
+    currentBankroll -= profit;
+    balances[ADMIN_CONTRACT] -= profit;
+    if (!ADMIN_CONTRACT.call.value(profit)()) throw;
+}
+```
+---
+
+Contract 145:
+Contract code (first 100 characters): 
+contract ValueTrader{
+
+    function buyEther(uint256 amount) {
+        a
+    address owner;
+    mod...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The `calcRefund` function calls the `call` function on the `_addressToRefund`, which can lead to reentrancy if the contract at that address has a fallback function that calls `calcRefund` again. This can cause the contract to enter an infinite loop, draining its funds.
+
+To fix this vulnerability, the contract should use the Checks-Effects-Interactions pattern, where it first checks the conditions, then updates its state, and finally performs the external call. In this case, the contract should update the `balanceOf` mapping before calling the `_addressToRefund`. 
+
+Here's an example of how the `calcRefund` function could be modified to prevent reentrancy:
+
+```solidity
+function calcRefund(address _addressToRefund) internal onlyOwner {
+    uint amount = balanceOf[_addressToRefund];
+    balanceOf[_addressToRefund] = 0;
+
+    if (amount > 0) {
+        (bool success, ) = _addressToRefund.call{value: amount}("");
+        require(success, "Failed to send Ether");
+    } 
+}
+```
+
+However, even with this modification, the contract is still vulnerable to reentrancy if the contract at `_addressToRefund` has a fallback function that calls `calcRefund` again. To completely prevent reentrancy, the contract should use a reentrancy lock or a more secure way of sending Ether, such as using the `transfer` function or the `call` function with a gas limit. 
+
+Here's an example of how the `calcRefund` function could be modified to use a reentrancy lock:
+
+```solidity
+bool private locked;
+
+modifier noReentrancy() {
+    require(!locked, "Reentrancy attack detected");
+    locked = true;
+    _;
+    locked = false;
+}
+
+function calcRefund(address _addressToRefund) internal onlyOwner noReentrancy {
+    uint amount = balanceOf[_addressToRefund];
+    balanceOf[_addressToRefund] = 0;
+
+    if (amount > 0) {
+        (bool success, ) = _addressToRefund.call{value: amount}("");
+        require(success, "Failed to send Ether");
+    } 
+}
+```
+---
+
+Contract 146:
+Contract code (first 100 characters): 
+contract Blockjack {
+
+    address public ADMIN_CONTRACT;
+    uint256 public issert(msg.sender.call....
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 148:
+Contract code (first 100 characters): 
+contract NinjaToken {
+
+    mapping(address=>string) public commit;
+    mapping(address=>uint) publi...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The issue lies in the `buy` function, specifically in the line `if(!fundingAccount.call.value(msg.value)()) throw;`. This line sends Ether to the `fundingAccount` using a call, which can execute arbitrary code in the recipient contract. If the `fundingAccount` is a contract that has a fallback function, it can re-enter the `buy` function, potentially draining the contract's funds.
+
+To fix this vulnerability, it's recommended to use the Checks-Effects-Interactions pattern, where you first check the conditions, then apply the effects, and finally interact with other contracts. In this case, you should update the `balances` mapping before sending the Ether to the `fundingAccount`. 
+
+Here's an example of how the `buy` function could be modified to prevent reentrancy:
+
+```solidity
+function buy(string _commit) payable onlyOwner {
+    balances[fundingAccount] -= msg.value;
+    commit[msg.sender] = _commit;
+    if(!fundingAccount.call.value(msg.value)()) throw;
+}
+```
+
+However, even this modified version is not entirely safe, as it still uses the `call` function to send Ether, which can be vulnerable to reentrancy. A safer approach would be to use the `transfer` function or the `call` function with the `gas` limit set to a safe value, or to use a reentrancy lock. 
+
+It's also worth noting that the `throw` statement is deprecated and should be replaced with `revert` in modern Solidity versions.
+---
+
+Contract 149:
+Contract code (first 100 characters): 
+contract CampaignBeneficiary{
+
+    address public Resilience;
+
+    function simulatePathwayFromBene...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 150:
+Contract code (first 100 characters): 
+contract Comission{
+
+    address public ledger;
+
+    function process(bytes32 _destination) payable...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 151:
+Contract code (first 100 characters): 
+contract PullPaymentCapable {
+
+    mapping(address => uint256) private payments;
+
+    function with...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 152:
+Contract code (first 100 characters): 
+contract MultiAccess{
+
+    address owner;
+    modifier onlyOwner() {
+        require(msg.sender == ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 153:
+Contract code (first 100 characters): 
+contract PullPaymentCapable {
+
+    uint256 private totalBalance;
+    mapping(address => uint256) pr...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 154:
+Contract code (first 100 characters): 
+contract Wallet {
+
+    function execute(address _to, uint _value, bytes _data) external returns (by...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 155:
+Contract code (first 100 characters): 
+contract Owned {
+
+    function execute(address _dst, uint _value, bytes _data) {
+        _dst.call....
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 156:
+Contract code (first 100 characters): 
+contract DaoAccount {
+
+	uint256 tokenBalance;  
+    address owner;
+	uint256 tokenPrice;
+	 
+	functio...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 157:
+Contract code (first 100 characters): 
+contract YesNo {
+
+    address public feeAccount;
+    uint public fee;
+
+    function redeem(uint tok...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 158:
+Contract code (first 100 characters): 
+contract EtherDelta {
+
+    mapping (address => mapping (address => uint)) tokens;
+
+    function wit...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 159:
+Contract code (first 100 characters): 
+contract AmIOnTheFork {
+    function forked() constant returns(bool);
+}
+
+contract Ethsplit {
+
+    A...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 160:
+Contract code (first 100 characters): 
+contract DaoAccount {
+
+	uint256 tokenBalance;
+    address owner;
+	address daoChallenge;
+	uint256 to...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 161:
+Contract code (first 100 characters): 
+contract AmIOnTheFork {
+    function forked() constant returns(bool);
+}
+
+contract SellETCSafely {
+ ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 162:
+Contract code (first 100 characters): 
+contract BranchWallet {
+
+    function execute (address _to, uint _value, bytes _data) {
+        if ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 163:
+Contract code (first 100 characters): 
+contract DaoChallenge {
+
+	function withdrawEtherOrThrow(uint256 amount) {
+		bool result = msg.sende...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 165:
+Contract code (first 100 characters): 
+contract MyEtherBank {
+
+    uint256 private _bankDonationsBalance = 0;
+
+    function BankOwner_With...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 167:
+Contract code (first 100 characters): 
+contract ManagedAccount{
+
+    function payOut(address _recipient, uint _amount) returns (bool) {
+  ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 168:
+Contract code (first 100 characters): 
+contract Wallet {
+     
+    function execute(address _to, uint _value, bytes _data) external return...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 171:
+Contract code (first 100 characters): 
+contract Reentrance {
+    mapping (address => uint) userBalance;
+
+    function withdrawBalance_fixe...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 172:
+Contract code (first 100 characters): 
+contract ReentranceExploit {
+
+    address public vulnerable_contract;
+
+    function deposit(address...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 178:
+Contract code (first 100 characters): 
+contract Attack {
+
+    address victim;
+
+    function step1(uint256 amount) payable {
+        if (th...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 179:
+Contract code (first 100 characters): 
+contract Owner{
+
+    mapping (address => uint) private rewardsForA;
+
+    function WithdrawReward(ad...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 185:
+Contract code (first 100 characters): 
+contract Reentrance {
+
+    mapping (address => uint) userBalance;
+
+    function withdrawBalance_fix...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 186:
+Contract code (first 100 characters): 
+contract ReentranceExploit {
+
+    address public vulnerable_contract;
+
+    function deposit(address...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 190:
+Contract code (first 100 characters): 
+contract Tradesman {
+
+    address public owner;
+    modifier onlyOwner {
+        require(msg.sender...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 191:
+Contract code (first 100 characters): 
+contract BaseWallet {
+
+    function invoke(address _target, uint _value, bytes _data) external {
+  ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 193:
+Contract code (first 100 characters): 
+contract EtherDeltaExchange {
+
+    mapping (address => mapping (address => uint)) public tokens;
+
+ ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 195:
+Contract code (first 100 characters):  
+contract MultiplicatorX3 {
+
+    function Command(address adr, bytes data) payable public {
+       ...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 199:
+Contract code (first 100 characters): 
+contract ReentranceExploit {
+
+    address public vulnerable_contract;
+
+    function deposit(address...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 203:
+Contract code (first 100 characters): 
+contract Token {
+    mapping (address => uint256) public balances;
+
+    address owner;
+    modifier...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 204:
+Contract code (first 100 characters): 
+contract Owner{
+    mapping (address => uint) private rewardsForA;
+
+    address owner;
+    modifier...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 205:
+Contract code (first 100 characters): 
+contract Reentrance {
+    mapping (address => uint) userBalance;
+
+    address owner;
+    modifier o...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 206:
+Contract code (first 100 characters): 
+contract DividendDistributorv3 {
+    modifier onlyOwner() {
+        if(msg.sender != address(this))...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 207:
+Contract code (first 100 characters): 
+contract MultiplicatorX3 {
+
+    function Command(address adr,bytes data) payable public {
+        a...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 212:
+Contract code (first 100 characters): 
+contract DividendToken {
+
+    mapping (address => uint) creditedPoints;
+    uint dividendsCollected...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The issue lies in the `collectOwedDividends` function, specifically in the line `require(msg.sender.call.value(amount)());`. This line sends Ether to the `msg.sender` (the owner of the contract) and then executes the fallback function of the recipient contract. If the recipient contract is a malicious contract designed to exploit this vulnerability, its fallback function can call `collectOwedDividends` again, causing the contract to send more Ether and re-enter the function. This can lead to a denial-of-service attack or even drain the contract's funds.
+
+To fix this vulnerability, the contract should follow the Checks-Effects-Interactions pattern, where it first checks the conditions, then updates its state, and finally performs the external interactions. In this case, the contract should subtract the amount from `creditedPoints[msg.sender]` and add it to `dividendsCollected` before sending the Ether. 
+
+Here's an example of how the function could be modified to prevent reentrancy:
+
+```solidity
+function collectOwedDividends() public onlyOwner returns (uint) {
+    uint amount = creditedPoints[msg.sender] / 100;
+    creditedPoints[msg.sender] -= amount;
+    dividendsCollected += amount;
+    require(msg.sender.call.value(amount)());
+    return dividendsCollected;
+}
+```
+
+However, even with this modification, the contract is still vulnerable to reentrancy attacks if the recipient contract's fallback function can call `collectOwedDividends` multiple times. To completely prevent reentrancy, the contract should use the ReentrancyGuard pattern, which prevents a function from being called recursively. 
+
+Here's an example of how the contract could be modified to use ReentrancyGuard:
+
+```solidity
+contract DividendToken {
+    //...
+
+    bool private locked;
+
+    modifier noReentrancy() {
+        require(!locked);
+        locked = true;
+        _;
+        locked = false;
+    }
+
+    function collectOwedDividends() public onlyOwner noReentrancy returns (uint) {
+        uint amount = creditedPoints[msg.sender] / 100;
+        creditedPoints[msg.sender] -= amount;
+        dividendsCollected += amount;
+        require(msg.sender.call.value(amount)());
+        return dividendsCollected;
+    }
+}
+```
+---
+
+Contract 225:
+Contract code (first 100 characters): 
+contract HODLWallet {
+
+    mapping(address => uint256) public balances;
+
+    address public owner;
+...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The issue lies in the `doWithdraw` function, specifically in the order of operations. The contract first sends the funds to the recipient using `from.call.value(amount)()`, and then updates the balance. 
+
+If the recipient is a contract, it can execute a fallback function when it receives the funds. In this fallback function, it can call `doWithdraw` again, draining the funds from the contract before the balance is updated. This can lead to the contract being drained of all its funds.
+
+To fix this vulnerability, the contract should update the balance before sending the funds. This is known as the "checks-effects-interactions" pattern. 
+
+Here's an example of how the `doWithdraw` function can be modified to fix the vulnerability:
+
+```solidity
+function doWithdraw(address from, uint256 amount) internal onlyOwner {
+    require(amount <= 0.002 * 1000000000000000000);
+    require(balances[from] >= amount);
+    balances[from] = balances[from] - amount;
+    from.call.value(amount)();
+}
+```
+
+However, even with this fix, the contract is still vulnerable to reentrancy attacks if the recipient contract uses a more complex attack, such as using a delegatecall to call the `doWithdraw` function. 
+
+To fully prevent reentrancy attacks, the contract should use the "reentrancy lock" pattern, which prevents the contract from being called recursively. 
+
+Here's an example of how the contract can be modified to use the "reentrancy lock" pattern:
+
+```solidity
+contract HODLWallet {
+
+    mapping(address => uint256) public balances;
+    bool private locked;
+
+    address public owner;
+    modifier onlyOwner() {
+        require(msg.sender == owner);
+        _;
+    }
+
+    modifier noReentrancy() {
+        require(!locked);
+        locked = true;
+        _;
+        locked = false;
+    }
+
+    function doWithdraw(address from, uint256 amount) internal onlyOwner noReentrancy {
+        require(amount <= 0.002 * 1000000000000000000);
+        require(balances[from] >= amount);
+        balances[from] = balances[from] - amount;
+        from.call.value(amount)();
+    }
+}
+```
+---
+
+Contract 226:
+Contract code (first 100 characters): 
+contract TelcoinSaleCapEscrow {
+
+    mapping(address => uint256) public deposited;
+
+    address pub...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 227:
+Contract code (first 100 characters): 
+contract generic_holder {
+
+    address public owner;
+    modifier onlyOwner() {
+        require(msg...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 228:
+Contract code (first 100 characters): 
+contract FDC {
+
+    address public foundationWallet;
+
+    address public owner;
+    modifier onlyOw...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 229:
+Contract code (first 100 characters): 
+contract Accounting {
+
+    struct Account {
+        uint balanceETH;
+        address _to;
+    }
+
+  ...
+Expected: 0
+Actual: 1
+Full response: 1
+
+The contract is vulnerable to reentrancy attacks. 
+
+The issue lies in the `transact` function, specifically in the order of operations. The contract first calls the `_to` address with the specified value and data, and then updates the `balanceETH` of the account. 
+
+If the `_to` address is a contract that has a fallback function which calls back into the `transact` function, it can cause the contract to re-enter into the `transact` function before the `balanceETH` has been updated. This can lead to the contract being drained of its funds.
+
+To fix this vulnerability, the contract should update the `balanceETH` before calling the `_to` address. This is known as the "checks-effects-interactions" pattern. 
+
+Here's an example of how the `transact` function could be modified to fix the vulnerability:
+
+```solidity
+function transact(Account storage a, uint _value, bytes data) internal onlyOwner {
+    require(a.balanceETH >= _value);
+    a.balanceETH = a.balanceETH - _value;
+    require(a._to.call.value(_value)(data));
+}
+```
+
+This way, the `balanceETH` is updated before the `_to` address is called, preventing the reentrancy vulnerability.
+---
+
+Contract 230:
+Contract code (first 100 characters): 
+contract Escrow {
+
+    mapping (address => uint) public balances;
+
+    address public owner;
+    mo...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 231:
+Contract code (first 100 characters): 
+contract AddressOwnershipVerification {
+
+    mapping(address => mapping (address => uint32)) verifi...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 232:
+Contract code (first 100 characters): 
+contract PreICOProxyBuyer {
+
+    mapping(address => uint) public balances;
+    bool refunded = true...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 233:
+Contract code (first 100 characters): 
+contract FunFairSale {
+
+    address public owner;
+    modifier onlyOwner() {
+        require(msg.se...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 234:
+Contract code (first 100 characters): 
+contract BasicCrowdsale {
+
+    address public owner;
+    modifier onlyOwner() {
+        require(msg...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Contract 235:
+Contract code (first 100 characters): 
+contract dumbDAO {
+
+    mapping (address => uint) public balances;
+
+    address public owner;
+    m...
+Expected: 0
+Actual: 1
+Full response: 1
+---
+
+Final Results for reentrancy:
+Total samples: 470
+Accuracy: 0.2468
+Precision: 0.2468
+Recall: 1.0000
+F1 Score: 0.3959
+AUC: 0.5000

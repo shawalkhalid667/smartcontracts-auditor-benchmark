@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9.sol",
+  "contract_stem": "unchecked_low_level_calls_0x0cbe050f75bc8f8c2d6c0d249fea125fd6e1acc9",
+  "pragma": "pragma solidity ^0.4.10;",
+  "solc_version": "0.4.10",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

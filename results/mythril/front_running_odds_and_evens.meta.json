@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "front_running_odds_and_evens.sol",
+  "contract_stem": "front_running_odds_and_evens",
+  "pragma": "pragma solidity ^0.4.2;",
+  "solc_version": "0.4.2",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

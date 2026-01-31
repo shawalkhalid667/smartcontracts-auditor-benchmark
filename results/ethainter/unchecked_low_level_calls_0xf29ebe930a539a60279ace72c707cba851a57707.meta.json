@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "unchecked_low_level_calls_0xf29ebe930a539a60279ace72c707cba851a57707.sol",
+  "contract_stem": "unchecked_low_level_calls_0xf29ebe930a539a60279ace72c707cba851a57707",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.4172143936157227,
+  "note": "ranked_relations",
+  "chosen_contract": "B",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/unchecked_low_level_calls_0xf29ebe930a539a60279ace72c707cba851a57707",
+  "relations_count": 14
+}

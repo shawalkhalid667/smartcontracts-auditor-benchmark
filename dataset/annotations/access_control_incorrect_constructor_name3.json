@@ -1,0 +1,10 @@
+{
+  "contract": "access_control_incorrect_constructor_name3.sol",
+  "vulnerabilities": [
+    {
+      "type": "access control",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

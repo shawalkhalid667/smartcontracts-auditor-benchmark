@@ -1,0 +1,35 @@
+{
+  "tool": "mythril",
+  "contract": "unchecked_low_level_calls_0xb7c5c5aa4d42967efe906e1b66cb8df9cebf04f7.sol",
+  "contract_stem": "unchecked_low_level_calls_0xb7c5c5aa4d42967efe906e1b66cb8df9cebf04f7",
+  "pragma": "pragma solidity ^0.4.23;",
+  "solc_version": "0.4.23",
+  "returncode": 1,
+  "detected_categories": [
+    "front_running",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    }
+  ]
+}

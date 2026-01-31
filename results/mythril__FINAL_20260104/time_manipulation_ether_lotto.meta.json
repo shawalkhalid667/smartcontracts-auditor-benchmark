@@ -1,0 +1,34 @@
+{
+  "tool": "mythril",
+  "contract": "time_manipulation_ether_lotto.sol",
+  "contract_stem": "time_manipulation_ether_lotto",
+  "pragma": "pragma solidity ^0.4.15;",
+  "solc_version": "0.4.15",
+  "returncode": 1,
+  "detected_categories": [
+    "front_running",
+    "time_manipulation"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "116",
+      "title": "Dependence on predictable environment variable",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "113",
+      "title": "Multiple Calls in a Single Transaction",
+      "severity": "Low"
+    }
+  ]
+}

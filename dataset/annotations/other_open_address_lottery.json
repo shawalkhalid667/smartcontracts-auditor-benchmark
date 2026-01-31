@@ -1,0 +1,10 @@
+{
+  "contract": "other_open_address_lottery.sol",
+  "vulnerabilities": [
+    {
+      "type": "other",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

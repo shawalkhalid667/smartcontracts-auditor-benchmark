@@ -1,0 +1,10 @@
+{
+  "contract": "arithmetic_insecure_transfer.sol",
+  "vulnerabilities": [
+    {
+      "type": "arithmetic",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "tool": "ftaudit",
+  "contract": "reentrancy_etherstore.sol",
+  "contract_stem": "reentrancy_etherstore",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 5.965068340301514,
+  "note": "fallback_text_parse_no_json"
+}

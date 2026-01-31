@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "front_running_eth_tx_order_dependence_minimal.sol",
+  "contract_stem": "front_running_eth_tx_order_dependence_minimal",
+  "returncode": 0,
+  "detected_categories": [
+    "time_manipulation"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 2.359518051147461,
+  "note": "fallback_text_parse_no_json"
+}

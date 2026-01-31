@@ -1,0 +1,54 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/static/static_analysis_patterns.py", line 73, in find_matches
+    static = analysis_context.static_analysis
+  File "/sec/securify/analyses/analysis.py", line 88, in static_analysis
+    self._static = self.config.static_analysis(self)
+  File "securify/__main__.py", line 255, in <lambda>
+    static_analysis=lambda t: static_analysis.analyze_cfg(t.cfg, **souffle_config),
+  File "/sec/securify/analyses/analysis.py", line 81, in cfg
+    self._cfg = self.config.cfg_compiler(self)
+  File "securify/__main__.py", line 254, in <lambda>
+    cfg_compiler=lambda t: solidity_cfg_compiler.compile_cfg(t.ast).cfg,
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:127:29: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function rand(uint max) constant private returns (uint256 result){
+                            ^------^
+
+fixed_pragma.sol:155:33: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function multiplierFactor() constant returns (uint factor, string info) {
+                                ^------^
+
+fixed_pragma.sol:160:27: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function currentFee() constant returns (uint feePercentage, string info) {
+                          ^------^
+
+fixed_pragma.sol:165:29: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function totalEntries() constant returns (uint count, string info) {
+                            ^------^
+
+fixed_pragma.sol:170:38: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function userStats(address user) constant returns (uint deposits, uint payouts, string info)
+                                     ^------^
+
+fixed_pragma.sol:180:39: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+    function entryDetails(uint index) constant returns (address user, uint payout, bool paid, string info)
+                                      ^------^
+
+        > command: `solc --allow-paths / --standard-json`
+        > return code: `0`
+        > stderr:
+        {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:127:29: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function rand(uint max) constant private returns (uint256 result){\n                            ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":3538,"file":"fixed_pragma.sol","start":3530},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:155:33: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function multiplierFactor() constant returns (uint factor, string info) {\n                                ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":4237,"file":"fixed_pragma.sol","start":4229},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:160:27: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function currentFee() constant returns (uint feePercentage, string info) {\n                          ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":4431,"file":"fixed_pragma.sol","start":4423},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:165:29: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function totalEntries() constant returns (uint count, string info) {\n                            ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":4651,"file":"fixed_pragma.sol","start":4643},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:170:38: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function userStats(address user) constant returns (uint deposits, uint payouts, string info)\n                                     ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":4814,"file":"fixed_pragma.sol","start":4806},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:180:39: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n    function entryDetails(uint index) constant returns (address user, uint payout, bool paid, string info)\n                                      ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":5154,"file":"fixed_pragma.sol","start":5146},"type":"ParserError"}],"sources":{}}
+
+        > stdout:

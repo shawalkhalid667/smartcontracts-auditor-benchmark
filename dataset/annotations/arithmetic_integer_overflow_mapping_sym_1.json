@@ -1,0 +1,10 @@
+{
+  "contract": "arithmetic_integer_overflow_mapping_sym_1.sol",
+  "vulnerabilities": [
+    {
+      "type": "arithmetic",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "arithmetic_insecure_transfer.sol",
+  "contract_stem": "arithmetic_insecure_transfer",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 1.6961045265197754,
+  "note": "fallback_text_parse_no_json"
+}

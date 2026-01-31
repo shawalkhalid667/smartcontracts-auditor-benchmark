@@ -1,0 +1,43 @@
+{
+  "tool": "smartcheck",
+  "contract": "unchecked_low_level_calls_0x610495793564aed0f9c7fc48dc4c7c9151d34fd6.sol",
+  "contract_stem": "unchecked_low_level_calls_0x610495793564aed0f9c7fc48dc4c7c9151d34fd6",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_UNCHECKED_CALL",
+      "patternId": "f39eed",
+      "severity": 3,
+      "line": 33,
+      "column": 16,
+      "content": "call.value(_value)(_data)"
+    },
+    {
+      "ruleId": "SOLIDITY_UPGRADE_TO_050",
+      "patternId": "91h3sa",
+      "severity": 1,
+      "line": 19,
+      "column": 15,
+      "content": "public"
+    },
+    {
+      "ruleId": "SOLIDITY_UPGRADE_TO_050",
+      "patternId": "341gim",
+      "severity": 1,
+      "line": 31,
+      "column": 53,
+      "content": "bytes_data"
+    }
+  ],
+  "detected_categories": [
+    "unchecked_low_level_calls"
+  ]
+}

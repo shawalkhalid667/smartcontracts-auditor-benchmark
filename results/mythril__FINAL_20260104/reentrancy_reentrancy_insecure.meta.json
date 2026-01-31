@@ -1,0 +1,29 @@
+{
+  "tool": "mythril",
+  "contract": "reentrancy_reentrancy_insecure.sol",
+  "contract_stem": "reentrancy_reentrancy_insecure",
+  "pragma": "pragma solidity ^0.5.0;",
+  "solc_version": "0.5.0",
+  "returncode": 1,
+  "detected_categories": [
+    "front_running",
+    "reentrancy"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    }
+  ]
+}

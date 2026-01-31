@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "bad_randomness_blackjack.sol",
+  "contract_stem": "bad_randomness_blackjack",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

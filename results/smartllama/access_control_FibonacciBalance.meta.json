@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "access_control_FibonacciBalance.sol",
+  "contract_stem": "access_control_FibonacciBalance",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 3.724454641342163,
+  "note": "fallback_text_parse_no_json"
+}

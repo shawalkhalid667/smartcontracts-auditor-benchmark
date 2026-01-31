@@ -1,0 +1,4 @@
+{
+  "contract": "other_crypto_roulette.sol",
+  "pragma": "pragma solidity ^0.4.19;"
+}

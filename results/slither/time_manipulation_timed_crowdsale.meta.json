@@ -1,0 +1,29 @@
+{
+  "tool": "slither",
+  "contract": "time_manipulation_timed_crowdsale.sol",
+  "contract_stem": "time_manipulation_timed_crowdsale",
+  "pragma": "pragma solidity ^0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "time_manipulation"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

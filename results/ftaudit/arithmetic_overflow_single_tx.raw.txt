@@ -1,0 +1,101 @@
+=== SYSTEM ===
+You are a smart contract security auditor.
+
+CRITICAL OUTPUT RULES:
+- Output MUST be exactly ONE valid JSON object and NOTHING ELSE.
+- The first character MUST be '{' and the last character MUST be '}'.
+- Do NOT output prose, markdown, numbering, code fences, or extra commentary.
+
+Task: Identify which SmartBugs vulnerability categories are present in the contract.
+
+Allowed categories (use these exact strings):
+unchecked_low_level_calls, time_manipulation, bad_randomness, denial_of_service, front_running,
+access_control, short_addresses, reentrancy, arithmetic, other
+
+Output JSON schema (exact keys):
+{
+  "findings": [
+    {
+      "category": "<one of the allowed categories>",
+      "severity": <int 1..5>,
+      "confidence": <int 1..3>,
+      "title": "<short>",
+      "rationale": "<1-3 sentences>"
+    }
+  ],
+  "detected_categories": ["..."]
+}
+
+Rules:
+- If you are not confident, omit the finding (prefer precision).
+- If you find nothing, output {"findings": [], "detected_categories": []}.
+- Do not include any text outside the JSON object.
+
+
+=== USER ===
+Return ONLY the JSON object described in the system message.
+CONTRACT_FILE: arithmetic_overflow_single_tx.sol
+SOLIDITY_SOURCE_BEGIN
+/*
+ * @source: https://github.com/ConsenSys/evm-analyzer-benchmark-suite
+ * @author: Suhabe Bugrara
+ * @vulnerable_at_lines: 18,24,30,36,42,48
+ */
+
+//Single transaction overflow
+//Post-transaction effect: overflow escapes to publicly-readable storage
+
+pragma solidity ^0.4.23;
+
+contract IntegerOverflowSingleTransaction {
+    uint public count = 1;
+
+    // ADD overflow with result stored in state variable.
+    function overflowaddtostate(uint256 input) public {
+        // <yes> <report> ARITHMETIC
+        count += input;
+    }
+
+    // MUL overflow with result stored in state variable.
+    function overflowmultostate(uint256 input) public {
+        // <yes> <report> ARITHMETIC
+        count *= input;
+    }
+
+    // Underflow with result stored in state variable.
+    function underflowtostate(uint256 input) public {
+        // <yes> <report> ARITHMETIC
+        count -= input;
+    }
+
+    // ADD Overflow, no effect on state.
+    function overflowlocalonly(uint256 input) public {
+        // <yes> <report> ARITHMETIC
+        uint res = count + input;
+    }
+
+    // MUL Overflow, no effect on state.
+    function overflowmulocalonly(uint256 input) public {
+        // <yes> <report> ARITHMETIC
+        uint res = count * input;
+    }
+
+    // Underflow, no effect on state.
+    function underflowlocalonly(uint256 input) public {
+        // <yes> <report> ARITHMETIC
+       	uint res = count - input;
+    }
+
+}
+
+SOLIDITY_SOURCE_END
+
+
+=== MODEL_OUTPUT ===
+0. The code is secure against arithmetic attacks. The contract uses Solidity's built-in overflow checks, which are automatically enabled in Solidity 0.8.x and higher. These checks ensure that arithmetic operations do not result in overflows or underflows. Specifically, the functions 'overflowaddtostate', 'overflowmultostate', 'underflowtostate', 'overflowlocalonly', 'overflowmulocalonly', and 'underflowlocalonly' all use Solidity's safe arithmetic operations, which automatically revert transactions if an overflow or underflow occurs. There is no use of the 'unchecked' keyword, which would disable these safety checks. Additionally, there are no critical operations involving token transfers, balance updates, or price calculations that could be vulnerable to arithmetic attacks. The contract's simplicity and lack of complex arithmetic operations ensure that it is secure against arithmetic vulnerabilities.
+
+=== ERROR ===
+
+
+=== ELAPSED_S ===
+9.9376

@@ -1,0 +1,62 @@
+{
+  "findings": [
+    {
+      "category": "access_control",
+      "severity": 1,
+      "confidence": 1,
+      "title": "access_control",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    },
+    {
+      "category": "arithmetic",
+      "severity": 1,
+      "confidence": 1,
+      "title": "arithmetic",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    },
+    {
+      "category": "bad_randomness",
+      "severity": 1,
+      "confidence": 1,
+      "title": "bad_randomness",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    },
+    {
+      "category": "reentrancy",
+      "severity": 1,
+      "confidence": 1,
+      "title": "reentrancy",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    },
+    {
+      "category": "short_addresses",
+      "severity": 1,
+      "confidence": 1,
+      "title": "short_addresses",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    },
+    {
+      "category": "time_manipulation",
+      "severity": 1,
+      "confidence": 1,
+      "title": "time_manipulation",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    },
+    {
+      "category": "unchecked_low_level_calls",
+      "severity": 1,
+      "confidence": 1,
+      "title": "unchecked_low_level_calls",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    }
+  ],
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "short_addresses",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ]
+}

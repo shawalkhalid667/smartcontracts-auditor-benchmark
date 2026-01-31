@@ -1,0 +1,14 @@
+{
+  "tool": "ftaudit",
+  "contract": "arithmetic_token.sol",
+  "contract_stem": "arithmetic_token",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "denial_of_service",
+    "reentrancy"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 8.452913999557495,
+  "note": "fallback_text_parse_no_json"
+}
