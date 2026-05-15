@@ -1,0 +1,12 @@
+.DS_Store
+.claude/
+*_env/
+smartllama_env/
+mythril_env/
+results/
+logs/
+dataset/
+FORGE-Curated/
+smart_contract_auditor_benchmark_artifact/
+__pycache__/
+*.pyc
