@@ -1,0 +1,22 @@
+{
+  "findings": [
+    {
+      "category": "arithmetic",
+      "severity": 1,
+      "confidence": 1,
+      "title": "arithmetic",
+      "rationale": "Category inferred from SmartLLaMA free-form explanation text."
+    },
+    {
+      "category": "time_manipulation",
+      "severity": 1,
+      "confidence": 1,
+      "title": "time_manipulation",
+      "rationale": "Category inferred from SmartLLaMA free-form explanation text."
+    }
+  ],
+  "detected_categories": [
+    "arithmetic",
+    "time_manipulation"
+  ]
+}

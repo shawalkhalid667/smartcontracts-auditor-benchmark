@@ -1,0 +1,58 @@
+{
+  "tool": "mythril",
+  "contract": "reentrancy_0x4e73b32ed6c35f570686b89848e5f39f20ecc106.sol",
+  "contract_stem": "reentrancy_0x4e73b32ed6c35f570686b89848e5f39f20ecc106",
+  "pragma": "pragma solidity ^0.4.19;",
+  "solc_version": "0.4.19",
+  "returncode": 1,
+  "detected_categories": [
+    "reentrancy"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "113",
+      "title": "Multiple Calls in a Single Transaction",
+      "severity": "Low"
+    }
+  ]
+}

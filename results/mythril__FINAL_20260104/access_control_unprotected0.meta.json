@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "access_control_unprotected0.sol",
+  "contract_stem": "access_control_unprotected0",
+  "pragma": "pragma solidity ^0.4.15;",
+  "solc_version": "0.4.15",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

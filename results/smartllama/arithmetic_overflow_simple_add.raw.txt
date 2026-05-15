@@ -1,0 +1,66 @@
+=== SYSTEM ===
+You are a smart contract security auditor.
+
+CRITICAL OUTPUT RULES:
+- Output MUST be exactly ONE valid JSON object and NOTHING ELSE.
+- The first character MUST be '{' and the last character MUST be '}'.
+- Do NOT output prose, markdown, numbering, code fences, or extra commentary.
+
+Task: Identify which SmartBugs vulnerability categories are present in the contract.
+
+Allowed categories (use these exact strings):
+unchecked_low_level_calls, time_manipulation, bad_randomness, denial_of_service, front_running,
+access_control, short_addresses, reentrancy, arithmetic, other
+
+Output JSON schema (exact keys):
+{
+  "findings": [
+    {
+      "category": "<one of the allowed categories>",
+      "severity": <int 1..5>,
+      "confidence": <int 1..3>,
+      "title": "<short>",
+      "rationale": "<1-3 sentences>"
+    }
+  ],
+  "detected_categories": ["..."]
+}
+
+Rules:
+- If you are not confident, omit the finding (prefer precision).
+- If you find nothing, output {"findings": [], "detected_categories": []}.
+- Do not include any text outside the JSON object.
+
+
+=== USER ===
+Return ONLY the JSON object described in the system message.
+CONTRACT_FILE: arithmetic_overflow_simple_add.sol
+SOLIDITY_SOURCE_BEGIN
+/*
+ * @source: https://smartcontractsecurity.github.io/SWC-registry/docs/SWC-101#overflow-simple-addsol
+ * @author: -
+ * @vulnerable_at_lines: 14
+ */
+
+pragma solidity 0.4.25;
+
+contract Overflow_Add {
+    uint public balance = 1;
+
+    function add(uint256 deposit) public {
+        // <yes> <report> ARITHMETIC
+        balance += deposit;
+    }
+}
+
+SOLIDITY_SOURCE_END
+
+
+=== MODEL_OUTPUT ===
+0. The contract uses the 'balance' variable which is of type uint256. In the 'add' function, the operation 'balance += deposit' is performed without any checks. This operation could result in an overflow if the sum exceeds the maximum value of uint256. The maximum value of uint256 is 2^256 - 1. If 'deposit' is such a large number that the sum exceeds this maximum value, it will wrap around to a smaller number, potentially resulting in a smaller balance than before the addition. This is considered a vulnerability as it could allow an attacker to manipulate the balance in unexpected ways. The vulnerability is related to arithmetic operations, specifically addition, and the lack of overflow checks.
+
+=== ERROR ===
+
+
+=== ELAPSED_S ===
+3.8594

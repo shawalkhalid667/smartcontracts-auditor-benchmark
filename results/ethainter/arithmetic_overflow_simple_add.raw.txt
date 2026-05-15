@@ -1,0 +1,15 @@
+=== SOLC ===
+[env] python=/home/shawal/smart_contract_auditor_benchmark/smartllama_env/bin/python
+[pragma] 0.4.25
+[choose] want_solc=0.4.26
+[solc-select] using=/home/shawal/smart_contract_auditor_benchmark/smartllama_env/bin/solc-select
+[solc-select use 0.4.26] rc=0
+Switched global version to 0.4.26
+
+[host solc_cmd='solc'] rc=0
+NO_BYTECODE
+pragma=0.4.25
+arithmetic_overflow_simple_add.sol:7:1: SyntaxError: Source file requires different compiler version (current compiler is 0.4.26+commit.4563c3fc.Linux.g++ - note that nightly builds are considered to be strictly less than the released version
+pragma solidity 0.4.25;
+^---------------------^
+

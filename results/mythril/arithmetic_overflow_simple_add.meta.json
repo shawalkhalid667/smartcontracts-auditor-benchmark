@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "arithmetic_overflow_simple_add.sol",
+  "contract_stem": "arithmetic_overflow_simple_add",
+  "pragma": "pragma solidity 0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

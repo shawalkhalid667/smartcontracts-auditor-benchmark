@@ -1,0 +1,20 @@
+{
+  "tool": "smartllama",
+  "contract": "access_control_incorrect_constructor_name1.sol",
+  "contract_stem": "access_control_incorrect_constructor_name1",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "denial_of_service",
+    "front_running",
+    "reentrancy",
+    "short_addresses",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 9,
+  "elapsed_s": 2.6192586421966553,
+  "note": "fallback_text_parse_no_json"
+}

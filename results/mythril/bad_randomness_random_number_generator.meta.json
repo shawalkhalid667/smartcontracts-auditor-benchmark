@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "bad_randomness_random_number_generator.sol",
+  "contract_stem": "bad_randomness_random_number_generator",
+  "pragma": "pragma solidity ^0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

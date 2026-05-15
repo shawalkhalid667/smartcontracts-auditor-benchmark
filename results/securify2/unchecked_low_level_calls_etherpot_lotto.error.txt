@@ -1,0 +1,78 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/static/static_analysis_patterns.py", line 73, in find_matches
+    static = analysis_context.static_analysis
+  File "/sec/securify/analyses/analysis.py", line 88, in static_analysis
+    self._static = self.config.static_analysis(self)
+  File "securify/__main__.py", line 255, in <lambda>
+    static_analysis=lambda t: static_analysis.analyze_cfg(t.cfg, **souffle_config),
+  File "/sec/securify/analyses/analysis.py", line 81, in cfg
+    self._cfg = self.config.cfg_compiler(self)
+  File "securify/__main__.py", line 254, in <lambda>
+    cfg_compiler=lambda t: solidity_cfg_compiler.compile_cfg(t.ast).cfg,
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:20:35: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function getBlocksPerRound() constant returns(uint){ return blocksPerRound; }
+                                  ^------^
+
+fixed_pragma.sol:21:32: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function getTicketPrice() constant returns(uint){ return ticketPrice; }
+                               ^------^
+
+fixed_pragma.sol:34:31: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function getRoundIndex() constant returns (uint){
+                              ^------^
+
+fixed_pragma.sol:40:61: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function getIsCashed(uint roundIndex,uint subpotIndex) constant returns (bool){
+                                                            ^------^
+
+fixed_pragma.sol:47:66: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function calculateWinner(uint roundIndex, uint subpotIndex) constant returns(address){
+                                                                 ^------^
+
+fixed_pragma.sol:72:72: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function getDecisionBlockNumber(uint roundIndex,uint subpotIndex) constant returns (uint){
+                                                                       ^------^
+
+fixed_pragma.sol:76:48: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function getSubpotsCount(uint roundIndex) constant returns(uint){
+                                               ^------^
+
+fixed_pragma.sol:85:42: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function getSubpot(uint roundIndex) constant returns(uint){
+                                         ^------^
+
+fixed_pragma.sol:115:47: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function getHashOfBlock(uint blockIndex) constant returns(uint){
+                                              ^------^
+
+fixed_pragma.sol:119:56: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function getBuyers(uint roundIndex,address buyer) constant returns (address[]){
+                                                       ^------^
+
+fixed_pragma.sol:123:69: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function getTicketsCountByBuyer(uint roundIndex,address buyer) constant returns (uint){
+                                                                    ^------^
+
+fixed_pragma.sol:127:39: ParserError: The state mutability modifier "constant" was removed in version 0.5.0. Use "view" or "pure" instead.
+     function getPot(uint roundIndex) constant returns(uint){
+                                      ^------^
+
+        > command: `solc --allow-paths / --standard-json`
+        > return code: `0`
+        > stderr:
+        {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:20:35: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function getBlocksPerRound() constant returns(uint){ return blocksPerRound; }\n                                  ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":655,"file":"fixed_pragma.sol","start":647},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:21:32: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function getTicketPrice() constant returns(uint){ return ticketPrice; }\n                               ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":735,"file":"fixed_pragma.sol","start":727},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:34:31: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function getRoundIndex() constant returns (uint){\n                              ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":1294,"file":"fixed_pragma.sol","start":1286},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:40:61: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function getIsCashed(uint roundIndex,uint subpotIndex) constant returns (bool){\n                                                            ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":1633,"file":"fixed_pragma.sol","start":1625},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:47:66: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function calculateWinner(uint roundIndex, uint subpotIndex) constant returns(address){\n                                                                 ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":1824,"file":"fixed_pragma.sol","start":1816},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:72:72: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function getDecisionBlockNumber(uint roundIndex,uint subpotIndex) constant returns (uint){\n                                                                       ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":2904,"file":"fixed_pragma.sol","start":2896},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:76:48: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function getSubpotsCount(uint roundIndex) constant returns(uint){\n                                               ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":3045,"file":"fixed_pragma.sol","start":3037},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:85:42: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function getSubpot(uint roundIndex) constant returns(uint){\n                                         ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":3293,"file":"fixed_pragma.sol","start":3285},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:115:47: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function getHashOfBlock(uint blockIndex) constant returns(uint){\n                                              ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":4208,"file":"fixed_pragma.sol","start":4200},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:119:56: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function getBuyers(uint roundIndex,address buyer) constant returns (address[]){\n                                                       ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":4346,"file":"fixed_pragma.sol","start":4338},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:123:69: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function getTicketsCountByBuyer(uint roundIndex,address buyer) constant returns (uint){\n                                                                    ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":4495,"file":"fixed_pragma.sol","start":4487},"type":"ParserError"},{"component":"general","formattedMessage":"fixed_pragma.sol:127:39: ParserError: The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.\n     function getPot(uint roundIndex) constant returns(uint){\n                                      ^------^\n","message":"The state mutability modifier \"constant\" was removed in version 0.5.0. Use \"view\" or \"pure\" instead.","severity":"error","sourceLocation":{"end":4629,"file":"fixed_pragma.sol","start":4621},"type":"ParserError"}],"sources":{}}
+
+        > stdout:

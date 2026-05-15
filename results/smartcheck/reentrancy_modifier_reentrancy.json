@@ -1,0 +1,33 @@
+{
+  "tool": "smartcheck",
+  "contract": "reentrancy_modifier_reentrancy.sol",
+  "contract_stem": "reentrancy_modifier_reentrancy",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 11,
+      "column": 2,
+      "content": "stringconstantname=\"Nu Token\";"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 38,
+      "column": 4,
+      "content": "boolhasBeenCalled;"
+    }
+  ],
+  "detected_categories": []
+}

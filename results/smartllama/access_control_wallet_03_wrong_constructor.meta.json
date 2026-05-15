@@ -1,0 +1,16 @@
+{
+  "tool": "smartllama",
+  "contract": "access_control_wallet_03_wrong_constructor.sol",
+  "contract_stem": "access_control_wallet_03_wrong_constructor",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "time_manipulation"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 4.545060634613037,
+  "note": "fallback_text_parse_no_json"
+}

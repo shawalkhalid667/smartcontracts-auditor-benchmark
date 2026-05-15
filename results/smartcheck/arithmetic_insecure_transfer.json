@@ -1,0 +1,17 @@
+{
+  "tool": "smartcheck",
+  "contract": "arithmetic_insecure_transfer.sol",
+  "contract_stem": "arithmetic_insecure_transfer",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    }
+  ],
+  "detected_categories": []
+}

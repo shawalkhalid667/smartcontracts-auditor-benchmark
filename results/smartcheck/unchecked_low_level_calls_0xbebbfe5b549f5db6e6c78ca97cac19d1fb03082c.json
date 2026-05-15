@@ -1,0 +1,51 @@
+{
+  "tool": "smartcheck",
+  "contract": "unchecked_low_level_calls_0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c.sol",
+  "contract_stem": "unchecked_low_level_calls_0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_UNCHECKED_CALL",
+      "patternId": "f39eed",
+      "severity": 3,
+      "line": 14,
+      "column": 15,
+      "content": "call.value(msg.value)(data)"
+    },
+    {
+      "ruleId": "SOLIDITY_UPGRADE_TO_050",
+      "patternId": "91h3sa",
+      "severity": 1,
+      "line": 22,
+      "column": 16,
+      "content": "public"
+    },
+    {
+      "ruleId": "SOLIDITY_UPGRADE_TO_050",
+      "patternId": "341gim",
+      "severity": 1,
+      "line": 12,
+      "column": 35,
+      "content": "bytesdata"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 10,
+      "column": 55,
+      "content": "addressOwner=msg.sender;"
+    }
+  ],
+  "detected_categories": [
+    "unchecked_low_level_calls"
+  ]
+}

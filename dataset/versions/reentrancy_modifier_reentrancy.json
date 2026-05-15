@@ -1,0 +1,4 @@
+{
+  "contract": "reentrancy_modifier_reentrancy.sol",
+  "pragma": "pragma solidity ^0.4.24;"
+}

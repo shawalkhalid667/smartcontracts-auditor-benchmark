@@ -1,0 +1,14 @@
+{
+  "tool": "ftaudit",
+  "contract": "reentrancy_simple_dao.sol",
+  "contract_stem": "reentrancy_simple_dao",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 6.720471143722534,
+  "note": "fallback_text_parse_no_json"
+}

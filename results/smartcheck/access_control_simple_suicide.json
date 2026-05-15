@@ -1,0 +1,25 @@
+{
+  "tool": "smartcheck",
+  "contract": "access_control_simple_suicide.sol",
+  "contract_stem": "access_control_simple_suicide",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 8,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "910067",
+      "severity": 1,
+      "line": 12,
+      "column": 2,
+      "content": "functionsudicideAnyone(){selfdestruct(msg.sender);}"
+    }
+  ],
+  "detected_categories": []
+}

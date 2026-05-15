@@ -1,0 +1,23 @@
+{
+  "tool": "mythril",
+  "contract": "access_control_wallet_04_confused_sign.sol",
+  "contract_stem": "access_control_wallet_04_confused_sign",
+  "pragma": "pragma solidity ^0.4.24;",
+  "solc_version": "0.4.24",
+  "returncode": 1,
+  "detected_categories": [
+    "access_control"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "severity": "High"
+    },
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    }
+  ]
+}

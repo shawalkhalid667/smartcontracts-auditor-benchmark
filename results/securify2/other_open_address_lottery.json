@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "other_open_address_lottery.sol",
+  "contract_stem": "other_open_address_lottery",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

@@ -1,0 +1,15 @@
+{
+  "tool": "smartllama",
+  "contract": "short_addresses_short_address_example.sol",
+  "contract_stem": "short_addresses_short_address_example",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy",
+    "time_manipulation"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.0929386615753174,
+  "note": "fallback_text_parse_no_json"
+}

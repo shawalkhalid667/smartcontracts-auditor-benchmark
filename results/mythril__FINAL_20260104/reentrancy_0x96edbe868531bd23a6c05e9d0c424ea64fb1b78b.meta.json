@@ -1,0 +1,69 @@
+{
+  "tool": "mythril",
+  "contract": "reentrancy_0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b.sol",
+  "contract_stem": "reentrancy_0x96edbe868531bd23a6c05e9d0c424ea64fb1b78b",
+  "pragma": "pragma solidity ^0.4.19;",
+  "solc_version": "0.4.19",
+  "returncode": 1,
+  "detected_categories": [
+    "reentrancy",
+    "time_manipulation"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "State access after external call",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "116",
+      "title": "Dependence on predictable environment variable",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "116",
+      "title": "Dependence on predictable environment variable",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "113",
+      "title": "Multiple Calls in a Single Transaction",
+      "severity": "Low"
+    }
+  ]
+}

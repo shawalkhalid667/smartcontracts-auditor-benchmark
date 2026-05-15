@@ -1,0 +1,459 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdrawBalance",
+            "source_mapping": {
+              "start": 273,
+              "length": 356,
+              "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "is_dependency": false,
+              "lines": [
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "Reentrancy_insecure",
+                "source_mapping": {
+                  "start": 168,
+                  "length": 463,
+                  "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "withdrawBalance()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = msg.sender.call.value(amountToWithdraw)()",
+            "source_mapping": {
+              "start": 412,
+              "length": 62,
+              "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "is_dependency": false,
+              "lines": [
+                17
+              ],
+              "starting_column": 9,
+              "ending_column": 71
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdrawBalance",
+                "source_mapping": {
+                  "start": 273,
+                  "length": 356,
+                  "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "Reentrancy_insecure",
+                    "source_mapping": {
+                      "start": 168,
+                      "length": 463,
+                      "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                      "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdrawBalance()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "external_calls"
+            }
+          },
+          {
+            "type": "node",
+            "name": "userBalances[msg.sender] = 0",
+            "source_mapping": {
+              "start": 594,
+              "length": 28,
+              "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "is_dependency": false,
+              "lines": [
+                19
+              ],
+              "starting_column": 9,
+              "ending_column": 37
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdrawBalance",
+                "source_mapping": {
+                  "start": 273,
+                  "length": 356,
+                  "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "Reentrancy_insecure",
+                    "source_mapping": {
+                      "start": 168,
+                      "length": 463,
+                      "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                      "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdrawBalance()"
+                }
+              }
+            },
+            "additional_fields": {
+              "underlying_type": "variables_written",
+              "variable_name": "userBalances"
+            }
+          }
+        ],
+        "description": "Reentrancy in Reentrancy_insecure.withdrawBalance() (dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#14-20):\n\tExternal calls:\n\t- (success,None) = msg.sender.call.value(amountToWithdraw)() (dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#17)\n\tState variables written after the call(s):\n\t- userBalances[msg.sender] = 0 (dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#19)\n\tReentrancy_insecure.userBalances (dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#12) can be used in cross function reentrancies:\n\t- Reentrancy_insecure.withdrawBalance() (dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#14-20)\n",
+        "markdown": "Reentrancy in [Reentrancy_insecure.withdrawBalance()](dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L14-L20):\n\tExternal calls:\n\t- [(success,None) = msg.sender.call.value(amountToWithdraw)()](dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L17)\n\tState variables written after the call(s):\n\t- [userBalances[msg.sender] = 0](dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L19)\n\t[Reentrancy_insecure.userBalances](dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L12) can be used in cross function reentrancies:\n\t- [Reentrancy_insecure.withdrawBalance()](dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L14-L20)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L14-L20",
+        "id": "197bcb2e8ef38e78b734d5d5f6a329a2f06c9a19d4752e272693282973b163bd",
+        "check": "reentrancy-eth",
+        "impact": "High",
+        "confidence": "Medium"
+      },
+      {
+        "elements": [],
+        "description": "solc-0.5.0 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "markdown": "solc-0.5.0 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "first_markdown_element": "",
+        "id": "4f1100e2a2af81f5a4979ddf63871cf3bcf9880bf6b8ddb94864dfd54779f790",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "^0.5.0",
+            "source_mapping": {
+              "start": 143,
+              "length": 23,
+              "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "is_dependency": false,
+              "lines": [
+                7
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "^",
+                "0.5",
+                ".0"
+              ]
+            }
+          }
+        ],
+        "description": "Version constraint ^0.5.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor\n\t- IncorrectEventSignatureInLibraries\n\t- ABIEncoderV2PackedStorage.\nIt is used by:\n\t- ^0.5.0 (dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#7)\n",
+        "markdown": "Version constraint ^0.5.0 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor\n\t- IncorrectEventSignatureInLibraries\n\t- ABIEncoderV2PackedStorage.\nIt is used by:\n\t- [^0.5.0](dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L7)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L7",
+        "id": "62d00acddf33113b2217a21ed52f4f7bb5512594590f8d2d5481fa5ed0bfad1b",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "withdrawBalance",
+            "source_mapping": {
+              "start": 273,
+              "length": 356,
+              "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "is_dependency": false,
+              "lines": [
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20
+              ],
+              "starting_column": 5,
+              "ending_column": 6
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "Reentrancy_insecure",
+                "source_mapping": {
+                  "start": 168,
+                  "length": 463,
+                  "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20,
+                    21
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "withdrawBalance()"
+            }
+          },
+          {
+            "type": "node",
+            "name": "(success,None) = msg.sender.call.value(amountToWithdraw)()",
+            "source_mapping": {
+              "start": 412,
+              "length": 62,
+              "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "is_dependency": false,
+              "lines": [
+                17
+              ],
+              "starting_column": 9,
+              "ending_column": 71
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "withdrawBalance",
+                "source_mapping": {
+                  "start": 273,
+                  "length": 356,
+                  "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19,
+                    20
+                  ],
+                  "starting_column": 5,
+                  "ending_column": 6
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "Reentrancy_insecure",
+                    "source_mapping": {
+                      "start": 168,
+                      "length": 463,
+                      "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                      "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19,
+                        20,
+                        21
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "withdrawBalance()"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in Reentrancy_insecure.withdrawBalance() (dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#14-20):\n\t- (success,None) = msg.sender.call.value(amountToWithdraw)() (dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#17)\n",
+        "markdown": "Low level call in [Reentrancy_insecure.withdrawBalance()](dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L14-L20):\n\t- [(success,None) = msg.sender.call.value(amountToWithdraw)()](dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L17)\n",
+        "first_markdown_element": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L14-L20",
+        "id": "5120d8e3992c3f2f8abc88498c368646a7ef766f12945d85b9c624774867cee8",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "contract",
+            "name": "Reentrancy_insecure",
+            "source_mapping": {
+              "start": 168,
+              "length": 463,
+              "filename_relative": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "filename_short": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol",
+              "is_dependency": false,
+              "lines": [
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
+              ],
+              "starting_column": 1,
+              "ending_column": 2
+            },
+            "additional_fields": {
+              "target": "contract",
+              "convention": "CapWords"
+            }
+          }
+        ],
+        "description": "Contract Reentrancy_insecure (dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#9-21) is not in CapWords\n",
+        "markdown": "Contract [Reentrancy_insecure](dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L9-L21) is not in CapWords\n",
+        "first_markdown_element": "dataset/smartbugs_curated/reentrancy_reentrancy_insecure.sol#L9-L21",
+        "id": "d3f84bb0c008d009f04bb29170bf81a5a3eab8588c075eab23fbaa07c3c765f6",
+        "check": "naming-convention",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "tool": "smartcheck",
+  "contract": "time_manipulation_timed_crowdsale.sol",
+  "contract_stem": "time_manipulation_timed_crowdsale",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    }
+  ],
+  "detected_categories": []
+}

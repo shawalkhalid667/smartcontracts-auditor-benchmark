@@ -1,0 +1,10 @@
+{
+  "contract": "bad_randomness_guess_the_random_number.sol",
+  "vulnerabilities": [
+    {
+      "type": "bad randomness",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

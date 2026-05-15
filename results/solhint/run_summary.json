@@ -1,0 +1,15 @@
+{
+  "tool": "solhint",
+  "contracts_total": 143,
+  "contracts_success": 140,
+  "contracts_failed": 3,
+  "total_findings": 5205,
+  "total_errors": 342,
+  "total_warnings": 4863,
+  "avg_findings_per_success_contract": 37.1786,
+  "avg_errors_per_success_contract": 2.4429,
+  "avg_warnings_per_success_contract": 34.7357,
+  "outputs_dir": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/results/solhint",
+  "normalized_findings_jsonl": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/results/solhint/normalized_findings.jsonl",
+  "predicted_categories_jsonl": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/results/solhint/predicted_categories.jsonl"
+}

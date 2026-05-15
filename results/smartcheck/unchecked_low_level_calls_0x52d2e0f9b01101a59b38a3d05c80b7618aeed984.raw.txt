@@ -1,0 +1,108 @@
+RETURN_CODE:
+0
+
+STDOUT:
+/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/unchecked_low_level_calls_0x52d2e0f9b01101a59b38a3d05c80b7618aeed984.sol
+jar:file:/opt/homebrew/lib/node_modules/@smartdec/smartcheck/jdeploy-bundle/smartcheck-2.0-jar-with-dependencies.jar!/solidity-rules.xmlruleId: SOLIDITY_CALL_WITHOUT_DATA
+patternId: om991k
+severity: 2
+line: 27
+column: 17
+content: call.value(0wei)()
+
+ruleId: SOLIDITY_DEPRECATED_CONSTRUCTIONS
+patternId: 28fa69
+severity: 1
+line: 10
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uintbalance);
+
+ruleId: SOLIDITY_PRAGMAS_VERSION
+patternId: 23fc32
+severity: 1
+line: 7
+column: 16
+content: ^
+
+ruleId: SOLIDITY_UNCHECKED_CALL
+patternId: f39eed
+severity: 3
+line: 27
+column: 17
+content: call.value(0wei)()
+
+ruleId: SOLIDITY_UPGRADE_TO_050
+patternId: 83k1no
+severity: 1
+line: 27
+column: 17
+content: call.value(0wei)()
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 9
+column: 4
+content: functiontransfer(address_to,uint_value)returns(boolsuccess);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 10
+column: 4
+content: functionbalanceOf(address_owner)constantreturns(uintbalance);
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: 910067
+severity: 1
+line: 14
+column: 4
+content: functionEtherGet(){owner=msg.sender;}
+
+ruleId: SOLIDITY_VISIBILITY
+patternId: b51ce0
+severity: 1
+line: 13
+column: 4
+content: addressowner;
+
+SOLIDITY_VISIBILITY :4
+SOLIDITY_DEPRECATED_CONSTRUCTIONS :1
+SOLIDITY_PRAGMAS_VERSION :1
+SOLIDITY_UPGRADE_TO_050 :1
+SOLIDITY_UNCHECKED_CALL :1
+SOLIDITY_CALL_WITHOUT_DATA :1
+
+
+STDERR:
+(node:18412) Warning: Accessing non-existent property 'cat' of module exports inside circular dependency
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:18412) Warning: Accessing non-existent property 'cd' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'chmod' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'cp' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'dirs' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'pushd' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'popd' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'echo' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'tempdir' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'pwd' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'exec' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'ls' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'find' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'grep' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'head' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'ln' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'mkdir' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'rm' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'mv' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'sed' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'set' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'sort' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'tail' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'test' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'to' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'toEnd' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'touch' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'uniq' of module exports inside circular dependency
+(node:18412) Warning: Accessing non-existent property 'which' of module exports inside circular dependency
+

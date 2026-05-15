@@ -1,0 +1,23 @@
+{
+  "tool": "mythril",
+  "contract": "denial_of_service_send_loop.sol",
+  "contract_stem": "denial_of_service_send_loop",
+  "pragma": "pragma solidity 0.4.24;",
+  "solc_version": "0.4.24",
+  "returncode": 1,
+  "detected_categories": [
+    "front_running"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "113",
+      "title": "Multiple Calls in a Single Transaction",
+      "severity": "Low"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "tool": "ftaudit",
+  "contract": "bad_randomness_random_number_generator.sol",
+  "contract_stem": "bad_randomness_random_number_generator",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "time_manipulation"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 5.896566867828369,
+  "note": "fallback_text_parse_no_json"
+}

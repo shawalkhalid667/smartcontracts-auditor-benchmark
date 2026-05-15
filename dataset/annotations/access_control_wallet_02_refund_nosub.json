@@ -1,0 +1,10 @@
+{
+  "contract": "access_control_wallet_02_refund_nosub.sol",
+  "vulnerabilities": [
+    {
+      "type": "access control",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

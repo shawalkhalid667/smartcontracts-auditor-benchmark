@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "unchecked_low_level_calls_0x89c1b3807d4c67df034fffb62f3509561218d30b.sol",
+  "contract_stem": "unchecked_low_level_calls_0x89c1b3807d4c67df034fffb62f3509561218d30b",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.8214399814605713,
+  "note": "ranked_relations",
+  "chosen_contract": "TownCrier",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/unchecked_low_level_calls_0x89c1b3807d4c67df034fffb62f3509561218d30b",
+  "relations_count": 14
+}

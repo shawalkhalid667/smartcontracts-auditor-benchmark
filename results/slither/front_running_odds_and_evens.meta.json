@@ -1,0 +1,45 @@
+{
+  "tool": "slither",
+  "contract": "front_running_odds_and_evens.sol",
+  "contract_stem": "front_running_odds_and_evens",
+  "pragma": "pragma solidity ^0.4.2;",
+  "solc_version": "0.4.2",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    }
+  ]
+}

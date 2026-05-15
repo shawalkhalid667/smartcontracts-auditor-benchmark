@@ -1,0 +1,317 @@
+{
+  "error": null,
+  "issues": [
+    {
+      "address": 212,
+      "code": "fibonacciLibrary.delegatecall(msg.data)",
+      "contract": "FibonacciBalance",
+      "description": "The contract delegates execution to another contract with a user-supplied address.\nThe smart contract delegates execution to a user-supplied address.This could allow an attacker to execute arbitrary code in the context of this contract account and manipulate the state of the contract account or execute actions on its behalf.",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/access_control_FibonacciBalance.sol",
+      "function": "fallback",
+      "lineno": 38,
+      "max_gas_used": 38663,
+      "min_gas_used": 1748,
+      "severity": "High",
+      "sourceMap": "1198:39",
+      "swc-id": "112",
+      "title": "Delegatecall to user-supplied address",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x200000000000004",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "dededededededededededededeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "input": "0x608060405260036002556040516020806103fb83398101806040528101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506103808061007b6000396000f30060806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d0e8e9a146100e457806320d786b51461013b5780633ccfd60b14610166578063bbe1d75b1461017d578063be9a6555146101a8575b34801561007957600080fd5b506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660003660405180838380828437820191505092505050600060405180830381855af491505015156100e257600080fd5b005b3480156100f057600080fd5b506100f96101d3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014757600080fd5b506101506101f8565b6040518082815260200191505060405180910390f35b34801561017257600080fd5b5061017b6101fe565b005b34801561018957600080fd5b50610192610348565b6040518082815260200191505060405180910390f35b3480156101b457600080fd5b506101bd61034e565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b60016003600082825401925050819055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660405180807f7365744669626f6e616363692875696e74323536290000000000000000000000815250601501905060405180910390207c010000000000000000000000000000000000000000000000000000000090046003546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381865af49250505015156102f357600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc670de0b6b3a7640000600154029081150290604051600060405180830381858888f19350505050158015610345573d6000803e3d6000fd5b50565b60015481565b600254815600a165627a7a723058200f031996cba238b13b432acad5150ff6f867e0fffa9503c83d5c5ecef2028d460029dededededededededededededeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x",
+            "input": "0x",
+            "name": "unknown",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "value": "0x0"
+          }
+        ]
+      }
+    },
+    {
+      "address": 740,
+      "code": "fibonacciLibrary.delegatecall(fibSig, withdrawalCounter)",
+      "contract": "FibonacciBalance",
+      "description": "The contract delegates execution to another contract with a user-supplied address.\nThe smart contract delegates execution to a user-supplied address.This could allow an attacker to execute arbitrary code in the context of this contract account and manipulate the state of the contract account or execute actions on its behalf.",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/access_control_FibonacciBalance.sol",
+      "function": "withdraw()",
+      "lineno": 31,
+      "max_gas_used": 99460,
+      "min_gas_used": 10192,
+      "severity": "High",
+      "sourceMap": "936:56",
+      "swc-id": "112",
+      "title": "Delegatecall to user-supplied address",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x40000000100",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "dededededededededededededeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "input": "0x608060405260036002556040516020806103fb83398101806040528101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506103808061007b6000396000f30060806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d0e8e9a146100e457806320d786b51461013b5780633ccfd60b14610166578063bbe1d75b1461017d578063be9a6555146101a8575b34801561007957600080fd5b506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660003660405180838380828437820191505092505050600060405180830381855af491505015156100e257600080fd5b005b3480156100f057600080fd5b506100f96101d3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014757600080fd5b506101506101f8565b6040518082815260200191505060405180910390f35b34801561017257600080fd5b5061017b6101fe565b005b34801561018957600080fd5b50610192610348565b6040518082815260200191505060405180910390f35b3480156101b457600080fd5b506101bd61034e565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b60016003600082825401925050819055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660405180807f7365744669626f6e616363692875696e74323536290000000000000000000000815250601501905060405180910390207c010000000000000000000000000000000000000000000000000000000090046003546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381865af49250505015156102f357600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc670de0b6b3a7640000600154029081150290604051600060405180830381858888f19350505050158015610345573d6000803e3d6000fd5b50565b60015481565b600254815600a165627a7a723058200f031996cba238b13b432acad5150ff6f867e0fffa9503c83d5c5ecef2028d460029dededededededededededededeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x3ccfd60b",
+            "input": "0x3ccfd60b",
+            "name": "withdraw()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0x0"
+          }
+        ]
+      }
+    },
+    {
+      "address": 793,
+      "code": "calculatedFibNumber",
+      "contract": "FibonacciBalance",
+      "description": "Read of persistent state following external call\nThe contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/access_control_FibonacciBalance.sol",
+      "function": "withdraw()",
+      "lineno": 32,
+      "max_gas_used": 99460,
+      "min_gas_used": 10192,
+      "severity": "Medium",
+      "sourceMap": "1023:19",
+      "swc-id": "107",
+      "title": "State access after external call",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x1",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "dededededededededededededeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "input": "0x608060405260036002556040516020806103fb83398101806040528101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506103808061007b6000396000f30060806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d0e8e9a146100e457806320d786b51461013b5780633ccfd60b14610166578063bbe1d75b1461017d578063be9a6555146101a8575b34801561007957600080fd5b506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660003660405180838380828437820191505092505050600060405180830381855af491505015156100e257600080fd5b005b3480156100f057600080fd5b506100f96101d3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014757600080fd5b506101506101f8565b6040518082815260200191505060405180910390f35b34801561017257600080fd5b5061017b6101fe565b005b34801561018957600080fd5b50610192610348565b6040518082815260200191505060405180910390f35b3480156101b457600080fd5b506101bd61034e565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b60016003600082825401925050819055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660405180807f7365744669626f6e616363692875696e74323536290000000000000000000000815250601501905060405180910390207c010000000000000000000000000000000000000000000000000000000090046003546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381865af49250505015156102f357600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc670de0b6b3a7640000600154029081150290604051600060405180830381858888f19350505050158015610345573d6000803e3d6000fd5b50565b60015481565b600254815600a165627a7a723058200f031996cba238b13b432acad5150ff6f867e0fffa9503c83d5c5ecef2028d460029dededededededededededededeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x3ccfd60b",
+            "input": "0x3ccfd60b",
+            "name": "withdraw()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0x0"
+          }
+        ]
+      }
+    },
+    {
+      "address": 815,
+      "code": "msg.sender.transfer(calculatedFibNumber * 1 ether)",
+      "contract": "FibonacciBalance",
+      "description": "Multiple calls are executed in the same transaction.\nThis call is executed following another call within the same transaction. It is possible that the call never gets executed if a prior call fails permanently. This might be caused intentionally by a malicious callee. If possible, refactor the code such that each transaction only executes one external call or make sure that all callees can be trusted (i.e. they\u2019re part of your own codebase).",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/access_control_FibonacciBalance.sol",
+      "function": "withdraw()",
+      "lineno": 32,
+      "max_gas_used": 99460,
+      "min_gas_used": 10192,
+      "severity": "Low",
+      "sourceMap": "1003:50",
+      "swc-id": "113",
+      "title": "Multiple Calls in a Single Transaction",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x2",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x608060405260036002556040516020806103fb83398101806040528101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506103808061007b6000396000f30060806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d0e8e9a146100e457806320d786b51461013b5780633ccfd60b14610166578063bbe1d75b1461017d578063be9a6555146101a8575b34801561007957600080fd5b506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660003660405180838380828437820191505092505050600060405180830381855af491505015156100e257600080fd5b005b3480156100f057600080fd5b506100f96101d3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014757600080fd5b506101506101f8565b6040518082815260200191505060405180910390f35b34801561017257600080fd5b5061017b6101fe565b005b34801561018957600080fd5b50610192610348565b6040518082815260200191505060405180910390f35b3480156101b457600080fd5b506101bd61034e565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b60016003600082825401925050819055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660405180807f7365744669626f6e616363692875696e74323536290000000000000000000000815250601501905060405180910390207c010000000000000000000000000000000000000000000000000000000090046003546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381865af49250505015156102f357600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc670de0b6b3a7640000600154029081150290604051600060405180830381858888f19350505050158015610345573d6000803e3d6000fd5b50565b60015481565b600254815600a165627a7a723058200f031996cba238b13b432acad5150ff6f867e0fffa9503c83d5c5ecef2028d460029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x3ccfd60b",
+            "input": "0x3ccfd60b",
+            "name": "withdraw()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0x0"
+          }
+        ]
+      }
+    },
+    {
+      "address": 815,
+      "code": "msg.sender.transfer(calculatedFibNumber * 1 ether)",
+      "contract": "FibonacciBalance",
+      "description": "Write to persistent state following external call\nThe contract account state is accessed after an external call to a user defined address. To prevent reentrancy issues, consider accessing the state only before the call, especially if the callee is untrusted. Alternatively, a reentrancy lock can be used to prevent untrusted callees from re-entering the contract in an intermediate state.",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/access_control_FibonacciBalance.sol",
+      "function": "withdraw()",
+      "lineno": 32,
+      "max_gas_used": 99460,
+      "min_gas_used": 10192,
+      "severity": "Medium",
+      "sourceMap": "1003:50",
+      "swc-id": "107",
+      "title": "State access after external call",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x1",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "dededededededededededededeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "input": "0x608060405260036002556040516020806103fb83398101806040528101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506103808061007b6000396000f30060806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d0e8e9a146100e457806320d786b51461013b5780633ccfd60b14610166578063bbe1d75b1461017d578063be9a6555146101a8575b34801561007957600080fd5b506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660003660405180838380828437820191505092505050600060405180830381855af491505015156100e257600080fd5b005b3480156100f057600080fd5b506100f96101d3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014757600080fd5b506101506101f8565b6040518082815260200191505060405180910390f35b34801561017257600080fd5b5061017b6101fe565b005b34801561018957600080fd5b50610192610348565b6040518082815260200191505060405180910390f35b3480156101b457600080fd5b506101bd61034e565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b60016003600082825401925050819055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660405180807f7365744669626f6e616363692875696e74323536290000000000000000000000815250601501905060405180910390207c010000000000000000000000000000000000000000000000000000000090046003546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381865af49250505015156102f357600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc670de0b6b3a7640000600154029081150290604051600060405180830381858888f19350505050158015610345573d6000803e3d6000fd5b50565b60015481565b600254815600a165627a7a723058200f031996cba238b13b432acad5150ff6f867e0fffa9503c83d5c5ecef2028d460029dededededededededededededeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x3ccfd60b",
+            "input": "0x3ccfd60b",
+            "name": "withdraw()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0x0"
+          }
+        ]
+      }
+    },
+    {
+      "address": 815,
+      "code": "msg.sender.transfer(calculatedFibNumber * 1 ether)",
+      "contract": "FibonacciBalance",
+      "description": "The value of the call is dependent on balance or storage write\nThis can lead to race conditions. An attacker may be able to run a transaction after our transaction which can change the value of the call",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/access_control_FibonacciBalance.sol",
+      "function": "withdraw()",
+      "lineno": 32,
+      "max_gas_used": 99460,
+      "min_gas_used": 10192,
+      "severity": "Medium",
+      "sourceMap": "1003:50",
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x1",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x608060405260036002556040516020806103fb83398101806040528101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550506103808061007b6000396000f30060806040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631d0e8e9a146100e457806320d786b51461013b5780633ccfd60b14610166578063bbe1d75b1461017d578063be9a6555146101a8575b34801561007957600080fd5b506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660003660405180838380828437820191505092505050600060405180830381855af491505015156100e257600080fd5b005b3480156100f057600080fd5b506100f96101d3565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561014757600080fd5b506101506101f8565b6040518082815260200191505060405180910390f35b34801561017257600080fd5b5061017b6101fe565b005b34801561018957600080fd5b50610192610348565b6040518082815260200191505060405180910390f35b3480156101b457600080fd5b506101bd61034e565b6040518082815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b60035481565b60016003600082825401925050819055506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1660405180807f7365744669626f6e616363692875696e74323536290000000000000000000000815250601501905060405180910390207c010000000000000000000000000000000000000000000000000000000090046003546040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381865af49250505015156102f357600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc670de0b6b3a7640000600154029081150290604051600060405180830381858888f19350505050158015610345573d6000803e3d6000fd5b50565b60015481565b600254815600a165627a7a723058200f031996cba238b13b432acad5150ff6f867e0fffa9503c83d5c5ecef2028d460029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x3ccfd60b",
+            "input": "0x3ccfd60b",
+            "name": "withdraw()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0x0"
+          }
+        ]
+      }
+    }
+  ],
+  "success": true
+}

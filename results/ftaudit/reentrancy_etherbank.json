@@ -1,0 +1,30 @@
+{
+  "findings": [
+    {
+      "category": "access_control",
+      "severity": 1,
+      "confidence": 1,
+      "title": "access_control",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    },
+    {
+      "category": "arithmetic",
+      "severity": 1,
+      "confidence": 1,
+      "title": "arithmetic",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    },
+    {
+      "category": "reentrancy",
+      "severity": 1,
+      "confidence": 1,
+      "title": "reentrancy",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    }
+  ],
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy"
+  ]
+}

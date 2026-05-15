@@ -1,0 +1,10 @@
+{
+  "contract": "arithmetic_tokensalechallenge.sol",
+  "vulnerabilities": [
+    {
+      "type": "arithmetic",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

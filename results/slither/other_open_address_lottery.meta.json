@@ -1,0 +1,71 @@
+{
+  "tool": "slither",
+  "contract": "other_open_address_lottery.sol",
+  "contract_stem": "other_open_address_lottery",
+  "pragma": "pragma solidity ^0.4.19;",
+  "solc_version": "0.4.19",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "time_manipulation"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "uninitialized-storage",
+      "impact": "High",
+      "confidence": "High"
+    },
+    {
+      "check": "weak-prng",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "incorrect-equality",
+      "impact": "Medium",
+      "confidence": "High"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "boolean-equal",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "deprecated-standards",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    }
+  ]
+}

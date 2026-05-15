@@ -1,0 +1,25 @@
+{
+  "tool": "smartcheck",
+  "contract": "access_control_unprotected0.sol",
+  "contract_stem": "access_control_unprotected0",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 17,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_PRIVATE_MODIFIER_DONT_HIDE_DATA",
+      "patternId": "5616b2",
+      "severity": 1,
+      "line": 10,
+      "column": 13,
+      "content": "private"
+    }
+  ],
+  "detected_categories": []
+}

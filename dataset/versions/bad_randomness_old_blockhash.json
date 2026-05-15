@@ -1,0 +1,4 @@
+{
+  "contract": "bad_randomness_old_blockhash.sol",
+  "pragma": "pragma solidity ^0.4.24;"
+}

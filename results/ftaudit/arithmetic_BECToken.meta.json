@@ -1,0 +1,20 @@
+{
+  "tool": "ftaudit",
+  "contract": "arithmetic_BECToken.sol",
+  "contract_stem": "arithmetic_BECToken",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "denial_of_service",
+    "front_running",
+    "reentrancy",
+    "short_addresses",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 9,
+  "elapsed_s": 12.861296892166138,
+  "note": "fallback_text_parse_no_json"
+}

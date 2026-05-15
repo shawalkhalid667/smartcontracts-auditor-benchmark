@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "reentrancy_spank_chain_payment.sol",
+  "contract_stem": "reentrancy_spank_chain_payment",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

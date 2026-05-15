@@ -1,0 +1,16 @@
+{
+  "tool": "ftaudit",
+  "contract": "time_manipulation_roulette.sol",
+  "contract_stem": "time_manipulation_roulette",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "denial_of_service",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 7.810770750045776,
+  "note": "fallback_text_parse_no_json"
+}

@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "denial_of_service_dos_number.sol",
+  "contract_stem": "denial_of_service_dos_number",
+  "pragma": "pragma solidity ^0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

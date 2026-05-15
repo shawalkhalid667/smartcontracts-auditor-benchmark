@@ -1,0 +1,33 @@
+{
+  "tool": "smartcheck",
+  "contract": "front_running_FindThisHash.sol",
+  "contract_stem": "front_running_FindThisHash",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_DEPRECATED_CONSTRUCTIONS",
+      "patternId": "187b5a",
+      "severity": 1,
+      "line": 17,
+      "column": 24,
+      "content": "sha3"
+    },
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_UPGRADE_TO_050",
+      "patternId": "341gim",
+      "severity": 1,
+      "line": 14,
+      "column": 19,
+      "content": "stringsolution"
+    }
+  ],
+  "detected_categories": []
+}

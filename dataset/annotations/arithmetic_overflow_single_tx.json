@@ -1,0 +1,10 @@
+{
+  "contract": "arithmetic_overflow_single_tx.sol",
+  "vulnerabilities": [
+    {
+      "type": "arithmetic",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

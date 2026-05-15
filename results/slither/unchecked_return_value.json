@@ -1,0 +1,590 @@
+{
+  "success": true,
+  "error": null,
+  "results": {
+    "detectors": [
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "callnotchecked",
+            "source_mapping": {
+              "start": 286,
+              "length": 113,
+              "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "is_dependency": false,
+              "lines": [
+                15,
+                16,
+                17,
+                18
+              ],
+              "starting_column": 3,
+              "ending_column": 4
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "ReturnValue",
+                "source_mapping": {
+                  "start": 179,
+                  "length": 222,
+                  "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "callnotchecked(address)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "callee.call()",
+            "source_mapping": {
+              "start": 381,
+              "length": 13,
+              "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "is_dependency": false,
+              "lines": [
+                17
+              ],
+              "starting_column": 5,
+              "ending_column": 18
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "callnotchecked",
+                "source_mapping": {
+                  "start": 286,
+                  "length": 113,
+                  "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    15,
+                    16,
+                    17,
+                    18
+                  ],
+                  "starting_column": 3,
+                  "ending_column": 4
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "ReturnValue",
+                    "source_mapping": {
+                      "start": 179,
+                      "length": 222,
+                      "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "callnotchecked(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "ReturnValue.callnotchecked(address) (../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#15-18) ignores return value by callee.call() (../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#17)\n",
+        "markdown": "[ReturnValue.callnotchecked(address)](../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L15-L18) ignores return value by [callee.call()](../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L17)\n",
+        "first_markdown_element": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L15-L18",
+        "id": "de2a39ef6977e95d7490ad5240d5b913becfd8b35f620064abe5f28cbc5227af",
+        "check": "unchecked-lowlevel",
+        "impact": "Medium",
+        "confidence": "Medium"
+      },
+      {
+        "elements": [
+          {
+            "type": "variable",
+            "name": "callee",
+            "source_mapping": {
+              "start": 310,
+              "length": 14,
+              "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "is_dependency": false,
+              "lines": [
+                15
+              ],
+              "starting_column": 27,
+              "ending_column": 41
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "callnotchecked",
+                "source_mapping": {
+                  "start": 286,
+                  "length": 113,
+                  "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    15,
+                    16,
+                    17,
+                    18
+                  ],
+                  "starting_column": 3,
+                  "ending_column": 4
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "ReturnValue",
+                    "source_mapping": {
+                      "start": 179,
+                      "length": 222,
+                      "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "callnotchecked(address)"
+                }
+              }
+            }
+          },
+          {
+            "type": "node",
+            "name": "callee.call()",
+            "source_mapping": {
+              "start": 381,
+              "length": 13,
+              "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "is_dependency": false,
+              "lines": [
+                17
+              ],
+              "starting_column": 5,
+              "ending_column": 18
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "callnotchecked",
+                "source_mapping": {
+                  "start": 286,
+                  "length": 113,
+                  "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    15,
+                    16,
+                    17,
+                    18
+                  ],
+                  "starting_column": 3,
+                  "ending_column": 4
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "ReturnValue",
+                    "source_mapping": {
+                      "start": 179,
+                      "length": 222,
+                      "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "callnotchecked(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "ReturnValue.callnotchecked(address).callee (../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#15) lacks a zero-check on :\n\t\t- callee.call() (../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#17)\n",
+        "markdown": "[ReturnValue.callnotchecked(address).callee](../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L15) lacks a zero-check on :\n\t\t- [callee.call()](../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L17)\n",
+        "first_markdown_element": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L15",
+        "id": "2ee0b1d0ab50c120add2c21e8f888e544ca1c30069bcabe1fab305ed7e11dc0d",
+        "check": "missing-zero-check",
+        "impact": "Low",
+        "confidence": "Medium"
+      },
+      {
+        "elements": [],
+        "description": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "markdown": "solc-0.4.25 is an outdated solc version. Use a more recent version (at least 0.8.0), if possible.\n",
+        "first_markdown_element": "",
+        "id": "ac1462fa4f49aef585a564df70976321999b9c7b6cf45f2bd4ae2df81eafff02",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "pragma",
+            "name": "0.4.25",
+            "source_mapping": {
+              "start": 154,
+              "length": 23,
+              "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "is_dependency": false,
+              "lines": [
+                7
+              ],
+              "starting_column": 1,
+              "ending_column": 24
+            },
+            "type_specific_fields": {
+              "directive": [
+                "solidity",
+                "0.4",
+                ".25"
+              ]
+            }
+          }
+        ],
+        "description": "Version constraint 0.4.25 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x.\nIt is used by:\n\t- 0.4.25 (../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#7)\n",
+        "markdown": "Version constraint 0.4.25 contains known severe issues (https://solidity.readthedocs.io/en/latest/bugs.html)\n\t- DirtyBytesArrayToStorage\n\t- ABIDecodeTwoDimensionalArrayMemory\n\t- KeccakCaching\n\t- EmptyByteArrayCopy\n\t- DynamicArrayCleanup\n\t- ImplicitConstructorCallvalueCheck\n\t- TupleAssignmentMultiStackSlotComponents\n\t- MemoryArrayCreationOverflow\n\t- privateCanBeOverridden\n\t- SignedArrayStorageCopy\n\t- ABIEncoderV2StorageArrayWithMultiSlotElement\n\t- DynamicConstructorArgumentsClippedABIV2\n\t- UninitializedFunctionPointerInConstructor_0.4.x\n\t- IncorrectEventSignatureInLibraries_0.4.x\n\t- ABIEncoderV2PackedStorage_0.4.x.\nIt is used by:\n\t- [0.4.25](../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L7)\n",
+        "first_markdown_element": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L7",
+        "id": "cb740ddad0a2eb96eb9fec9e64fd53a9b384da8746e7618b53bb7728f12ee2d4",
+        "check": "solc-version",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "callchecked",
+            "source_mapping": {
+              "start": 205,
+              "length": 77,
+              "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "is_dependency": false,
+              "lines": [
+                11,
+                12,
+                13
+              ],
+              "starting_column": 3,
+              "ending_column": 4
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "ReturnValue",
+                "source_mapping": {
+                  "start": 179,
+                  "length": 222,
+                  "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "callchecked(address)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "require(bool)(callee.call())",
+            "source_mapping": {
+              "start": 255,
+              "length": 22,
+              "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "is_dependency": false,
+              "lines": [
+                12
+              ],
+              "starting_column": 5,
+              "ending_column": 27
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "callchecked",
+                "source_mapping": {
+                  "start": 205,
+                  "length": 77,
+                  "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    11,
+                    12,
+                    13
+                  ],
+                  "starting_column": 3,
+                  "ending_column": 4
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "ReturnValue",
+                    "source_mapping": {
+                      "start": 179,
+                      "length": 222,
+                      "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "callchecked(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in ReturnValue.callchecked(address) (../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#11-13):\n\t- require(bool)(callee.call()) (../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#12)\n",
+        "markdown": "Low level call in [ReturnValue.callchecked(address)](../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L11-L13):\n\t- [require(bool)(callee.call())](../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L12)\n",
+        "first_markdown_element": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L11-L13",
+        "id": "4abc15cf93b97aba5c6effd692a509b6851ef70cd997ffc19ebf226312c92e6d",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High"
+      },
+      {
+        "elements": [
+          {
+            "type": "function",
+            "name": "callnotchecked",
+            "source_mapping": {
+              "start": 286,
+              "length": 113,
+              "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "is_dependency": false,
+              "lines": [
+                15,
+                16,
+                17,
+                18
+              ],
+              "starting_column": 3,
+              "ending_column": 4
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "contract",
+                "name": "ReturnValue",
+                "source_mapping": {
+                  "start": 179,
+                  "length": 222,
+                  "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    9,
+                    10,
+                    11,
+                    12,
+                    13,
+                    14,
+                    15,
+                    16,
+                    17,
+                    18,
+                    19
+                  ],
+                  "starting_column": 1,
+                  "ending_column": 2
+                }
+              },
+              "signature": "callnotchecked(address)"
+            }
+          },
+          {
+            "type": "node",
+            "name": "callee.call()",
+            "source_mapping": {
+              "start": 381,
+              "length": 13,
+              "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+              "is_dependency": false,
+              "lines": [
+                17
+              ],
+              "starting_column": 5,
+              "ending_column": 18
+            },
+            "type_specific_fields": {
+              "parent": {
+                "type": "function",
+                "name": "callnotchecked",
+                "source_mapping": {
+                  "start": 286,
+                  "length": 113,
+                  "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                  "is_dependency": false,
+                  "lines": [
+                    15,
+                    16,
+                    17,
+                    18
+                  ],
+                  "starting_column": 3,
+                  "ending_column": 4
+                },
+                "type_specific_fields": {
+                  "parent": {
+                    "type": "contract",
+                    "name": "ReturnValue",
+                    "source_mapping": {
+                      "start": 179,
+                      "length": 222,
+                      "filename_relative": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "filename_absolute": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "filename_short": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol",
+                      "is_dependency": false,
+                      "lines": [
+                        9,
+                        10,
+                        11,
+                        12,
+                        13,
+                        14,
+                        15,
+                        16,
+                        17,
+                        18,
+                        19
+                      ],
+                      "starting_column": 1,
+                      "ending_column": 2
+                    }
+                  },
+                  "signature": "callnotchecked(address)"
+                }
+              }
+            }
+          }
+        ],
+        "description": "Low level call in ReturnValue.callnotchecked(address) (../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#15-18):\n\t- callee.call() (../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#17)\n",
+        "markdown": "Low level call in [ReturnValue.callnotchecked(address)](../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L15-L18):\n\t- [callee.call()](../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L17)\n",
+        "first_markdown_element": "../dataset/smartbugs-curated/dataset/unchecked_low_level_calls/unchecked_return_value.sol#L15-L18",
+        "id": "8e7e16ba7e40313e0579012a2232e396c0f60d7c012257bfa19a006f27609a20",
+        "check": "low-level-calls",
+        "impact": "Informational",
+        "confidence": "High"
+      }
+    ]
+  }
+}

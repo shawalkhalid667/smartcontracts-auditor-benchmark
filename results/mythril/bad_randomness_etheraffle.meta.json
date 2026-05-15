@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "bad_randomness_etheraffle.sol",
+  "contract_stem": "bad_randomness_etheraffle",
+  "pragma": "pragma solidity ^0.4.16;",
+  "solc_version": "0.4.16",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

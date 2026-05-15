@@ -1,0 +1,16 @@
+{
+  "tool": "ftaudit",
+  "contract": "bad_randomness_blackjack.sol",
+  "contract_stem": "bad_randomness_blackjack",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 8.170855045318604,
+  "note": "fallback_text_parse_no_json"
+}

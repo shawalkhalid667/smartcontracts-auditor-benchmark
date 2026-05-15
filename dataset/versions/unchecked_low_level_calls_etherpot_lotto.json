@@ -1,0 +1,4 @@
+{
+  "contract": "unchecked_low_level_calls_etherpot_lotto.sol",
+  "pragma": "pragma solidity ^0.4.0;"
+}

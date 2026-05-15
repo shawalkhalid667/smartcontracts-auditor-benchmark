@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "denial_of_service_list_dos.sol",
+  "contract_stem": "denial_of_service_list_dos",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.7498714923858643,
+  "note": "ranked_relations",
+  "chosen_contract": "Government",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/denial_of_service_list_dos",
+  "relations_count": 14
+}

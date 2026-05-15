@@ -1,0 +1,25 @@
+{
+  "tool": "smartcheck",
+  "contract": "arithmetic_integer_overflow_mapping_sym_1.sol",
+  "contract_stem": "arithmetic_integer_overflow_mapping_sym_1",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 9,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 12,
+      "column": 4,
+      "content": "mapping(uint256=>uint256)map;"
+    }
+  ],
+  "detected_categories": []
+}

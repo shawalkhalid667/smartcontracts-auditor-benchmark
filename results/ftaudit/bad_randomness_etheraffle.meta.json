@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "bad_randomness_etheraffle.sol",
+  "contract_stem": "bad_randomness_etheraffle",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 13.218894481658936,
+  "note": "fallback_text_parse_no_json"
+}

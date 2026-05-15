@@ -1,0 +1,50 @@
+{
+  "tool": "slither",
+  "contract": "time_manipulation_lottopollo.sol",
+  "contract_stem": "time_manipulation_lottopollo",
+  "pragma": "pragma solidity ^0.4.0;",
+  "solc_version": "0.4.0",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

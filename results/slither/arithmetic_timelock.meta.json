@@ -1,0 +1,35 @@
+{
+  "tool": "slither",
+  "contract": "arithmetic_timelock.sol",
+  "contract_stem": "arithmetic_timelock",
+  "pragma": "pragma solidity ^0.4.10;",
+  "solc_version": "0.4.10",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

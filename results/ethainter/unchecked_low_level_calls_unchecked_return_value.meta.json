@@ -1,0 +1,11 @@
+{
+  "tool": "ethainter",
+  "contract": "unchecked_low_level_calls_unchecked_return_value.sol",
+  "contract_stem": "unchecked_low_level_calls_unchecked_return_value",
+  "returncode": 5,
+  "detected_categories": [],
+  "num_findings": 0,
+  "elapsed_s": 0.6367518901824951,
+  "note": "solc_fail",
+  "chosen_contract": null
+}

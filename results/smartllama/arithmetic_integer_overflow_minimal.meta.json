@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "arithmetic_integer_overflow_minimal.sol",
+  "contract_stem": "arithmetic_integer_overflow_minimal",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 3.5447185039520264,
+  "note": "fallback_text_parse_no_json"
+}

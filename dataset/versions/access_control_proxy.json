@@ -1,0 +1,4 @@
+{
+  "contract": "access_control_proxy.sol",
+  "pragma": "pragma solidity ^0.4.24;"
+}

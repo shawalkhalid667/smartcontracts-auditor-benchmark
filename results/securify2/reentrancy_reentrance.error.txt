@@ -1,0 +1,36 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/ast/naming_convention_pattern.py", line 17, in find_matches
+    ast_root = self.get_ast_root()
+  File "/sec/securify/analyses/patterns/ast/abstract_ast_pattern.py", line 18, in get_ast_root
+    ast_root = self.analysis_context.ast
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:31:3: TypeError: Fallback function must be defined as "external".
+  function() public payable {}
+  ^--------------------------^
+
+fixed_pragma.sol:24:10: TypeError: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use "" as argument to provide empty calldata.
+      if(msg.sender.call.value(_amount)()) {
+         ^------------------------------^
+
+fixed_pragma.sol:24:10: TypeError: Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.
+      if(msg.sender.call.value(_amount)()) {
+         ^------------------------------^
+
+        > command: `solc --allow-paths / --standard-json`
+        > return code: `0`
+        > stderr:
+        {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:31:3: TypeError: Fallback function must be defined as \"external\".\n  function() public payable {}\n  ^--------------------------^\n","message":"Fallback function must be defined as \"external\".","severity":"error","sourceLocation":{"end":718,"file":"fixed_pragma.sol","start":690},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:24:10: TypeError: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use \"\" as argument to provide empty calldata.\n      if(msg.sender.call.value(_amount)()) {\n         ^------------------------------^\n","message":"Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use \"\" as argument to provide empty calldata.","severity":"error","sourceLocation":{"end":609,"file":"fixed_pragma.sol","start":577},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:24:10: TypeError: Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.\n      if(msg.sender.call.value(_amount)()) {\n         ^------------------------------^\n","message":"Type tuple(bool,bytes memory) is not implicitly convertible to expected type bool.","severity":"error","sourceLocation":{"end":609,"file":"fixed_pragma.sol","start":577},"type":"TypeError"}],"sources":{}}
+
+        > stdout:

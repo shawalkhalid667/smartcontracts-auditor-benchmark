@@ -1,0 +1,14 @@
+{
+  "findings": [
+    {
+      "category": "other",
+      "severity": 1,
+      "confidence": 1,
+      "title": "other",
+      "rationale": "Category inferred from SmartLLaMA free-form explanation text."
+    }
+  ],
+  "detected_categories": [
+    "other"
+  ]
+}

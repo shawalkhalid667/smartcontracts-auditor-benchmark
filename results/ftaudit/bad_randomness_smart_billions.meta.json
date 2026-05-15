@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "bad_randomness_smart_billions.sol",
+  "contract_stem": "bad_randomness_smart_billions",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "time_manipulation"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 10.008746862411499,
+  "note": "fallback_text_parse_no_json"
+}

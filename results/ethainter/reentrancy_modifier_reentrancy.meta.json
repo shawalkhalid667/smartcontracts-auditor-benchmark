@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "reentrancy_modifier_reentrancy.sol",
+  "contract_stem": "reentrancy_modifier_reentrancy",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.4212372303009033,
+  "note": "ranked_relations",
+  "chosen_contract": "ModifierEntrancy",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/reentrancy_modifier_reentrancy",
+  "relations_count": 14
+}

@@ -1,0 +1,4 @@
+{
+  "contract": "arithmetic_token.sol",
+  "pragma": "pragma solidity ^0.4.18;"
+}

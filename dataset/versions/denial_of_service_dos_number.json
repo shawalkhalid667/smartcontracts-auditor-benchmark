@@ -1,0 +1,4 @@
+{
+  "contract": "denial_of_service_dos_number.sol",
+  "pragma": "pragma solidity ^0.4.25;"
+}

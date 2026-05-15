@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "arithmetic_integer_overflow_multitx_multifunc_feasible.sol",
+  "contract_stem": "arithmetic_integer_overflow_multitx_multifunc_feasible",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "denial_of_service",
+    "reentrancy"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 12.586418390274048,
+  "note": "fallback_text_parse_no_json"
+}

@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "unchecked_low_level_calls_0x3f2ef511aa6e75231e4deafc7a3d2ecab3741de2.sol",
+  "contract_stem": "unchecked_low_level_calls_0x3f2ef511aa6e75231e4deafc7a3d2ecab3741de2",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.493734836578369,
+  "note": "ranked_relations",
+  "chosen_contract": "WhaleGiveaway2",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/unchecked_low_level_calls_0x3f2ef511aa6e75231e4deafc7a3d2ecab3741de2",
+  "relations_count": 14
+}

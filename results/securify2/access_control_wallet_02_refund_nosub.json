@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "access_control_wallet_02_refund_nosub.sol",
+  "contract_stem": "access_control_wallet_02_refund_nosub",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

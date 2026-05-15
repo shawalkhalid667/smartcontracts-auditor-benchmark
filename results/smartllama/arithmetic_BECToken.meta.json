@@ -1,0 +1,15 @@
+{
+  "tool": "smartllama",
+  "contract": "arithmetic_BECToken.sol",
+  "contract_stem": "arithmetic_BECToken",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.26043963432312,
+  "note": "fallback_text_parse_no_json"
+}

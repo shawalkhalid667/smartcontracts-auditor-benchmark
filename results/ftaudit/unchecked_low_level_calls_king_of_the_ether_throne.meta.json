@@ -1,0 +1,17 @@
+{
+  "tool": "ftaudit",
+  "contract": "unchecked_low_level_calls_king_of_the_ether_throne.sol",
+  "contract_stem": "unchecked_low_level_calls_king_of_the_ether_throne",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "front_running",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 6,
+  "elapsed_s": 12.062941074371338,
+  "note": "fallback_text_parse_no_json"
+}

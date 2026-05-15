@@ -1,0 +1,20 @@
+{
+  "tool": "ftaudit",
+  "contract": "short_addresses_short_address_example.sol",
+  "contract_stem": "short_addresses_short_address_example",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "denial_of_service",
+    "front_running",
+    "reentrancy",
+    "short_addresses",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 9,
+  "elapsed_s": 13.150645732879639,
+  "note": "fallback_text_parse_no_json"
+}

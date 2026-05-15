@@ -1,0 +1,4 @@
+{
+  "contract": "time_manipulation_lottopollo.sol",
+  "pragma": "pragma solidity ^0.4.0;"
+}

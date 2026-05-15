@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "short_addresses_short_address_example.sol",
+  "contract_stem": "short_addresses_short_address_example",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

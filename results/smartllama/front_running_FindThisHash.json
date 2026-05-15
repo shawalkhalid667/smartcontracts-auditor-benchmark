@@ -1,0 +1,22 @@
+{
+  "findings": [
+    {
+      "category": "access_control",
+      "severity": 1,
+      "confidence": 1,
+      "title": "access_control",
+      "rationale": "Category inferred from SmartLLaMA free-form explanation text."
+    },
+    {
+      "category": "front_running",
+      "severity": 1,
+      "confidence": 1,
+      "title": "front_running",
+      "rationale": "Category inferred from SmartLLaMA free-form explanation text."
+    }
+  ],
+  "detected_categories": [
+    "access_control",
+    "front_running"
+  ]
+}

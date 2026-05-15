@@ -1,0 +1,4 @@
+{
+  "contract": "denial_of_service_send_loop.sol",
+  "pragma": "pragma solidity 0.4.24;"
+}

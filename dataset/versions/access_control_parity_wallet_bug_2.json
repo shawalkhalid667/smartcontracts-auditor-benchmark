@@ -1,0 +1,4 @@
+{
+  "contract": "access_control_parity_wallet_bug_2.sol",
+  "pragma": "pragma solidity ^0.4.9;"
+}

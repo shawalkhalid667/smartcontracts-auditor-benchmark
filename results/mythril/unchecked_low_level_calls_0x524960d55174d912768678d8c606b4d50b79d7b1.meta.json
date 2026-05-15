@@ -1,0 +1,23 @@
+{
+  "tool": "mythril",
+  "contract": "unchecked_low_level_calls_0x524960d55174d912768678d8c606b4d50b79d7b1.sol",
+  "contract_stem": "unchecked_low_level_calls_0x524960d55174d912768678d8c606b4d50b79d7b1",
+  "pragma": "pragma solidity ^0.4.13;",
+  "solc_version": "0.4.13",
+  "returncode": 1,
+  "detected_categories": [
+    "unchecked_low_level_calls"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "113",
+      "title": "Multiple Calls in a Single Transaction",
+      "severity": "Low"
+    }
+  ]
+}

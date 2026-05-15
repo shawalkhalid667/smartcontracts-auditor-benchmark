@@ -1,0 +1,67 @@
+{
+  "error": null,
+  "issues": [
+    {
+      "address": 236,
+      "code": "currentFrontrunner.send(currentBid)",
+      "contract": "DosAuction",
+      "description": "The value of the call is dependent on balance or storage write\nThis can lead to race conditions. An attacker may be able to run a transaction after our transaction which can change the value of the call",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/denial_of_service_auction.sol",
+      "function": "bid()",
+      "lineno": 23,
+      "max_gas_used": 90373,
+      "min_gas_used": 15102,
+      "severity": "Medium",
+      "sourceMap": "688:35",
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0xc0400000000",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x44000400000000000",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052341561000f57600080fd5b5b6101738061001f6000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680631998aeef1461003e575b600080fd5b610046610048565b005b6001543411151561005857600080fd5b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff161415156100fd576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc6001549081150290604051600060405180830381858888f1935050505015156100fc57600080fd5b5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550346001819055505b5600a165627a7a72305820f67ac1c6471ba3c90040273ef87e15ef449147ff23b5434bd8e7d8421824df170029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x1998aeef",
+            "input": "0x1998aeef",
+            "name": "bid()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0x1"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x1998aeef",
+            "input": "0x1998aeef",
+            "name": "bid()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0x2"
+          }
+        ]
+      }
+    }
+  ],
+  "success": true
+}

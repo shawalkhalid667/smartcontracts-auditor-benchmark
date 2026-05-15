@@ -1,0 +1,17 @@
+{
+  "tool": "smartcheck",
+  "contract": "arithmetic_timelock.sol",
+  "contract_stem": "arithmetic_timelock",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 8,
+      "column": 17,
+      "content": "^"
+    }
+  ],
+  "detected_categories": []
+}

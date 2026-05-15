@@ -1,0 +1,4 @@
+{
+  "contract": "front_running_FindThisHash.sol",
+  "pragma": "pragma solidity ^0.4.22;"
+}

@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "denial_of_service_auction.sol",
+  "contract_stem": "denial_of_service_auction",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

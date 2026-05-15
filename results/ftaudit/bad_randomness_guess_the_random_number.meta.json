@@ -1,0 +1,16 @@
+{
+  "tool": "ftaudit",
+  "contract": "bad_randomness_guess_the_random_number.sol",
+  "contract_stem": "bad_randomness_guess_the_random_number",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 8.209415674209595,
+  "note": "fallback_text_parse_no_json"
+}

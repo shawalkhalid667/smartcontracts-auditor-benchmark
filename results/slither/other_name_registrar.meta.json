@@ -1,0 +1,43 @@
+{
+  "tool": "slither",
+  "contract": "other_name_registrar.sol",
+  "contract_stem": "other_name_registrar",
+  "pragma": "pragma solidity ^0.4.15;",
+  "solc_version": "0.4.15",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "uninitialized-storage",
+      "impact": "High",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    }
+  ]
+}

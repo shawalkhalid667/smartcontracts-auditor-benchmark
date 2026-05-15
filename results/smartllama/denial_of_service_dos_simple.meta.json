@@ -1,0 +1,14 @@
+{
+  "tool": "smartllama",
+  "contract": "denial_of_service_dos_simple.sol",
+  "contract_stem": "denial_of_service_dos_simple",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 6.559614419937134,
+  "note": "fallback_text_parse_no_json"
+}

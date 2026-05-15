@@ -1,0 +1,4 @@
+{
+  "contract": "access_control_wallet_02_refund_nosub.sol",
+  "pragma": "pragma solidity ^0.4.24;"
+}

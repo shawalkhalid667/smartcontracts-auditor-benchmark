@@ -1,0 +1,15 @@
+{
+  "tool": "smartllama",
+  "contract": "other_name_registrar.sol",
+  "contract_stem": "other_name_registrar",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 2.2549448013305664,
+  "note": "fallback_text_parse_no_json"
+}

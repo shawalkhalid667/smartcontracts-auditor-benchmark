@@ -1,0 +1,29 @@
+{
+  "tool": "slither",
+  "contract": "access_control_simple_suicide.sol",
+  "contract_stem": "access_control_simple_suicide",
+  "pragma": "pragma solidity ^0.4.0;",
+  "solc_version": "0.4.0",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "suicidal",
+      "impact": "High",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

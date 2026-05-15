@@ -1,0 +1,10 @@
+{
+  "contract": "short_addresses_short_address_example.sol",
+  "vulnerabilities": [
+    {
+      "type": "short addresses",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

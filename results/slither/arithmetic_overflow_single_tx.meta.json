@@ -1,0 +1,23 @@
+{
+  "tool": "slither",
+  "contract": "arithmetic_overflow_single_tx.sol",
+  "contract_stem": "arithmetic_overflow_single_tx",
+  "pragma": "pragma solidity ^0.4.23;",
+  "solc_version": "0.4.23",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "contract": "reentrancy_spank_chain_payment.sol",
+  "vulnerabilities": [
+    {
+      "type": "reentrancy",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

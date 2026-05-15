@@ -1,0 +1,13 @@
+{
+  "tool": "smartllama",
+  "contract": "reentrancy_reentrancy_bonus.sol",
+  "contract_stem": "reentrancy_reentrancy_bonus",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "reentrancy"
+  ],
+  "num_findings": 2,
+  "elapsed_s": 3.0370826721191406,
+  "note": "fallback_text_parse_no_json"
+}

@@ -1,0 +1,16 @@
+{
+  "tool": "mythril",
+  "contract": "access_control_arbitrary_location_write_simple.sol",
+  "contract_stem": "access_control_arbitrary_location_write_simple",
+  "pragma": "pragma solidity ^0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 1,
+  "detected_categories": [],
+  "issues_ranked": [
+    {
+      "swc-id": "124",
+      "title": "Write to an arbitrary storage location",
+      "severity": "High"
+    }
+  ]
+}

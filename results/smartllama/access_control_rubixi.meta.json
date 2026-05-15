@@ -1,0 +1,13 @@
+{
+  "tool": "smartllama",
+  "contract": "access_control_rubixi.sol",
+  "contract_stem": "access_control_rubixi",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "reentrancy"
+  ],
+  "num_findings": 2,
+  "elapsed_s": 4.785370588302612,
+  "note": "fallback_text_parse_no_json"
+}

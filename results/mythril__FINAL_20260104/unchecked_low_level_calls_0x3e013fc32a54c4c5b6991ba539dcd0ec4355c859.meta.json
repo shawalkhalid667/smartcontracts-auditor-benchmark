@@ -1,0 +1,36 @@
+{
+  "tool": "mythril",
+  "contract": "unchecked_low_level_calls_0x3e013fc32a54c4c5b6991ba539dcd0ec4355c859.sol",
+  "contract_stem": "unchecked_low_level_calls_0x3e013fc32a54c4c5b6991ba539dcd0ec4355c859",
+  "pragma": "pragma solidity ^0.4.18;",
+  "solc_version": "0.4.18",
+  "returncode": 1,
+  "detected_categories": [
+    "access_control",
+    "front_running",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "severity": "High"
+    },
+    {
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "104",
+      "title": "Unchecked return value from external call.",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "107",
+      "title": "External Call To User-Supplied Address",
+      "severity": "Low"
+    }
+  ]
+}

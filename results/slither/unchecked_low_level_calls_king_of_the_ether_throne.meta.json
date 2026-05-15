@@ -1,0 +1,132 @@
+{
+  "tool": "slither",
+  "contract": "unchecked_low_level_calls_king_of_the_ether_throne.sol",
+  "contract_stem": "unchecked_low_level_calls_king_of_the_ether_throne",
+  "pragma": "pragma solidity ^0.4.0;",
+  "solc_version": "0.4.0",
+  "returncode": 255,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "controlled-array-length",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "divide-before-multiply",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "divide-before-multiply",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "divide-before-multiply",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "divide-before-multiply",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "divide-before-multiply",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "divide-before-multiply",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "unchecked-send",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "incorrect-modifier",
+      "impact": "Low",
+      "confidence": "High"
+    },
+    {
+      "check": "events-access",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "missing-zero-check",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "timestamp",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    },
+    {
+      "check": "constable-states",
+      "impact": "Optimization",
+      "confidence": "High"
+    }
+  ]
+}

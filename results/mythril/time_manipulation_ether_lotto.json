@@ -1,0 +1,214 @@
+{
+  "error": null,
+  "issues": [
+    {
+      "address": 276,
+      "code": "function play() payable {\n\n        // Participants must spend some fixed ether before playing lottery.\n        assert(msg.value == TICKET_AMOUNT);\n\n        // Increase pot for each participant.\n        pot += msg.value;\n\n        // Compute some *almost random* value for selecting winner from current transaction.\n        // <yes> <report> TIME_MANIPULATION\n        var random = uint(sha3(block.timestamp)) % 2;\n\n        // Distribution: 50% of participants will be winners.\n        if (random == 0) {\n\n            // Send fee to bank account.\n            bank.transfer(FEE_AMOUNT);\n\n            // Send jackpot to winner.\n            msg.sender.transfer(pot - FEE_AMOUNT);\n\n            // Restart jackpot.\n            pot = 0;\n        }\n    }",
+      "contract": "EtherLotto",
+      "description": "An assertion violation was triggered.\nIt is possible to trigger an assertion violation. Note that Solidity assert() statements should only be used to check invariants. Review the transaction trace generated for this issue and either make sure your program logic is correct, or use require() instead of assert() if your goal is to constrain user inputs or enforce preconditions. Remember to validate inputs from both callers (for instance, via passed arguments) and callees (for instance, via return values).",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/time_manipulation_ether_lotto.sol",
+      "function": "play()",
+      "lineno": 33,
+      "max_gas_used": 248,
+      "min_gas_used": 153,
+      "severity": "Medium",
+      "sourceMap": "937:743",
+      "swc-id": "110",
+      "title": "Exception State",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052341561000f57600080fd5b5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b5b610235806100616000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634ba2363a1461005457806376cdb03b1461007d57806393e84cd9146100d2575b600080fd5b341561005f57600080fd5b6100676100dc565b6040518082815260200191505060405180910390f35b341561008857600080fd5b6100906100e2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100da610107565b005b60015481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600a3414151561011557fe5b346001600082825401925050819055506002426040518082815260200191505060405180910390206001900481151561014a57fe5b0690506000811415610205576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc60019081150290604051600060405180830381858888f1935050505015156101b857600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc60018054039081150290604051600060405180830381858888f1935050505015156101fc57600080fd5b60006001819055505b5b505600a165627a7a7230582010737f47e0df5463080e7c307c0a60452e13541ac452cb4150c7b4a866ed5fcf0029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x93e84cd9",
+            "input": "0x93e84cd9",
+            "name": "play()",
+            "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "resolved_input": null,
+            "value": "0x0"
+          }
+        ]
+      }
+    },
+    {
+      "address": 342,
+      "code": "if (random == 0) {\n\n            // Send fee to bank account.\n            bank.transfer(FEE_AMOUNT);\n\n            // Send jackpot to winner.\n            msg.sender.transfer(pot - FEE_AMOUNT);\n\n            // Restart jackpot.\n            pot = 0;\n        }",
+      "contract": "EtherLotto",
+      "description": "A control flow decision is made based on The block.timestamp environment variable.\nThe block.timestamp environment variable is used to determine a control flow decision. Note that the values of variables like coinbase, gaslimit, block number and timestamp are predictable and can be manipulated by a malicious miner. Also keep in mind that attackers know hashes of earlier blocks. Don't use any of those environment variables as sources of randomness and be aware that use of these variables introduces a certain level of trust into miners.",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/time_manipulation_ether_lotto.sol",
+      "function": "play()",
+      "lineno": 46,
+      "max_gas_used": 26514,
+      "min_gas_used": 6138,
+      "severity": "Low",
+      "sourceMap": "1420:254",
+      "swc-id": "116",
+      "title": "Dependence on predictable environment variable",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052341561000f57600080fd5b5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b5b610235806100616000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634ba2363a1461005457806376cdb03b1461007d57806393e84cd9146100d2575b600080fd5b341561005f57600080fd5b6100676100dc565b6040518082815260200191505060405180910390f35b341561008857600080fd5b6100906100e2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100da610107565b005b60015481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600a3414151561011557fe5b346001600082825401925050819055506002426040518082815260200191505060405180910390206001900481151561014a57fe5b0690506000811415610205576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc60019081150290604051600060405180830381858888f1935050505015156101b857600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc60018054039081150290604051600060405180830381858888f1935050505015156101fc57600080fd5b60006001819055505b5b505600a165627a7a7230582010737f47e0df5463080e7c307c0a60452e13541ac452cb4150c7b4a866ed5fcf0029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x93e84cd9",
+            "input": "0x93e84cd9",
+            "name": "play()",
+            "origin": "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "resolved_input": null,
+            "value": "0xa"
+          }
+        ]
+      }
+    },
+    {
+      "address": 492,
+      "code": "msg.sender.transfer(pot - FEE_AMOUNT)",
+      "contract": "EtherLotto",
+      "description": "Multiple calls are executed in the same transaction.\nThis call is executed following another call within the same transaction. It is possible that the call never gets executed if a prior call fails permanently. This might be caused intentionally by a malicious callee. If possible, refactor the code such that each transaction only executes one external call or make sure that all callees can be trusted (i.e. they\u2019re part of your own codebase).",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/time_manipulation_ether_lotto.sol",
+      "function": "play()",
+      "lineno": 52,
+      "max_gas_used": 123492,
+      "min_gas_used": 14414,
+      "severity": "Low",
+      "sourceMap": "1572:37",
+      "swc-id": "113",
+      "title": "Multiple Calls in a Single Transaction",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x80000000",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052341561000f57600080fd5b5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b5b610235806100616000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634ba2363a1461005457806376cdb03b1461007d57806393e84cd9146100d2575b600080fd5b341561005f57600080fd5b6100676100dc565b6040518082815260200191505060405180910390f35b341561008857600080fd5b6100906100e2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100da610107565b005b60015481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600a3414151561011557fe5b346001600082825401925050819055506002426040518082815260200191505060405180910390206001900481151561014a57fe5b0690506000811415610205576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc60019081150290604051600060405180830381858888f1935050505015156101b857600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc60018054039081150290604051600060405180830381858888f1935050505015156101fc57600080fd5b60006001819055505b5b505600a165627a7a7230582010737f47e0df5463080e7c307c0a60452e13541ac452cb4150c7b4a866ed5fcf0029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x93e84cd9",
+            "input": "0x93e84cd9",
+            "name": "play()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0xa"
+          }
+        ]
+      }
+    },
+    {
+      "address": 492,
+      "code": "msg.sender.transfer(pot - FEE_AMOUNT)",
+      "contract": "EtherLotto",
+      "description": "The value of the call is dependent on balance or storage write\nThis can lead to race conditions. An attacker may be able to run a transaction after our transaction which can change the value of the call",
+      "filename": "/Users/shawalkhalid/PhDdata/PhD Research/ResearchProjects/chainSentinel/smart_contract_auditor_benchmark/dataset/smartbugs_curated/time_manipulation_ether_lotto.sol",
+      "function": "play()",
+      "lineno": 52,
+      "max_gas_used": 123492,
+      "min_gas_used": 14414,
+      "severity": "Medium",
+      "sourceMap": "1572:37",
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "tx_sequence": {
+        "initialState": {
+          "accounts": {
+            "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe": {
+              "balance": "0x0",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            },
+            "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef": {
+              "balance": "0x1b",
+              "code": "",
+              "nonce": 0,
+              "storage": "{}"
+            }
+          }
+        },
+        "steps": [
+          {
+            "address": "",
+            "calldata": "",
+            "input": "0x6060604052341561000f57600080fd5b5b336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505b5b610235806100616000396000f30060606040526000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680634ba2363a1461005457806376cdb03b1461007d57806393e84cd9146100d2575b600080fd5b341561005f57600080fd5b6100676100dc565b6040518082815260200191505060405180910390f35b341561008857600080fd5b6100906100e2565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100da610107565b005b60015481565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600a3414151561011557fe5b346001600082825401925050819055506002426040518082815260200191505060405180910390206001900481151561014a57fe5b0690506000811415610205576000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff166108fc60019081150290604051600060405180830381858888f1935050505015156101b857600080fd5b3373ffffffffffffffffffffffffffffffffffffffff166108fc60018054039081150290604051600060405180830381858888f1935050505015156101fc57600080fd5b60006001819055505b5b505600a165627a7a7230582010737f47e0df5463080e7c307c0a60452e13541ac452cb4150c7b4a866ed5fcf0029",
+            "name": "unknown",
+            "origin": "0xaffeaffeaffeaffeaffeaffeaffeaffeaffeaffe",
+            "value": "0x0"
+          },
+          {
+            "address": "0x901d12ebe1b195e5aa8748e62bd7734ae19b51f",
+            "calldata": "0x93e84cd9",
+            "input": "0x93e84cd9",
+            "name": "play()",
+            "origin": "0xdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef",
+            "resolved_input": null,
+            "value": "0xa"
+          }
+        ]
+      }
+    }
+  ],
+  "success": true
+}

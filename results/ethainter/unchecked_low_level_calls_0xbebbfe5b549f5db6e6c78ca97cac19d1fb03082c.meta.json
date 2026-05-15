@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "unchecked_low_level_calls_0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c.sol",
+  "contract_stem": "unchecked_low_level_calls_0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.5855937004089355,
+  "note": "ranked_relations",
+  "chosen_contract": "VaultProxy",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/unchecked_low_level_calls_0xbebbfe5b549f5db6e6c78ca97cac19d1fb03082c",
+  "relations_count": 14
+}

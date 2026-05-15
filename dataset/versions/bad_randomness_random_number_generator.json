@@ -1,0 +1,4 @@
+{
+  "contract": "bad_randomness_random_number_generator.sol",
+  "pragma": "pragma solidity ^0.4.25;"
+}

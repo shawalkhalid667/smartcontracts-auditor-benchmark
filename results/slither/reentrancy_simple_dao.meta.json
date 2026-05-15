@@ -1,0 +1,35 @@
+{
+  "tool": "slither",
+  "contract": "reentrancy_simple_dao.sol",
+  "contract_stem": "reentrancy_simple_dao",
+  "pragma": "pragma solidity ^0.4.2;",
+  "solc_version": "0.4.2",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "reentrancy-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

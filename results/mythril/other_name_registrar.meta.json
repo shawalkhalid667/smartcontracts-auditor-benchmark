@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "other_name_registrar.sol",
+  "contract_stem": "other_name_registrar",
+  "pragma": "pragma solidity ^0.4.15;",
+  "solc_version": "0.4.15",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

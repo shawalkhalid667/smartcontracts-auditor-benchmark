@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "access_control_FibonacciBalance.sol",
+  "contract_stem": "access_control_FibonacciBalance",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 9.811848878860474,
+  "note": "fallback_text_parse_no_json"
+}

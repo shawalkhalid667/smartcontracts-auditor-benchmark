@@ -1,0 +1,14 @@
+{
+  "tool": "ftaudit",
+  "contract": "time_manipulation_timed_crowdsale.sol",
+  "contract_stem": "time_manipulation_timed_crowdsale",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "reentrancy",
+    "time_manipulation"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 7.910096645355225,
+  "note": "fallback_text_parse_no_json"
+}

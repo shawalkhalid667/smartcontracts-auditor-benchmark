@@ -1,0 +1,10 @@
+{
+  "contract": "reentrancy_simple_dao.sol",
+  "vulnerabilities": [
+    {
+      "type": "reentrancy",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

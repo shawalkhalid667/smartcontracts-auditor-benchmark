@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "arithmetic_integer_overflow_multitx_multifunc_feasible.sol",
+  "contract_stem": "arithmetic_integer_overflow_multitx_multifunc_feasible",
+  "pragma": "pragma solidity ^0.4.23;",
+  "solc_version": "0.4.23",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

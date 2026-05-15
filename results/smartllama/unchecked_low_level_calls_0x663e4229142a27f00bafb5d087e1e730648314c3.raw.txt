@@ -1,0 +1,561 @@
+=== SYSTEM ===
+You are a smart contract security auditor.
+
+CRITICAL OUTPUT RULES:
+- Output MUST be exactly ONE valid JSON object and NOTHING ELSE.
+- The first character MUST be '{' and the last character MUST be '}'.
+- Do NOT output prose, markdown, numbering, code fences, or extra commentary.
+
+Task: Identify which SmartBugs vulnerability categories are present in the contract.
+
+Allowed categories (use these exact strings):
+unchecked_low_level_calls, time_manipulation, bad_randomness, denial_of_service, front_running,
+access_control, short_addresses, reentrancy, arithmetic, other
+
+Output JSON schema (exact keys):
+{
+  "findings": [
+    {
+      "category": "<one of the allowed categories>",
+      "severity": <int 1..5>,
+      "confidence": <int 1..3>,
+      "title": "<short>",
+      "rationale": "<1-3 sentences>"
+    }
+  ],
+  "detected_categories": ["..."]
+}
+
+Rules:
+- If you are not confident, omit the finding (prefer precision).
+- If you find nothing, output {"findings": [], "detected_categories": []}.
+- Do not include any text outside the JSON object.
+
+
+=== USER ===
+Return ONLY the JSON object described in the system message.
+CONTRACT_FILE: unchecked_low_level_calls_0x663e4229142a27f00bafb5d087e1e730648314c3.sol
+SOLIDITY_SOURCE_BEGIN
+/*
+ * @source: etherscan.io 
+ * @author: -
+ * @vulnerable_at_lines: 1152,1496,2467
+ */
+
+pragma solidity ^0.4.24;
+
+
+contract ERC20 {
+    function totalSupply() constant returns (uint supply);
+    function balanceOf( address who ) constant returns (uint value);
+    function allowance( address owner, address spender ) constant returns (uint _allowance);
+
+    function transfer( address to, uint value) returns (bool ok);
+    function transferFrom( address from, address to, uint value) returns (bool ok);
+    function approve( address spender, uint value ) returns (bool ok);
+
+    event Transfer( address indexed from, address indexed to, uint value);
+    event Approval( address indexed owner, address indexed spender, uint value);
+}
+/**
+ * @title Ownable
+ * @dev The Ownable contract has an owner address, and provides basic authorization control
+ * functions, this simplifies the implementation of "user permissions".
+ */
+contract Ownable {
+  address public owner;
+
+
+  /**
+   * @dev The Ownable constructor sets the original `owner` of the contract to the sender
+   * account.
+   */
+  function Ownable() {
+    owner = msg.sender;
+  }
+
+
+  /**
+   * @dev Throws if called by any account other than the owner.
+   */
+  modifier onlyOwner() {
+    require(msg.sender == owner);
+    _;
+  }
+
+
+  /**
+   * @dev Allows the current owner to transfer control of the contract to a newOwner.
+   * @param newOwner The address to transfer ownership to.
+   */
+  function transferOwnership(address newOwner) onlyOwner {
+    if (newOwner != address(0)) {
+      owner = newOwner;
+    }
+  }
+
+}
+
+/// @title Interface for contracts conforming to ERC-721: Non-Fungible Tokens
+/// @author Dieter Shirley <dete@axiomzen.co> (https://github.com/dete)
+contract ERC721 {
+    // Required methods
+    function totalSupply() public view returns (uint256 total);
+    function balanceOf(address _owner) public view returns (uint256 balance);
+    function ownerOf(uint256 _tokenId) external view returns (address owner);
+    function approve(address _to, uint256 _tokenId) external;
+    function transfer(address _to, uint256 _tokenId) external;
+    function transferFrom(address _from, address _to, uint256 _tokenId) external;
+
+    // Events
+    event Transfer(address from, address to, uint256 tokenId);
+    event Approval(address owner, address approved, uint256 tokenId);
+
+    // Optional
+    // function name() public view returns (string name);
+    // function symbol() public view returns (string symbol);
+    // function tokensOfOwner(address _owner) external view returns (uint256[] tokenIds);
+    // function tokenMetadata(uint256 _tokenId, string _preferredTransport) public view returns (string infoUrl);
+
+    // ERC-165 Compatibility (https://github.com/ethereum/EIPs/issues/165)
+    function supportsInterface(bytes4 _interfaceID) external view returns (bool);
+}
+
+contract GeneScienceInterface {
+    /// @dev simply a boolean to indicate this is the contract we expect to be
+    function isGeneScience() public pure returns (bool);
+
+    /// @dev given genes of kitten 1 & 2, return a genetic combination - may have a random factor
+    /// @param genes1 genes of mom
+    /// @param genes2 genes of sire
+    /// @return the genes that are supposed to be passed down the child
+    function mixGenes(uint256[2] genes1, uint256[2] genes2,uint256 g1,uint256 g2, uint256 targetBlock) public returns (uint256[2]);
+
+    function getPureFromGene(uint256[2] gene) public view returns(uint256);
+
+    /// @dev get sex from genes 0: female 1: male
+    function getSex(uint256[2] gene) public view returns(uint256);
+
+    /// @dev get wizz type from gene
+    function getWizzType(uint256[2] gene) public view returns(uint256);
+
+    function clearWizzType(uint256[2] _gene) public returns(uint256[2]);
+}
+
+/// @title A facet of PandaCore that manages special access privileges.
+/// @author Axiom Zen (https://www.axiomzen.co)
+/// @dev See the PandaCore contract documentation to understand how the various contract facets are arranged.
+contract PandaAccessControl {
+    // This facet controls access control for CryptoPandas. There are four roles managed here:
+    //
+    //     - The CEO: The CEO can reassign other roles and change the addresses of our dependent smart
+    //         contracts. It is also the only role that can unpause the smart contract. It is initially
+    //         set to the address that created the smart contract in the PandaCore constructor.
+    //
+    //     - The CFO: The CFO can withdraw funds from PandaCore and its auction contracts.
+    //
+    //     - The COO: The COO can release gen0 pandas to auction, and mint promo cats.
+    //
+    // It should be noted that these roles are distinct without overlap in their access abilities, the
+    // abilities listed for each role above are exhaustive. In particular, while the CEO can assign any
+    // address to any role, the CEO address itself doesn't have the ability to act in those roles. This
+    // restriction is intentional so that we aren't tempted to use the CEO address frequently out of
+    // convenience. The less we use an address, the less likely it is that we somehow compromise the
+    // account.
+
+    /// @dev Emited when contract is upgraded - See README.md for updgrade plan
+    event ContractUpgrade(address newContract);
+
+    // The addresses of the accounts (or contracts) that can execute actions within each roles.
+    address public ceoAddress;
+    address public cfoAddress;
+    address public cooAddress;
+
+    // @dev Keeps track whether the contract is paused. When that is true, most actions are blocked
+    bool public paused = false;
+
+    /// @dev Access modifier for CEO-only functionality
+    modifier onlyCEO() {
+        require(msg.sender == ceoAddress);
+        _;
+    }
+
+    /// @dev Access modifier for CFO-only functionality
+    modifier onlyCFO() {
+        require(msg.sender == cfoAddress);
+        _;
+    }
+
+    /// @dev Access modifier for COO-only functionality
+    modifier onlyCOO() {
+        require(msg.sender == cooAddress);
+        _;
+    }
+
+    modifier onlyCLevel() {
+        require(
+            msg.sender == cooAddress ||
+            msg.sender == ceoAddress ||
+            msg.sender == cfoAddress
+        );
+        _;
+    }
+
+    /// @dev Assigns a new address to act as the CEO. Only available to the current CEO.
+    /// @param _newCEO The address of the new CEO
+    function setCEO(address _newCEO) external onlyCEO {
+        require(_newCEO != address(0));
+
+        ceoAddress = _newCEO;
+    }
+
+    /// @dev Assigns a new address to act as the CFO. Only available to the current CEO.
+    /// @param _newCFO The address of the new CFO
+    function setCFO(address _newCFO) external onlyCEO {
+        require(_newCFO != address(0));
+
+        cfoAddress = _newCFO;
+    }
+
+    /// @dev Assigns a new address to act as the COO. Only available to the current CEO.
+    /// @param _newCOO The address of the new COO
+    function setCOO(address _newCOO) external onlyCEO {
+        require(_newCOO != address(0));
+
+        cooAddress = _newCOO;
+    }
+
+    /*** Pausable functionality adapted from OpenZeppelin ***/
+
+    /// @dev Modifier to allow actions only when the contract IS NOT paused
+    modifier whenNotPaused() {
+        require(!paused);
+        _;
+    }
+
+    /// @dev Modifier to allow actions only when the contract IS paused
+    modifier whenPaused {
+        require(paused);
+        _;
+    }
+
+    /// @dev Called by any "C-level" role to pause the contract. Used only when
+    ///  a bug or exploit is detected and we need to limit damage.
+    function pause() external onlyCLevel whenNotPaused {
+        paused = true;
+    }
+
+    /// @dev Unpauses the smart contract. Can only be called by the CEO, since
+    ///  one reason we may pause the contract is when CFO or COO accounts are
+    ///  compromised.
+    /// @notice This is public rather than external so it can be called by
+    ///  derived contracts.
+    function unpause() public onlyCEO whenPaused {
+        // can't unpause if contract was upgraded
+        paused = false;
+    }
+}
+
+
+
+
+
+
+
+
+/// @title Base contract for CryptoPandas. Holds all common structs, events and base variables.
+/// @author Axiom Zen (https://www.axiomzen.co)
+/// @dev See the PandaCore contract documentation to understand how the various contract facets are arranged.
+contract PandaBase is PandaAccessControl {
+    /*** EVENTS ***/
+
+    uint256 public constant GEN0_TOTAL_COUNT = 16200;
+    uint256 public gen0CreatedCount;
+
+    /// @dev The Birth event is fired whenever a new kitten comes into existence. This obviously
+    ///  includes any time a cat is created through the giveBirth method, but it is also called
+    ///  when a new gen0 cat is created.
+    event Birth(address owner, uint256 pandaId, uint256 matronId, uint256 sireId, uint256[2] genes);
+
+    /// @dev Transfer event as defined in current draft of ERC721. Emitted every time a kitten
+    ///  ownership is assigned, including births.
+    event Transfer(address from, address to, uint256 tokenId);
+
+    /*** DATA TYPES ***/
+
+    /// @dev The main Panda struct. Every cat in CryptoPandas is represented by a copy
+    ///  of this structure, so great care was taken to ensure that it fits neatly into
+    ///  exactly two 256-bit words. Note that the order of the members in this structure
+    ///  Ref: http://solidity.readthedocs.io/en/develop/miscellaneous.html
+    struct Panda {
+        // The Panda's genetic code is packed into these 256-bits, the format is
+        // sooper-sekret! A cat's genes never change.
+        uint256[2] genes;
+
+        // The timestamp from the block when this cat came into existence.
+        uint64 birthTime;
+
+        // The minimum timestamp after which this cat can engage in breeding
+        // activities again. This same timestamp is used for the pregnancy
+        // timer (for matrons) as well as the siring cooldown.
+        uint64 cooldownEndBlock;
+
+        // The ID of the parents of this panda, set to 0 for gen0 cats.
+        // Not
+
+/* ... truncated ... */
+
+s _owner) external onlyCOO {
+        address pandaOwner = _owner;
+        if (pandaOwner == address(0)) {
+            pandaOwner = cooAddress;
+        }
+
+        _createPanda(0, 0, _generation, _genes, pandaOwner);
+    }
+
+    /// @dev create pandaWithGenes
+    /// @param _genes panda genes
+    /// @param _type  0 common 1 rare
+    function createPanda(uint256[2] _genes,uint256 _generation,uint256 _type)
+        external
+        payable
+        onlyCOO
+        whenNotPaused
+    {
+        require(msg.value >= OPEN_PACKAGE_PRICE);
+        uint256 kittenId = _createPanda(0, 0, _generation, _genes, saleAuction);
+        saleAuction.createPanda(kittenId,_type);
+    }
+
+    //function buyPandaERC20(address _erc20Address, address _buyerAddress, uint256 _pandaID, uint256 _amount)
+    //external
+    //onlyCOO
+    //whenNotPaused {
+    //    saleAuctionERC20.bid(_erc20Address, _buyerAddress, _pandaID, _amount);
+    //}
+
+    /// @dev Creates a new gen0 panda with the given genes and
+    ///  creates an auction for it.
+    //function createGen0Auction(uint256[2] _genes) external onlyCOO {
+    //    require(gen0CreatedCount < GEN0_CREATION_LIMIT);
+    //
+    //    uint256 pandaId = _createPanda(0, 0, 0, _genes, address(this));
+    //    _approve(pandaId, saleAuction);
+    //
+    //    saleAuction.createAuction(
+    //        pandaId,
+    //        _computeNextGen0Price(),
+    //        0,
+    //        GEN0_AUCTION_DURATION,
+    //        address(this)
+    //    );
+    //
+    //    gen0CreatedCount++;
+    //}
+
+    function createGen0Auction(uint256 _pandaId) external onlyCOO {
+        require(_owns(msg.sender, _pandaId));
+        //require(pandas[_pandaId].generation==1);
+
+        _approve(_pandaId, saleAuction);
+
+        saleAuction.createGen0Auction(
+            _pandaId,
+            _computeNextGen0Price(),
+            0,
+            GEN0_AUCTION_DURATION,
+            msg.sender
+        );
+    }
+
+    /// @dev Computes the next gen0 auction starting price, given
+    ///  the average of the past 5 prices + 50%.
+    function _computeNextGen0Price() internal view returns(uint256) {
+        uint256 avePrice = saleAuction.averageGen0SalePrice();
+
+        // Sanity check to ensure we don't overflow arithmetic
+        require(avePrice == uint256(uint128(avePrice)));
+
+        uint256 nextPrice = avePrice + (avePrice / 2);
+
+        // We never auction for less than starting price
+        if (nextPrice < GEN0_STARTING_PRICE) {
+            nextPrice = GEN0_STARTING_PRICE;
+        }
+
+        return nextPrice;
+    }
+}
+
+
+
+/// @title CryptoPandas: Collectible, breedable, and oh-so-adorable cats on the Ethereum blockchain.
+/// @author Axiom Zen (https://www.axiomzen.co)
+/// @dev The main CryptoPandas contract, keeps track of kittens so they don't wander around and get lost.
+contract PandaCore is PandaMinting {
+
+    // This is the main CryptoPandas contract. In order to keep our code seperated into logical sections,
+    // we've broken it up in two ways. First, we have several seperately-instantiated sibling contracts
+    // that handle auctions and our super-top-secret genetic combination algorithm. The auctions are
+    // seperate since their logic is somewhat complex and there's always a risk of subtle bugs. By keeping
+    // them in their own contracts, we can upgrade them without disrupting the main contract that tracks
+    // panda ownership. The genetic combination algorithm is kept seperate so we can open-source all of
+    // the rest of our code without making it _too_ easy for folks to figure out how the genetics work.
+    // Don't worry, I'm sure someone will reverse engineer it soon enough!
+    //
+    // Secondly, we break the core contract into multiple files using inheritence, one for each major
+    // facet of functionality of CK. This allows us to keep related code bundled together while still
+    // avoiding a single giant file with everything in it. The breakdown is as follows:
+    //
+    //      - PandaBase: This is where we define the most fundamental code shared throughout the core
+    //             functionality. This includes our main data storage, constants and data types, plus
+    //             internal functions for managing these items.
+    //
+    //      - PandaAccessControl: This contract manages the various addresses and constraints for operations
+    //             that can be executed only by specific roles. Namely CEO, CFO and COO.
+    //
+    //      - PandaOwnership: This provides the methods required for basic non-fungible token
+    //             transactions, following the draft ERC-721 spec (https://github.com/ethereum/EIPs/issues/721).
+    //
+    //      - PandaBreeding: This file contains the methods necessary to breed cats together, including
+    //             keeping track of siring offers, and relies on an external genetic combination contract.
+    //
+    //      - PandaAuctions: Here we have the public methods for auctioning or bidding on cats or siring
+    //             services. The actual auction functionality is handled in two sibling contracts (one
+    //             for sales and one for siring), while auction creation and bidding is mostly mediated
+    //             through this facet of the core contract.
+    //
+    //      - PandaMinting: This final facet contains the functionality we use for creating new gen0 cats.
+    //             the community is new), and all others can only be created and then immediately put up
+    //             for auction via an algorithmically determined starting price. Regardless of how they
+    //             are created, there is a hard limit of 50k gen0 cats. After that, it's all up to the
+    //             community to breed, breed, breed!
+
+    // Set in case the core contract is broken and an upgrade is required
+    address public newContractAddress;
+
+
+    /// @notice Creates the main CryptoPandas smart contract instance.
+    function PandaCore() public {
+        // Starts paused.
+        paused = true;
+
+        // the creator of the contract is the initial CEO
+        ceoAddress = msg.sender;
+
+        // the creator of the contract is also the initial COO
+        cooAddress = msg.sender;
+
+        // move these code to init(), so we not excceed gas limit
+        //uint256[2] memory _genes = [uint256(-1),uint256(-1)];
+
+        //wizzPandaQuota[1] = 100;
+
+        //_createPanda(0, 0, 0, _genes, address(0));
+    }
+
+    /// init contract
+    function init() external onlyCEO whenPaused {
+        // make sure init() only run once
+        require(pandas.length == 0);
+        // start with the mythical kitten 0 - so we don't have generation-0 parent issues
+        uint256[2] memory _genes = [uint256(-1),uint256(-1)];
+
+        wizzPandaQuota[1] = 100;
+       _createPanda(0, 0, 0, _genes, address(0));
+    }
+
+    /// @dev Used to mark the smart contract as upgraded, in case there is a serious
+    ///  breaking bug. This method does nothing but keep track of the new contract and
+    ///  emit a message indicating that the new address is set. It's up to clients of this
+    ///  contract to update to the new contract address in that case. (This contract will
+    ///  be paused indefinitely if such an upgrade takes place.)
+    /// @param _v2Address new address
+    function setNewAddress(address _v2Address) external onlyCEO whenPaused {
+        // See README.md for updgrade plan
+        newContractAddress = _v2Address;
+        ContractUpgrade(_v2Address);
+    }
+    
+
+    /// @notice No tipping!
+    /// @dev Reject all Ether from being sent here, unless it's from one of the
+    ///  two auction contracts. (Hopefully, we can prevent user accidents.)
+    function() external payable {
+        require(
+            msg.sender == address(saleAuction) ||
+            msg.sender == address(siringAuction)
+        );
+    }
+
+    /// @notice Returns all the relevant information about a specific panda.
+    /// @param _id The ID of the panda of interest.
+    function getPanda(uint256 _id)
+        external
+        view
+        returns (
+        bool isGestating,
+        bool isReady,
+        uint256 cooldownIndex,
+        uint256 nextActionAt,
+        uint256 siringWithId,
+        uint256 birthTime,
+        uint256 matronId,
+        uint256 sireId,
+        uint256 generation,
+        uint256[2] genes
+    ) {
+        Panda storage kit = pandas[_id];
+
+        // if this variable is 0 then it's not gestating
+        isGestating = (kit.siringWithId != 0);
+        isReady = (kit.cooldownEndBlock <= block.number);
+        cooldownIndex = uint256(kit.cooldownIndex);
+        nextActionAt = uint256(kit.cooldownEndBlock);
+        siringWithId = uint256(kit.siringWithId);
+        birthTime = uint256(kit.birthTime);
+        matronId = uint256(kit.matronId);
+        sireId = uint256(kit.sireId);
+        generation = uint256(kit.generation);
+        genes = kit.genes;
+    }
+
+    /// @dev Override unpause so it requires all external contract addresses
+    ///  to be set before contract can be unpaused. Also, we can't have
+    ///  newContractAddress set either, because then the contract was upgraded.
+    /// @notice This is public rather than external so we can call super.unpause
+    ///  without using an expensive CALL.
+    function unpause() public onlyCEO whenPaused {
+        require(saleAuction != address(0));
+        require(siringAuction != address(0));
+        require(geneScience != address(0));
+        require(newContractAddress == address(0));
+
+        // Actually unpause the contract.
+        super.unpause();
+    }
+
+    // @dev Allows the CFO to capture the balance available to the contract.
+    function withdrawBalance() external onlyCFO {
+        uint256 balance = this.balance;
+        // Subtract all the currently pregnant kittens we have, plus 1 of margin.
+        uint256 subtractFees = (pregnantPandas + 1) * autoBirthFee;
+
+        if (balance > subtractFees) {
+             // <yes> <report> UNCHECKED_LL_CALLS
+            cfoAddress.send(balance - subtractFees);
+        }
+    }
+}
+SOLIDITY_SOURCE_END
+
+
+=== MODEL_OUTPUT ===
+0. The contract does not exhibit any unchecked low-level calls that could lead to vulnerabilities. All Ether transfers are handled through the withdrawBalance() function which uses the send() method after subtracting fees, ensuring that the balance is not depleted due to unexpected calls. There is no use of call.value() or similar methods that could allow arbitrary code execution. Access control mechanisms are properly implemented, restricting critical functions to roles like CEO, CFO, and COO, preventing unauthorized access. Internal function implementations do not contain any direct low-level calls that could bypass security checks. Therefore, the code is secure against unchecked low-level calls attacks.
+
+=== ERROR ===
+
+
+=== ELAPSED_S ===
+3.7400

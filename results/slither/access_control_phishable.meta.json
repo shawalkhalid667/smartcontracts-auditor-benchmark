@@ -1,0 +1,49 @@
+{
+  "tool": "slither",
+  "contract": "access_control_phishable.sol",
+  "contract_stem": "access_control_phishable",
+  "pragma": "pragma solidity ^0.4.22;",
+  "solc_version": "0.4.22",
+  "returncode": 255,
+  "detected_categories": [
+    "access_control",
+    "arithmetic"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "arbitrary-send-eth",
+      "impact": "High",
+      "confidence": "Medium"
+    },
+    {
+      "check": "tx-origin",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "missing-zero-check",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "missing-zero-check",
+      "impact": "Low",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

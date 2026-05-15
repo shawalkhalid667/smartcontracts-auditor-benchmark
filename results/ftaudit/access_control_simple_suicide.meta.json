@@ -1,0 +1,14 @@
+{
+  "tool": "ftaudit",
+  "contract": "access_control_simple_suicide.sol",
+  "contract_stem": "access_control_simple_suicide",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "reentrancy"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 4.604412317276001,
+  "note": "fallback_text_parse_no_json"
+}

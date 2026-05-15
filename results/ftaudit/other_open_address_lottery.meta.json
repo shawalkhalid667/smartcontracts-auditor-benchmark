@@ -1,0 +1,16 @@
+{
+  "tool": "ftaudit",
+  "contract": "other_open_address_lottery.sol",
+  "contract_stem": "other_open_address_lottery",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "bad_randomness",
+    "reentrancy",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 10.476496934890747,
+  "note": "fallback_text_parse_no_json"
+}

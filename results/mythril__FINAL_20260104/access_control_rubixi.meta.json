@@ -1,0 +1,21 @@
+{
+  "tool": "mythril",
+  "contract": "access_control_rubixi.sol",
+  "contract_stem": "access_control_rubixi",
+  "pragma": "pragma solidity ^0.4.15;",
+  "solc_version": "0.4.15",
+  "returncode": 1,
+  "detected_categories": [],
+  "issues_ranked": [
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    }
+  ]
+}

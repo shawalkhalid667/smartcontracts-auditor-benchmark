@@ -1,0 +1,10 @@
+{
+  "contract": "time_manipulation_governmental_survey.sol",
+  "vulnerabilities": [
+    {
+      "type": "time manipulation",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

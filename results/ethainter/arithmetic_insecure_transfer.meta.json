@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "arithmetic_insecure_transfer.sol",
+  "contract_stem": "arithmetic_insecure_transfer",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.520540952682495,
+  "note": "ranked_relations",
+  "chosen_contract": "IntegerOverflowAdd",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/arithmetic_insecure_transfer",
+  "relations_count": 14
+}

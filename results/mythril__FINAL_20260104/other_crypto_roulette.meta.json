@@ -1,0 +1,23 @@
+{
+  "tool": "mythril",
+  "contract": "other_crypto_roulette.sol",
+  "contract_stem": "other_crypto_roulette",
+  "pragma": "pragma solidity ^0.4.19;",
+  "solc_version": "0.4.19",
+  "returncode": 1,
+  "detected_categories": [
+    "time_manipulation"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "110",
+      "title": "Exception State",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "116",
+      "title": "Dependence on predictable environment variable",
+      "severity": "Low"
+    }
+  ]
+}

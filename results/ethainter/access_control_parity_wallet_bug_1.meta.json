@@ -1,0 +1,11 @@
+{
+  "tool": "ethainter",
+  "contract": "access_control_parity_wallet_bug_1.sol",
+  "contract_stem": "access_control_parity_wallet_bug_1",
+  "returncode": 5,
+  "detected_categories": [],
+  "num_findings": 0,
+  "elapsed_s": 0.5947763919830322,
+  "note": "solc_fail",
+  "chosen_contract": null
+}

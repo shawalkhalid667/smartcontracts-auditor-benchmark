@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "arithmetic_overflow_simple_add.sol",
+  "contract_stem": "arithmetic_overflow_simple_add",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

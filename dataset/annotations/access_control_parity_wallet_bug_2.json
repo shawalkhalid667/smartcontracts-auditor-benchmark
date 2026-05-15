@@ -1,0 +1,10 @@
+{
+  "contract": "access_control_parity_wallet_bug_2.sol",
+  "vulnerabilities": [
+    {
+      "type": "access control",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

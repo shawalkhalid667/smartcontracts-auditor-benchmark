@@ -1,0 +1,4 @@
+{
+  "contract": "denial_of_service_auction.sol",
+  "pragma": "pragma solidity ^0.4.15;"
+}

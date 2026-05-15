@@ -1,0 +1,15 @@
+{
+  "tool": "ftaudit",
+  "contract": "front_running_odds_and_evens.sol",
+  "contract_stem": "front_running_odds_and_evens",
+  "returncode": 0,
+  "detected_categories": [
+    "arithmetic",
+    "front_running",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 8.086395740509033,
+  "note": "fallback_text_parse_no_json"
+}

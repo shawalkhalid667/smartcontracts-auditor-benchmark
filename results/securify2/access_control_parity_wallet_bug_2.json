@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "access_control_parity_wallet_bug_2.sol",
+  "contract_stem": "access_control_parity_wallet_bug_2",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

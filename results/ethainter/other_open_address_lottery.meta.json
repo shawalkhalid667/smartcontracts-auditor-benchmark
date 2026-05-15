@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "other_open_address_lottery.sol",
+  "contract_stem": "other_open_address_lottery",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.9207918643951416,
+  "note": "ranked_relations",
+  "chosen_contract": "OpenAddressLottery",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/other_open_address_lottery",
+  "relations_count": 14
+}

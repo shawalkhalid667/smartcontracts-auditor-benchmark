@@ -1,0 +1,16 @@
+{
+  "tool": "ftaudit",
+  "contract": "unchecked_low_level_calls_0xf2570186500a46986f3139f65afedc2afe4f445d.sol",
+  "contract_stem": "unchecked_low_level_calls_0xf2570186500a46986f3139f65afedc2afe4f445d",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "denial_of_service",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 5,
+  "elapsed_s": 7.414123773574829,
+  "note": "fallback_text_parse_no_json"
+}

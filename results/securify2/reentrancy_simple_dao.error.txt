@@ -1,0 +1,50 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/static/static_analysis_patterns.py", line 73, in find_matches
+    static = analysis_context.static_analysis
+  File "/sec/securify/analyses/analysis.py", line 88, in static_analysis
+    self._static = self.config.static_analysis(self)
+  File "securify/__main__.py", line 255, in <lambda>
+    static_analysis=lambda t: static_analysis.analyze_cfg(t.cfg, **souffle_config),
+  File "/sec/securify/analyses/analysis.py", line 81, in cfg
+    self._cfg = self.config.cfg_compiler(self)
+  File "securify/__main__.py", line 254, in <lambda>
+    cfg_compiler=lambda t: solidity_cfg_compiler.compile_cfg(t.ast).cfg,
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:12:3: SyntaxError: No visibility specified. Did you intend to add "public"?
+  function donate(address to) payable {
+  ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:16:3: SyntaxError: No visibility specified. Did you intend to add "public"?
+  function withdraw(uint amount) {
+  ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:24:3: SyntaxError: No visibility specified. Did you intend to add "public"?
+  function queryCredit(address to) returns (uint){
+  ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:19:18: TypeError: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use "" as argument to provide empty calldata.
+      bool res = msg.sender.call.value(amount)();
+                 ^-----------------------------^
+
+fixed_pragma.sol:19:7: TypeError: Different number of components on the left hand side (1) than on the right hand side (2).
+      bool res = msg.sender.call.value(amount)();
+      ^----------------------------------------^
+
+        > command: `solc --allow-paths / --standard-json`
+        > return code: `0`
+        > stderr:
+        {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:12:3: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n  function donate(address to) payable {\n  ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":299,"file":"fixed_pragma.sol","start":229},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:16:3: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n  function withdraw(uint amount) {\n  ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":503,"file":"fixed_pragma.sol","start":303},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:24:3: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n  function queryCredit(address to) returns (uint){\n  ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":582,"file":"fixed_pragma.sol","start":507},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:19:18: TypeError: Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use \"\" as argument to provide empty calldata.\n      bool res = msg.sender.call.value(amount)();\n                 ^-----------------------------^\n","message":"Wrong argument count for function call: 0 arguments given but expected 1. This function requires a single bytes argument. Use \"\" as argument to provide empty calldata.","severity":"error","sourceLocation":{"end":458,"file":"fixed_pragma.sol","start":427},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:19:7: TypeError: Different number of components on the left hand side (1) than on the right hand side (2).\n      bool res = msg.sender.call.value(amount)();\n      ^----------------------------------------^\n","message":"Different number of components on the left hand side (1) than on the right hand side (2).","severity":"error","sourceLocation":{"end":458,"file":"fixed_pragma.sol","start":416},"type":"TypeError"}],"sources":{}}
+
+        > stdout:

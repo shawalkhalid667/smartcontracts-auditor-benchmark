@@ -1,0 +1,20 @@
+{
+  "tool": "ftaudit",
+  "contract": "access_control_incorrect_constructor_name3.sol",
+  "contract_stem": "access_control_incorrect_constructor_name3",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "arithmetic",
+    "bad_randomness",
+    "denial_of_service",
+    "front_running",
+    "reentrancy",
+    "short_addresses",
+    "time_manipulation",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 9,
+  "elapsed_s": 5.708131551742554,
+  "note": "fallback_text_parse_no_json"
+}

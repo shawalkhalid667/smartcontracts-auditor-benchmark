@@ -1,0 +1,34 @@
+{
+  "tool": "slither",
+  "contract": "access_control_multiowned_vulnerable.sol",
+  "contract_stem": "access_control_multiowned_vulnerable",
+  "pragma": "pragma solidity ^0.4.23;",
+  "solc_version": "0.4.23",
+  "returncode": 255,
+  "detected_categories": [
+    "access_control",
+    "arithmetic"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "naming-convention",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

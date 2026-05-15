@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "arithmetic_integer_overflow_benign_1.sol",
+  "contract_stem": "arithmetic_integer_overflow_benign_1",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

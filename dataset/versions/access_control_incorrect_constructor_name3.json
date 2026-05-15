@@ -1,0 +1,4 @@
+{
+  "contract": "access_control_incorrect_constructor_name3.sol",
+  "pragma": "pragma solidity ^0.4.24;"
+}

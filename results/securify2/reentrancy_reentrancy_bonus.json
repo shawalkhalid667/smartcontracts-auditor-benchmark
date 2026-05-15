@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "reentrancy_reentrancy_bonus.sol",
+  "contract_stem": "reentrancy_reentrancy_bonus",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

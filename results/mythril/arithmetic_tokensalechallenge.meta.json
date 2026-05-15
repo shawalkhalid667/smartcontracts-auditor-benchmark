@@ -1,0 +1,18 @@
+{
+  "tool": "mythril",
+  "contract": "arithmetic_tokensalechallenge.sol",
+  "contract_stem": "arithmetic_tokensalechallenge",
+  "pragma": "pragma solidity ^0.4.21;",
+  "solc_version": "0.4.21",
+  "returncode": 1,
+  "detected_categories": [
+    "access_control"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "severity": "High"
+    }
+  ]
+}

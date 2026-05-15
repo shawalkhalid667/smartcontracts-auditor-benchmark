@@ -1,0 +1,11 @@
+{
+  "tool": "ethainter",
+  "contract": "denial_of_service_send_loop.sol",
+  "contract_stem": "denial_of_service_send_loop",
+  "returncode": 5,
+  "detected_categories": [],
+  "num_findings": 0,
+  "elapsed_s": 0.6224503517150879,
+  "note": "solc_fail",
+  "chosen_contract": null
+}

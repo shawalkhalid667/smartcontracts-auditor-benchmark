@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "time_manipulation_governmental_survey.sol",
+  "contract_stem": "time_manipulation_governmental_survey",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

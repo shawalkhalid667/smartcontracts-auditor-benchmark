@@ -1,0 +1,10 @@
+{
+  "contract": "front_running_odds_and_evens.sol",
+  "vulnerabilities": [
+    {
+      "type": "front running",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

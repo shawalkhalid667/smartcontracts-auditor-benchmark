@@ -1,0 +1,24 @@
+{
+  "tool": "mythril",
+  "contract": "front_running_eth_tx_order_dependence_minimal.sol",
+  "contract_stem": "front_running_eth_tx_order_dependence_minimal",
+  "pragma": "pragma solidity ^0.4.16;",
+  "solc_version": "0.4.16",
+  "returncode": 1,
+  "detected_categories": [
+    "access_control",
+    "front_running"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "severity": "High"
+    },
+    {
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "severity": "Medium"
+    }
+  ]
+}

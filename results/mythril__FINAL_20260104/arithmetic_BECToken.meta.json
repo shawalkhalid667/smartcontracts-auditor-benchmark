@@ -1,0 +1,10 @@
+{
+  "tool": "mythril",
+  "contract": "arithmetic_BECToken.sol",
+  "contract_stem": "arithmetic_BECToken",
+  "pragma": "pragma solidity ^0.4.16;",
+  "solc_version": "0.4.16",
+  "returncode": 0,
+  "detected_categories": [],
+  "issues_ranked": []
+}

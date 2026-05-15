@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "access_control_proxy.sol",
+  "contract_stem": "access_control_proxy",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 2.7011337280273438,
+  "note": "fallback_text_parse_no_json"
+}

@@ -1,0 +1,38 @@
+{
+  "findings": [
+    {
+      "category": "arithmetic",
+      "severity": 1,
+      "confidence": 1,
+      "title": "arithmetic",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    },
+    {
+      "category": "front_running",
+      "severity": 1,
+      "confidence": 1,
+      "title": "front_running",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    },
+    {
+      "category": "reentrancy",
+      "severity": 1,
+      "confidence": 1,
+      "title": "reentrancy",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    },
+    {
+      "category": "unchecked_low_level_calls",
+      "severity": 1,
+      "confidence": 1,
+      "title": "unchecked_low_level_calls",
+      "rationale": "Category inferred from ftaudit free-form explanation text."
+    }
+  ],
+  "detected_categories": [
+    "arithmetic",
+    "front_running",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ]
+}

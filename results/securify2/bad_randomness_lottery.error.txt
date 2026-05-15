@@ -1,0 +1,84 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+Traceback (most recent call last):
+  File "securify/__main__.py", line 286, in <module>
+    main()
+  File "securify/__main__.py", line 277, in main
+    matches.extend(pattern.find_matches())
+  File "/sec/securify/analyses/patterns/ir/base_interface_signatures_pattern.py", line 18, in find_matches
+    for contract in self.get_cfg().contracts:
+  File "/sec/securify/analyses/patterns/ir/abstract_ir_pattern.py", line 10, in get_cfg
+    cfg = self.analysis_context.cfg
+  File "/sec/securify/analyses/analysis.py", line 81, in cfg
+    self._cfg = self.config.cfg_compiler(self)
+  File "securify/__main__.py", line 254, in <lambda>
+    cfg_compiler=lambda t: solidity_cfg_compiler.compile_cfg(t.ast).cfg,
+  File "/sec/securify/analyses/analysis.py", line 74, in ast
+    self._ast = self.config.ast_compiler(self)
+  File "securify/__main__.py", line 253, in <lambda>
+    ast_compiler=lambda t: solidity_ast_compiler.compile_ast(t.source_file),
+  File "/sec/securify/solidity/solidity_ast_compiler.py", line 31, in compile_ast
+    compile_output = compile_standard(compile_input, allow_paths='/')
+  File "/usr/local/lib/python3.7/dist-packages/py_solc-3.2.0-py3.7.egg/solc/main.py", line 181, in compile_standard
+    message=error_message,
+solc.exceptions.SolcError: fixed_pragma.sol:24:6: SyntaxError: Functions are not allowed to have the same name as the contract. If you intend this to be a constructor, use "constructor(...) { ... }" to define it.
+     function Lottery() {
+     ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:24:6: SyntaxError: No visibility specified. Did you intend to add "public"?
+     function Lottery() {
+     ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:29:6: SyntaxError: No visibility specified. Did you intend to add "external"?
+     function() {
+     ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:30:10: SyntaxError: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+         throw;
+         ^---^
+
+fixed_pragma.sol:34:6: SyntaxError: No visibility specified. Did you intend to add "public"?
+     function makeBet() {
+     ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:48:18: SyntaxError: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+                 throw;
+                 ^---^
+
+fixed_pragma.sol:54:6: SyntaxError: No visibility specified. Did you intend to add "public"?
+     function getBets() {
+     ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:55:40: SyntaxError: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+         if(msg.sender != organizer) { throw; }
+                                       ^---^
+
+fixed_pragma.sol:63:6: SyntaxError: No visibility specified. Did you intend to add "public"?
+     function destroy() {
+     ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:64:40: SyntaxError: "throw" is deprecated in favour of "revert()", "require()" and "assert()".
+         if(msg.sender != organizer) { throw; }
+                                       ^---^
+
+fixed_pragma.sol:29:6: TypeError: Fallback function must be defined as "external".
+     function() {
+     ^ (Relevant source part starts here and spans across multiple lines).
+
+fixed_pragma.sol:58:14: TypeError: Event invocations have to be prefixed by "emit".
+             GetBet(bets[i].betAmount, bets[i].blockNumber, bets[i].won);
+             ^---------------------------------------------------------^
+
+fixed_pragma.sol:66:10: TypeError: "suicide" has been deprecated in favour of "selfdestruct"
+         suicide(organizer);
+         ^-----^
+
+fixed_pragma.sol:66:18: TypeError: Invalid type for argument in function call. Invalid implicit conversion from address to address payable requested.
+         suicide(organizer);
+                 ^-------^
+
+        > command: `solc --allow-paths / --standard-json`
+        > return code: `0`
+        > stderr:
+        {"errors":[{"component":"general","formattedMessage":"fixed_pragma.sol:24:6: SyntaxError: Functions are not allowed to have the same name as the contract. If you intend this to be a constructor, use \"constructor(...) { ... }\" to define it.\n     function Lottery() {\n     ^ (Relevant source part starts here and spans across multiple lines).\n","message":"Functions are not allowed to have the same name as the contract. If you intend this to be a constructor, use \"constructor(...) { ... }\" to define it.","severity":"error","sourceLocation":{"end":665,"file":"fixed_pragma.sol","start":605},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:24:6: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n     function Lottery() {\n     ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":665,"file":"fixed_pragma.sol","start":605},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:29:6: SyntaxError: No visibility specified. Did you intend to add \"external\"?\n     function() {\n     ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"external\"?","severity":"error","sourceLocation":{"end":747,"file":"fixed_pragma.sol","start":712},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:30:10: SyntaxError: \"throw\" is deprecated in favour of \"revert()\", \"require()\" and \"assert()\".\n         throw;\n         ^---^\n","message":"\"throw\" is deprecated in favour of \"revert()\", \"require()\" and \"assert()\".","severity":"error","sourceLocation":{"end":739,"file":"fixed_pragma.sol","start":734},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:34:6: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n     function makeBet() {\n     ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":1388,"file":"fixed_pragma.sol","start":773},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:48:18: SyntaxError: \"throw\" is deprecated in favour of \"revert()\", \"require()\" and \"assert()\".\n                 throw;\n                 ^---^\n","message":"\"throw\" is deprecated in favour of \"revert()\", \"require()\" and \"assert()\".","severity":"error","sourceLocation":{"end":1354,"file":"fixed_pragma.sol","start":1349},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:54:6: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n     function getBets() {\n     ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":1647,"file":"fixed_pragma.sol","start":1436},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:55:40: SyntaxError: \"throw\" is deprecated in favour of \"revert()\", \"require()\" and \"assert()\".\n         if(msg.sender != organizer) { throw; }\n                                       ^---^\n","message":"\"throw\" is deprecated in favour of \"revert()\", \"require()\" and \"assert()\".","severity":"error","sourceLocation":{"end":1501,"file":"fixed_pragma.sol","start":1496},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:63:6: SyntaxError: No visibility specified. Did you intend to add \"public\"?\n     function destroy() {\n     ^ (Relevant source part starts here and spans across multiple lines).\n","message":"No visibility specified. Did you intend to add \"public\"?","severity":"error","sourceLocation":{"end":1778,"file":"fixed_pragma.sol","start":1673},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:64:40: SyntaxError: \"throw\" is deprecated in favour of \"revert()\", \"require()\" and \"assert()\".\n         if(msg.sender != organizer) { throw; }\n                                       ^---^\n","message":"\"throw\" is deprecated in favour of \"revert()\", \"require()\" and \"assert()\".","severity":"error","sourceLocation":{"end":1738,"file":"fixed_pragma.sol","start":1733},"type":"SyntaxError"},{"component":"general","formattedMessage":"fixed_pragma.sol:24:6: Warning: This declaration shadows an existing declaration.\n     function Lottery() {\n     ^ (Relevant source part starts here and spans across multiple lines).\nfixed_pragma.sol:11:2: The shadowed declaration is here:\n contract Lottery {\n ^ (Relevant source part starts here and spans across multiple lines).\n","message":"This declaration shadows an existing declaration.","secondarySourceLocations":[{"end":1781,"file":"fixed_pragma.sol","message":"The shadowed declaration is here:","start":302}],"severity":"warning","sourceLocation":{"end":665,"file":"fixed_pragma.sol","start":605},"type":"Warning"},{"component":"general","formattedMessage":"fixed_pragma.sol:29:6: TypeError: Fallback function must be defined as \"external\".\n     function() {\n     ^ (Relevant source part starts here and spans across multiple lines).\n","message":"Fallback function must be defined as \"external\".","severity":"error","sourceLocation":{"end":747,"file":"fixed_pragma.sol","start":712},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:58:14: TypeError: Event invocations have to be prefixed by \"emit\".\n             GetBet(bets[i].betAmount, bets[i].blockNumber, bets[i].won);\n             ^---------------------------------------------------------^\n","message":"Event invocations have to be prefixed by \"emit\".","severity":"error","sourceLocation":{"end":1628,"file":"fixed_pragma.sol","start":1569},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:66:10: TypeError: \"suicide\" has been deprecated in favour of \"selfdestruct\"\n         suicide(organizer);\n         ^-----^\n","message":"\"suicide\" has been deprecated in favour of \"selfdestruct\"","severity":"error","sourceLocation":{"end":1759,"file":"fixed_pragma.sol","start":1752},"type":"TypeError"},{"component":"general","formattedMessage":"fixed_pragma.sol:66:18: TypeError: Invalid type for argument in function call. Invalid implicit conversion from address to address payable requested.\n         suicide(organizer);\n                 ^-------^\n","message":"Invalid type for argument in function call. Invalid implicit conversion from address to address payable requested.","severity":"error","sourceLocation":{"end":1769,"file":"fixed_pragma.sol","start":1760},"type":"TypeError"}],"sources":{}}
+
+        > stdout:

@@ -1,0 +1,13 @@
+{
+  "tool": "smartllama",
+  "contract": "front_running_odds_and_evens.sol",
+  "contract_stem": "front_running_odds_and_evens",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "front_running"
+  ],
+  "num_findings": 2,
+  "elapsed_s": 3.4738965034484863,
+  "note": "fallback_text_parse_no_json"
+}

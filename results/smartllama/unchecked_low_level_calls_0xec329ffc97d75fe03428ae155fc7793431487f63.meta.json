@@ -1,0 +1,14 @@
+{
+  "tool": "smartllama",
+  "contract": "unchecked_low_level_calls_0xec329ffc97d75fe03428ae155fc7793431487f63.sol",
+  "contract_stem": "unchecked_low_level_calls_0xec329ffc97d75fe03428ae155fc7793431487f63",
+  "returncode": 0,
+  "detected_categories": [
+    "access_control",
+    "reentrancy",
+    "unchecked_low_level_calls"
+  ],
+  "num_findings": 3,
+  "elapsed_s": 3.7902026176452637,
+  "note": "fallback_text_parse_no_json"
+}

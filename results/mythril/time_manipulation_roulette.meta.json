@@ -1,0 +1,35 @@
+{
+  "tool": "mythril",
+  "contract": "time_manipulation_roulette.sol",
+  "contract_stem": "time_manipulation_roulette",
+  "pragma": "pragma solidity ^0.4.25;",
+  "solc_version": "0.4.25",
+  "returncode": 1,
+  "detected_categories": [
+    "access_control",
+    "front_running",
+    "time_manipulation"
+  ],
+  "issues_ranked": [
+    {
+      "swc-id": "105",
+      "title": "Unprotected Ether Withdrawal",
+      "severity": "High"
+    },
+    {
+      "swc-id": "114",
+      "title": "Transaction Order Dependence",
+      "severity": "Medium"
+    },
+    {
+      "swc-id": "116",
+      "title": "Dependence on predictable environment variable",
+      "severity": "Low"
+    },
+    {
+      "swc-id": "116",
+      "title": "Dependence on predictable environment variable",
+      "severity": "Low"
+    }
+  ]
+}

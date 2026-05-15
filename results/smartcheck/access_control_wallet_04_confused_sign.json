@@ -1,0 +1,33 @@
+{
+  "tool": "smartcheck",
+  "contract": "access_control_wallet_04_confused_sign.sol",
+  "contract_stem": "access_control_wallet_04_confused_sign",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 17,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 15,
+      "column": 5,
+      "content": "addresscreator;"
+    },
+    {
+      "ruleId": "SOLIDITY_VISIBILITY",
+      "patternId": "b51ce0",
+      "severity": 1,
+      "line": 17,
+      "column": 5,
+      "content": "mapping(address=>uint256)balances;"
+    }
+  ],
+  "detected_categories": []
+}

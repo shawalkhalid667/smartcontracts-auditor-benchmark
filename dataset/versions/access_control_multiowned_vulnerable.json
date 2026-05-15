@@ -1,0 +1,4 @@
+{
+  "contract": "access_control_multiowned_vulnerable.sol",
+  "pragma": "pragma solidity ^0.4.23;"
+}

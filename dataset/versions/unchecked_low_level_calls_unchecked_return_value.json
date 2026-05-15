@@ -1,0 +1,4 @@
+{
+  "contract": "unchecked_low_level_calls_unchecked_return_value.sol",
+  "pragma": "pragma solidity 0.4.25;"
+}

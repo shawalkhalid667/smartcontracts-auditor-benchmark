@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "front_running_FindThisHash.sol",
+  "contract_stem": "front_running_FindThisHash",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}

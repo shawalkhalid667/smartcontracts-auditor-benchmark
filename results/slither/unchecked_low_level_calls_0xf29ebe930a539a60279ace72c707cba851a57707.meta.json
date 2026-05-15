@@ -1,0 +1,34 @@
+{
+  "tool": "slither",
+  "contract": "unchecked_low_level_calls_0xf29ebe930a539a60279ace72c707cba851a57707.sol",
+  "contract_stem": "unchecked_low_level_calls_0xf29ebe930a539a60279ace72c707cba851a57707",
+  "pragma": "pragma solidity ^0.4.24;",
+  "solc_version": "0.4.24",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "unchecked_low_level_calls"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "unchecked-lowlevel",
+      "impact": "Medium",
+      "confidence": "Medium"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "low-level-calls",
+      "impact": "Informational",
+      "confidence": "High"
+    }
+  ]
+}

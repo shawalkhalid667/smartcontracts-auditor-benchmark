@@ -1,0 +1,10 @@
+{
+  "contract": "front_running_eth_tx_order_dependence_minimal.sol",
+  "vulnerabilities": [
+    {
+      "type": "front running",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

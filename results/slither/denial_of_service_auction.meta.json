@@ -1,0 +1,30 @@
+{
+  "tool": "slither",
+  "contract": "denial_of_service_auction.sol",
+  "contract_stem": "denial_of_service_auction",
+  "pragma": "pragma solidity ^0.4.15;",
+  "solc_version": "0.4.15",
+  "returncode": 255,
+  "detected_categories": [
+    "arithmetic",
+    "denial_of_service",
+    "reentrancy"
+  ],
+  "detectors_ranked": [
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "solc-version",
+      "impact": "Informational",
+      "confidence": "High"
+    },
+    {
+      "check": "reentrancy-unlimited-gas",
+      "impact": "Informational",
+      "confidence": "Medium"
+    }
+  ]
+}

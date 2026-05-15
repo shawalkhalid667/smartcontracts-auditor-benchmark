@@ -1,0 +1,10 @@
+{
+  "contract": "bad_randomness_lottery.sol",
+  "vulnerabilities": [
+    {
+      "type": "bad randomness",
+      "line": null,
+      "severity": "unknown"
+    }
+  ]
+}

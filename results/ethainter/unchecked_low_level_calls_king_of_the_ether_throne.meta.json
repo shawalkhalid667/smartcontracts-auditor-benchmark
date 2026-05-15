@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "unchecked_low_level_calls_king_of_the_ether_throne.sol",
+  "contract_stem": "unchecked_low_level_calls_king_of_the_ether_throne",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 4.026402235031128,
+  "note": "ranked_relations",
+  "chosen_contract": "KingOfTheEtherThrone",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/unchecked_low_level_calls_king_of_the_ether_throne",
+  "relations_count": 14
+}

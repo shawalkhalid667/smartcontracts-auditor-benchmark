@@ -1,0 +1,11 @@
+{
+  "tool": "ethainter",
+  "contract": "arithmetic_overflow_simple_add.sol",
+  "contract_stem": "arithmetic_overflow_simple_add",
+  "returncode": 5,
+  "detected_categories": [],
+  "num_findings": 0,
+  "elapsed_s": 0.5988707542419434,
+  "note": "solc_fail",
+  "chosen_contract": null
+}

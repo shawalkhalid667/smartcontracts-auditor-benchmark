@@ -1,0 +1,25 @@
+{
+  "tool": "smartcheck",
+  "contract": "other_name_registrar.sol",
+  "contract_stem": "other_name_registrar",
+  "returncode": 0,
+  "findings": [
+    {
+      "ruleId": "SOLIDITY_PRAGMAS_VERSION",
+      "patternId": "23fc32",
+      "severity": 1,
+      "line": 7,
+      "column": 16,
+      "content": "^"
+    },
+    {
+      "ruleId": "SOLIDITY_UPGRADE_TO_050",
+      "patternId": "441gim",
+      "severity": 1,
+      "line": 23,
+      "column": 8,
+      "content": "NameRecordnewRecord"
+    }
+  ],
+  "detected_categories": []
+}

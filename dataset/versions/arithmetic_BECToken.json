@@ -1,0 +1,4 @@
+{
+  "contract": "arithmetic_BECToken.sol",
+  "pragma": "pragma solidity ^0.4.16;"
+}

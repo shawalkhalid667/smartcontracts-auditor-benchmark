@@ -1,0 +1,19 @@
+{
+  "tool": "ethainter",
+  "contract": "arithmetic_integer_overflow_1.sol",
+  "contract_stem": "arithmetic_integer_overflow_1",
+  "returncode": 0,
+  "detected_categories": [
+    "unchecked_low_level_calls",
+    "access_control",
+    "arithmetic",
+    "other"
+  ],
+  "num_findings": 4,
+  "elapsed_s": 3.4655425548553467,
+  "note": "ranked_relations",
+  "chosen_contract": "Overflow",
+  "decompile_rc": 1,
+  "relations_dir": "/home/shawal/smart_contract_auditor_benchmark/results/ethainter/_rels/arithmetic_integer_overflow_1",
+  "relations_count": 14
+}

@@ -1,0 +1,12 @@
+{
+  "tool": "smartllama",
+  "contract": "other_open_address_lottery.sol",
+  "contract_stem": "other_open_address_lottery",
+  "returncode": 0,
+  "detected_categories": [
+    "time_manipulation"
+  ],
+  "num_findings": 1,
+  "elapsed_s": 3.499946117401123,
+  "note": "fallback_text_parse_no_json"
+}

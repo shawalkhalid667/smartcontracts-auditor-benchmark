@@ -1,0 +1,8 @@
+{
+  "tool": "securify2",
+  "contract": "access_control_rubixi.sol",
+  "contract_stem": "access_control_rubixi",
+  "returncode": 0,
+  "findings": [],
+  "detected_categories": []
+}
