@@ -30,7 +30,9 @@ import argparse
 import csv
 import json
 import re
+import shutil
 import subprocess
+import tempfile
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
@@ -53,6 +55,46 @@ SMARTBUGS_CATEGORIES = [
 SMARTBUGS_CATEGORIES_SORTED = sorted(SMARTBUGS_CATEGORIES, key=len, reverse=True)
 
 K_LIST = [1, 3, 5, 10]
+CRASH_RATE_WARN_THRESHOLD = 0.5  # warn if >50% of contracts crash
+
+
+# ---------------- Tool probe ----------------
+def probe_tool(smartcheck_cmd: str) -> Tuple[bool, str]:
+    """
+    Run smartcheck on a throwaway file. Returns (ok, message).
+    Detects: binary not on PATH, npx package unresolvable, parse failures.
+    """
+    exe = smartcheck_cmd.split()[0]
+    if not shutil.which(exe):
+        return False, (
+            f"'{exe}' not found on PATH. "
+            "Load Node.js (e.g. module load nodejs/22.17.1-GCCcore-14.3.0) "
+            "and install SmartCheck (npm install -g smartcheck)."
+        )
+    with tempfile.NamedTemporaryFile(suffix=".sol", mode="w", delete=False) as tf:
+        tf.write("// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\ncontract Probe {}\n")
+        tmp = tf.name
+    try:
+        cmd = smartcheck_cmd.split() + ["-p", tmp]
+        res = subprocess.run(cmd, capture_output=True, text=True, timeout=30)
+        stderr_low = (res.stderr or "").lower()
+        stdout_low = (res.stdout or "").lower()
+        if "could not determine executable" in stderr_low or "could not determine executable" in stdout_low:
+            return False, (
+                f"npx cannot resolve package '{smartcheck_cmd.split()[-1]}'. "
+                "Install it first: npm install -g smartcheck"
+            )
+        if "not found" in stderr_low and exe == "npx":
+            return False, f"SmartCheck package not found via npx: {res.stderr[:300]}"
+        return True, f"probe ok (rc={res.returncode})"
+    except FileNotFoundError:
+        return False, f"'{exe}' not found (FileNotFoundError)"
+    except subprocess.TimeoutExpired:
+        return False, "Probe timeout (>30 s) — tool may be hung"
+    except Exception as e:
+        return False, str(e)
+    finally:
+        Path(tmp).unlink(missing_ok=True)
 
 
 # ---------------- Rule -> Category Mapping ----------------
@@ -256,17 +298,21 @@ def compute_metrics_from_outputs(
     gt: Dict[str, Set[str]],
     output_dir: Path,
     supported_set: Optional[Set[str]] = None,
-) -> Tuple[int, int, PRF, Dict[int, PRF]]:
+) -> Tuple[int, int, int, PRF, Dict[int, PRF]]:
     """
     Returns:
-      contracts_scored, contracts_missing_output,
+      contracts_scored, contracts_missing_output, contracts_crashed,
       micro PRF (all labels or supported-only),
       PRF@K dict for K_LIST
+
+    Crashed contracts (JSON has "crashed": true) are counted separately and
+    excluded from metrics — they are NOT treated as false negatives.
     """
     out_index = build_output_index(output_dir)
 
     contracts_scored = 0
     missing_output = 0
+    contracts_crashed = 0
 
     micro = PRF(0, 0, 0)
     prf_at_k = {k: PRF(0, 0, 0) for k in K_LIST}
@@ -286,6 +332,9 @@ def compute_metrics_from_outputs(
 
         try:
             payload = json.loads(out_file.read_text(errors="ignore"))
+            if payload.get("crashed"):
+                contracts_crashed += 1
+                continue
             findings = payload.get("findings", [])
         except Exception:
             missing_output += 1
@@ -307,7 +356,7 @@ def compute_metrics_from_outputs(
                 pred_k = pred_k & supported_set
             prf_at_k[k] = accumulate_micro_prf(gt_labels, pred_k, prf_at_k[k])
 
-    return contracts_scored, missing_output, micro, prf_at_k
+    return contracts_scored, missing_output, contracts_crashed, micro, prf_at_k
 
 
 # ---------------- Primary-label per-category recall (Solhint-style table) ----------------
@@ -349,6 +398,10 @@ def compute_primary_label_recall_by_category(
 
         try:
             payload = json.loads(out_file.read_text(errors="ignore"))
+            if payload.get("crashed"):
+                # Crashed contracts are errors — not false negatives
+                by_cat[primary_cat]["error"] += 1
+                continue
         except Exception:
             missing_output += 1
             by_cat[primary_cat]["error"] += 1
@@ -426,6 +479,18 @@ def main():
     if not contracts_dir.exists():
         raise FileNotFoundError(f"Contracts directory not found: {contracts_dir}")
 
+    # Preflight: verify SmartCheck is callable before touching any contracts
+    probe_ok, probe_msg = probe_tool(args.smartcheck_cmd)
+    if not probe_ok:
+        print(f"\nERROR: SmartCheck is not available — aborting before running {args.contracts_dir}")
+        print(f"  Reason : {probe_msg}")
+        print(f"  Command: {args.smartcheck_cmd}")
+        print("  Fix    : load Node.js (module load nodejs/22.17.1-GCCcore-14.3.0)")
+        print("           npm install -g smartcheck")
+        print("           then pass --smartcheck-cmd smartcheck  (or full path)")
+        return
+    print(f"SmartCheck probe: {probe_msg}  cmd={args.smartcheck_cmd}")
+
     ensure_dir(output_dir)
     failed_log = output_dir / "failed_contracts.txt"
 
@@ -471,6 +536,20 @@ def main():
             crash += 1
             with open(failed_log, "a", encoding="utf-8") as f:
                 f.write(f"{stem}: smartcheck crash/no parseable findings (rc={rc})\n")
+            # Write crash JSON so evaluation counts this as error, NOT as a false negative
+            crash_payload = {
+                "tool": "smartcheck",
+                "contract": str(rel),
+                "contract_stem": stem,
+                "returncode": rc,
+                "crashed": True,
+                "crash_stderr": err[:1000],
+                "findings": [],
+                "detected_categories": [],
+            }
+            (output_dir / f"{stem}.json").write_text(
+                json.dumps(crash_payload, indent=2), encoding="utf-8", errors="ignore"
+            )
             continue
 
         # empty: ran (rc==0 OR findings exist), but no findings parsed
@@ -502,14 +581,26 @@ def main():
 
         print(f"  findings: {n} errors(sev>=2): {e} warnings(sev==1): {w}")
 
+    n_contracts = len(contracts)
     print("\n=== SmartCheck Run Summary ===")
     print(f"Success: {success}")
     print(f"Empty:   {empty}")
     print(f"Crash:   {crash}")
     print(f"Outputs: {output_dir}")
 
+    if n_contracts > 0 and crash / n_contracts >= CRASH_RATE_WARN_THRESHOLD:
+        print(
+            f"\n{'!'*70}\n"
+            f"WARNING: {crash}/{n_contracts} contracts crashed "
+            f"({crash/n_contracts:.0%} crash rate).\n"
+            f"SmartCheck may be UNSUPPORTED for this Solidity version.\n"
+            f"Metrics below are NOT meaningful — treat this tool as N/A for this dataset.\n"
+            f"Check {failed_log} for details.\n"
+            f"{'!'*70}"
+        )
+
     if (success + empty) > 0:
-        denom = (success + empty)
+        denom = success + empty
         print("\n=== SmartCheck Findings Summary ===")
         print(f"Total findings: {total_findings}")
         print(f"Total errors:   {total_err}")
@@ -530,18 +621,21 @@ def main():
     gt = load_smartbugs_annotations(gt_path)
 
     # Overall micro + @K
-    scored, missing, micro, prf_at_k = compute_metrics_from_outputs(
+    scored, missing, n_crashed, micro, prf_at_k = compute_metrics_from_outputs(
         gt, output_dir, supported_set=None
     )
 
     # Coverage-aware micro + @K
-    scored_s, missing_s, micro_s, prf_at_k_s = compute_metrics_from_outputs(
+    scored_s, missing_s, _, micro_s, prf_at_k_s = compute_metrics_from_outputs(
         gt, output_dir, supported_set=SUPPORTED_CATEGORIES
     )
 
     print("\n=== SmartCheck Evaluation (Category Labels) ===")
-    print(f"Contracts scored: {scored}")
+    print(f"Contracts scored:         {scored}")
+    print(f"Contracts crashed (N/A):  {n_crashed}  ← excluded from metrics")
     print(f"Contracts missing output: {missing}")
+    if scored > 0 and n_crashed / max(scored + n_crashed + missing, 1) >= CRASH_RATE_WARN_THRESHOLD:
+        print("NOTE: High crash rate — recall=0 is NOT tool performance, it reflects crashes.")
     print(f"Micro-TP:{micro.tp} FP:{micro.fp} FN:{micro.fn}  P:{micro.precision:.2f} R:{micro.recall:.2f} F1:{micro.f1:.2f}")
     for k in K_LIST:
         m = prf_at_k[k]
@@ -549,7 +643,7 @@ def main():
 
     print("\n=== SmartCheck Coverage-Aware (Supported Only) ===")
     print(f"Supported categories: {sorted(SUPPORTED_CATEGORIES)}")
-    print(f"Contracts scored: {scored_s}")
+    print(f"Contracts scored:         {scored_s}")
     print(f"Contracts missing output: {missing_s}")
     print(f"Micro-TP:{micro_s.tp} FP:{micro_s.fp} FN:{micro_s.fn}  P:{micro_s.precision:.2f} R:{micro_s.recall:.2f} F1:{micro_s.f1:.2f}")
     for k in K_LIST:
@@ -580,6 +674,7 @@ def main():
         "contracts_total",
         "contracts_success",
         "contracts_crash",
+        "contracts_crash_excluded_from_metrics",
         "contracts_empty",
         "contracts_scored",
         "contracts_missing_output",
@@ -597,9 +692,10 @@ def main():
 
     row = {
         "tool": "smartcheck",
-        "contracts_total": len(contracts),
+        "contracts_total": n_contracts,
         "contracts_success": success,
         "contracts_crash": crash,
+        "contracts_crash_excluded_from_metrics": n_crashed,
         "contracts_empty": empty,
         "contracts_scored": scored,
         "contracts_missing_output": missing,

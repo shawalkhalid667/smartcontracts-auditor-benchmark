@@ -8,6 +8,7 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=32G
 #SBATCH --partition=normal_q    # adjust to your Tinkercliff partition
+#SBATCH --account=smart_contract
 
 set -e
 cd "$SLURM_SUBMIT_DIR"

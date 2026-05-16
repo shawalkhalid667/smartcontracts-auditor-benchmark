@@ -22,11 +22,38 @@ Additions in this version:
 import argparse
 import csv
 import json
+import shutil
 import subprocess
 import tempfile
 from collections import defaultdict
 from pathlib import Path
 from typing import Dict, List, Optional, Set, Tuple, Any
+
+
+# ---------------- Rule -> Category Mapping ----------------
+CRASH_RATE_WARN_THRESHOLD = 0.5
+
+
+# ---------------- Tool probe ----------------
+def probe_tool(solhint_bin: str) -> Tuple[bool, str]:
+    """Check solhint is callable. Returns (ok, message)."""
+    exe = solhint_bin.split()[0]
+    if not shutil.which(exe):
+        return False, (
+            f"'{exe}' not found on PATH. "
+            "Load Node.js (e.g. module load nodejs/22.17.1-GCCcore-14.3.0) "
+            "and install Solhint (npm install -g solhint)."
+        )
+    try:
+        res = subprocess.run([exe, "--version"], capture_output=True, text=True, timeout=15)
+        ver = (res.stdout or res.stderr or "").strip().splitlines()[0] if (res.stdout or res.stderr) else "?"
+        return True, f"solhint {ver}"
+    except FileNotFoundError:
+        return False, f"'{exe}' not found (FileNotFoundError)"
+    except subprocess.TimeoutExpired:
+        return False, "Timeout checking solhint --version"
+    except Exception as e:
+        return False, str(e)
 
 
 # ---------------- Rule -> Category Mapping ----------------
@@ -352,6 +379,18 @@ def main():
     if not config_path.exists():
         raise FileNotFoundError(f"Solhint config not found: {config_path}")
 
+    # Preflight: verify solhint is callable before touching any contracts
+    probe_ok, probe_msg = probe_tool(args.solhint_bin)
+    if not probe_ok:
+        print(f"\nERROR: Solhint is not available — aborting before running {args.contracts_dir}")
+        print(f"  Reason : {probe_msg}")
+        print(f"  Binary : {args.solhint_bin}")
+        print("  Fix    : load Node.js (module load nodejs/22.17.1-GCCcore-14.3.0)")
+        print("           npm install -g solhint")
+        print("           then pass --solhint-bin solhint  (or full path)")
+        return
+    print(f"Solhint probe: {probe_msg}")
+
     gt_candidates = [
         repo_root / "dataset/smartbugs_curated/vulnerabilities.json",
         repo_root / "dataset/smartbugs-curated/vulnerabilities.json",
@@ -401,6 +440,20 @@ def main():
             )
             with open(failed_log, "a", encoding="utf-8") as f:
                 f.write(f"{stem}: solhint output not parseable as JSON (rc={rc})\n")
+            # Write crash JSON so evaluation counts this as error, NOT as a false negative
+            crash_payload = {
+                "tool": "solhint",
+                "contract": rel,
+                "contract_stem": stem,
+                "returncode": rc,
+                "crashed": True,
+                "crash_stderr": err[:1000] if err else out_json[:1000],
+                "issues": [],
+            }
+            safe_write_text(
+                output_dir / f"{stem}.json",
+                json.dumps(crash_payload, indent=2),
+            )
             continue
 
         safe_write_text(output_dir / f"{stem}.json", out_json)
@@ -429,10 +482,22 @@ def main():
                 "predicted_categories": pred_cats,
             }, ensure_ascii=False) + "\n")
 
+    n_contracts = len(contracts)
     print("\n=== Solhint Run Summary ===")
     print(f"Success: {ok_count}")
     print(f"Failed:  {fail_count}")
     print(f"Outputs: {output_dir}")
+
+    if n_contracts > 0 and fail_count / n_contracts >= CRASH_RATE_WARN_THRESHOLD:
+        print(
+            f"\n{'!'*70}\n"
+            f"WARNING: {fail_count}/{n_contracts} contracts failed "
+            f"({fail_count/n_contracts:.0%} failure rate).\n"
+            f"Solhint may be UNSUPPORTED or misconfigured for this dataset.\n"
+            f"Metrics below are NOT meaningful — treat this tool as N/A.\n"
+            f"Check {failed_log} for details.\n"
+            f"{'!'*70}"
+        )
 
     # Findings summary (your “step 2” details)
     n_contracts_total = len(contracts)
@@ -510,6 +575,16 @@ def main():
             by_cat[primary_cat]["error"] += 1
             continue
 
+        # Crashed contracts are errors — not false negatives
+        try:
+            payload = json.loads(safe_read_text(out_file))
+            if payload.get("crashed"):
+                error_no_output += 1
+                by_cat[primary_cat]["error"] += 1
+                continue
+        except Exception:
+            pass
+
         detected = extract_solhint_categories(safe_read_text(out_file))
         if primary_cat in detected:
             correct += 1
@@ -576,6 +651,17 @@ def main():
                 per_cat_counts[c]["errors"] += 1
                 micro_fn += 1
             continue
+
+        # Crashed contracts are errors — not false negatives
+        try:
+            payload = json.loads(safe_read_text(out_file))
+            if payload.get("crashed"):
+                contracts_error += 1
+                for c in gt_set:
+                    per_cat_counts[c]["errors"] += 1
+                continue
+        except Exception:
+            pass
 
         pred_set = extract_solhint_categories(safe_read_text(out_file))
         # Only evaluate categories in our taxonomy

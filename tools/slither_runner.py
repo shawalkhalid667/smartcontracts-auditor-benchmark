@@ -114,21 +114,32 @@ def extract_version_from_pragma(pragma_str: str) -> Optional[str]:
     return m.group(1) if m else None
 
 
-def read_contract_version(versions_dir: Path, stem: str) -> Tuple[Optional[str], Optional[str]]:
+def read_contract_version(versions_dir: Path, stem: str) -> Tuple[Optional[str], Optional[str], Optional[str], Optional[str], Optional[str]]:
     """
-    Reads dataset/versions/<stem>.json created by your dataset preprocessing.
-    Expected fields: {"pragma": "..."} (same assumption as mythril_runner.py).
-    Returns (version, pragma_str).
+    Reads dataset/versions/<stem>.json.
+    Returns (version, pragma_str, project_dir, node_modules_dir, primary_file).
+    project_dir / node_modules_dir / primary_file are None for SmartBugs-style
+    contracts (no per-VFP project setup needed).
+
+    primary_file: path to the copy of this contract inside its project directory.
+    Tools MUST run on primary_file (not the flat contracts/ copy) when it is set,
+    so that relative imports (./Interface.sol) resolve via --base-path.
     """
     vf = versions_dir / f"{stem}.json"
     if not vf.exists():
-        return None, None
+        return None, None, None, None, None
     try:
         data = json.loads(vf.read_text(errors="ignore"))
         pragma = data.get("pragma", "")
-        return extract_version_from_pragma(pragma), pragma
+        return (
+            extract_version_from_pragma(pragma),
+            pragma,
+            data.get("project_dir"),
+            data.get("node_modules_dir"),
+            data.get("primary_file"),
+        )
     except Exception:
-        return None, None
+        return None, None, None, None, None
 
 
 def solc_select_install_and_use(version: str) -> bool:
@@ -173,13 +184,72 @@ def extract_first_json_object(text: str) -> Optional[str]:
     return None
 
 
-def run_slither(contract_path: Path, slither_cmd: str, timeout_s: Optional[int]) -> Tuple[int, str, str]:
+def _space_free(p: Path) -> Path:
     """
-    Preferred: slither <contract>.sol --json -
-    The '-' tells Slither to print JSON to stdout (supported in recent Slither versions).
+    If `p` contains spaces (common on macOS), create a /tmp symlink to it and
+    return that instead.  On Linux (Tinkercliff) paths are space-free, so this
+    is a no-op.
+    """
+    if ' ' not in str(p):
+        return p
+    link = Path("/tmp/sc_bench_root")
+    try:
+        if not link.exists() or link.resolve() != p.resolve():
+            link.unlink(missing_ok=True)
+            link.symlink_to(p)
+    except Exception:
+        pass
+    return link if link.exists() else p
+
+
+def _build_remaps(nm: Path) -> str:
+    """
+    Build a --solc-remaps string from every top-level package in node_modules.
+    Format: "pkg/=/abs/path/pkg/ @scope/pkg/=/abs/path/@scope/pkg/ ..."
+    """
+    remaps: List[str] = []
+    if not nm.is_dir():
+        return ""
+    for entry in sorted(nm.iterdir()):
+        if entry.name.startswith(".") or entry.name.startswith("_"):
+            continue
+        if entry.name.startswith("@") and entry.is_dir():
+            for sub in sorted(entry.iterdir()):
+                if sub.is_dir():
+                    pkg = f"{entry.name}/{sub.name}"
+                    remaps.append(f"{pkg}/={nm}/{pkg}/")
+        elif entry.is_dir():
+            remaps.append(f"{entry.name}/={nm}/{entry.name}/")
+    return " ".join(remaps)
+
+
+def run_slither(
+    contract_path: Path,
+    slither_cmd: str,
+    timeout_s: Optional[int],
+    project_dir: Optional[str] = None,
+    node_modules_dir: Optional[str] = None,
+) -> Tuple[int, str, str]:
+    """
+    Run Slither with --json -.
+    For FORGE contracts (project_dir set): uses --solc-remaps for npm packages
+    (crytic-compile requires remaps, not --include-path, to find files after
+    compilation) and --solc-args --allow-paths for the project dir.
+    Handles space-in-path (macOS) transparently via a /tmp symlink.
     """
     base = slither_cmd.split()
     cmd = base + [str(contract_path), "--json", "-"]
+
+    if project_dir and node_modules_dir:
+        nm_raw = Path(node_modules_dir).resolve()
+        nm = _space_free(nm_raw)
+        pd = Path(project_dir).resolve()
+
+        remaps = _build_remaps(nm)
+        if remaps:
+            cmd += ["--solc-remaps", remaps]
+        cmd += ["--solc-args", f"--allow-paths {pd}"]
+
     r = subprocess.run(
         cmd,
         stdout=subprocess.PIPE,
@@ -564,9 +634,16 @@ def main():
     for i, c in enumerate(contracts, 1):
         stem = c.stem
         rel = c.relative_to(contracts_dir)
-        version, pragma = read_contract_version(versions_dir, stem)
+        version, pragma, project_dir, node_modules_dir, primary_file = read_contract_version(versions_dir, stem)
 
         print(f"\n[{i}/{len(contracts)}] Evaluating {rel}...")
+
+        # When a project directory exists, run Slither on the project-directory copy
+        # of this contract so that relative imports (./Interface.sol) resolve correctly
+        # via --base-path. Output is still written under `stem` (vfp_XXXXX_Name).
+        target = Path(primary_file).resolve() if primary_file else c
+        if primary_file:
+            print(f"  target (project copy): {target}")
 
         if not version:
             print("[!] Missing version")
@@ -581,7 +658,9 @@ def main():
             continue
 
         try:
-            rc, out, err = run_slither(c, args.slither_cmd, args.timeout)
+            rc, out, err = run_slither(target, args.slither_cmd, args.timeout,
+                                        project_dir=project_dir,
+                                        node_modules_dir=node_modules_dir)
         except subprocess.TimeoutExpired:
             print("[!] Slither timeout")
             timeout_fail += 1
