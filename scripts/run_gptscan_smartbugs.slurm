@@ -8,6 +8,7 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8G
 #SBATCH --partition=normal_q    # adjust to your Tinkercliff partition
+#SBATCH --account=smart_contract
 
 # ============================================================
 # GPTScan on SmartBugs Curated — use SAME provider as FORGE!
@@ -19,13 +20,13 @@ mkdir -p logs
 
 source mythril_env/bin/activate
 
-# --- OPTION A: OpenAI GPT-4o ---
-# export OPENAI_API_KEY="sk-..."
-# PROVIDER="openai"
-# MODEL="gpt-4o"
-# OUTDIR="results/gptscan"
+# *** Fill in your OpenAI API key before submitting (same key as gptscan_forge) ***
+export OPENAI_API_KEY="sk-..."
+PROVIDER="openai"
+MODEL="gpt-4o"
+OUTDIR="results/gptscan"
 
-# --- OPTION B: Anthropic Claude ---
+# --- Alternative: Anthropic Claude ---
 # export ANTHROPIC_API_KEY="sk-ant-..."
 # PROVIDER="anthropic"
 # MODEL="claude-sonnet-4-6"
@@ -40,4 +41,4 @@ python tools/gptscan_runner.py \
     --gt            dataset/smartbugs-curated/vulnerabilities.json \
     --evaluate
 
-echo "=== gptscan_smartbugs DONE (provider=${PROVIDER}) ==="
+echo "=== gptscan_smartbugs DONE (provider=${PROVIDER} model=${MODEL}) ==="

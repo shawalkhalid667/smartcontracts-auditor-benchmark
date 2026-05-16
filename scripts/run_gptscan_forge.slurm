@@ -8,6 +8,7 @@
 #SBATCH --cpus-per-task=2
 #SBATCH --mem=8G
 #SBATCH --partition=normal_q    # adjust to your Tinkercliff partition
+#SBATCH --account=smart_contract
 
 # ============================================================
 # GPTScan on FORGE — run with SAME provider on SmartBugs too!
@@ -20,19 +21,18 @@ mkdir -p logs
 
 source mythril_env/bin/activate
 
-# --- OPTION A: OpenAI GPT-4o (faithful to ICSE 2024 GPTScan paper) ---
-# export OPENAI_API_KEY="sk-..."
-# PROVIDER="openai"
-# MODEL="gpt-4o"
-# OUTDIR="results/gptscan_forge"
+# *** Fill in your OpenAI API key before submitting ***
+export OPENAI_API_KEY="sk-..."
+PROVIDER="openai"
+MODEL="gpt-4o"
+OUTDIR="results/gptscan_forge"
 
-# --- OPTION B: Anthropic Claude (separate LLM-auditor experiment) ---
+# --- Alternative: Anthropic Claude (report as separate LLM tool) ---
 # export ANTHROPIC_API_KEY="sk-ant-..."
 # PROVIDER="anthropic"
 # MODEL="claude-sonnet-4-6"
 # OUTDIR="results/claude_auditor_forge"
 
-# Uncomment the option you want, then run:
 python tools/gptscan_runner.py \
     --contracts-dir dataset/forge_benchmark/contracts \
     --output-dir    "${OUTDIR}" \
@@ -42,4 +42,4 @@ python tools/gptscan_runner.py \
     --gt            dataset/forge_benchmark/vulnerabilities.json \
     --evaluate
 
-echo "=== gptscan_forge DONE (provider=${PROVIDER}) ==="
+echo "=== gptscan_forge DONE (provider=${PROVIDER} model=${MODEL}) ==="
